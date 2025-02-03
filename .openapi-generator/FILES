@@ -1,0 +1,14 @@
+.gitignore
+.npmignore
+.openapi-generator-ignore
+README.md
+package.json
+src/apis/HealthApi.ts
+src/apis/index.ts
+src/index.ts
+src/models/ExceptionResponseEntity.ts
+src/models/ExceptionResponseEntityErrorsInner.ts
+src/models/HealthResponseDto.ts
+src/models/index.ts
+src/runtime.ts
+tsconfig.json
