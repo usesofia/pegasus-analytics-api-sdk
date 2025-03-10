@@ -2,9 +2,12 @@
 .npmignore
 README.md
 package.json
+src/apis/CacheApi.ts
 src/apis/HealthApi.ts
 src/apis/index.ts
 src/index.ts
+src/models/CacheGetResponseDto.ts
+src/models/CacheSetDto.ts
 src/models/ExceptionResponseEntity.ts
 src/models/ExceptionResponseEntityErrorsInner.ts
 src/models/HealthResponseDto.ts
