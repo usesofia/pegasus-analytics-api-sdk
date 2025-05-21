@@ -20,4 +20,6 @@ __exportStar(require("./CacheGetResponseDto"), exports);
 __exportStar(require("./CacheSetDto"), exports);
 __exportStar(require("./ExceptionResponseEntity"), exports);
 __exportStar(require("./ExceptionResponseEntityErrorsInner"), exports);
+__exportStar(require("./FinancialRecordsAggregatedResultReportEntity"), exports);
+__exportStar(require("./FinancialRecordsAggregatedResultReportEntityData"), exports);
 __exportStar(require("./HealthResponseDto"), exports);

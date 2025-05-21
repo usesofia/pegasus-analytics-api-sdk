@@ -3,6 +3,7 @@
 README.md
 package.json
 src/apis/CacheApi.ts
+src/apis/FinancialRecordsReportsApi.ts
 src/apis/HealthApi.ts
 src/apis/index.ts
 src/index.ts
@@ -10,6 +11,8 @@ src/models/CacheGetResponseDto.ts
 src/models/CacheSetDto.ts
 src/models/ExceptionResponseEntity.ts
 src/models/ExceptionResponseEntityErrorsInner.ts
+src/models/FinancialRecordsAggregatedResultReportEntity.ts
+src/models/FinancialRecordsAggregatedResultReportEntityData.ts
 src/models/HealthResponseDto.ts
 src/models/index.ts
 src/runtime.ts

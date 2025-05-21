@@ -17,4 +17,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* tslint:disable */
 /* eslint-disable */
 __exportStar(require("./CacheApi"), exports);
+__exportStar(require("./FinancialRecordsReportsApi"), exports);
 __exportStar(require("./HealthApi"), exports);
