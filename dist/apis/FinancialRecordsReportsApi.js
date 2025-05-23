@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetAggregatedResultReportAmountTypeEnum = exports.FinancialRecordsReportsApi = void 0;
+exports.GetAggregatedResultReportDirectionEnum = exports.GetAggregatedResultReportAmountTypeEnum = exports.FinancialRecordsReportsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -172,6 +172,13 @@ exports.FinancialRecordsReportsApi = FinancialRecordsReportsApi;
  * @export
  */
 exports.GetAggregatedResultReportAmountTypeEnum = {
-    Default: 'default',
+    Base: 'base',
     Final: 'final'
+};
+/**
+ * @export
+ */
+exports.GetAggregatedResultReportDirectionEnum = {
+    Income: 'INCOME',
+    Outcome: 'OUTCOME'
 };

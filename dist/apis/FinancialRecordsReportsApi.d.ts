@@ -27,7 +27,7 @@ export interface GetAggregatedResultReportRequest {
     contact?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
-    direction?: string;
+    direction?: GetAggregatedResultReportDirectionEnum;
 }
 /**
  * FinancialRecordsReportsApi - interface
@@ -39,7 +39,7 @@ export interface FinancialRecordsReportsApiInterface {
     /**
      *
      * @summary Get aggregated result report for financial records
-     * @param {'default' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;default\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
      * @param {string} [account] Conta do lançamento financeiro.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
      * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
@@ -54,7 +54,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {string} [contact] Contato do lançamento financeiro.
      * @param {string} [dueDateTo] Data de vencimento final.
      * @param {string} [dueDateFrom] Data de vencimento inicial.
-     * @param {string} [direction] Direção do lançamento financeiro.
+     * @param {'INCOME' | 'OUTCOME'} [direction] Direção do lançamento financeiro.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsReportsApiInterface
@@ -82,7 +82,15 @@ export declare class FinancialRecordsReportsApi extends runtime.BaseAPI implemen
  * @export
  */
 export declare const GetAggregatedResultReportAmountTypeEnum: {
-    readonly Default: "default";
+    readonly Base: "base";
     readonly Final: "final";
 };
 export type GetAggregatedResultReportAmountTypeEnum = typeof GetAggregatedResultReportAmountTypeEnum[keyof typeof GetAggregatedResultReportAmountTypeEnum];
+/**
+ * @export
+ */
+export declare const GetAggregatedResultReportDirectionEnum: {
+    readonly Income: "INCOME";
+    readonly Outcome: "OUTCOME";
+};
+export type GetAggregatedResultReportDirectionEnum = typeof GetAggregatedResultReportDirectionEnum[keyof typeof GetAggregatedResultReportDirectionEnum];
