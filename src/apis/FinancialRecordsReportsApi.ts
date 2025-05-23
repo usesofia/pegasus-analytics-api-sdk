@@ -25,7 +25,8 @@ import {
     FinancialRecordsAggregatedResultReportEntityToJSON,
 } from '../models/index';
 
-export interface GenerateAggregatedResultReportRequest {
+export interface GetAggregatedResultReportRequest {
+    amountType?: GetAggregatedResultReportAmountTypeEnum;
     account?: string;
     reconciled?: boolean;
     completed?: boolean;
@@ -36,7 +37,7 @@ export interface GenerateAggregatedResultReportRequest {
     cashDateFrom?: string;
     competenceDateTo?: string;
     competenceDateFrom?: string;
-    category?: string;
+    subcategory?: string;
     contact?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
@@ -52,7 +53,8 @@ export interface GenerateAggregatedResultReportRequest {
 export interface FinancialRecordsReportsApiInterface {
     /**
      * 
-     * @summary Generate aggregated result report for financial records
+     * @summary Get aggregated result report for financial records
+     * @param {'default' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;default\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
      * @param {string} [account] Conta do lançamento financeiro.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
      * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
@@ -63,7 +65,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {string} [cashDateFrom] Data de pagamento inicial.
      * @param {string} [competenceDateTo] Data de competência final.
      * @param {string} [competenceDateFrom] Data de competência inicial.
-     * @param {string} [category] Categoria do lançamento financeiro.
+     * @param {string} [subcategory] Subcategoria do lançamento financeiro.
      * @param {string} [contact] Contato do lançamento financeiro.
      * @param {string} [dueDateTo] Data de vencimento final.
      * @param {string} [dueDateFrom] Data de vencimento inicial.
@@ -72,12 +74,12 @@ export interface FinancialRecordsReportsApiInterface {
      * @throws {RequiredError}
      * @memberof FinancialRecordsReportsApiInterface
      */
-    generateAggregatedResultReportRaw(requestParameters: GenerateAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>>;
+    getAggregatedResultReportRaw(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>>;
 
     /**
-     * Generate aggregated result report for financial records
+     * Get aggregated result report for financial records
      */
-    generateAggregatedResultReport(requestParameters: GenerateAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
+    getAggregatedResultReport(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
 
 }
 
@@ -87,10 +89,14 @@ export interface FinancialRecordsReportsApiInterface {
 export class FinancialRecordsReportsApi extends runtime.BaseAPI implements FinancialRecordsReportsApiInterface {
 
     /**
-     * Generate aggregated result report for financial records
+     * Get aggregated result report for financial records
      */
-    async generateAggregatedResultReportRaw(requestParameters: GenerateAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>> {
+    async getAggregatedResultReportRaw(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>> {
         const queryParameters: any = {};
+
+        if (requestParameters['amountType'] != null) {
+            queryParameters['amountType'] = requestParameters['amountType'];
+        }
 
         if (requestParameters['account'] != null) {
             queryParameters['account'] = requestParameters['account'];
@@ -132,8 +138,8 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
             queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
         }
 
-        if (requestParameters['category'] != null) {
-            queryParameters['category'] = requestParameters['category'];
+        if (requestParameters['subcategory'] != null) {
+            queryParameters['subcategory'] = requestParameters['subcategory'];
         }
 
         if (requestParameters['contact'] != null) {
@@ -165,11 +171,20 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
     }
 
     /**
-     * Generate aggregated result report for financial records
+     * Get aggregated result report for financial records
      */
-    async generateAggregatedResultReport(requestParameters: GenerateAggregatedResultReportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity> {
-        const response = await this.generateAggregatedResultReportRaw(requestParameters, initOverrides);
+    async getAggregatedResultReport(requestParameters: GetAggregatedResultReportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity> {
+        const response = await this.getAggregatedResultReportRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
 }
+
+/**
+ * @export
+ */
+export const GetAggregatedResultReportAmountTypeEnum = {
+    Default: 'default',
+    Final: 'final'
+} as const;
+export type GetAggregatedResultReportAmountTypeEnum = typeof GetAggregatedResultReportAmountTypeEnum[keyof typeof GetAggregatedResultReportAmountTypeEnum];

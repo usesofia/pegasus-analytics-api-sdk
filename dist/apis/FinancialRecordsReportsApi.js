@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FinancialRecordsReportsApi = void 0;
+exports.GetAggregatedResultReportAmountTypeEnum = exports.FinancialRecordsReportsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -76,15 +76,18 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Generate aggregated result report for financial records
+     * Get aggregated result report for financial records
      */
-    FinancialRecordsReportsApi.prototype.generateAggregatedResultReportRaw = function (requestParameters, initOverrides) {
+    FinancialRecordsReportsApi.prototype.getAggregatedResultReportRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['amountType'] != null) {
+                            queryParameters['amountType'] = requestParameters['amountType'];
+                        }
                         if (requestParameters['account'] != null) {
                             queryParameters['account'] = requestParameters['account'];
                         }
@@ -115,8 +118,8 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
                         if (requestParameters['competenceDateFrom'] != null) {
                             queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
                         }
-                        if (requestParameters['category'] != null) {
-                            queryParameters['category'] = requestParameters['category'];
+                        if (requestParameters['subcategory'] != null) {
+                            queryParameters['subcategory'] = requestParameters['subcategory'];
                         }
                         if (requestParameters['contact'] != null) {
                             queryParameters['contact'] = requestParameters['contact'];
@@ -145,15 +148,15 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
         });
     };
     /**
-     * Generate aggregated result report for financial records
+     * Get aggregated result report for financial records
      */
-    FinancialRecordsReportsApi.prototype.generateAggregatedResultReport = function () {
+    FinancialRecordsReportsApi.prototype.getAggregatedResultReport = function () {
         return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
             var response;
             if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.generateAggregatedResultReportRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.getAggregatedResultReportRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -165,3 +168,10 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
     return FinancialRecordsReportsApi;
 }(runtime.BaseAPI));
 exports.FinancialRecordsReportsApi = FinancialRecordsReportsApi;
+/**
+ * @export
+ */
+exports.GetAggregatedResultReportAmountTypeEnum = {
+    Default: 'default',
+    Final: 'final'
+};
