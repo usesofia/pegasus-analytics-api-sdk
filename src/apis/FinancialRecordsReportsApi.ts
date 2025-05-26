@@ -30,7 +30,7 @@ export interface GetAggregatedResultReportRequest {
     account?: string;
     reconciled?: boolean;
     completed?: boolean;
-    tags?: Array<string>;
+    tags?: string;
     createdAtTo?: string;
     createdAtFrom?: string;
     cashDateTo?: string;
@@ -58,7 +58,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {string} [account] Conta do lançamento financeiro.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
      * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
-     * @param {Array<string>} [tags] Tags do lançamento financeiro.
+     * @param {string} [tags] Tags do lançamento financeiro separadas por vírgula.
      * @param {string} [createdAtTo] Data de criação final.
      * @param {string} [createdAtFrom] Data de criação inicial.
      * @param {string} [cashDateTo] Data de pagamento final.
