@@ -42,6 +42,12 @@ export declare const FinancialRecordsAggregatedResultReportEntityTypeEnum: {
     readonly FinancialRecordsAggregateResultReport: "FINANCIAL_RECORDS_AGGREGATE_RESULT_REPORT";
     readonly FinancialRecordsByContactsReport: "FINANCIAL_RECORDS_BY_CONTACTS_REPORT";
     readonly BankAccountsCurrentBalanceReport: "BANK_ACCOUNTS_CURRENT_BALANCE_REPORT";
+    readonly CashFlowReport: "CASH_FLOW_REPORT";
+    readonly FinancialStatementReport: "FINANCIAL_STATEMENT_REPORT";
+    readonly AggregatedFinancialRecordsReport: "AGGREGATED_FINANCIAL_RECORDS_REPORT";
+    readonly MonthlyFinancialReport: "MONTHLY_FINANCIAL_REPORT";
+    readonly FinancialMeasuresReport: "FINANCIAL_MEASURES_REPORT";
+    readonly FinancialResultCompositionReport: "FINANCIAL_RESULT_COMPOSITION_REPORT";
 };
 export type FinancialRecordsAggregatedResultReportEntityTypeEnum = typeof FinancialRecordsAggregatedResultReportEntityTypeEnum[keyof typeof FinancialRecordsAggregatedResultReportEntityTypeEnum];
 /**

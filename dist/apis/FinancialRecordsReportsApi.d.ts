@@ -10,7 +10,37 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { FinancialRecordsAggregatedResultReportEntity } from '../models/index';
+import type { AggregatedFinancialRecordsReportEntity, FinancialRecordsAggregatedResultReportEntity, MonthlyFinancialReportEntity } from '../models/index';
+export interface GenerateAggregatedFinancialRecordsReportRequest {
+    account: string;
+    reconciled: string;
+    completed: string;
+    tags: string;
+    sortOrder: GenerateAggregatedFinancialRecordsReportSortOrderEnum;
+    competenceDateFrom: string;
+    subcategory: string;
+    contact: string;
+    dueDateTo: string;
+    dueDateFrom: string;
+    direction: GenerateAggregatedFinancialRecordsReportDirectionEnum;
+    populate: string;
+    groupBy: GenerateAggregatedFinancialRecordsReportGroupByEnum;
+}
+export interface GenerateMonthlyFinancialReportRequest {
+    amountType: GenerateMonthlyFinancialReportAmountTypeEnum;
+    account: string;
+    reconciled: string;
+    completed: string;
+    cashDateTo: string;
+    cashDateFrom: string;
+    competenceDateTo: string;
+    competenceDateFrom: string;
+    subcategory: string;
+    contact: string;
+    dueDateTo: string;
+    dueDateFrom: string;
+    direction: GenerateMonthlyFinancialReportDirectionEnum;
+}
 export interface GetAggregatedResultReportRequest {
     amountType?: GetAggregatedResultReportAmountTypeEnum;
     account?: string;
@@ -38,7 +68,57 @@ export interface GetAggregatedResultReportRequest {
 export interface FinancialRecordsReportsApiInterface {
     /**
      *
-     * @summary Get aggregated result report for financial records
+     * @summary Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
+     * @param {string} account Conta do lançamento financeiro
+     * @param {string} reconciled Status de conciliação dos lançamentos
+     * @param {string} completed Status de conclusão dos lançamentos
+     * @param {string} tags Tags do lançamento financeiro separadas por vírgula
+     * @param {'asc' | 'desc'} sortOrder Ordem de classificação
+     * @param {string} competenceDateFrom Data de competência inicial
+     * @param {string} subcategory Subcategoria do lançamento financeiro
+     * @param {string} contact Contato do lançamento financeiro
+     * @param {string} dueDateTo Data de vencimento final
+     * @param {string} dueDateFrom Data de vencimento inicial
+     * @param {'INCOME' | 'OUTCOME'} direction Direção do lançamento financeiro
+     * @param {string} populate Campos para popular
+     * @param {'category' | 'contact' | 'tag'} groupBy Campo para agrupamento dos dados
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsReportsApiInterface
+     */
+    generateAggregatedFinancialRecordsReportRaw(requestParameters: GenerateAggregatedFinancialRecordsReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AggregatedFinancialRecordsReportEntity>>;
+    /**
+     * Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
+     */
+    generateAggregatedFinancialRecordsReport(requestParameters: GenerateAggregatedFinancialRecordsReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AggregatedFinancialRecordsReportEntity>;
+    /**
+     *
+     * @summary Gera relatório financeiro mensal para os últimos 12 meses
+     * @param {'base' | 'final'} amountType Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} account Conta do lançamento financeiro
+     * @param {string} reconciled Status de conciliação dos lançamentos
+     * @param {string} completed Status de conclusão dos lançamentos
+     * @param {string} cashDateTo Data de pagamento final
+     * @param {string} cashDateFrom Data de pagamento inicial
+     * @param {string} competenceDateTo Data de competência final
+     * @param {string} competenceDateFrom Data de competência inicial
+     * @param {string} subcategory Subcategoria do lançamento financeiro
+     * @param {string} contact Contato do lançamento financeiro
+     * @param {string} dueDateTo Data de vencimento final
+     * @param {string} dueDateFrom Data de vencimento inicial
+     * @param {'INCOME' | 'OUTCOME'} direction Direção do lançamento financeiro
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsReportsApiInterface
+     */
+    generateMonthlyFinancialReportRaw(requestParameters: GenerateMonthlyFinancialReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MonthlyFinancialReportEntity>>;
+    /**
+     * Gera relatório financeiro mensal para os últimos 12 meses
+     */
+    generateMonthlyFinancialReport(requestParameters: GenerateMonthlyFinancialReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MonthlyFinancialReportEntity>;
+    /**
+     *
+     * @summary Get aggregated   result report for financial records
      * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
      * @param {string} [account] Conta do lançamento financeiro.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
@@ -61,7 +141,7 @@ export interface FinancialRecordsReportsApiInterface {
      */
     getAggregatedResultReportRaw(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>>;
     /**
-     * Get aggregated result report for financial records
+     * Get aggregated   result report for financial records
      */
     getAggregatedResultReport(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
 }
@@ -70,14 +150,71 @@ export interface FinancialRecordsReportsApiInterface {
  */
 export declare class FinancialRecordsReportsApi extends runtime.BaseAPI implements FinancialRecordsReportsApiInterface {
     /**
-     * Get aggregated result report for financial records
+     * Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
+     */
+    generateAggregatedFinancialRecordsReportRaw(requestParameters: GenerateAggregatedFinancialRecordsReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AggregatedFinancialRecordsReportEntity>>;
+    /**
+     * Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
+     */
+    generateAggregatedFinancialRecordsReport(requestParameters: GenerateAggregatedFinancialRecordsReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AggregatedFinancialRecordsReportEntity>;
+    /**
+     * Gera relatório financeiro mensal para os últimos 12 meses
+     */
+    generateMonthlyFinancialReportRaw(requestParameters: GenerateMonthlyFinancialReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MonthlyFinancialReportEntity>>;
+    /**
+     * Gera relatório financeiro mensal para os últimos 12 meses
+     */
+    generateMonthlyFinancialReport(requestParameters: GenerateMonthlyFinancialReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MonthlyFinancialReportEntity>;
+    /**
+     * Get aggregated   result report for financial records
      */
     getAggregatedResultReportRaw(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>>;
     /**
-     * Get aggregated result report for financial records
+     * Get aggregated   result report for financial records
      */
     getAggregatedResultReport(requestParameters?: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
 }
+/**
+ * @export
+ */
+export declare const GenerateAggregatedFinancialRecordsReportSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type GenerateAggregatedFinancialRecordsReportSortOrderEnum = typeof GenerateAggregatedFinancialRecordsReportSortOrderEnum[keyof typeof GenerateAggregatedFinancialRecordsReportSortOrderEnum];
+/**
+ * @export
+ */
+export declare const GenerateAggregatedFinancialRecordsReportDirectionEnum: {
+    readonly Income: "INCOME";
+    readonly Outcome: "OUTCOME";
+};
+export type GenerateAggregatedFinancialRecordsReportDirectionEnum = typeof GenerateAggregatedFinancialRecordsReportDirectionEnum[keyof typeof GenerateAggregatedFinancialRecordsReportDirectionEnum];
+/**
+ * @export
+ */
+export declare const GenerateAggregatedFinancialRecordsReportGroupByEnum: {
+    readonly Category: "category";
+    readonly Contact: "contact";
+    readonly Tag: "tag";
+};
+export type GenerateAggregatedFinancialRecordsReportGroupByEnum = typeof GenerateAggregatedFinancialRecordsReportGroupByEnum[keyof typeof GenerateAggregatedFinancialRecordsReportGroupByEnum];
+/**
+ * @export
+ */
+export declare const GenerateMonthlyFinancialReportAmountTypeEnum: {
+    readonly Base: "base";
+    readonly Final: "final";
+};
+export type GenerateMonthlyFinancialReportAmountTypeEnum = typeof GenerateMonthlyFinancialReportAmountTypeEnum[keyof typeof GenerateMonthlyFinancialReportAmountTypeEnum];
+/**
+ * @export
+ */
+export declare const GenerateMonthlyFinancialReportDirectionEnum: {
+    readonly Income: "INCOME";
+    readonly Outcome: "OUTCOME";
+};
+export type GenerateMonthlyFinancialReportDirectionEnum = typeof GenerateMonthlyFinancialReportDirectionEnum[keyof typeof GenerateMonthlyFinancialReportDirectionEnum];
 /**
  * @export
  */

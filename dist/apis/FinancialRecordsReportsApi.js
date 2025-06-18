@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetAggregatedResultReportDirectionEnum = exports.GetAggregatedResultReportAmountTypeEnum = exports.FinancialRecordsReportsApi = void 0;
+exports.GetAggregatedResultReportDirectionEnum = exports.GetAggregatedResultReportAmountTypeEnum = exports.GenerateMonthlyFinancialReportDirectionEnum = exports.GenerateMonthlyFinancialReportAmountTypeEnum = exports.GenerateAggregatedFinancialRecordsReportGroupByEnum = exports.GenerateAggregatedFinancialRecordsReportDirectionEnum = exports.GenerateAggregatedFinancialRecordsReportSortOrderEnum = exports.FinancialRecordsReportsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -76,7 +76,245 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Get aggregated result report for financial records
+     * Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
+     */
+    FinancialRecordsReportsApi.prototype.generateAggregatedFinancialRecordsReportRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['account'] == null) {
+                            throw new runtime.RequiredError('account', 'Required parameter "account" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        }
+                        if (requestParameters['reconciled'] == null) {
+                            throw new runtime.RequiredError('reconciled', 'Required parameter "reconciled" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        }
+                        if (requestParameters['completed'] == null) {
+                            throw new runtime.RequiredError('completed', 'Required parameter "completed" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        }
+                        if (requestParameters['tags'] == null) {
+                            throw new runtime.RequiredError('tags', 'Required parameter "tags" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        }
+                        if (requestParameters['sortOrder'] == null) {
+                            throw new runtime.RequiredError('sortOrder', 'Required parameter "sortOrder" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        }
+                        if (requestParameters['competenceDateFrom'] == null) {
+                            throw new runtime.RequiredError('competenceDateFrom', 'Required parameter "competenceDateFrom" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        }
+                        if (requestParameters['subcategory'] == null) {
+                            throw new runtime.RequiredError('subcategory', 'Required parameter "subcategory" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        }
+                        if (requestParameters['contact'] == null) {
+                            throw new runtime.RequiredError('contact', 'Required parameter "contact" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        }
+                        if (requestParameters['dueDateTo'] == null) {
+                            throw new runtime.RequiredError('dueDateTo', 'Required parameter "dueDateTo" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        }
+                        if (requestParameters['dueDateFrom'] == null) {
+                            throw new runtime.RequiredError('dueDateFrom', 'Required parameter "dueDateFrom" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        }
+                        if (requestParameters['direction'] == null) {
+                            throw new runtime.RequiredError('direction', 'Required parameter "direction" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        }
+                        if (requestParameters['populate'] == null) {
+                            throw new runtime.RequiredError('populate', 'Required parameter "populate" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        }
+                        if (requestParameters['groupBy'] == null) {
+                            throw new runtime.RequiredError('groupBy', 'Required parameter "groupBy" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['account'] != null) {
+                            queryParameters['account'] = requestParameters['account'];
+                        }
+                        if (requestParameters['reconciled'] != null) {
+                            queryParameters['reconciled'] = requestParameters['reconciled'];
+                        }
+                        if (requestParameters['completed'] != null) {
+                            queryParameters['completed'] = requestParameters['completed'];
+                        }
+                        if (requestParameters['tags'] != null) {
+                            queryParameters['tags'] = requestParameters['tags'];
+                        }
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['competenceDateFrom'] != null) {
+                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+                        }
+                        if (requestParameters['subcategory'] != null) {
+                            queryParameters['subcategory'] = requestParameters['subcategory'];
+                        }
+                        if (requestParameters['contact'] != null) {
+                            queryParameters['contact'] = requestParameters['contact'];
+                        }
+                        if (requestParameters['dueDateTo'] != null) {
+                            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+                        }
+                        if (requestParameters['dueDateFrom'] != null) {
+                            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+                        }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
+                        }
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        if (requestParameters['groupBy'] != null) {
+                            queryParameters['groupBy'] = requestParameters['groupBy'];
+                        }
+                        headerParameters = {};
+                        return [4 /*yield*/, this.request({
+                                path: "/external/financial-records/aggregated/report",
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AggregatedFinancialRecordsReportEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
+     */
+    FinancialRecordsReportsApi.prototype.generateAggregatedFinancialRecordsReport = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.generateAggregatedFinancialRecordsReportRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Gera relatório financeiro mensal para os últimos 12 meses
+     */
+    FinancialRecordsReportsApi.prototype.generateMonthlyFinancialReportRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['amountType'] == null) {
+                            throw new runtime.RequiredError('amountType', 'Required parameter "amountType" was null or undefined when calling generateMonthlyFinancialReport().');
+                        }
+                        if (requestParameters['account'] == null) {
+                            throw new runtime.RequiredError('account', 'Required parameter "account" was null or undefined when calling generateMonthlyFinancialReport().');
+                        }
+                        if (requestParameters['reconciled'] == null) {
+                            throw new runtime.RequiredError('reconciled', 'Required parameter "reconciled" was null or undefined when calling generateMonthlyFinancialReport().');
+                        }
+                        if (requestParameters['completed'] == null) {
+                            throw new runtime.RequiredError('completed', 'Required parameter "completed" was null or undefined when calling generateMonthlyFinancialReport().');
+                        }
+                        if (requestParameters['cashDateTo'] == null) {
+                            throw new runtime.RequiredError('cashDateTo', 'Required parameter "cashDateTo" was null or undefined when calling generateMonthlyFinancialReport().');
+                        }
+                        if (requestParameters['cashDateFrom'] == null) {
+                            throw new runtime.RequiredError('cashDateFrom', 'Required parameter "cashDateFrom" was null or undefined when calling generateMonthlyFinancialReport().');
+                        }
+                        if (requestParameters['competenceDateTo'] == null) {
+                            throw new runtime.RequiredError('competenceDateTo', 'Required parameter "competenceDateTo" was null or undefined when calling generateMonthlyFinancialReport().');
+                        }
+                        if (requestParameters['competenceDateFrom'] == null) {
+                            throw new runtime.RequiredError('competenceDateFrom', 'Required parameter "competenceDateFrom" was null or undefined when calling generateMonthlyFinancialReport().');
+                        }
+                        if (requestParameters['subcategory'] == null) {
+                            throw new runtime.RequiredError('subcategory', 'Required parameter "subcategory" was null or undefined when calling generateMonthlyFinancialReport().');
+                        }
+                        if (requestParameters['contact'] == null) {
+                            throw new runtime.RequiredError('contact', 'Required parameter "contact" was null or undefined when calling generateMonthlyFinancialReport().');
+                        }
+                        if (requestParameters['dueDateTo'] == null) {
+                            throw new runtime.RequiredError('dueDateTo', 'Required parameter "dueDateTo" was null or undefined when calling generateMonthlyFinancialReport().');
+                        }
+                        if (requestParameters['dueDateFrom'] == null) {
+                            throw new runtime.RequiredError('dueDateFrom', 'Required parameter "dueDateFrom" was null or undefined when calling generateMonthlyFinancialReport().');
+                        }
+                        if (requestParameters['direction'] == null) {
+                            throw new runtime.RequiredError('direction', 'Required parameter "direction" was null or undefined when calling generateMonthlyFinancialReport().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['amountType'] != null) {
+                            queryParameters['amountType'] = requestParameters['amountType'];
+                        }
+                        if (requestParameters['account'] != null) {
+                            queryParameters['account'] = requestParameters['account'];
+                        }
+                        if (requestParameters['reconciled'] != null) {
+                            queryParameters['reconciled'] = requestParameters['reconciled'];
+                        }
+                        if (requestParameters['completed'] != null) {
+                            queryParameters['completed'] = requestParameters['completed'];
+                        }
+                        if (requestParameters['cashDateTo'] != null) {
+                            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+                        }
+                        if (requestParameters['cashDateFrom'] != null) {
+                            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+                        }
+                        if (requestParameters['competenceDateTo'] != null) {
+                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+                        }
+                        if (requestParameters['competenceDateFrom'] != null) {
+                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+                        }
+                        if (requestParameters['subcategory'] != null) {
+                            queryParameters['subcategory'] = requestParameters['subcategory'];
+                        }
+                        if (requestParameters['contact'] != null) {
+                            queryParameters['contact'] = requestParameters['contact'];
+                        }
+                        if (requestParameters['dueDateTo'] != null) {
+                            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+                        }
+                        if (requestParameters['dueDateFrom'] != null) {
+                            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+                        }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
+                        }
+                        headerParameters = {};
+                        return [4 /*yield*/, this.request({
+                                path: "/external/financial-records/aggregated-monthly/report",
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.MonthlyFinancialReportEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Gera relatório financeiro mensal para os últimos 12 meses
+     */
+    FinancialRecordsReportsApi.prototype.generateMonthlyFinancialReport = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.generateMonthlyFinancialReportRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Get aggregated   result report for financial records
      */
     FinancialRecordsReportsApi.prototype.getAggregatedResultReportRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -148,7 +386,7 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
         });
     };
     /**
-     * Get aggregated result report for financial records
+     * Get aggregated   result report for financial records
      */
     FinancialRecordsReportsApi.prototype.getAggregatedResultReport = function () {
         return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
@@ -168,6 +406,42 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
     return FinancialRecordsReportsApi;
 }(runtime.BaseAPI));
 exports.FinancialRecordsReportsApi = FinancialRecordsReportsApi;
+/**
+ * @export
+ */
+exports.GenerateAggregatedFinancialRecordsReportSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.GenerateAggregatedFinancialRecordsReportDirectionEnum = {
+    Income: 'INCOME',
+    Outcome: 'OUTCOME'
+};
+/**
+ * @export
+ */
+exports.GenerateAggregatedFinancialRecordsReportGroupByEnum = {
+    Category: 'category',
+    Contact: 'contact',
+    Tag: 'tag'
+};
+/**
+ * @export
+ */
+exports.GenerateMonthlyFinancialReportAmountTypeEnum = {
+    Base: 'base',
+    Final: 'final'
+};
+/**
+ * @export
+ */
+exports.GenerateMonthlyFinancialReportDirectionEnum = {
+    Income: 'INCOME',
+    Outcome: 'OUTCOME'
+};
 /**
  * @export
  */

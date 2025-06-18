@@ -16,10 +16,37 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /* tslint:disable */
 /* eslint-disable */
+__exportStar(require("./AggregatedFinancialRecordsReportEntity"), exports);
+__exportStar(require("./AggregatedFinancialRecordsReportEntityData"), exports);
+__exportStar(require("./AggregatedFinancialRecordsReportEntityDataDataInner"), exports);
+__exportStar(require("./AggregatedFinancialRecordsReportEntityDataFilters"), exports);
 __exportStar(require("./CacheGetResponseDto"), exports);
 __exportStar(require("./CacheSetDto"), exports);
+__exportStar(require("./CashFlowReportEntity"), exports);
+__exportStar(require("./CashFlowReportEntityData"), exports);
+__exportStar(require("./CashFlowReportEntityDataDataInner"), exports);
+__exportStar(require("./CashFlowReportEntityDataDataInnerPeriod"), exports);
+__exportStar(require("./CashFlowReportEntityDataFilters"), exports);
+__exportStar(require("./CashFlowReportEntityDataFiltersPeriod"), exports);
+__exportStar(require("./CashFlowReportEntityDataSummary"), exports);
 __exportStar(require("./ExceptionResponseEntity"), exports);
 __exportStar(require("./ExceptionResponseEntityErrorsInner"), exports);
+__exportStar(require("./FinancialMeasuresReportEntity"), exports);
+__exportStar(require("./FinancialMeasuresReportEntityData"), exports);
+__exportStar(require("./FinancialMeasuresReportEntityDataData"), exports);
 __exportStar(require("./FinancialRecordsAggregatedResultReportEntity"), exports);
 __exportStar(require("./FinancialRecordsAggregatedResultReportEntityData"), exports);
+__exportStar(require("./FinancialResultCompositionReportEntity"), exports);
+__exportStar(require("./FinancialResultCompositionReportEntityData"), exports);
+__exportStar(require("./FinancialResultCompositionReportEntityDataDataInner"), exports);
+__exportStar(require("./FinancialStatementReportEntity"), exports);
+__exportStar(require("./FinancialStatementReportEntityData"), exports);
+__exportStar(require("./FinancialStatementReportEntityDataDataInner"), exports);
+__exportStar(require("./FinancialStatementReportEntityDataFilters"), exports);
+__exportStar(require("./FinancialStatementReportEntityDataFiltersPeriod"), exports);
 __exportStar(require("./HealthResponseDto"), exports);
+__exportStar(require("./MonthlyFinancialReportEntity"), exports);
+__exportStar(require("./MonthlyFinancialReportEntityData"), exports);
+__exportStar(require("./MonthlyFinancialReportEntityDataData"), exports);
+__exportStar(require("./MonthlyFinancialReportEntityDataDataItemsInner"), exports);
+__exportStar(require("./MonthlyFinancialReportEntityDataFilters"), exports);

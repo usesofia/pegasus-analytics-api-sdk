@@ -15,15 +15,53 @@
 
 import * as runtime from '../runtime';
 import type {
+  AggregatedFinancialRecordsReportEntity,
   ExceptionResponseEntity,
   FinancialRecordsAggregatedResultReportEntity,
+  MonthlyFinancialReportEntity,
 } from '../models/index';
 import {
+    AggregatedFinancialRecordsReportEntityFromJSON,
+    AggregatedFinancialRecordsReportEntityToJSON,
     ExceptionResponseEntityFromJSON,
     ExceptionResponseEntityToJSON,
     FinancialRecordsAggregatedResultReportEntityFromJSON,
     FinancialRecordsAggregatedResultReportEntityToJSON,
+    MonthlyFinancialReportEntityFromJSON,
+    MonthlyFinancialReportEntityToJSON,
 } from '../models/index';
+
+export interface GenerateAggregatedFinancialRecordsReportRequest {
+    account: string;
+    reconciled: string;
+    completed: string;
+    tags: string;
+    sortOrder: GenerateAggregatedFinancialRecordsReportSortOrderEnum;
+    competenceDateFrom: string;
+    subcategory: string;
+    contact: string;
+    dueDateTo: string;
+    dueDateFrom: string;
+    direction: GenerateAggregatedFinancialRecordsReportDirectionEnum;
+    populate: string;
+    groupBy: GenerateAggregatedFinancialRecordsReportGroupByEnum;
+}
+
+export interface GenerateMonthlyFinancialReportRequest {
+    amountType: GenerateMonthlyFinancialReportAmountTypeEnum;
+    account: string;
+    reconciled: string;
+    completed: string;
+    cashDateTo: string;
+    cashDateFrom: string;
+    competenceDateTo: string;
+    competenceDateFrom: string;
+    subcategory: string;
+    contact: string;
+    dueDateTo: string;
+    dueDateFrom: string;
+    direction: GenerateMonthlyFinancialReportDirectionEnum;
+}
 
 export interface GetAggregatedResultReportRequest {
     amountType?: GetAggregatedResultReportAmountTypeEnum;
@@ -53,7 +91,61 @@ export interface GetAggregatedResultReportRequest {
 export interface FinancialRecordsReportsApiInterface {
     /**
      * 
-     * @summary Get aggregated result report for financial records
+     * @summary Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
+     * @param {string} account Conta do lançamento financeiro
+     * @param {string} reconciled Status de conciliação dos lançamentos
+     * @param {string} completed Status de conclusão dos lançamentos
+     * @param {string} tags Tags do lançamento financeiro separadas por vírgula
+     * @param {'asc' | 'desc'} sortOrder Ordem de classificação
+     * @param {string} competenceDateFrom Data de competência inicial
+     * @param {string} subcategory Subcategoria do lançamento financeiro
+     * @param {string} contact Contato do lançamento financeiro
+     * @param {string} dueDateTo Data de vencimento final
+     * @param {string} dueDateFrom Data de vencimento inicial
+     * @param {'INCOME' | 'OUTCOME'} direction Direção do lançamento financeiro
+     * @param {string} populate Campos para popular
+     * @param {'category' | 'contact' | 'tag'} groupBy Campo para agrupamento dos dados
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsReportsApiInterface
+     */
+    generateAggregatedFinancialRecordsReportRaw(requestParameters: GenerateAggregatedFinancialRecordsReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AggregatedFinancialRecordsReportEntity>>;
+
+    /**
+     * Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
+     */
+    generateAggregatedFinancialRecordsReport(requestParameters: GenerateAggregatedFinancialRecordsReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AggregatedFinancialRecordsReportEntity>;
+
+    /**
+     * 
+     * @summary Gera relatório financeiro mensal para os últimos 12 meses
+     * @param {'base' | 'final'} amountType Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} account Conta do lançamento financeiro
+     * @param {string} reconciled Status de conciliação dos lançamentos
+     * @param {string} completed Status de conclusão dos lançamentos
+     * @param {string} cashDateTo Data de pagamento final
+     * @param {string} cashDateFrom Data de pagamento inicial
+     * @param {string} competenceDateTo Data de competência final
+     * @param {string} competenceDateFrom Data de competência inicial
+     * @param {string} subcategory Subcategoria do lançamento financeiro
+     * @param {string} contact Contato do lançamento financeiro
+     * @param {string} dueDateTo Data de vencimento final
+     * @param {string} dueDateFrom Data de vencimento inicial
+     * @param {'INCOME' | 'OUTCOME'} direction Direção do lançamento financeiro
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsReportsApiInterface
+     */
+    generateMonthlyFinancialReportRaw(requestParameters: GenerateMonthlyFinancialReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MonthlyFinancialReportEntity>>;
+
+    /**
+     * Gera relatório financeiro mensal para os últimos 12 meses
+     */
+    generateMonthlyFinancialReport(requestParameters: GenerateMonthlyFinancialReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MonthlyFinancialReportEntity>;
+
+    /**
+     * 
+     * @summary Get aggregated   result report for financial records
      * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
      * @param {string} [account] Conta do lançamento financeiro.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
@@ -77,7 +169,7 @@ export interface FinancialRecordsReportsApiInterface {
     getAggregatedResultReportRaw(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>>;
 
     /**
-     * Get aggregated result report for financial records
+     * Get aggregated   result report for financial records
      */
     getAggregatedResultReport(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
 
@@ -89,7 +181,345 @@ export interface FinancialRecordsReportsApiInterface {
 export class FinancialRecordsReportsApi extends runtime.BaseAPI implements FinancialRecordsReportsApiInterface {
 
     /**
-     * Get aggregated result report for financial records
+     * Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
+     */
+    async generateAggregatedFinancialRecordsReportRaw(requestParameters: GenerateAggregatedFinancialRecordsReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AggregatedFinancialRecordsReportEntity>> {
+        if (requestParameters['account'] == null) {
+            throw new runtime.RequiredError(
+                'account',
+                'Required parameter "account" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
+            );
+        }
+
+        if (requestParameters['reconciled'] == null) {
+            throw new runtime.RequiredError(
+                'reconciled',
+                'Required parameter "reconciled" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
+            );
+        }
+
+        if (requestParameters['completed'] == null) {
+            throw new runtime.RequiredError(
+                'completed',
+                'Required parameter "completed" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
+            );
+        }
+
+        if (requestParameters['tags'] == null) {
+            throw new runtime.RequiredError(
+                'tags',
+                'Required parameter "tags" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
+            );
+        }
+
+        if (requestParameters['sortOrder'] == null) {
+            throw new runtime.RequiredError(
+                'sortOrder',
+                'Required parameter "sortOrder" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
+            );
+        }
+
+        if (requestParameters['competenceDateFrom'] == null) {
+            throw new runtime.RequiredError(
+                'competenceDateFrom',
+                'Required parameter "competenceDateFrom" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
+            );
+        }
+
+        if (requestParameters['subcategory'] == null) {
+            throw new runtime.RequiredError(
+                'subcategory',
+                'Required parameter "subcategory" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
+            );
+        }
+
+        if (requestParameters['contact'] == null) {
+            throw new runtime.RequiredError(
+                'contact',
+                'Required parameter "contact" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
+            );
+        }
+
+        if (requestParameters['dueDateTo'] == null) {
+            throw new runtime.RequiredError(
+                'dueDateTo',
+                'Required parameter "dueDateTo" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
+            );
+        }
+
+        if (requestParameters['dueDateFrom'] == null) {
+            throw new runtime.RequiredError(
+                'dueDateFrom',
+                'Required parameter "dueDateFrom" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
+            );
+        }
+
+        if (requestParameters['direction'] == null) {
+            throw new runtime.RequiredError(
+                'direction',
+                'Required parameter "direction" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
+            );
+        }
+
+        if (requestParameters['populate'] == null) {
+            throw new runtime.RequiredError(
+                'populate',
+                'Required parameter "populate" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
+            );
+        }
+
+        if (requestParameters['groupBy'] == null) {
+            throw new runtime.RequiredError(
+                'groupBy',
+                'Required parameter "groupBy" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['account'] != null) {
+            queryParameters['account'] = requestParameters['account'];
+        }
+
+        if (requestParameters['reconciled'] != null) {
+            queryParameters['reconciled'] = requestParameters['reconciled'];
+        }
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
+        }
+
+        if (requestParameters['tags'] != null) {
+            queryParameters['tags'] = requestParameters['tags'];
+        }
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['competenceDateFrom'] != null) {
+            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+        }
+
+        if (requestParameters['subcategory'] != null) {
+            queryParameters['subcategory'] = requestParameters['subcategory'];
+        }
+
+        if (requestParameters['contact'] != null) {
+            queryParameters['contact'] = requestParameters['contact'];
+        }
+
+        if (requestParameters['dueDateTo'] != null) {
+            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+        }
+
+        if (requestParameters['dueDateFrom'] != null) {
+            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+        }
+
+        if (requestParameters['direction'] != null) {
+            queryParameters['direction'] = requestParameters['direction'];
+        }
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        if (requestParameters['groupBy'] != null) {
+            queryParameters['groupBy'] = requestParameters['groupBy'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/external/financial-records/aggregated/report`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AggregatedFinancialRecordsReportEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
+     */
+    async generateAggregatedFinancialRecordsReport(requestParameters: GenerateAggregatedFinancialRecordsReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AggregatedFinancialRecordsReportEntity> {
+        const response = await this.generateAggregatedFinancialRecordsReportRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Gera relatório financeiro mensal para os últimos 12 meses
+     */
+    async generateMonthlyFinancialReportRaw(requestParameters: GenerateMonthlyFinancialReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MonthlyFinancialReportEntity>> {
+        if (requestParameters['amountType'] == null) {
+            throw new runtime.RequiredError(
+                'amountType',
+                'Required parameter "amountType" was null or undefined when calling generateMonthlyFinancialReport().'
+            );
+        }
+
+        if (requestParameters['account'] == null) {
+            throw new runtime.RequiredError(
+                'account',
+                'Required parameter "account" was null or undefined when calling generateMonthlyFinancialReport().'
+            );
+        }
+
+        if (requestParameters['reconciled'] == null) {
+            throw new runtime.RequiredError(
+                'reconciled',
+                'Required parameter "reconciled" was null or undefined when calling generateMonthlyFinancialReport().'
+            );
+        }
+
+        if (requestParameters['completed'] == null) {
+            throw new runtime.RequiredError(
+                'completed',
+                'Required parameter "completed" was null or undefined when calling generateMonthlyFinancialReport().'
+            );
+        }
+
+        if (requestParameters['cashDateTo'] == null) {
+            throw new runtime.RequiredError(
+                'cashDateTo',
+                'Required parameter "cashDateTo" was null or undefined when calling generateMonthlyFinancialReport().'
+            );
+        }
+
+        if (requestParameters['cashDateFrom'] == null) {
+            throw new runtime.RequiredError(
+                'cashDateFrom',
+                'Required parameter "cashDateFrom" was null or undefined when calling generateMonthlyFinancialReport().'
+            );
+        }
+
+        if (requestParameters['competenceDateTo'] == null) {
+            throw new runtime.RequiredError(
+                'competenceDateTo',
+                'Required parameter "competenceDateTo" was null or undefined when calling generateMonthlyFinancialReport().'
+            );
+        }
+
+        if (requestParameters['competenceDateFrom'] == null) {
+            throw new runtime.RequiredError(
+                'competenceDateFrom',
+                'Required parameter "competenceDateFrom" was null or undefined when calling generateMonthlyFinancialReport().'
+            );
+        }
+
+        if (requestParameters['subcategory'] == null) {
+            throw new runtime.RequiredError(
+                'subcategory',
+                'Required parameter "subcategory" was null or undefined when calling generateMonthlyFinancialReport().'
+            );
+        }
+
+        if (requestParameters['contact'] == null) {
+            throw new runtime.RequiredError(
+                'contact',
+                'Required parameter "contact" was null or undefined when calling generateMonthlyFinancialReport().'
+            );
+        }
+
+        if (requestParameters['dueDateTo'] == null) {
+            throw new runtime.RequiredError(
+                'dueDateTo',
+                'Required parameter "dueDateTo" was null or undefined when calling generateMonthlyFinancialReport().'
+            );
+        }
+
+        if (requestParameters['dueDateFrom'] == null) {
+            throw new runtime.RequiredError(
+                'dueDateFrom',
+                'Required parameter "dueDateFrom" was null or undefined when calling generateMonthlyFinancialReport().'
+            );
+        }
+
+        if (requestParameters['direction'] == null) {
+            throw new runtime.RequiredError(
+                'direction',
+                'Required parameter "direction" was null or undefined when calling generateMonthlyFinancialReport().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['amountType'] != null) {
+            queryParameters['amountType'] = requestParameters['amountType'];
+        }
+
+        if (requestParameters['account'] != null) {
+            queryParameters['account'] = requestParameters['account'];
+        }
+
+        if (requestParameters['reconciled'] != null) {
+            queryParameters['reconciled'] = requestParameters['reconciled'];
+        }
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
+        }
+
+        if (requestParameters['cashDateTo'] != null) {
+            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+        }
+
+        if (requestParameters['cashDateFrom'] != null) {
+            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+        }
+
+        if (requestParameters['competenceDateTo'] != null) {
+            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+        }
+
+        if (requestParameters['competenceDateFrom'] != null) {
+            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+        }
+
+        if (requestParameters['subcategory'] != null) {
+            queryParameters['subcategory'] = requestParameters['subcategory'];
+        }
+
+        if (requestParameters['contact'] != null) {
+            queryParameters['contact'] = requestParameters['contact'];
+        }
+
+        if (requestParameters['dueDateTo'] != null) {
+            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+        }
+
+        if (requestParameters['dueDateFrom'] != null) {
+            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+        }
+
+        if (requestParameters['direction'] != null) {
+            queryParameters['direction'] = requestParameters['direction'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/external/financial-records/aggregated-monthly/report`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => MonthlyFinancialReportEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Gera relatório financeiro mensal para os últimos 12 meses
+     */
+    async generateMonthlyFinancialReport(requestParameters: GenerateMonthlyFinancialReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MonthlyFinancialReportEntity> {
+        const response = await this.generateMonthlyFinancialReportRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get aggregated   result report for financial records
      */
     async getAggregatedResultReportRaw(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>> {
         const queryParameters: any = {};
@@ -171,7 +601,7 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
     }
 
     /**
-     * Get aggregated result report for financial records
+     * Get aggregated   result report for financial records
      */
     async getAggregatedResultReport(requestParameters: GetAggregatedResultReportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity> {
         const response = await this.getAggregatedResultReportRaw(requestParameters, initOverrides);
@@ -180,6 +610,47 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
 
 }
 
+/**
+ * @export
+ */
+export const GenerateAggregatedFinancialRecordsReportSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type GenerateAggregatedFinancialRecordsReportSortOrderEnum = typeof GenerateAggregatedFinancialRecordsReportSortOrderEnum[keyof typeof GenerateAggregatedFinancialRecordsReportSortOrderEnum];
+/**
+ * @export
+ */
+export const GenerateAggregatedFinancialRecordsReportDirectionEnum = {
+    Income: 'INCOME',
+    Outcome: 'OUTCOME'
+} as const;
+export type GenerateAggregatedFinancialRecordsReportDirectionEnum = typeof GenerateAggregatedFinancialRecordsReportDirectionEnum[keyof typeof GenerateAggregatedFinancialRecordsReportDirectionEnum];
+/**
+ * @export
+ */
+export const GenerateAggregatedFinancialRecordsReportGroupByEnum = {
+    Category: 'category',
+    Contact: 'contact',
+    Tag: 'tag'
+} as const;
+export type GenerateAggregatedFinancialRecordsReportGroupByEnum = typeof GenerateAggregatedFinancialRecordsReportGroupByEnum[keyof typeof GenerateAggregatedFinancialRecordsReportGroupByEnum];
+/**
+ * @export
+ */
+export const GenerateMonthlyFinancialReportAmountTypeEnum = {
+    Base: 'base',
+    Final: 'final'
+} as const;
+export type GenerateMonthlyFinancialReportAmountTypeEnum = typeof GenerateMonthlyFinancialReportAmountTypeEnum[keyof typeof GenerateMonthlyFinancialReportAmountTypeEnum];
+/**
+ * @export
+ */
+export const GenerateMonthlyFinancialReportDirectionEnum = {
+    Income: 'INCOME',
+    Outcome: 'OUTCOME'
+} as const;
+export type GenerateMonthlyFinancialReportDirectionEnum = typeof GenerateMonthlyFinancialReportDirectionEnum[keyof typeof GenerateMonthlyFinancialReportDirectionEnum];
 /**
  * @export
  */

@@ -54,7 +54,13 @@ export interface FinancialRecordsAggregatedResultReportEntity {
 export const FinancialRecordsAggregatedResultReportEntityTypeEnum = {
     FinancialRecordsAggregateResultReport: 'FINANCIAL_RECORDS_AGGREGATE_RESULT_REPORT',
     FinancialRecordsByContactsReport: 'FINANCIAL_RECORDS_BY_CONTACTS_REPORT',
-    BankAccountsCurrentBalanceReport: 'BANK_ACCOUNTS_CURRENT_BALANCE_REPORT'
+    BankAccountsCurrentBalanceReport: 'BANK_ACCOUNTS_CURRENT_BALANCE_REPORT',
+    CashFlowReport: 'CASH_FLOW_REPORT',
+    FinancialStatementReport: 'FINANCIAL_STATEMENT_REPORT',
+    AggregatedFinancialRecordsReport: 'AGGREGATED_FINANCIAL_RECORDS_REPORT',
+    MonthlyFinancialReport: 'MONTHLY_FINANCIAL_REPORT',
+    FinancialMeasuresReport: 'FINANCIAL_MEASURES_REPORT',
+    FinancialResultCompositionReport: 'FINANCIAL_RESULT_COMPOSITION_REPORT'
 } as const;
 export type FinancialRecordsAggregatedResultReportEntityTypeEnum = typeof FinancialRecordsAggregatedResultReportEntityTypeEnum[keyof typeof FinancialRecordsAggregatedResultReportEntityTypeEnum];
 
