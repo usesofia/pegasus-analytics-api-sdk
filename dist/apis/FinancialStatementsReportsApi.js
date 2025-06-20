@@ -365,17 +365,14 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (requestParameters['tags'] == null) {
-                            throw new runtime.RequiredError('tags', 'Required parameter "tags" was null or undefined when calling generateFinancialStatementReport().');
-                        }
-                        if (requestParameters['completed'] == null) {
-                            throw new runtime.RequiredError('completed', 'Required parameter "completed" was null or undefined when calling generateFinancialStatementReport().');
-                        }
                         if (requestParameters['referenceDate'] == null) {
                             throw new runtime.RequiredError('referenceDate', 'Required parameter "referenceDate" was null or undefined when calling generateFinancialStatementReport().');
                         }
-                        if (requestParameters['period'] == null) {
-                            throw new runtime.RequiredError('period', 'Required parameter "period" was null or undefined when calling generateFinancialStatementReport().');
+                        if (requestParameters['periodTo'] == null) {
+                            throw new runtime.RequiredError('periodTo', 'Required parameter "periodTo" was null or undefined when calling generateFinancialStatementReport().');
+                        }
+                        if (requestParameters['periodFrom'] == null) {
+                            throw new runtime.RequiredError('periodFrom', 'Required parameter "periodFrom" was null or undefined when calling generateFinancialStatementReport().');
                         }
                         if (requestParameters['grouping'] == null) {
                             throw new runtime.RequiredError('grouping', 'Required parameter "grouping" was null or undefined when calling generateFinancialStatementReport().');
@@ -390,8 +387,11 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
                         if (requestParameters['referenceDate'] != null) {
                             queryParameters['referenceDate'] = requestParameters['referenceDate'];
                         }
-                        if (requestParameters['period'] != null) {
-                            queryParameters['period'] = requestParameters['period'];
+                        if (requestParameters['periodTo'] != null) {
+                            queryParameters['periodTo'] = requestParameters['periodTo'];
+                        }
+                        if (requestParameters['periodFrom'] != null) {
+                            queryParameters['periodFrom'] = requestParameters['periodFrom'];
                         }
                         if (requestParameters['grouping'] != null) {
                             queryParameters['grouping'] = requestParameters['grouping'];

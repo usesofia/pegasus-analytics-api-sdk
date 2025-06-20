@@ -49,11 +49,12 @@ export interface GenerateFinancialResultCompositionReportRequest {
     direction: GenerateFinancialResultCompositionReportDirectionEnum;
 }
 export interface GenerateFinancialStatementReportRequest {
-    tags: string;
-    completed: string;
     referenceDate: GenerateFinancialStatementReportReferenceDateEnum;
-    period: string;
+    periodTo: string;
+    periodFrom: string;
     grouping: GenerateFinancialStatementReportGroupingEnum;
+    tags?: string;
+    completed?: string;
 }
 /**
  * FinancialStatementsReportsApi - interface
@@ -122,11 +123,12 @@ export interface FinancialStatementsReportsApiInterface {
     /**
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      * @summary Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
-     * @param {string} tags IDs das tags
-     * @param {string} completed Status de conclusão dos lançamentos
      * @param {'dueDate' | 'cashDate' | 'competenceDate'} referenceDate Campo de data a ser utilizado para filtros
-     * @param {string} period Período do relatório
+     * @param {string} periodTo Período do relatório
+     * @param {string} periodFrom Período do relatório
      * @param {'daily' | 'monthly' | 'annual'} grouping Agrupamento do relatório
+     * @param {string} [tags] IDs das tags
+     * @param {string} [completed] Status de conclusão dos lançamentos
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialStatementsReportsApiInterface

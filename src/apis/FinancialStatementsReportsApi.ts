@@ -71,11 +71,12 @@ export interface GenerateFinancialResultCompositionReportRequest {
 }
 
 export interface GenerateFinancialStatementReportRequest {
-    tags: string;
-    completed: string;
     referenceDate: GenerateFinancialStatementReportReferenceDateEnum;
-    period: string;
+    periodTo: string;
+    periodFrom: string;
     grouping: GenerateFinancialStatementReportGroupingEnum;
+    tags?: string;
+    completed?: string;
 }
 
 /**
@@ -149,11 +150,12 @@ export interface FinancialStatementsReportsApiInterface {
     /**
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      * @summary Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
-     * @param {string} tags IDs das tags
-     * @param {string} completed Status de conclusão dos lançamentos
      * @param {'dueDate' | 'cashDate' | 'competenceDate'} referenceDate Campo de data a ser utilizado para filtros
-     * @param {string} period Período do relatório
+     * @param {string} periodTo Período do relatório
+     * @param {string} periodFrom Período do relatório
      * @param {'daily' | 'monthly' | 'annual'} grouping Agrupamento do relatório
+     * @param {string} [tags] IDs das tags
+     * @param {string} [completed] Status de conclusão dos lançamentos
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialStatementsReportsApiInterface
@@ -593,20 +595,6 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      */
     async generateFinancialStatementReportRaw(requestParameters: GenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialStatementReportEntity>> {
-        if (requestParameters['tags'] == null) {
-            throw new runtime.RequiredError(
-                'tags',
-                'Required parameter "tags" was null or undefined when calling generateFinancialStatementReport().'
-            );
-        }
-
-        if (requestParameters['completed'] == null) {
-            throw new runtime.RequiredError(
-                'completed',
-                'Required parameter "completed" was null or undefined when calling generateFinancialStatementReport().'
-            );
-        }
-
         if (requestParameters['referenceDate'] == null) {
             throw new runtime.RequiredError(
                 'referenceDate',
@@ -614,10 +602,17 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
             );
         }
 
-        if (requestParameters['period'] == null) {
+        if (requestParameters['periodTo'] == null) {
             throw new runtime.RequiredError(
-                'period',
-                'Required parameter "period" was null or undefined when calling generateFinancialStatementReport().'
+                'periodTo',
+                'Required parameter "periodTo" was null or undefined when calling generateFinancialStatementReport().'
+            );
+        }
+
+        if (requestParameters['periodFrom'] == null) {
+            throw new runtime.RequiredError(
+                'periodFrom',
+                'Required parameter "periodFrom" was null or undefined when calling generateFinancialStatementReport().'
             );
         }
 
@@ -642,8 +637,12 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
             queryParameters['referenceDate'] = requestParameters['referenceDate'];
         }
 
-        if (requestParameters['period'] != null) {
-            queryParameters['period'] = requestParameters['period'];
+        if (requestParameters['periodTo'] != null) {
+            queryParameters['periodTo'] = requestParameters['periodTo'];
+        }
+
+        if (requestParameters['periodFrom'] != null) {
+            queryParameters['periodFrom'] = requestParameters['periodFrom'];
         }
 
         if (requestParameters['grouping'] != null) {
