@@ -1,6 +1,6 @@
 /**
  * Sofia Pegasus analytics-api
- * Api do sistema Pegasus para para geração de relatórios e dashboards.
+ * Api do sistema Pegasus para geração de relatórios e dashboards.
  *
  * The version of the OpenAPI document: 1.0.1
  *
