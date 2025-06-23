@@ -23,12 +23,12 @@ import {
 } from '../models/index';
 
 export interface GenerateCashFlowReportRequest {
-    tags: string;
-    reconciled: string;
-    bankAccount: string;
     periodTo: string;
     periodFrom: string;
     grouping: GenerateCashFlowReportGroupingEnum;
+    tags?: string;
+    reconciled?: string;
+    bankAccounts?: string;
 }
 
 /**
@@ -41,12 +41,12 @@ export interface CashFlowReportsApiInterface {
     /**
      * 
      * @summary Gera um relatório de fluxo de caixa
-     * @param {string} tags IDs das tags
-     * @param {string} reconciled Status de conciliação
-     * @param {string} bankAccount ID da conta bancária
      * @param {string} periodTo Data final do período
      * @param {string} periodFrom Data inicial do período
      * @param {'daily' | 'weekly' | 'monthly' | 'annual'} grouping Agrupamento do relatório
+     * @param {string} [tags] IDs das tags
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [bankAccounts] IDs das contas bancárias
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CashFlowReportsApiInterface
@@ -69,27 +69,6 @@ export class CashFlowReportsApi extends runtime.BaseAPI implements CashFlowRepor
      * Gera um relatório de fluxo de caixa
      */
     async generateCashFlowReportRaw(requestParameters: GenerateCashFlowReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashFlowReportEntity>> {
-        if (requestParameters['tags'] == null) {
-            throw new runtime.RequiredError(
-                'tags',
-                'Required parameter "tags" was null or undefined when calling generateCashFlowReport().'
-            );
-        }
-
-        if (requestParameters['reconciled'] == null) {
-            throw new runtime.RequiredError(
-                'reconciled',
-                'Required parameter "reconciled" was null or undefined when calling generateCashFlowReport().'
-            );
-        }
-
-        if (requestParameters['bankAccount'] == null) {
-            throw new runtime.RequiredError(
-                'bankAccount',
-                'Required parameter "bankAccount" was null or undefined when calling generateCashFlowReport().'
-            );
-        }
-
         if (requestParameters['periodTo'] == null) {
             throw new runtime.RequiredError(
                 'periodTo',
@@ -121,8 +100,8 @@ export class CashFlowReportsApi extends runtime.BaseAPI implements CashFlowRepor
             queryParameters['reconciled'] = requestParameters['reconciled'];
         }
 
-        if (requestParameters['bankAccount'] != null) {
-            queryParameters['bankAccount'] = requestParameters['bankAccount'];
+        if (requestParameters['bankAccounts'] != null) {
+            queryParameters['bankAccounts'] = requestParameters['bankAccounts'];
         }
 
         if (requestParameters['periodTo'] != null) {

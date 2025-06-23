@@ -84,15 +84,6 @@ var CashFlowReportsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (requestParameters['tags'] == null) {
-                            throw new runtime.RequiredError('tags', 'Required parameter "tags" was null or undefined when calling generateCashFlowReport().');
-                        }
-                        if (requestParameters['reconciled'] == null) {
-                            throw new runtime.RequiredError('reconciled', 'Required parameter "reconciled" was null or undefined when calling generateCashFlowReport().');
-                        }
-                        if (requestParameters['bankAccount'] == null) {
-                            throw new runtime.RequiredError('bankAccount', 'Required parameter "bankAccount" was null or undefined when calling generateCashFlowReport().');
-                        }
                         if (requestParameters['periodTo'] == null) {
                             throw new runtime.RequiredError('periodTo', 'Required parameter "periodTo" was null or undefined when calling generateCashFlowReport().');
                         }
@@ -109,8 +100,8 @@ var CashFlowReportsApi = /** @class */ (function (_super) {
                         if (requestParameters['reconciled'] != null) {
                             queryParameters['reconciled'] = requestParameters['reconciled'];
                         }
-                        if (requestParameters['bankAccount'] != null) {
-                            queryParameters['bankAccount'] = requestParameters['bankAccount'];
+                        if (requestParameters['bankAccounts'] != null) {
+                            queryParameters['bankAccounts'] = requestParameters['bankAccounts'];
                         }
                         if (requestParameters['periodTo'] != null) {
                             queryParameters['periodTo'] = requestParameters['periodTo'];

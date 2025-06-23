@@ -12,12 +12,12 @@
 import * as runtime from '../runtime';
 import type { CashFlowReportEntity } from '../models/index';
 export interface GenerateCashFlowReportRequest {
-    tags: string;
-    reconciled: string;
-    bankAccount: string;
     periodTo: string;
     periodFrom: string;
     grouping: GenerateCashFlowReportGroupingEnum;
+    tags?: string;
+    reconciled?: string;
+    bankAccounts?: string;
 }
 /**
  * CashFlowReportsApi - interface
@@ -29,12 +29,12 @@ export interface CashFlowReportsApiInterface {
     /**
      *
      * @summary Gera um relatório de fluxo de caixa
-     * @param {string} tags IDs das tags
-     * @param {string} reconciled Status de conciliação
-     * @param {string} bankAccount ID da conta bancária
      * @param {string} periodTo Data final do período
      * @param {string} periodFrom Data inicial do período
      * @param {'daily' | 'weekly' | 'monthly' | 'annual'} grouping Agrupamento do relatório
+     * @param {string} [tags] IDs das tags
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [bankAccounts] IDs das contas bancárias
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CashFlowReportsApiInterface
