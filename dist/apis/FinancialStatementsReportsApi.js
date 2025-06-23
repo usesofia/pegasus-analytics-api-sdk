@@ -84,60 +84,6 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (requestParameters['recurringFinancialRecord'] == null) {
-                            throw new runtime.RequiredError('recurringFinancialRecord', 'Required parameter "recurringFinancialRecord" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['installmentFinancialRecord'] == null) {
-                            throw new runtime.RequiredError('installmentFinancialRecord', 'Required parameter "installmentFinancialRecord" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['account'] == null) {
-                            throw new runtime.RequiredError('account', 'Required parameter "account" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['reconciled'] == null) {
-                            throw new runtime.RequiredError('reconciled', 'Required parameter "reconciled" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['completed'] == null) {
-                            throw new runtime.RequiredError('completed', 'Required parameter "completed" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['amountType'] == null) {
-                            throw new runtime.RequiredError('amountType', 'Required parameter "amountType" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['tags'] == null) {
-                            throw new runtime.RequiredError('tags', 'Required parameter "tags" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['createdAtTo'] == null) {
-                            throw new runtime.RequiredError('createdAtTo', 'Required parameter "createdAtTo" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['createdAtFrom'] == null) {
-                            throw new runtime.RequiredError('createdAtFrom', 'Required parameter "createdAtFrom" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['cashDateTo'] == null) {
-                            throw new runtime.RequiredError('cashDateTo', 'Required parameter "cashDateTo" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['cashDateFrom'] == null) {
-                            throw new runtime.RequiredError('cashDateFrom', 'Required parameter "cashDateFrom" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['competenceDateTo'] == null) {
-                            throw new runtime.RequiredError('competenceDateTo', 'Required parameter "competenceDateTo" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['competenceDateFrom'] == null) {
-                            throw new runtime.RequiredError('competenceDateFrom', 'Required parameter "competenceDateFrom" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['subcategory'] == null) {
-                            throw new runtime.RequiredError('subcategory', 'Required parameter "subcategory" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['contact'] == null) {
-                            throw new runtime.RequiredError('contact', 'Required parameter "contact" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['dueDateTo'] == null) {
-                            throw new runtime.RequiredError('dueDateTo', 'Required parameter "dueDateTo" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['dueDateFrom'] == null) {
-                            throw new runtime.RequiredError('dueDateFrom', 'Required parameter "dueDateFrom" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
-                        if (requestParameters['direction'] == null) {
-                            throw new runtime.RequiredError('direction', 'Required parameter "direction" was null or undefined when calling generateFinancialMeasuresReport().');
-                        }
                         queryParameters = {};
                         if (requestParameters['recurringFinancialRecord'] != null) {
                             queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
@@ -210,9 +156,10 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
     /**
      * Gera relatório de medidas financeiras
      */
-    FinancialStatementsReportsApi.prototype.generateFinancialMeasuresReport = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
+    FinancialStatementsReportsApi.prototype.generateFinancialMeasuresReport = function () {
+        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
             var response;
+            if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.generateFinancialMeasuresReportRaw(requestParameters, initOverrides)];
@@ -233,51 +180,6 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (requestParameters['amountType'] == null) {
-                            throw new runtime.RequiredError('amountType', 'Required parameter "amountType" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['reconciled'] == null) {
-                            throw new runtime.RequiredError('reconciled', 'Required parameter "reconciled" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['completed'] == null) {
-                            throw new runtime.RequiredError('completed', 'Required parameter "completed" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['tags'] == null) {
-                            throw new runtime.RequiredError('tags', 'Required parameter "tags" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['createdAtTo'] == null) {
-                            throw new runtime.RequiredError('createdAtTo', 'Required parameter "createdAtTo" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['createdAtFrom'] == null) {
-                            throw new runtime.RequiredError('createdAtFrom', 'Required parameter "createdAtFrom" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['cashDateTo'] == null) {
-                            throw new runtime.RequiredError('cashDateTo', 'Required parameter "cashDateTo" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['cashDateFrom'] == null) {
-                            throw new runtime.RequiredError('cashDateFrom', 'Required parameter "cashDateFrom" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['competenceDateTo'] == null) {
-                            throw new runtime.RequiredError('competenceDateTo', 'Required parameter "competenceDateTo" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['competenceDateFrom'] == null) {
-                            throw new runtime.RequiredError('competenceDateFrom', 'Required parameter "competenceDateFrom" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['subcategory'] == null) {
-                            throw new runtime.RequiredError('subcategory', 'Required parameter "subcategory" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['contact'] == null) {
-                            throw new runtime.RequiredError('contact', 'Required parameter "contact" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['dueDateTo'] == null) {
-                            throw new runtime.RequiredError('dueDateTo', 'Required parameter "dueDateTo" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['dueDateFrom'] == null) {
-                            throw new runtime.RequiredError('dueDateFrom', 'Required parameter "dueDateFrom" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
-                        if (requestParameters['direction'] == null) {
-                            throw new runtime.RequiredError('direction', 'Required parameter "direction" was null or undefined when calling generateFinancialResultCompositionReport().');
-                        }
                         queryParameters = {};
                         if (requestParameters['amountType'] != null) {
                             queryParameters['amountType'] = requestParameters['amountType'];
@@ -293,9 +195,6 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
                         }
                         if (requestParameters['createdAtTo'] != null) {
                             queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
-                        }
-                        if (requestParameters['createdAtFrom'] != null) {
-                            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
                         }
                         if (requestParameters['cashDateTo'] != null) {
                             queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
@@ -341,9 +240,10 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
     /**
      * Gera relatório de composição do resultado financeiro
      */
-    FinancialStatementsReportsApi.prototype.generateFinancialResultCompositionReport = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
+    FinancialStatementsReportsApi.prototype.generateFinancialResultCompositionReport = function () {
+        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
             var response;
+            if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.generateFinancialResultCompositionReportRaw(requestParameters, initOverrides)];
@@ -442,8 +342,8 @@ exports.GenerateFinancialMeasuresReportAmountTypeEnum = {
  * @export
  */
 exports.GenerateFinancialMeasuresReportDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export
@@ -456,8 +356,8 @@ exports.GenerateFinancialResultCompositionReportAmountTypeEnum = {
  * @export
  */
 exports.GenerateFinancialResultCompositionReportDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export

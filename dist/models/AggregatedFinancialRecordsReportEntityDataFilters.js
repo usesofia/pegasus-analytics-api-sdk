@@ -23,8 +23,8 @@ exports.AggregatedFinancialRecordsReportEntityDataFiltersToJSONTyped = Aggregate
  * @export
  */
 exports.AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export

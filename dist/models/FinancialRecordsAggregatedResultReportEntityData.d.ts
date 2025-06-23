@@ -44,8 +44,8 @@ export interface FinancialRecordsAggregatedResultReportEntityData {
  * @export
  */
 export declare const FinancialRecordsAggregatedResultReportEntityDataResultDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type FinancialRecordsAggregatedResultReportEntityDataResultDirectionEnum = typeof FinancialRecordsAggregatedResultReportEntityDataResultDirectionEnum[keyof typeof FinancialRecordsAggregatedResultReportEntityDataResultDirectionEnum];
 /**

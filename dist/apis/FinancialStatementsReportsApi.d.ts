@@ -12,41 +12,40 @@
 import * as runtime from '../runtime';
 import type { FinancialMeasuresReportEntity, FinancialResultCompositionReportEntity, FinancialStatementReportEntity } from '../models/index';
 export interface GenerateFinancialMeasuresReportRequest {
-    recurringFinancialRecord: string;
-    installmentFinancialRecord: string;
-    account: string;
-    reconciled: string;
-    completed: string;
-    amountType: GenerateFinancialMeasuresReportAmountTypeEnum;
-    tags: string;
-    createdAtTo: string;
-    createdAtFrom: string;
-    cashDateTo: string;
-    cashDateFrom: string;
-    competenceDateTo: string;
-    competenceDateFrom: string;
-    subcategory: string;
-    contact: string;
-    dueDateTo: string;
-    dueDateFrom: string;
-    direction: GenerateFinancialMeasuresReportDirectionEnum;
+    recurringFinancialRecord?: string;
+    installmentFinancialRecord?: string;
+    account?: string;
+    reconciled?: string;
+    completed?: string;
+    amountType?: GenerateFinancialMeasuresReportAmountTypeEnum;
+    tags?: string;
+    createdAtTo?: string;
+    createdAtFrom?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    dueDateTo?: string;
+    dueDateFrom?: string;
+    direction?: GenerateFinancialMeasuresReportDirectionEnum;
 }
 export interface GenerateFinancialResultCompositionReportRequest {
-    amountType: GenerateFinancialResultCompositionReportAmountTypeEnum;
-    reconciled: string;
-    completed: string;
-    tags: string;
-    createdAtTo: string;
-    createdAtFrom: string;
-    cashDateTo: string;
-    cashDateFrom: string;
-    competenceDateTo: string;
-    competenceDateFrom: string;
-    subcategory: string;
-    contact: string;
-    dueDateTo: string;
-    dueDateFrom: string;
-    direction: GenerateFinancialResultCompositionReportDirectionEnum;
+    amountType?: GenerateFinancialResultCompositionReportAmountTypeEnum;
+    reconciled?: string;
+    completed?: string;
+    tags?: string;
+    createdAtTo?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    dueDateTo?: string;
+    dueDateFrom?: string;
+    direction?: GenerateFinancialResultCompositionReportDirectionEnum;
 }
 export interface GenerateFinancialStatementReportRequest {
     referenceDate: GenerateFinancialStatementReportReferenceDateEnum;
@@ -66,24 +65,24 @@ export interface FinancialStatementsReportsApiInterface {
     /**
      *
      * @summary Gera relatório de medidas financeiras
-     * @param {string} recurringFinancialRecord ID do lançamento financeiro recorrente
-     * @param {string} installmentFinancialRecord ID do lançamento financeiro recorrente
-     * @param {string} account ID da conta
-     * @param {string} reconciled Status de conciliação
-     * @param {string} completed Status de conclusão dos lançamentos
-     * @param {'base' | 'final'} amountType Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
-     * @param {string} tags IDs das tags
-     * @param {string} createdAtTo Data final da criação
-     * @param {string} createdAtFrom Data inicial da criação
-     * @param {string} cashDateTo Data final do caixa
-     * @param {string} cashDateFrom Data inicial do caixa
-     * @param {string} competenceDateTo Data final da competência
-     * @param {string} competenceDateFrom Data inicial da competência
-     * @param {string} subcategory ID da subcategoria
-     * @param {string} contact ID do contato
-     * @param {string} dueDateTo Data final do vencimento
-     * @param {string} dueDateFrom Data inicial do vencimento
-     * @param {'INCOME' | 'OUTCOME'} direction Direção do relatório
+     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [account] ID da conta
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [completed] Status de conclusão dos lançamentos
+     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} [tags] IDs das tags
+     * @param {string} [createdAtTo] Data final da criação
+     * @param {string} [createdAtFrom] Data inicial da criação
+     * @param {string} [cashDateTo] Data final do caixa
+     * @param {string} [cashDateFrom] Data inicial do caixa
+     * @param {string} [competenceDateTo] Data final da competência
+     * @param {string} [competenceDateFrom] Data inicial da competência
+     * @param {string} [subcategory] ID da subcategoria
+     * @param {string} [contact] ID do contato
+     * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [dueDateFrom] Data inicial do vencimento
+     * @param {'IN' | 'OUT'} [direction] Direção do relatório
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialStatementsReportsApiInterface
@@ -96,21 +95,20 @@ export interface FinancialStatementsReportsApiInterface {
     /**
      *
      * @summary Gera relatório de composição do resultado financeiro
-     * @param {'base' | 'final'} amountType Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
-     * @param {string} reconciled Status de conciliação
-     * @param {string} completed Status do relatório
-     * @param {string} tags IDs das tags
-     * @param {string} createdAtTo Data final da criação
-     * @param {string} createdAtFrom Data inicial da criação
-     * @param {string} cashDateTo Data final do caixa
-     * @param {string} cashDateFrom Data inicial do caixa
-     * @param {string} competenceDateTo Data final da competência
-     * @param {string} competenceDateFrom Data inicial da competência
-     * @param {string} subcategory ID da subcategoria
-     * @param {string} contact ID do contato
-     * @param {string} dueDateTo Data final do vencimento
-     * @param {string} dueDateFrom Data inicial do vencimento
-     * @param {'INCOME' | 'OUTCOME'} direction Direção do relatório
+     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [completed] Status do relatório
+     * @param {string} [tags] IDs das tags
+     * @param {string} [createdAtTo] Data final da criação
+     * @param {string} [cashDateTo] Data final do caixa
+     * @param {string} [cashDateFrom] Data inicial do caixa
+     * @param {string} [competenceDateTo] Data final da competência
+     * @param {string} [competenceDateFrom] Data inicial da competência
+     * @param {string} [subcategory] ID da subcategoria
+     * @param {string} [contact] ID do contato
+     * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [dueDateFrom] Data inicial do vencimento
+     * @param {'IN' | 'OUT'} [direction] Direção do relatório
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialStatementsReportsApiInterface
@@ -151,7 +149,7 @@ export declare class FinancialStatementsReportsApi extends runtime.BaseAPI imple
     /**
      * Gera relatório de medidas financeiras
      */
-    generateFinancialMeasuresReport(requestParameters: GenerateFinancialMeasuresReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialMeasuresReportEntity>;
+    generateFinancialMeasuresReport(requestParameters?: GenerateFinancialMeasuresReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialMeasuresReportEntity>;
     /**
      * Gera relatório de composição do resultado financeiro
      */
@@ -159,7 +157,7 @@ export declare class FinancialStatementsReportsApi extends runtime.BaseAPI imple
     /**
      * Gera relatório de composição do resultado financeiro
      */
-    generateFinancialResultCompositionReport(requestParameters: GenerateFinancialResultCompositionReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialResultCompositionReportEntity>;
+    generateFinancialResultCompositionReport(requestParameters?: GenerateFinancialResultCompositionReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialResultCompositionReportEntity>;
     /**
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
@@ -183,8 +181,8 @@ export type GenerateFinancialMeasuresReportAmountTypeEnum = typeof GenerateFinan
  * @export
  */
 export declare const GenerateFinancialMeasuresReportDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type GenerateFinancialMeasuresReportDirectionEnum = typeof GenerateFinancialMeasuresReportDirectionEnum[keyof typeof GenerateFinancialMeasuresReportDirectionEnum];
 /**
@@ -199,8 +197,8 @@ export type GenerateFinancialResultCompositionReportAmountTypeEnum = typeof Gene
  * @export
  */
 export declare const GenerateFinancialResultCompositionReportDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type GenerateFinancialResultCompositionReportDirectionEnum = typeof GenerateFinancialResultCompositionReportDirectionEnum[keyof typeof GenerateFinancialResultCompositionReportDirectionEnum];
 /**

@@ -32,42 +32,41 @@ import {
 } from '../models/index';
 
 export interface GenerateFinancialMeasuresReportRequest {
-    recurringFinancialRecord: string;
-    installmentFinancialRecord: string;
-    account: string;
-    reconciled: string;
-    completed: string;
-    amountType: GenerateFinancialMeasuresReportAmountTypeEnum;
-    tags: string;
-    createdAtTo: string;
-    createdAtFrom: string;
-    cashDateTo: string;
-    cashDateFrom: string;
-    competenceDateTo: string;
-    competenceDateFrom: string;
-    subcategory: string;
-    contact: string;
-    dueDateTo: string;
-    dueDateFrom: string;
-    direction: GenerateFinancialMeasuresReportDirectionEnum;
+    recurringFinancialRecord?: string;
+    installmentFinancialRecord?: string;
+    account?: string;
+    reconciled?: string;
+    completed?: string;
+    amountType?: GenerateFinancialMeasuresReportAmountTypeEnum;
+    tags?: string;
+    createdAtTo?: string;
+    createdAtFrom?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    dueDateTo?: string;
+    dueDateFrom?: string;
+    direction?: GenerateFinancialMeasuresReportDirectionEnum;
 }
 
 export interface GenerateFinancialResultCompositionReportRequest {
-    amountType: GenerateFinancialResultCompositionReportAmountTypeEnum;
-    reconciled: string;
-    completed: string;
-    tags: string;
-    createdAtTo: string;
-    createdAtFrom: string;
-    cashDateTo: string;
-    cashDateFrom: string;
-    competenceDateTo: string;
-    competenceDateFrom: string;
-    subcategory: string;
-    contact: string;
-    dueDateTo: string;
-    dueDateFrom: string;
-    direction: GenerateFinancialResultCompositionReportDirectionEnum;
+    amountType?: GenerateFinancialResultCompositionReportAmountTypeEnum;
+    reconciled?: string;
+    completed?: string;
+    tags?: string;
+    createdAtTo?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    dueDateTo?: string;
+    dueDateFrom?: string;
+    direction?: GenerateFinancialResultCompositionReportDirectionEnum;
 }
 
 export interface GenerateFinancialStatementReportRequest {
@@ -89,24 +88,24 @@ export interface FinancialStatementsReportsApiInterface {
     /**
      * 
      * @summary Gera relatório de medidas financeiras
-     * @param {string} recurringFinancialRecord ID do lançamento financeiro recorrente
-     * @param {string} installmentFinancialRecord ID do lançamento financeiro recorrente
-     * @param {string} account ID da conta
-     * @param {string} reconciled Status de conciliação
-     * @param {string} completed Status de conclusão dos lançamentos
-     * @param {'base' | 'final'} amountType Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
-     * @param {string} tags IDs das tags
-     * @param {string} createdAtTo Data final da criação
-     * @param {string} createdAtFrom Data inicial da criação
-     * @param {string} cashDateTo Data final do caixa
-     * @param {string} cashDateFrom Data inicial do caixa
-     * @param {string} competenceDateTo Data final da competência
-     * @param {string} competenceDateFrom Data inicial da competência
-     * @param {string} subcategory ID da subcategoria
-     * @param {string} contact ID do contato
-     * @param {string} dueDateTo Data final do vencimento
-     * @param {string} dueDateFrom Data inicial do vencimento
-     * @param {'INCOME' | 'OUTCOME'} direction Direção do relatório
+     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [account] ID da conta
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [completed] Status de conclusão dos lançamentos
+     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} [tags] IDs das tags
+     * @param {string} [createdAtTo] Data final da criação
+     * @param {string} [createdAtFrom] Data inicial da criação
+     * @param {string} [cashDateTo] Data final do caixa
+     * @param {string} [cashDateFrom] Data inicial do caixa
+     * @param {string} [competenceDateTo] Data final da competência
+     * @param {string} [competenceDateFrom] Data inicial da competência
+     * @param {string} [subcategory] ID da subcategoria
+     * @param {string} [contact] ID do contato
+     * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [dueDateFrom] Data inicial do vencimento
+     * @param {'IN' | 'OUT'} [direction] Direção do relatório
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialStatementsReportsApiInterface
@@ -121,21 +120,20 @@ export interface FinancialStatementsReportsApiInterface {
     /**
      * 
      * @summary Gera relatório de composição do resultado financeiro
-     * @param {'base' | 'final'} amountType Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
-     * @param {string} reconciled Status de conciliação
-     * @param {string} completed Status do relatório
-     * @param {string} tags IDs das tags
-     * @param {string} createdAtTo Data final da criação
-     * @param {string} createdAtFrom Data inicial da criação
-     * @param {string} cashDateTo Data final do caixa
-     * @param {string} cashDateFrom Data inicial do caixa
-     * @param {string} competenceDateTo Data final da competência
-     * @param {string} competenceDateFrom Data inicial da competência
-     * @param {string} subcategory ID da subcategoria
-     * @param {string} contact ID do contato
-     * @param {string} dueDateTo Data final do vencimento
-     * @param {string} dueDateFrom Data inicial do vencimento
-     * @param {'INCOME' | 'OUTCOME'} direction Direção do relatório
+     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [completed] Status do relatório
+     * @param {string} [tags] IDs das tags
+     * @param {string} [createdAtTo] Data final da criação
+     * @param {string} [cashDateTo] Data final do caixa
+     * @param {string} [cashDateFrom] Data inicial do caixa
+     * @param {string} [competenceDateTo] Data final da competência
+     * @param {string} [competenceDateFrom] Data inicial da competência
+     * @param {string} [subcategory] ID da subcategoria
+     * @param {string} [contact] ID do contato
+     * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [dueDateFrom] Data inicial do vencimento
+     * @param {'IN' | 'OUT'} [direction] Direção do relatório
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialStatementsReportsApiInterface
@@ -179,132 +177,6 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
      * Gera relatório de medidas financeiras
      */
     async generateFinancialMeasuresReportRaw(requestParameters: GenerateFinancialMeasuresReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialMeasuresReportEntity>> {
-        if (requestParameters['recurringFinancialRecord'] == null) {
-            throw new runtime.RequiredError(
-                'recurringFinancialRecord',
-                'Required parameter "recurringFinancialRecord" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['installmentFinancialRecord'] == null) {
-            throw new runtime.RequiredError(
-                'installmentFinancialRecord',
-                'Required parameter "installmentFinancialRecord" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['account'] == null) {
-            throw new runtime.RequiredError(
-                'account',
-                'Required parameter "account" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['reconciled'] == null) {
-            throw new runtime.RequiredError(
-                'reconciled',
-                'Required parameter "reconciled" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['completed'] == null) {
-            throw new runtime.RequiredError(
-                'completed',
-                'Required parameter "completed" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['amountType'] == null) {
-            throw new runtime.RequiredError(
-                'amountType',
-                'Required parameter "amountType" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['tags'] == null) {
-            throw new runtime.RequiredError(
-                'tags',
-                'Required parameter "tags" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['createdAtTo'] == null) {
-            throw new runtime.RequiredError(
-                'createdAtTo',
-                'Required parameter "createdAtTo" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['createdAtFrom'] == null) {
-            throw new runtime.RequiredError(
-                'createdAtFrom',
-                'Required parameter "createdAtFrom" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['cashDateTo'] == null) {
-            throw new runtime.RequiredError(
-                'cashDateTo',
-                'Required parameter "cashDateTo" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['cashDateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'cashDateFrom',
-                'Required parameter "cashDateFrom" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['competenceDateTo'] == null) {
-            throw new runtime.RequiredError(
-                'competenceDateTo',
-                'Required parameter "competenceDateTo" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['competenceDateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'competenceDateFrom',
-                'Required parameter "competenceDateFrom" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['subcategory'] == null) {
-            throw new runtime.RequiredError(
-                'subcategory',
-                'Required parameter "subcategory" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['contact'] == null) {
-            throw new runtime.RequiredError(
-                'contact',
-                'Required parameter "contact" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['dueDateTo'] == null) {
-            throw new runtime.RequiredError(
-                'dueDateTo',
-                'Required parameter "dueDateTo" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['dueDateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'dueDateFrom',
-                'Required parameter "dueDateFrom" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
-        if (requestParameters['direction'] == null) {
-            throw new runtime.RequiredError(
-                'direction',
-                'Required parameter "direction" was null or undefined when calling generateFinancialMeasuresReport().'
-            );
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters['recurringFinancialRecord'] != null) {
@@ -394,7 +266,7 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
     /**
      * Gera relatório de medidas financeiras
      */
-    async generateFinancialMeasuresReport(requestParameters: GenerateFinancialMeasuresReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialMeasuresReportEntity> {
+    async generateFinancialMeasuresReport(requestParameters: GenerateFinancialMeasuresReportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialMeasuresReportEntity> {
         const response = await this.generateFinancialMeasuresReportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -403,111 +275,6 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
      * Gera relatório de composição do resultado financeiro
      */
     async generateFinancialResultCompositionReportRaw(requestParameters: GenerateFinancialResultCompositionReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialResultCompositionReportEntity>> {
-        if (requestParameters['amountType'] == null) {
-            throw new runtime.RequiredError(
-                'amountType',
-                'Required parameter "amountType" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['reconciled'] == null) {
-            throw new runtime.RequiredError(
-                'reconciled',
-                'Required parameter "reconciled" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['completed'] == null) {
-            throw new runtime.RequiredError(
-                'completed',
-                'Required parameter "completed" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['tags'] == null) {
-            throw new runtime.RequiredError(
-                'tags',
-                'Required parameter "tags" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['createdAtTo'] == null) {
-            throw new runtime.RequiredError(
-                'createdAtTo',
-                'Required parameter "createdAtTo" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['createdAtFrom'] == null) {
-            throw new runtime.RequiredError(
-                'createdAtFrom',
-                'Required parameter "createdAtFrom" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['cashDateTo'] == null) {
-            throw new runtime.RequiredError(
-                'cashDateTo',
-                'Required parameter "cashDateTo" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['cashDateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'cashDateFrom',
-                'Required parameter "cashDateFrom" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['competenceDateTo'] == null) {
-            throw new runtime.RequiredError(
-                'competenceDateTo',
-                'Required parameter "competenceDateTo" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['competenceDateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'competenceDateFrom',
-                'Required parameter "competenceDateFrom" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['subcategory'] == null) {
-            throw new runtime.RequiredError(
-                'subcategory',
-                'Required parameter "subcategory" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['contact'] == null) {
-            throw new runtime.RequiredError(
-                'contact',
-                'Required parameter "contact" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['dueDateTo'] == null) {
-            throw new runtime.RequiredError(
-                'dueDateTo',
-                'Required parameter "dueDateTo" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['dueDateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'dueDateFrom',
-                'Required parameter "dueDateFrom" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
-        if (requestParameters['direction'] == null) {
-            throw new runtime.RequiredError(
-                'direction',
-                'Required parameter "direction" was null or undefined when calling generateFinancialResultCompositionReport().'
-            );
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters['amountType'] != null) {
@@ -528,10 +295,6 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
 
         if (requestParameters['createdAtTo'] != null) {
             queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
-        }
-
-        if (requestParameters['createdAtFrom'] != null) {
-            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
         }
 
         if (requestParameters['cashDateTo'] != null) {
@@ -585,7 +348,7 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
     /**
      * Gera relatório de composição do resultado financeiro
      */
-    async generateFinancialResultCompositionReport(requestParameters: GenerateFinancialResultCompositionReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialResultCompositionReportEntity> {
+    async generateFinancialResultCompositionReport(requestParameters: GenerateFinancialResultCompositionReportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialResultCompositionReportEntity> {
         const response = await this.generateFinancialResultCompositionReportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -684,8 +447,8 @@ export type GenerateFinancialMeasuresReportAmountTypeEnum = typeof GenerateFinan
  * @export
  */
 export const GenerateFinancialMeasuresReportDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type GenerateFinancialMeasuresReportDirectionEnum = typeof GenerateFinancialMeasuresReportDirectionEnum[keyof typeof GenerateFinancialMeasuresReportDirectionEnum];
 /**
@@ -700,8 +463,8 @@ export type GenerateFinancialResultCompositionReportAmountTypeEnum = typeof Gene
  * @export
  */
 export const GenerateFinancialResultCompositionReportDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type GenerateFinancialResultCompositionReportDirectionEnum = typeof GenerateFinancialResultCompositionReportDirectionEnum[keyof typeof GenerateFinancialResultCompositionReportDirectionEnum];
 /**

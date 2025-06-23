@@ -146,8 +146,8 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
  * @export
  */
 export const AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum];
 

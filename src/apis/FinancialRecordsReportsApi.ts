@@ -99,7 +99,7 @@ export interface FinancialRecordsReportsApiInterface {
     /**
      * 
      * @summary Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
-     * @param {'INCOME' | 'OUTCOME'} direction Direção do lançamento financeiro
+     * @param {'IN' | 'OUT'} direction Direção do lançamento financeiro
      * @param {'asc' | 'desc'} sortOrder Ordem de classificação
      * @param {'category' | 'contact' | 'tag'} groupBy Campo para agrupamento dos dados
      * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos
@@ -145,7 +145,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {string} [contact] Contato do lançamento financeiro
      * @param {string} [dueDateTo] Data de vencimento final
      * @param {string} [dueDateFrom] Data de vencimento inicial
-     * @param {'INCOME' | 'OUTCOME'} [direction] Direção do lançamento financeiro
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsReportsApiInterface
@@ -175,7 +175,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {string} [contact] Contato do lançamento financeiro.
      * @param {string} [dueDateTo] Data de vencimento final.
      * @param {string} [dueDateFrom] Data de vencimento inicial.
-     * @param {'INCOME' | 'OUTCOME'} [direction] Direção do lançamento financeiro.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsReportsApiInterface
@@ -495,8 +495,8 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
  * @export
  */
 export const GenerateAggregatedFinancialRecordsReportDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type GenerateAggregatedFinancialRecordsReportDirectionEnum = typeof GenerateAggregatedFinancialRecordsReportDirectionEnum[keyof typeof GenerateAggregatedFinancialRecordsReportDirectionEnum];
 /**
@@ -536,8 +536,8 @@ export type GenerateMonthlyFinancialReportAmountTypeEnum = typeof GenerateMonthl
  * @export
  */
 export const GenerateMonthlyFinancialReportDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type GenerateMonthlyFinancialReportDirectionEnum = typeof GenerateMonthlyFinancialReportDirectionEnum[keyof typeof GenerateMonthlyFinancialReportDirectionEnum];
 /**
@@ -552,7 +552,7 @@ export type GetAggregatedResultReportAmountTypeEnum = typeof GetAggregatedResult
  * @export
  */
 export const GetAggregatedResultReportDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type GetAggregatedResultReportDirectionEnum = typeof GetAggregatedResultReportDirectionEnum[keyof typeof GetAggregatedResultReportDirectionEnum];

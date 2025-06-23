@@ -134,8 +134,8 @@ export interface MonthlyFinancialReportEntityDataFilters {
  * @export
  */
 export const MonthlyFinancialReportEntityDataFiltersDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type MonthlyFinancialReportEntityDataFiltersDirectionEnum = typeof MonthlyFinancialReportEntityDataFiltersDirectionEnum[keyof typeof MonthlyFinancialReportEntityDataFiltersDirectionEnum];
 

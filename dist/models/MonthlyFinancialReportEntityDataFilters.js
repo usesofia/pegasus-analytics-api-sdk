@@ -23,8 +23,8 @@ exports.MonthlyFinancialReportEntityDataFiltersToJSONTyped = MonthlyFinancialRep
  * @export
  */
 exports.MonthlyFinancialReportEntityDataFiltersDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export

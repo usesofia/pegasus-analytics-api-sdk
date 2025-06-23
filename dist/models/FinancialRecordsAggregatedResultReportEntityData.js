@@ -23,8 +23,8 @@ exports.FinancialRecordsAggregatedResultReportEntityDataToJSONTyped = FinancialR
  * @export
  */
 exports.FinancialRecordsAggregatedResultReportEntityDataResultDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * Check if a given object implements the FinancialRecordsAggregatedResultReportEntityData interface.

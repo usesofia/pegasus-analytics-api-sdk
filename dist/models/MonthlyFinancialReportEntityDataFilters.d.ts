@@ -128,8 +128,8 @@ export interface MonthlyFinancialReportEntityDataFilters {
  * @export
  */
 export declare const MonthlyFinancialReportEntityDataFiltersDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type MonthlyFinancialReportEntityDataFiltersDirectionEnum = typeof MonthlyFinancialReportEntityDataFiltersDirectionEnum[keyof typeof MonthlyFinancialReportEntityDataFiltersDirectionEnum];
 /**

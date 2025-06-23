@@ -363,8 +363,8 @@ exports.FinancialRecordsReportsApi = FinancialRecordsReportsApi;
  * @export
  */
 exports.GenerateAggregatedFinancialRecordsReportDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export
@@ -399,8 +399,8 @@ exports.GenerateMonthlyFinancialReportAmountTypeEnum = {
  * @export
  */
 exports.GenerateMonthlyFinancialReportDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export
@@ -413,6 +413,6 @@ exports.GetAggregatedResultReportAmountTypeEnum = {
  * @export
  */
 exports.GetAggregatedResultReportDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
