@@ -16,6 +16,114 @@
  */
 export interface AggregatedFinancialRecordsReportEntityDataFilters {
     /**
+     * Direção do lançamento financeiro
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    direction: AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    dueDateFrom?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    dueDateTo?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    contact?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    subcategory?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    competenceDateFrom?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    competenceDateTo?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    cashDateFrom?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    cashDateTo?: string;
+    /**
+     *
+     * @type {any}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    createdAtFrom?: any | null;
+    /**
+     *
+     * @type {any}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    createdAtTo?: any | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    tags?: Array<string>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    completed?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    reconciled?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    account?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    installmentFinancialRecord?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    recurringFinancialRecord?: string;
+    /**
+     * Tipo de valor
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    amountType?: AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum;
+    /**
      * Campo para agrupamento dos dados
      * @type {string}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
@@ -27,103 +135,23 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
     sortOrder?: AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum;
-    /**
-     * Campos para popular
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    populate?: string;
-    /**
-     * Direção do lançamento financeiro
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    direction: AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum;
-    /**
-     * Data de vencimento inicial
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    dueDateFrom: string;
-    /**
-     * Data de vencimento final
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    dueDateTo: string;
-    /**
-     * ID do contato
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    contact?: string;
-    /**
-     * ID da subcategoria
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    subcategory?: string;
-    /**
-     * Data de competência inicial
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    competenceDateFrom?: string;
-    /**
-     * Data de competência final
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    competenceDateTo?: string;
-    /**
-     * Data de pagamento inicial
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    cashDateFrom?: string;
-    /**
-     * Data de pagamento final
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    cashDateTo?: string;
-    /**
-     * Data de criação inicial
-     * @type {any}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    createdAtFrom?: any | null;
-    /**
-     * Data de criação final
-     * @type {any}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    createdAtTo?: any | null;
-    /**
-     * IDs das tags separadas por vírgula
-     * @type {Array<string>}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    tags?: Array<string>;
-    /**
-     * Status de conclusão
-     * @type {boolean}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    completed?: boolean;
-    /**
-     * Status de reconciliação
-     * @type {boolean}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    reconciled?: boolean;
-    /**
-     * ID da conta bancária
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    account?: string;
 }
+/**
+ * @export
+ */
+export declare const AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum: {
+    readonly Income: "INCOME";
+    readonly Outcome: "OUTCOME";
+};
+export type AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum];
+/**
+ * @export
+ */
+export declare const AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum: {
+    readonly Base: "base";
+    readonly Final: "final";
+};
+export type AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum];
 /**
  * @export
  */
@@ -141,14 +169,6 @@ export declare const AggregatedFinancialRecordsReportEntityDataFiltersSortOrderE
     readonly Desc: "desc";
 };
 export type AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum];
-/**
- * @export
- */
-export declare const AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
-};
-export type AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum];
 /**
  * Check if a given object implements the AggregatedFinancialRecordsReportEntityDataFilters interface.
  */

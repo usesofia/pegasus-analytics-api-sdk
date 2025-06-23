@@ -20,6 +20,114 @@ import { mapValues } from '../runtime';
  */
 export interface AggregatedFinancialRecordsReportEntityDataFilters {
     /**
+     * Direção do lançamento financeiro
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    direction: AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    dueDateFrom?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    dueDateTo?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    contact?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    subcategory?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    competenceDateFrom?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    competenceDateTo?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    cashDateFrom?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    cashDateTo?: string;
+    /**
+     * 
+     * @type {any}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    createdAtFrom?: any | null;
+    /**
+     * 
+     * @type {any}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    createdAtTo?: any | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    tags?: Array<string>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    completed?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    reconciled?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    account?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    installmentFinancialRecord?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    recurringFinancialRecord?: string;
+    /**
+     * Tipo de valor
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    amountType?: AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum;
+    /**
      * Campo para agrupamento dos dados
      * @type {string}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
@@ -31,104 +139,26 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
     sortOrder?: AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum;
-    /**
-     * Campos para popular
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    populate?: string;
-    /**
-     * Direção do lançamento financeiro
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    direction: AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum;
-    /**
-     * Data de vencimento inicial
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    dueDateFrom: string;
-    /**
-     * Data de vencimento final
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    dueDateTo: string;
-    /**
-     * ID do contato
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    contact?: string;
-    /**
-     * ID da subcategoria
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    subcategory?: string;
-    /**
-     * Data de competência inicial
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    competenceDateFrom?: string;
-    /**
-     * Data de competência final
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    competenceDateTo?: string;
-    /**
-     * Data de pagamento inicial
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    cashDateFrom?: string;
-    /**
-     * Data de pagamento final
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    cashDateTo?: string;
-    /**
-     * Data de criação inicial
-     * @type {any}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    createdAtFrom?: any | null;
-    /**
-     * Data de criação final
-     * @type {any}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    createdAtTo?: any | null;
-    /**
-     * IDs das tags separadas por vírgula
-     * @type {Array<string>}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    tags?: Array<string>;
-    /**
-     * Status de conclusão
-     * @type {boolean}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    completed?: boolean;
-    /**
-     * Status de reconciliação
-     * @type {boolean}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    reconciled?: boolean;
-    /**
-     * ID da conta bancária
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    account?: string;
 }
 
+
+/**
+ * @export
+ */
+export const AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = {
+    Income: 'INCOME',
+    Outcome: 'OUTCOME'
+} as const;
+export type AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum];
+
+/**
+ * @export
+ */
+export const AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum = {
+    Base: 'base',
+    Final: 'final'
+} as const;
+export type AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum];
 
 /**
  * @export
@@ -149,24 +179,13 @@ export const AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = {
 } as const;
 export type AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum];
 
-/**
- * @export
- */
-export const AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
-} as const;
-export type AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum];
-
 
 /**
  * Check if a given object implements the AggregatedFinancialRecordsReportEntityDataFilters interface.
  */
 export function instanceOfAggregatedFinancialRecordsReportEntityDataFilters(value: object): value is AggregatedFinancialRecordsReportEntityDataFilters {
-    if (!('groupBy' in value) || value['groupBy'] === undefined) return false;
     if (!('direction' in value) || value['direction'] === undefined) return false;
-    if (!('dueDateFrom' in value) || value['dueDateFrom'] === undefined) return false;
-    if (!('dueDateTo' in value) || value['dueDateTo'] === undefined) return false;
+    if (!('groupBy' in value) || value['groupBy'] === undefined) return false;
     return true;
 }
 
@@ -180,12 +199,9 @@ export function AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped(j
     }
     return {
         
-        'groupBy': json['groupBy'],
-        'sortOrder': json['sortOrder'] == null ? undefined : json['sortOrder'],
-        'populate': json['populate'] == null ? undefined : json['populate'],
         'direction': json['direction'],
-        'dueDateFrom': json['dueDateFrom'],
-        'dueDateTo': json['dueDateTo'],
+        'dueDateFrom': json['dueDateFrom'] == null ? undefined : json['dueDateFrom'],
+        'dueDateTo': json['dueDateTo'] == null ? undefined : json['dueDateTo'],
         'contact': json['contact'] == null ? undefined : json['contact'],
         'subcategory': json['subcategory'] == null ? undefined : json['subcategory'],
         'competenceDateFrom': json['competenceDateFrom'] == null ? undefined : json['competenceDateFrom'],
@@ -198,6 +214,11 @@ export function AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped(j
         'completed': json['completed'] == null ? undefined : json['completed'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'account': json['account'] == null ? undefined : json['account'],
+        'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
+        'recurringFinancialRecord': json['recurringFinancialRecord'] == null ? undefined : json['recurringFinancialRecord'],
+        'amountType': json['amountType'] == null ? undefined : json['amountType'],
+        'groupBy': json['groupBy'],
+        'sortOrder': json['sortOrder'] == null ? undefined : json['sortOrder'],
     };
 }
 
@@ -212,9 +233,6 @@ export function AggregatedFinancialRecordsReportEntityDataFiltersToJSONTyped(val
 
     return {
         
-        'groupBy': value['groupBy'],
-        'sortOrder': value['sortOrder'],
-        'populate': value['populate'],
         'direction': value['direction'],
         'dueDateFrom': value['dueDateFrom'],
         'dueDateTo': value['dueDateTo'],
@@ -230,6 +248,11 @@ export function AggregatedFinancialRecordsReportEntityDataFiltersToJSONTyped(val
         'completed': value['completed'],
         'reconciled': value['reconciled'],
         'account': value['account'],
+        'installmentFinancialRecord': value['installmentFinancialRecord'],
+        'recurringFinancialRecord': value['recurringFinancialRecord'],
+        'amountType': value['amountType'],
+        'groupBy': value['groupBy'],
+        'sortOrder': value['sortOrder'],
     };
 }
 

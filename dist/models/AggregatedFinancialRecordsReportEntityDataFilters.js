@@ -13,12 +13,26 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersGroupByEnum = void 0;
+exports.AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersGroupByEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = void 0;
 exports.instanceOfAggregatedFinancialRecordsReportEntityDataFilters = instanceOfAggregatedFinancialRecordsReportEntityDataFilters;
 exports.AggregatedFinancialRecordsReportEntityDataFiltersFromJSON = AggregatedFinancialRecordsReportEntityDataFiltersFromJSON;
 exports.AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped = AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped;
 exports.AggregatedFinancialRecordsReportEntityDataFiltersToJSON = AggregatedFinancialRecordsReportEntityDataFiltersToJSON;
 exports.AggregatedFinancialRecordsReportEntityDataFiltersToJSONTyped = AggregatedFinancialRecordsReportEntityDataFiltersToJSONTyped;
+/**
+ * @export
+ */
+exports.AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = {
+    Income: 'INCOME',
+    Outcome: 'OUTCOME'
+};
+/**
+ * @export
+ */
+exports.AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum = {
+    Base: 'base',
+    Final: 'final'
+};
 /**
  * @export
  */
@@ -35,23 +49,12 @@ exports.AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = {
     Desc: 'desc'
 };
 /**
- * @export
- */
-exports.AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
-};
-/**
  * Check if a given object implements the AggregatedFinancialRecordsReportEntityDataFilters interface.
  */
 function instanceOfAggregatedFinancialRecordsReportEntityDataFilters(value) {
-    if (!('groupBy' in value) || value['groupBy'] === undefined)
-        return false;
     if (!('direction' in value) || value['direction'] === undefined)
         return false;
-    if (!('dueDateFrom' in value) || value['dueDateFrom'] === undefined)
-        return false;
-    if (!('dueDateTo' in value) || value['dueDateTo'] === undefined)
+    if (!('groupBy' in value) || value['groupBy'] === undefined)
         return false;
     return true;
 }
@@ -63,12 +66,9 @@ function AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped(json, ig
         return json;
     }
     return {
-        'groupBy': json['groupBy'],
-        'sortOrder': json['sortOrder'] == null ? undefined : json['sortOrder'],
-        'populate': json['populate'] == null ? undefined : json['populate'],
         'direction': json['direction'],
-        'dueDateFrom': json['dueDateFrom'],
-        'dueDateTo': json['dueDateTo'],
+        'dueDateFrom': json['dueDateFrom'] == null ? undefined : json['dueDateFrom'],
+        'dueDateTo': json['dueDateTo'] == null ? undefined : json['dueDateTo'],
         'contact': json['contact'] == null ? undefined : json['contact'],
         'subcategory': json['subcategory'] == null ? undefined : json['subcategory'],
         'competenceDateFrom': json['competenceDateFrom'] == null ? undefined : json['competenceDateFrom'],
@@ -81,6 +81,11 @@ function AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped(json, ig
         'completed': json['completed'] == null ? undefined : json['completed'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'account': json['account'] == null ? undefined : json['account'],
+        'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
+        'recurringFinancialRecord': json['recurringFinancialRecord'] == null ? undefined : json['recurringFinancialRecord'],
+        'amountType': json['amountType'] == null ? undefined : json['amountType'],
+        'groupBy': json['groupBy'],
+        'sortOrder': json['sortOrder'] == null ? undefined : json['sortOrder'],
     };
 }
 function AggregatedFinancialRecordsReportEntityDataFiltersToJSON(json) {
@@ -92,9 +97,6 @@ function AggregatedFinancialRecordsReportEntityDataFiltersToJSONTyped(value, ign
         return value;
     }
     return {
-        'groupBy': value['groupBy'],
-        'sortOrder': value['sortOrder'],
-        'populate': value['populate'],
         'direction': value['direction'],
         'dueDateFrom': value['dueDateFrom'],
         'dueDateTo': value['dueDateTo'],
@@ -110,5 +112,10 @@ function AggregatedFinancialRecordsReportEntityDataFiltersToJSONTyped(value, ign
         'completed': value['completed'],
         'reconciled': value['reconciled'],
         'account': value['account'],
+        'installmentFinancialRecord': value['installmentFinancialRecord'],
+        'recurringFinancialRecord': value['recurringFinancialRecord'],
+        'amountType': value['amountType'],
+        'groupBy': value['groupBy'],
+        'sortOrder': value['sortOrder'],
     };
 }
