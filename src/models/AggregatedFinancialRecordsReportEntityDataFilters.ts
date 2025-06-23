@@ -122,7 +122,7 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      */
     recurringFinancialRecord?: string;
     /**
-     * Tipo de valor
+     * 
      * @type {string}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
