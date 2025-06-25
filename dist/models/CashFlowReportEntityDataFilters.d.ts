@@ -29,11 +29,11 @@ export interface CashFlowReportEntityDataFilters {
      */
     period?: CashFlowReportEntityDataFiltersPeriod;
     /**
-     * ID da conta bancária para filtrar
-     * @type {string}
+     * IDs das contas bancárias para filtrar
+     * @type {Array<string>}
      * @memberof CashFlowReportEntityDataFilters
      */
-    bankAccount?: string;
+    bankAccounts?: Array<string>;
     /**
      * Filtro de status de conciliação
      * @type {Array<boolean>}

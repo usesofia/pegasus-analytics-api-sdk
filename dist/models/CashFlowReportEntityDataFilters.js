@@ -47,7 +47,7 @@ function CashFlowReportEntityDataFiltersFromJSONTyped(json, ignoreDiscriminator)
     return {
         'grouping': json['grouping'],
         'period': json['period'] == null ? undefined : (0, CashFlowReportEntityDataFiltersPeriod_1.CashFlowReportEntityDataFiltersPeriodFromJSON)(json['period']),
-        'bankAccount': json['bankAccount'] == null ? undefined : json['bankAccount'],
+        'bankAccounts': json['bankAccounts'] == null ? undefined : json['bankAccounts'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'tags': json['tags'] == null ? undefined : json['tags'],
     };
@@ -63,7 +63,7 @@ function CashFlowReportEntityDataFiltersToJSONTyped(value, ignoreDiscriminator) 
     return {
         'grouping': value['grouping'],
         'period': (0, CashFlowReportEntityDataFiltersPeriod_1.CashFlowReportEntityDataFiltersPeriodToJSON)(value['period']),
-        'bankAccount': value['bankAccount'],
+        'bankAccounts': value['bankAccounts'],
         'reconciled': value['reconciled'],
         'tags': value['tags'],
     };

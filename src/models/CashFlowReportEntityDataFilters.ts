@@ -40,11 +40,11 @@ export interface CashFlowReportEntityDataFilters {
      */
     period?: CashFlowReportEntityDataFiltersPeriod;
     /**
-     * ID da conta bancária para filtrar
-     * @type {string}
+     * IDs das contas bancárias para filtrar
+     * @type {Array<string>}
      * @memberof CashFlowReportEntityDataFilters
      */
-    bankAccount?: string;
+    bankAccounts?: Array<string>;
     /**
      * Filtro de status de conciliação
      * @type {Array<boolean>}
@@ -92,7 +92,7 @@ export function CashFlowReportEntityDataFiltersFromJSONTyped(json: any, ignoreDi
         
         'grouping': json['grouping'],
         'period': json['period'] == null ? undefined : CashFlowReportEntityDataFiltersPeriodFromJSON(json['period']),
-        'bankAccount': json['bankAccount'] == null ? undefined : json['bankAccount'],
+        'bankAccounts': json['bankAccounts'] == null ? undefined : json['bankAccounts'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'tags': json['tags'] == null ? undefined : json['tags'],
     };
@@ -111,7 +111,7 @@ export function CashFlowReportEntityDataFiltersToJSONTyped(value?: CashFlowRepor
         
         'grouping': value['grouping'],
         'period': CashFlowReportEntityDataFiltersPeriodToJSON(value['period']),
-        'bankAccount': value['bankAccount'],
+        'bankAccounts': value['bankAccounts'],
         'reconciled': value['reconciled'],
         'tags': value['tags'],
     };
