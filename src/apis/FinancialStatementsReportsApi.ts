@@ -253,8 +253,11 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-statements/financial-measures-report`;
+
         const response = await this.request({
-            path: `/external/financial-statements/financial-measures-report`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -335,8 +338,11 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-statements/result-composition/report`;
+
         const response = await this.request({
-            path: `/external/financial-statements/result-composition/report`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -414,8 +420,11 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-statements/report`;
+
         const response = await this.request({
-            path: `/external/financial-statements/report`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

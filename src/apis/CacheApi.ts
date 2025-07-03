@@ -83,8 +83,11 @@ export class CacheApi extends runtime.BaseAPI implements CacheApiInterface {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/cache`;
+
         const response = await this.request({
-            path: `/external/cache`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -118,8 +121,11 @@ export class CacheApi extends runtime.BaseAPI implements CacheApiInterface {
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/cache`;
+
         const response = await this.request({
-            path: `/external/cache`,
+            path: urlPath,
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,

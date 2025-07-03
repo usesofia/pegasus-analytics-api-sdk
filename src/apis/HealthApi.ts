@@ -89,8 +89,11 @@ export class HealthApi extends runtime.BaseAPI implements HealthApiInterface {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/error`;
+
         const response = await this.request({
-            path: `/error`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -114,8 +117,11 @@ export class HealthApi extends runtime.BaseAPI implements HealthApiInterface {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/`;
+
         const response = await this.request({
-            path: `/`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -140,8 +146,11 @@ export class HealthApi extends runtime.BaseAPI implements HealthApiInterface {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/`;
+
         const response = await this.request({
-            path: `/`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

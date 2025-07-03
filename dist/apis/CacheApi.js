@@ -80,14 +80,15 @@ var CacheApi = /** @class */ (function (_super) {
      */
     CacheApi.prototype.getCacheValueRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/cache";
                         return [4 /*yield*/, this.request({
-                                path: "/external/cache",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -121,7 +122,7 @@ var CacheApi = /** @class */ (function (_super) {
      */
     CacheApi.prototype.setCacheValueRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -131,8 +132,9 @@ var CacheApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/cache";
                         return [4 /*yield*/, this.request({
-                                path: "/external/cache",
+                                path: urlPath,
                                 method: 'PUT',
                                 headers: headerParameters,
                                 query: queryParameters,

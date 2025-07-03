@@ -303,8 +303,11 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-records/aggregated/report`;
+
         const response = await this.request({
-            path: `/external/financial-records/aggregated/report`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -381,8 +384,11 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-records/aggregated-monthly/report`;
+
         const response = await this.request({
-            path: `/external/financial-records/aggregated-monthly/report`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -471,8 +477,11 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-records/aggregated-result/report`;
+
         const response = await this.request({
-            path: `/external/financial-records/aggregated-result/report`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

@@ -80,7 +80,7 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
      */
     FinancialRecordsReportsApi.prototype.generateAggregatedFinancialRecordsReportRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -155,8 +155,9 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
                             queryParameters['groupBy'] = requestParameters['groupBy'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/financial-records/aggregated/report";
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/aggregated/report",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -190,7 +191,7 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
      */
     FinancialRecordsReportsApi.prototype.generateMonthlyFinancialReportRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -235,8 +236,9 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
                             queryParameters['direction'] = requestParameters['direction'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/financial-records/aggregated-monthly/report";
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/aggregated-monthly/report",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -271,7 +273,7 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
      */
     FinancialRecordsReportsApi.prototype.getAggregatedResultReportRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -325,8 +327,9 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
                             queryParameters['direction'] = requestParameters['direction'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/financial-records/aggregated-result/report";
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/aggregated-result/report",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,

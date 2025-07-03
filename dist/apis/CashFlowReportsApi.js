@@ -80,7 +80,7 @@ var CashFlowReportsApi = /** @class */ (function (_super) {
      */
     CashFlowReportsApi.prototype.generateCashFlowReportRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -113,8 +113,9 @@ var CashFlowReportsApi = /** @class */ (function (_super) {
                             queryParameters['grouping'] = requestParameters['grouping'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/cash-flow/report";
                         return [4 /*yield*/, this.request({
-                                path: "/external/cash-flow/report",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,

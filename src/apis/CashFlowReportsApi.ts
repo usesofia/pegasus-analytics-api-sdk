@@ -118,8 +118,11 @@ export class CashFlowReportsApi extends runtime.BaseAPI implements CashFlowRepor
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/cash-flow/report`;
+
         const response = await this.request({
-            path: `/external/cash-flow/report`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
