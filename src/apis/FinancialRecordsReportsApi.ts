@@ -34,27 +34,6 @@ import {
     MonthlyFinancialReportEntityToJSON,
 } from '../models/index';
 
-export interface FinancialRecordsReportControllerGetBankAccountsDashboardRequest {
-    amountType?: FinancialRecordsReportControllerGetBankAccountsDashboardAmountTypeEnum;
-    recurringFinancialRecord?: string;
-    installmentFinancialRecord?: string;
-    account?: string;
-    reconciled?: boolean;
-    completed?: boolean;
-    tags?: string;
-    createdAtTo?: string;
-    createdAtFrom?: string;
-    cashDateTo?: string;
-    cashDateFrom?: string;
-    competenceDateTo?: string;
-    competenceDateFrom?: string;
-    subcategory?: string;
-    contact?: string;
-    dueDateTo?: string;
-    dueDateFrom?: string;
-    direction?: FinancialRecordsReportControllerGetBankAccountsDashboardDirectionEnum;
-}
-
 export interface GenerateAggregatedFinancialRecordsReportRequest {
     direction: GenerateAggregatedFinancialRecordsReportDirectionEnum;
     sortOrder: GenerateAggregatedFinancialRecordsReportSortOrderEnum;
@@ -113,6 +92,27 @@ export interface GetAggregatedResultReportRequest {
     direction?: GetAggregatedResultReportDirectionEnum;
 }
 
+export interface GetBankAccountsDashboardReportRequest {
+    amountType?: GetBankAccountsDashboardReportAmountTypeEnum;
+    recurringFinancialRecord?: string;
+    installmentFinancialRecord?: string;
+    account?: string;
+    reconciled?: boolean;
+    completed?: boolean;
+    tags?: string;
+    createdAtTo?: string;
+    createdAtFrom?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    dueDateTo?: string;
+    dueDateFrom?: string;
+    direction?: GetBankAccountsDashboardReportDirectionEnum;
+}
+
 /**
  * FinancialRecordsReportsApi - interface
  * 
@@ -120,38 +120,6 @@ export interface GetAggregatedResultReportRequest {
  * @interface FinancialRecordsReportsApiInterface
  */
 export interface FinancialRecordsReportsApiInterface {
-    /**
-     * 
-     * @summary Gera relatório de contas bancárias com resumo financeiro
-     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos.
-     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente.
-     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro parcelado.
-     * @param {string} [account] ID da conta bancária.
-     * @param {boolean} [reconciled] Status de conciliação dos lançamentos.
-     * @param {boolean} [completed] Status de conclusão dos lançamentos.
-     * @param {string} [tags] IDs das tags separadas por vírgula.
-     * @param {string} [createdAtTo] Data de criação final.
-     * @param {string} [createdAtFrom] Data de criação inicial.
-     * @param {string} [cashDateTo] Data de caixa final.
-     * @param {string} [cashDateFrom] Data de caixa inicial.
-     * @param {string} [competenceDateTo] Data de competência final.
-     * @param {string} [competenceDateFrom] Data de competência inicial.
-     * @param {string} [subcategory] ID da subcategoria.
-     * @param {string} [contact] ID do contato.
-     * @param {string} [dueDateTo] Data de vencimento final.
-     * @param {string} [dueDateFrom] Data de vencimento inicial.
-     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FinancialRecordsReportsApiInterface
-     */
-    financialRecordsReportControllerGetBankAccountsDashboardRaw(requestParameters: FinancialRecordsReportControllerGetBankAccountsDashboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsDashboardReportEntity>>;
-
-    /**
-     * Gera relatório de contas bancárias com resumo financeiro
-     */
-    financialRecordsReportControllerGetBankAccountsDashboard(requestParameters: FinancialRecordsReportControllerGetBankAccountsDashboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsDashboardReportEntity>;
-
     /**
      * 
      * @summary Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
@@ -243,113 +211,44 @@ export interface FinancialRecordsReportsApiInterface {
      */
     getAggregatedResultReport(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
 
+    /**
+     * 
+     * @summary Gera relatório de contas bancárias com resumo financeiro
+     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos.
+     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente.
+     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro parcelado.
+     * @param {string} [account] ID da conta bancária.
+     * @param {boolean} [reconciled] Status de conciliação dos lançamentos.
+     * @param {boolean} [completed] Status de conclusão dos lançamentos.
+     * @param {string} [tags] IDs das tags separadas por vírgula.
+     * @param {string} [createdAtTo] Data de criação final.
+     * @param {string} [createdAtFrom] Data de criação inicial.
+     * @param {string} [cashDateTo] Data de caixa final.
+     * @param {string} [cashDateFrom] Data de caixa inicial.
+     * @param {string} [competenceDateTo] Data de competência final.
+     * @param {string} [competenceDateFrom] Data de competência inicial.
+     * @param {string} [subcategory] ID da subcategoria.
+     * @param {string} [contact] ID do contato.
+     * @param {string} [dueDateTo] Data de vencimento final.
+     * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsReportsApiInterface
+     */
+    getBankAccountsDashboardReportRaw(requestParameters: GetBankAccountsDashboardReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsDashboardReportEntity>>;
+
+    /**
+     * Gera relatório de contas bancárias com resumo financeiro
+     */
+    getBankAccountsDashboardReport(requestParameters: GetBankAccountsDashboardReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsDashboardReportEntity>;
+
 }
 
 /**
  * 
  */
 export class FinancialRecordsReportsApi extends runtime.BaseAPI implements FinancialRecordsReportsApiInterface {
-
-    /**
-     * Gera relatório de contas bancárias com resumo financeiro
-     */
-    async financialRecordsReportControllerGetBankAccountsDashboardRaw(requestParameters: FinancialRecordsReportControllerGetBankAccountsDashboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsDashboardReportEntity>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['amountType'] != null) {
-            queryParameters['amountType'] = requestParameters['amountType'];
-        }
-
-        if (requestParameters['recurringFinancialRecord'] != null) {
-            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
-        }
-
-        if (requestParameters['installmentFinancialRecord'] != null) {
-            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
-        }
-
-        if (requestParameters['account'] != null) {
-            queryParameters['account'] = requestParameters['account'];
-        }
-
-        if (requestParameters['reconciled'] != null) {
-            queryParameters['reconciled'] = requestParameters['reconciled'];
-        }
-
-        if (requestParameters['completed'] != null) {
-            queryParameters['completed'] = requestParameters['completed'];
-        }
-
-        if (requestParameters['tags'] != null) {
-            queryParameters['tags'] = requestParameters['tags'];
-        }
-
-        if (requestParameters['createdAtTo'] != null) {
-            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
-        }
-
-        if (requestParameters['createdAtFrom'] != null) {
-            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
-        }
-
-        if (requestParameters['cashDateTo'] != null) {
-            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
-        }
-
-        if (requestParameters['cashDateFrom'] != null) {
-            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
-        }
-
-        if (requestParameters['competenceDateTo'] != null) {
-            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
-        }
-
-        if (requestParameters['competenceDateFrom'] != null) {
-            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
-        }
-
-        if (requestParameters['subcategory'] != null) {
-            queryParameters['subcategory'] = requestParameters['subcategory'];
-        }
-
-        if (requestParameters['contact'] != null) {
-            queryParameters['contact'] = requestParameters['contact'];
-        }
-
-        if (requestParameters['dueDateTo'] != null) {
-            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
-        }
-
-        if (requestParameters['dueDateFrom'] != null) {
-            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
-        }
-
-        if (requestParameters['direction'] != null) {
-            queryParameters['direction'] = requestParameters['direction'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/external/bank-accounts`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountsDashboardReportEntityFromJSON(jsonValue));
-    }
-
-    /**
-     * Gera relatório de contas bancárias com resumo financeiro
-     */
-    async financialRecordsReportControllerGetBankAccountsDashboard(requestParameters: FinancialRecordsReportControllerGetBankAccountsDashboardRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsDashboardReportEntity> {
-        const response = await this.financialRecordsReportControllerGetBankAccountsDashboardRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
 
     /**
      * Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
@@ -655,24 +554,109 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
         return await response.value();
     }
 
+    /**
+     * Gera relatório de contas bancárias com resumo financeiro
+     */
+    async getBankAccountsDashboardReportRaw(requestParameters: GetBankAccountsDashboardReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsDashboardReportEntity>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['amountType'] != null) {
+            queryParameters['amountType'] = requestParameters['amountType'];
+        }
+
+        if (requestParameters['recurringFinancialRecord'] != null) {
+            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
+        }
+
+        if (requestParameters['installmentFinancialRecord'] != null) {
+            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+        }
+
+        if (requestParameters['account'] != null) {
+            queryParameters['account'] = requestParameters['account'];
+        }
+
+        if (requestParameters['reconciled'] != null) {
+            queryParameters['reconciled'] = requestParameters['reconciled'];
+        }
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
+        }
+
+        if (requestParameters['tags'] != null) {
+            queryParameters['tags'] = requestParameters['tags'];
+        }
+
+        if (requestParameters['createdAtTo'] != null) {
+            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+        }
+
+        if (requestParameters['createdAtFrom'] != null) {
+            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+        }
+
+        if (requestParameters['cashDateTo'] != null) {
+            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+        }
+
+        if (requestParameters['cashDateFrom'] != null) {
+            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+        }
+
+        if (requestParameters['competenceDateTo'] != null) {
+            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+        }
+
+        if (requestParameters['competenceDateFrom'] != null) {
+            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+        }
+
+        if (requestParameters['subcategory'] != null) {
+            queryParameters['subcategory'] = requestParameters['subcategory'];
+        }
+
+        if (requestParameters['contact'] != null) {
+            queryParameters['contact'] = requestParameters['contact'];
+        }
+
+        if (requestParameters['dueDateTo'] != null) {
+            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+        }
+
+        if (requestParameters['dueDateFrom'] != null) {
+            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+        }
+
+        if (requestParameters['direction'] != null) {
+            queryParameters['direction'] = requestParameters['direction'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/external/bank-accounts`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountsDashboardReportEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Gera relatório de contas bancárias com resumo financeiro
+     */
+    async getBankAccountsDashboardReport(requestParameters: GetBankAccountsDashboardReportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsDashboardReportEntity> {
+        const response = await this.getBankAccountsDashboardReportRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
 }
 
-/**
- * @export
- */
-export const FinancialRecordsReportControllerGetBankAccountsDashboardAmountTypeEnum = {
-    Base: 'base',
-    Final: 'final'
-} as const;
-export type FinancialRecordsReportControllerGetBankAccountsDashboardAmountTypeEnum = typeof FinancialRecordsReportControllerGetBankAccountsDashboardAmountTypeEnum[keyof typeof FinancialRecordsReportControllerGetBankAccountsDashboardAmountTypeEnum];
-/**
- * @export
- */
-export const FinancialRecordsReportControllerGetBankAccountsDashboardDirectionEnum = {
-    In: 'IN',
-    Out: 'OUT'
-} as const;
-export type FinancialRecordsReportControllerGetBankAccountsDashboardDirectionEnum = typeof FinancialRecordsReportControllerGetBankAccountsDashboardDirectionEnum[keyof typeof FinancialRecordsReportControllerGetBankAccountsDashboardDirectionEnum];
 /**
  * @export
  */
@@ -738,3 +722,19 @@ export const GetAggregatedResultReportDirectionEnum = {
     Out: 'OUT'
 } as const;
 export type GetAggregatedResultReportDirectionEnum = typeof GetAggregatedResultReportDirectionEnum[keyof typeof GetAggregatedResultReportDirectionEnum];
+/**
+ * @export
+ */
+export const GetBankAccountsDashboardReportAmountTypeEnum = {
+    Base: 'base',
+    Final: 'final'
+} as const;
+export type GetBankAccountsDashboardReportAmountTypeEnum = typeof GetBankAccountsDashboardReportAmountTypeEnum[keyof typeof GetBankAccountsDashboardReportAmountTypeEnum];
+/**
+ * @export
+ */
+export const GetBankAccountsDashboardReportDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+} as const;
+export type GetBankAccountsDashboardReportDirectionEnum = typeof GetBankAccountsDashboardReportDirectionEnum[keyof typeof GetBankAccountsDashboardReportDirectionEnum];
