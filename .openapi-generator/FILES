@@ -13,6 +13,9 @@ src/models/AggregatedFinancialRecordsReportEntity.ts
 src/models/AggregatedFinancialRecordsReportEntityData.ts
 src/models/AggregatedFinancialRecordsReportEntityDataDataInner.ts
 src/models/AggregatedFinancialRecordsReportEntityDataFilters.ts
+src/models/BankAccountsDashboardReportEntity.ts
+src/models/BankAccountsDashboardReportEntityData.ts
+src/models/BankAccountsDashboardReportEntityDataBankAccountsInner.ts
 src/models/CacheGetResponseDto.ts
 src/models/CacheSetDto.ts
 src/models/CashFlowReportEntity.ts

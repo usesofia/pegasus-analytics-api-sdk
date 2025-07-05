@@ -60,7 +60,8 @@ export const FinancialRecordsAggregatedResultReportEntityTypeEnum = {
     AggregatedFinancialRecordsReport: 'AGGREGATED_FINANCIAL_RECORDS_REPORT',
     MonthlyFinancialReport: 'MONTHLY_FINANCIAL_REPORT',
     FinancialMeasuresReport: 'FINANCIAL_MEASURES_REPORT',
-    FinancialResultCompositionReport: 'FINANCIAL_RESULT_COMPOSITION_REPORT'
+    FinancialResultCompositionReport: 'FINANCIAL_RESULT_COMPOSITION_REPORT',
+    BankAccountsDashboardReport: 'BANK_ACCOUNTS_DASHBOARD_REPORT'
 } as const;
 export type FinancialRecordsAggregatedResultReportEntityTypeEnum = typeof FinancialRecordsAggregatedResultReportEntityTypeEnum[keyof typeof FinancialRecordsAggregatedResultReportEntityTypeEnum];
 

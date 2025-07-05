@@ -32,7 +32,8 @@ exports.FinancialRecordsAggregatedResultReportEntityTypeEnum = {
     AggregatedFinancialRecordsReport: 'AGGREGATED_FINANCIAL_RECORDS_REPORT',
     MonthlyFinancialReport: 'MONTHLY_FINANCIAL_REPORT',
     FinancialMeasuresReport: 'FINANCIAL_MEASURES_REPORT',
-    FinancialResultCompositionReport: 'FINANCIAL_RESULT_COMPOSITION_REPORT'
+    FinancialResultCompositionReport: 'FINANCIAL_RESULT_COMPOSITION_REPORT',
+    BankAccountsDashboardReport: 'BANK_ACCOUNTS_DASHBOARD_REPORT'
 };
 /**
  * Check if a given object implements the FinancialRecordsAggregatedResultReportEntity interface.
