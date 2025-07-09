@@ -42,7 +42,7 @@ export interface BankAccountsDashboardReportEntityDataBankAccountsInner {
      * @type {string}
      * @memberof BankAccountsDashboardReportEntityDataBankAccountsInner
      */
-    provider: string;
+    provider?: string | null;
     /**
      * Total de registros financeiros
      * @type {number}
@@ -61,6 +61,12 @@ export interface BankAccountsDashboardReportEntityDataBankAccountsInner {
      * @memberof BankAccountsDashboardReportEntityDataBankAccountsInner
      */
     totalOutcome: string;
+    /**
+     * Saldo atual da conta bancária
+     * @type {number}
+     * @memberof BankAccountsDashboardReportEntityDataBankAccountsInner
+     */
+    balance: number;
 }
 
 /**
@@ -70,10 +76,10 @@ export function instanceOfBankAccountsDashboardReportEntityDataBankAccountsInner
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
-    if (!('provider' in value) || value['provider'] === undefined) return false;
     if (!('recordCount' in value) || value['recordCount'] === undefined) return false;
     if (!('totalIncome' in value) || value['totalIncome'] === undefined) return false;
     if (!('totalOutcome' in value) || value['totalOutcome'] === undefined) return false;
+    if (!('balance' in value) || value['balance'] === undefined) return false;
     return true;
 }
 
@@ -90,10 +96,11 @@ export function BankAccountsDashboardReportEntityDataBankAccountsInnerFromJSONTy
         'id': json['id'],
         'name': json['name'],
         'type': json['type'],
-        'provider': json['provider'],
+        'provider': json['provider'] == null ? undefined : json['provider'],
         'recordCount': json['recordCount'],
         'totalIncome': json['totalIncome'],
         'totalOutcome': json['totalOutcome'],
+        'balance': json['balance'],
     };
 }
 
@@ -115,6 +122,7 @@ export function BankAccountsDashboardReportEntityDataBankAccountsInnerToJSONType
         'recordCount': value['recordCount'],
         'totalIncome': value['totalIncome'],
         'totalOutcome': value['totalOutcome'],
+        'balance': value['balance'],
     };
 }
 

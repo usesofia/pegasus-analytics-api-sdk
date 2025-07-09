@@ -28,13 +28,13 @@ function instanceOfBankAccountsDashboardReportEntityDataBankAccountsInner(value)
         return false;
     if (!('type' in value) || value['type'] === undefined)
         return false;
-    if (!('provider' in value) || value['provider'] === undefined)
-        return false;
     if (!('recordCount' in value) || value['recordCount'] === undefined)
         return false;
     if (!('totalIncome' in value) || value['totalIncome'] === undefined)
         return false;
     if (!('totalOutcome' in value) || value['totalOutcome'] === undefined)
+        return false;
+    if (!('balance' in value) || value['balance'] === undefined)
         return false;
     return true;
 }
@@ -49,10 +49,11 @@ function BankAccountsDashboardReportEntityDataBankAccountsInnerFromJSONTyped(jso
         'id': json['id'],
         'name': json['name'],
         'type': json['type'],
-        'provider': json['provider'],
+        'provider': json['provider'] == null ? undefined : json['provider'],
         'recordCount': json['recordCount'],
         'totalIncome': json['totalIncome'],
         'totalOutcome': json['totalOutcome'],
+        'balance': json['balance'],
     };
 }
 function BankAccountsDashboardReportEntityDataBankAccountsInnerToJSON(json) {
@@ -71,5 +72,6 @@ function BankAccountsDashboardReportEntityDataBankAccountsInnerToJSONTyped(value
         'recordCount': value['recordCount'],
         'totalIncome': value['totalIncome'],
         'totalOutcome': value['totalOutcome'],
+        'balance': value['balance'],
     };
 }

@@ -38,7 +38,7 @@ export interface BankAccountsDashboardReportEntityDataBankAccountsInner {
      * @type {string}
      * @memberof BankAccountsDashboardReportEntityDataBankAccountsInner
      */
-    provider: string;
+    provider?: string | null;
     /**
      * Total de registros financeiros
      * @type {number}
@@ -57,6 +57,12 @@ export interface BankAccountsDashboardReportEntityDataBankAccountsInner {
      * @memberof BankAccountsDashboardReportEntityDataBankAccountsInner
      */
     totalOutcome: string;
+    /**
+     * Saldo atual da conta bancária
+     * @type {number}
+     * @memberof BankAccountsDashboardReportEntityDataBankAccountsInner
+     */
+    balance: number;
 }
 /**
  * Check if a given object implements the BankAccountsDashboardReportEntityDataBankAccountsInner interface.
