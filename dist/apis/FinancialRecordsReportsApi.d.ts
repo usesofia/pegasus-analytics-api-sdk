@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AggregatedFinancialRecordsReportEntity, BankAccountsDashboardReportEntity, FinancialRecordsAggregatedResultReportEntity, MonthlyFinancialReportEntity } from '../models/index';
+import type { AggregatedFinancialRecordsReportEntity, FinancialRecordsAggregatedResultReportEntity, MonthlyFinancialReportEntity } from '../models/index';
 export interface GenerateAggregatedFinancialRecordsReportRequest {
     direction: GenerateAggregatedFinancialRecordsReportDirectionEnum;
     sortOrder: GenerateAggregatedFinancialRecordsReportSortOrderEnum;
@@ -65,26 +65,6 @@ export interface GetAggregatedResultReportRequest {
     dueDateTo?: string;
     dueDateFrom?: string;
     direction?: GetAggregatedResultReportDirectionEnum;
-}
-export interface GetBankAccountsDashboardReportRequest {
-    amountType?: GetBankAccountsDashboardReportAmountTypeEnum;
-    recurringFinancialRecord?: string;
-    installmentFinancialRecord?: string;
-    account?: string;
-    reconciled?: boolean;
-    completed?: boolean;
-    tags?: string;
-    createdAtTo?: string;
-    createdAtFrom?: string;
-    cashDateTo?: string;
-    cashDateFrom?: string;
-    competenceDateTo?: string;
-    competenceDateFrom?: string;
-    subcategory?: string;
-    contact?: string;
-    dueDateTo?: string;
-    dueDateFrom?: string;
-    direction?: GetBankAccountsDashboardReportDirectionEnum;
 }
 /**
  * FinancialRecordsReportsApi - interface
@@ -178,36 +158,6 @@ export interface FinancialRecordsReportsApiInterface {
      * Get aggregated   result report for financial records
      */
     getAggregatedResultReport(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
-    /**
-     *
-     * @summary Gera relatório de contas bancárias com resumo financeiro
-     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos.
-     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente.
-     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro parcelado.
-     * @param {string} [account] ID da conta bancária.
-     * @param {boolean} [reconciled] Status de conciliação dos lançamentos.
-     * @param {boolean} [completed] Status de conclusão dos lançamentos.
-     * @param {string} [tags] IDs das tags separadas por vírgula.
-     * @param {string} [createdAtTo] Data de criação final.
-     * @param {string} [createdAtFrom] Data de criação inicial.
-     * @param {string} [cashDateTo] Data de caixa final.
-     * @param {string} [cashDateFrom] Data de caixa inicial.
-     * @param {string} [competenceDateTo] Data de competência final.
-     * @param {string} [competenceDateFrom] Data de competência inicial.
-     * @param {string} [subcategory] ID da subcategoria.
-     * @param {string} [contact] ID do contato.
-     * @param {string} [dueDateTo] Data de vencimento final.
-     * @param {string} [dueDateFrom] Data de vencimento inicial.
-     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FinancialRecordsReportsApiInterface
-     */
-    getBankAccountsDashboardReportRaw(requestParameters: GetBankAccountsDashboardReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsDashboardReportEntity>>;
-    /**
-     * Gera relatório de contas bancárias com resumo financeiro
-     */
-    getBankAccountsDashboardReport(requestParameters: GetBankAccountsDashboardReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsDashboardReportEntity>;
 }
 /**
  *
@@ -237,14 +187,6 @@ export declare class FinancialRecordsReportsApi extends runtime.BaseAPI implemen
      * Get aggregated   result report for financial records
      */
     getAggregatedResultReport(requestParameters?: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
-    /**
-     * Gera relatório de contas bancárias com resumo financeiro
-     */
-    getBankAccountsDashboardReportRaw(requestParameters: GetBankAccountsDashboardReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsDashboardReportEntity>>;
-    /**
-     * Gera relatório de contas bancárias com resumo financeiro
-     */
-    getBankAccountsDashboardReport(requestParameters?: GetBankAccountsDashboardReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsDashboardReportEntity>;
 }
 /**
  * @export
@@ -311,19 +253,3 @@ export declare const GetAggregatedResultReportDirectionEnum: {
     readonly Out: "OUT";
 };
 export type GetAggregatedResultReportDirectionEnum = typeof GetAggregatedResultReportDirectionEnum[keyof typeof GetAggregatedResultReportDirectionEnum];
-/**
- * @export
- */
-export declare const GetBankAccountsDashboardReportAmountTypeEnum: {
-    readonly Base: "base";
-    readonly Final: "final";
-};
-export type GetBankAccountsDashboardReportAmountTypeEnum = typeof GetBankAccountsDashboardReportAmountTypeEnum[keyof typeof GetBankAccountsDashboardReportAmountTypeEnum];
-/**
- * @export
- */
-export declare const GetBankAccountsDashboardReportDirectionEnum: {
-    readonly In: "IN";
-    readonly Out: "OUT";
-};
-export type GetBankAccountsDashboardReportDirectionEnum = typeof GetBankAccountsDashboardReportDirectionEnum[keyof typeof GetBankAccountsDashboardReportDirectionEnum];

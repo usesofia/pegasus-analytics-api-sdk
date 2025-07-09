@@ -2,6 +2,7 @@
 .npmignore
 README.md
 package.json
+src/apis/BankAccountsApi.ts
 src/apis/CacheApi.ts
 src/apis/CashFlowReportsApi.ts
 src/apis/FinancialRecordsReportsApi.ts

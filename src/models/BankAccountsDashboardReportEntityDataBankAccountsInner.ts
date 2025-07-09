@@ -44,12 +44,6 @@ export interface BankAccountsDashboardReportEntityDataBankAccountsInner {
      */
     provider: string;
     /**
-     * Saldo atual da conta bancária
-     * @type {string}
-     * @memberof BankAccountsDashboardReportEntityDataBankAccountsInner
-     */
-    balance: string;
-    /**
      * Total de registros financeiros
      * @type {number}
      * @memberof BankAccountsDashboardReportEntityDataBankAccountsInner
@@ -77,7 +71,6 @@ export function instanceOfBankAccountsDashboardReportEntityDataBankAccountsInner
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
     if (!('provider' in value) || value['provider'] === undefined) return false;
-    if (!('balance' in value) || value['balance'] === undefined) return false;
     if (!('recordCount' in value) || value['recordCount'] === undefined) return false;
     if (!('totalIncome' in value) || value['totalIncome'] === undefined) return false;
     if (!('totalOutcome' in value) || value['totalOutcome'] === undefined) return false;
@@ -98,7 +91,6 @@ export function BankAccountsDashboardReportEntityDataBankAccountsInnerFromJSONTy
         'name': json['name'],
         'type': json['type'],
         'provider': json['provider'],
-        'balance': json['balance'],
         'recordCount': json['recordCount'],
         'totalIncome': json['totalIncome'],
         'totalOutcome': json['totalOutcome'],
@@ -120,7 +112,6 @@ export function BankAccountsDashboardReportEntityDataBankAccountsInnerToJSONType
         'name': value['name'],
         'type': value['type'],
         'provider': value['provider'],
-        'balance': value['balance'],
         'recordCount': value['recordCount'],
         'totalIncome': value['totalIncome'],
         'totalOutcome': value['totalOutcome'],

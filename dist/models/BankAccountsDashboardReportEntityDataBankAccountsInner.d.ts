@@ -40,12 +40,6 @@ export interface BankAccountsDashboardReportEntityDataBankAccountsInner {
      */
     provider: string;
     /**
-     * Saldo atual da conta bancária
-     * @type {string}
-     * @memberof BankAccountsDashboardReportEntityDataBankAccountsInner
-     */
-    balance: string;
-    /**
      * Total de registros financeiros
      * @type {number}
      * @memberof BankAccountsDashboardReportEntityDataBankAccountsInner

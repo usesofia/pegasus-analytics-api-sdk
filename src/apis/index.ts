@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from './BankAccountsApi';
 export * from './CacheApi';
 export * from './CashFlowReportsApi';
 export * from './FinancialRecordsReportsApi';

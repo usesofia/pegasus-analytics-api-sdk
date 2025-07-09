@@ -30,8 +30,6 @@ function instanceOfBankAccountsDashboardReportEntityDataBankAccountsInner(value)
         return false;
     if (!('provider' in value) || value['provider'] === undefined)
         return false;
-    if (!('balance' in value) || value['balance'] === undefined)
-        return false;
     if (!('recordCount' in value) || value['recordCount'] === undefined)
         return false;
     if (!('totalIncome' in value) || value['totalIncome'] === undefined)
@@ -52,7 +50,6 @@ function BankAccountsDashboardReportEntityDataBankAccountsInnerFromJSONTyped(jso
         'name': json['name'],
         'type': json['type'],
         'provider': json['provider'],
-        'balance': json['balance'],
         'recordCount': json['recordCount'],
         'totalIncome': json['totalIncome'],
         'totalOutcome': json['totalOutcome'],
@@ -71,7 +68,6 @@ function BankAccountsDashboardReportEntityDataBankAccountsInnerToJSONTyped(value
         'name': value['name'],
         'type': value['type'],
         'provider': value['provider'],
-        'balance': value['balance'],
         'recordCount': value['recordCount'],
         'totalIncome': value['totalIncome'],
         'totalOutcome': value['totalOutcome'],
