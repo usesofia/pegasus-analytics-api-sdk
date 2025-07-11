@@ -26,11 +26,11 @@ export interface AggregatedFinancialRecordsReportEntityDataDataInner {
      */
     label: string;
     /**
-     * Valor total em formato string
-     * @type {string}
+     * Valor total
+     * @type {number}
      * @memberof AggregatedFinancialRecordsReportEntityDataDataInner
      */
-    totalAmount: string;
+    totalAmount: number;
 }
 
 /**
