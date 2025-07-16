@@ -376,5 +376,5 @@ exports.GenerateFinancialStatementReportReferenceDateEnum = {
 exports.GenerateFinancialStatementReportGroupingEnum = {
     Daily: 'daily',
     Monthly: 'monthly',
-    Annual: 'annual'
+    Yearly: 'yearly'
 };

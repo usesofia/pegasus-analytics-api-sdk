@@ -66,7 +66,7 @@ export interface FinancialStatementReportEntityDataFilters {
 export const FinancialStatementReportEntityDataFiltersGroupingEnum = {
     Daily: 'daily',
     Monthly: 'monthly',
-    Annual: 'annual'
+    Yearly: 'yearly'
 } as const;
 export type FinancialStatementReportEntityDataFiltersGroupingEnum = typeof FinancialStatementReportEntityDataFiltersGroupingEnum[keyof typeof FinancialStatementReportEntityDataFiltersGroupingEnum];
 

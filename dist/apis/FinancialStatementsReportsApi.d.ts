@@ -124,7 +124,7 @@ export interface FinancialStatementsReportsApiInterface {
      * @param {'dueDate' | 'cashDate' | 'competenceDate'} referenceDate Campo de data a ser utilizado para filtros
      * @param {string} periodTo Período do relatório
      * @param {string} periodFrom Período do relatório
-     * @param {'daily' | 'monthly' | 'annual'} grouping Agrupamento do relatório
+     * @param {'daily' | 'monthly' | 'yearly'} grouping Agrupamento do relatório
      * @param {string} [tags] IDs das tags
      * @param {string} [completed] Status de conclusão dos lançamentos
      * @param {*} [options] Override http request option.
@@ -216,6 +216,6 @@ export type GenerateFinancialStatementReportReferenceDateEnum = typeof GenerateF
 export declare const GenerateFinancialStatementReportGroupingEnum: {
     readonly Daily: "daily";
     readonly Monthly: "monthly";
-    readonly Annual: "annual";
+    readonly Yearly: "yearly";
 };
 export type GenerateFinancialStatementReportGroupingEnum = typeof GenerateFinancialStatementReportGroupingEnum[keyof typeof GenerateFinancialStatementReportGroupingEnum];

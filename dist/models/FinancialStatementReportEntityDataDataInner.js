@@ -18,7 +18,20 @@ exports.FinancialStatementReportEntityDataDataInnerFromJSON = FinancialStatement
 exports.FinancialStatementReportEntityDataDataInnerFromJSONTyped = FinancialStatementReportEntityDataDataInnerFromJSONTyped;
 exports.FinancialStatementReportEntityDataDataInnerToJSON = FinancialStatementReportEntityDataDataInnerToJSON;
 exports.FinancialStatementReportEntityDataDataInnerToJSONTyped = FinancialStatementReportEntityDataDataInnerToJSONTyped;
+var FinancialStatementReportEntityDataDataInnerIncomeTaxExpense_1 = require("./FinancialStatementReportEntityDataDataInnerIncomeTaxExpense");
+var FinancialStatementReportEntityDataDataInnerOtherIncome_1 = require("./FinancialStatementReportEntityDataDataInnerOtherIncome");
+var FinancialStatementReportEntityDataDataInnerEbitda_1 = require("./FinancialStatementReportEntityDataDataInnerEbitda");
+var FinancialStatementReportEntityDataDataInnerInvestments_1 = require("./FinancialStatementReportEntityDataDataInnerInvestments");
+var FinancialStatementReportEntityDataDataInnerFinancialIncome_1 = require("./FinancialStatementReportEntityDataDataInnerFinancialIncome");
+var FinancialStatementReportEntityDataDataInnerNetIncome_1 = require("./FinancialStatementReportEntityDataDataInnerNetIncome");
+var FinancialStatementReportEntityDataDataInnerAdministrativeExpenses_1 = require("./FinancialStatementReportEntityDataDataInnerAdministrativeExpenses");
 var CashFlowReportEntityDataDataInnerPeriod_1 = require("./CashFlowReportEntityDataDataInnerPeriod");
+var FinancialStatementReportEntityDataDataInnerOperationalRevenue_1 = require("./FinancialStatementReportEntityDataDataInnerOperationalRevenue");
+var FinancialStatementReportEntityDataDataInnerContributionMargin_1 = require("./FinancialStatementReportEntityDataDataInnerContributionMargin");
+var FinancialStatementReportEntityDataDataInnerFinancialExpenses_1 = require("./FinancialStatementReportEntityDataDataInnerFinancialExpenses");
+var FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpenses_1 = require("./FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpenses");
+var FinancialStatementReportEntityDataDataInnerOperatingExpenses_1 = require("./FinancialStatementReportEntityDataDataInnerOperatingExpenses");
+var FinancialStatementReportEntityDataDataInnerPersonnelExpenses_1 = require("./FinancialStatementReportEntityDataDataInnerPersonnelExpenses");
 /**
  * Check if a given object implements the FinancialStatementReportEntityDataDataInner interface.
  */
@@ -31,17 +44,9 @@ function instanceOfFinancialStatementReportEntityDataDataInner(value) {
         return false;
     if (!('salesAndMarketingExpenses' in value) || value['salesAndMarketingExpenses'] === undefined)
         return false;
-    if (!('contributionMargin' in value) || value['contributionMargin'] === undefined)
-        return false;
-    if (!('contributionMarginPercent' in value) || value['contributionMarginPercent'] === undefined)
-        return false;
     if (!('administrativeExpenses' in value) || value['administrativeExpenses'] === undefined)
         return false;
     if (!('personnelExpenses' in value) || value['personnelExpenses'] === undefined)
-        return false;
-    if (!('ebitda' in value) || value['ebitda'] === undefined)
-        return false;
-    if (!('ebitdaPercent' in value) || value['ebitdaPercent'] === undefined)
         return false;
     if (!('financialIncome' in value) || value['financialIncome'] === undefined)
         return false;
@@ -53,9 +58,11 @@ function instanceOfFinancialStatementReportEntityDataDataInner(value) {
         return false;
     if (!('incomeTaxExpense' in value) || value['incomeTaxExpense'] === undefined)
         return false;
+    if (!('contributionMargin' in value) || value['contributionMargin'] === undefined)
+        return false;
     if (!('netIncome' in value) || value['netIncome'] === undefined)
         return false;
-    if (!('netIncomePercent' in value) || value['netIncomePercent'] === undefined)
+    if (!('ebitda' in value) || value['ebitda'] === undefined)
         return false;
     return true;
 }
@@ -68,22 +75,19 @@ function FinancialStatementReportEntityDataDataInnerFromJSONTyped(json, ignoreDi
     }
     return {
         'period': (0, CashFlowReportEntityDataDataInnerPeriod_1.CashFlowReportEntityDataDataInnerPeriodFromJSON)(json['period']),
-        'operationalRevenue': json['operationalRevenue'],
-        'operatingExpenses': json['operatingExpenses'],
-        'salesAndMarketingExpenses': json['salesAndMarketingExpenses'],
-        'contributionMargin': json['contributionMargin'],
-        'contributionMarginPercent': json['contributionMarginPercent'],
-        'administrativeExpenses': json['administrativeExpenses'],
-        'personnelExpenses': json['personnelExpenses'],
-        'ebitda': json['ebitda'],
-        'ebitdaPercent': json['ebitdaPercent'],
-        'financialIncome': json['financialIncome'],
-        'otherIncome': json['otherIncome'],
-        'financialExpenses': json['financialExpenses'],
-        'investments': json['investments'],
-        'incomeTaxExpense': json['incomeTaxExpense'],
-        'netIncome': json['netIncome'],
-        'netIncomePercent': json['netIncomePercent'],
+        'operationalRevenue': (0, FinancialStatementReportEntityDataDataInnerOperationalRevenue_1.FinancialStatementReportEntityDataDataInnerOperationalRevenueFromJSON)(json['operationalRevenue']),
+        'operatingExpenses': (0, FinancialStatementReportEntityDataDataInnerOperatingExpenses_1.FinancialStatementReportEntityDataDataInnerOperatingExpensesFromJSON)(json['operatingExpenses']),
+        'salesAndMarketingExpenses': (0, FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpenses_1.FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpensesFromJSON)(json['salesAndMarketingExpenses']),
+        'administrativeExpenses': (0, FinancialStatementReportEntityDataDataInnerAdministrativeExpenses_1.FinancialStatementReportEntityDataDataInnerAdministrativeExpensesFromJSON)(json['administrativeExpenses']),
+        'personnelExpenses': (0, FinancialStatementReportEntityDataDataInnerPersonnelExpenses_1.FinancialStatementReportEntityDataDataInnerPersonnelExpensesFromJSON)(json['personnelExpenses']),
+        'financialIncome': (0, FinancialStatementReportEntityDataDataInnerFinancialIncome_1.FinancialStatementReportEntityDataDataInnerFinancialIncomeFromJSON)(json['financialIncome']),
+        'otherIncome': (0, FinancialStatementReportEntityDataDataInnerOtherIncome_1.FinancialStatementReportEntityDataDataInnerOtherIncomeFromJSON)(json['otherIncome']),
+        'financialExpenses': (0, FinancialStatementReportEntityDataDataInnerFinancialExpenses_1.FinancialStatementReportEntityDataDataInnerFinancialExpensesFromJSON)(json['financialExpenses']),
+        'investments': (0, FinancialStatementReportEntityDataDataInnerInvestments_1.FinancialStatementReportEntityDataDataInnerInvestmentsFromJSON)(json['investments']),
+        'incomeTaxExpense': (0, FinancialStatementReportEntityDataDataInnerIncomeTaxExpense_1.FinancialStatementReportEntityDataDataInnerIncomeTaxExpenseFromJSON)(json['incomeTaxExpense']),
+        'contributionMargin': (0, FinancialStatementReportEntityDataDataInnerContributionMargin_1.FinancialStatementReportEntityDataDataInnerContributionMarginFromJSON)(json['contributionMargin']),
+        'netIncome': (0, FinancialStatementReportEntityDataDataInnerNetIncome_1.FinancialStatementReportEntityDataDataInnerNetIncomeFromJSON)(json['netIncome']),
+        'ebitda': (0, FinancialStatementReportEntityDataDataInnerEbitda_1.FinancialStatementReportEntityDataDataInnerEbitdaFromJSON)(json['ebitda']),
     };
 }
 function FinancialStatementReportEntityDataDataInnerToJSON(json) {
@@ -96,21 +100,18 @@ function FinancialStatementReportEntityDataDataInnerToJSONTyped(value, ignoreDis
     }
     return {
         'period': (0, CashFlowReportEntityDataDataInnerPeriod_1.CashFlowReportEntityDataDataInnerPeriodToJSON)(value['period']),
-        'operationalRevenue': value['operationalRevenue'],
-        'operatingExpenses': value['operatingExpenses'],
-        'salesAndMarketingExpenses': value['salesAndMarketingExpenses'],
-        'contributionMargin': value['contributionMargin'],
-        'contributionMarginPercent': value['contributionMarginPercent'],
-        'administrativeExpenses': value['administrativeExpenses'],
-        'personnelExpenses': value['personnelExpenses'],
-        'ebitda': value['ebitda'],
-        'ebitdaPercent': value['ebitdaPercent'],
-        'financialIncome': value['financialIncome'],
-        'otherIncome': value['otherIncome'],
-        'financialExpenses': value['financialExpenses'],
-        'investments': value['investments'],
-        'incomeTaxExpense': value['incomeTaxExpense'],
-        'netIncome': value['netIncome'],
-        'netIncomePercent': value['netIncomePercent'],
+        'operationalRevenue': (0, FinancialStatementReportEntityDataDataInnerOperationalRevenue_1.FinancialStatementReportEntityDataDataInnerOperationalRevenueToJSON)(value['operationalRevenue']),
+        'operatingExpenses': (0, FinancialStatementReportEntityDataDataInnerOperatingExpenses_1.FinancialStatementReportEntityDataDataInnerOperatingExpensesToJSON)(value['operatingExpenses']),
+        'salesAndMarketingExpenses': (0, FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpenses_1.FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpensesToJSON)(value['salesAndMarketingExpenses']),
+        'administrativeExpenses': (0, FinancialStatementReportEntityDataDataInnerAdministrativeExpenses_1.FinancialStatementReportEntityDataDataInnerAdministrativeExpensesToJSON)(value['administrativeExpenses']),
+        'personnelExpenses': (0, FinancialStatementReportEntityDataDataInnerPersonnelExpenses_1.FinancialStatementReportEntityDataDataInnerPersonnelExpensesToJSON)(value['personnelExpenses']),
+        'financialIncome': (0, FinancialStatementReportEntityDataDataInnerFinancialIncome_1.FinancialStatementReportEntityDataDataInnerFinancialIncomeToJSON)(value['financialIncome']),
+        'otherIncome': (0, FinancialStatementReportEntityDataDataInnerOtherIncome_1.FinancialStatementReportEntityDataDataInnerOtherIncomeToJSON)(value['otherIncome']),
+        'financialExpenses': (0, FinancialStatementReportEntityDataDataInnerFinancialExpenses_1.FinancialStatementReportEntityDataDataInnerFinancialExpensesToJSON)(value['financialExpenses']),
+        'investments': (0, FinancialStatementReportEntityDataDataInnerInvestments_1.FinancialStatementReportEntityDataDataInnerInvestmentsToJSON)(value['investments']),
+        'incomeTaxExpense': (0, FinancialStatementReportEntityDataDataInnerIncomeTaxExpense_1.FinancialStatementReportEntityDataDataInnerIncomeTaxExpenseToJSON)(value['incomeTaxExpense']),
+        'contributionMargin': (0, FinancialStatementReportEntityDataDataInnerContributionMargin_1.FinancialStatementReportEntityDataDataInnerContributionMarginToJSON)(value['contributionMargin']),
+        'netIncome': (0, FinancialStatementReportEntityDataDataInnerNetIncome_1.FinancialStatementReportEntityDataDataInnerNetIncomeToJSON)(value['netIncome']),
+        'ebitda': (0, FinancialStatementReportEntityDataDataInnerEbitda_1.FinancialStatementReportEntityDataDataInnerEbitdaToJSON)(value['ebitda']),
     };
 }

@@ -9,7 +9,20 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { FinancialStatementReportEntityDataDataInnerIncomeTaxExpense } from './FinancialStatementReportEntityDataDataInnerIncomeTaxExpense';
+import type { FinancialStatementReportEntityDataDataInnerOtherIncome } from './FinancialStatementReportEntityDataDataInnerOtherIncome';
+import type { FinancialStatementReportEntityDataDataInnerEbitda } from './FinancialStatementReportEntityDataDataInnerEbitda';
+import type { FinancialStatementReportEntityDataDataInnerInvestments } from './FinancialStatementReportEntityDataDataInnerInvestments';
+import type { FinancialStatementReportEntityDataDataInnerFinancialIncome } from './FinancialStatementReportEntityDataDataInnerFinancialIncome';
+import type { FinancialStatementReportEntityDataDataInnerNetIncome } from './FinancialStatementReportEntityDataDataInnerNetIncome';
+import type { FinancialStatementReportEntityDataDataInnerAdministrativeExpenses } from './FinancialStatementReportEntityDataDataInnerAdministrativeExpenses';
 import type { CashFlowReportEntityDataDataInnerPeriod } from './CashFlowReportEntityDataDataInnerPeriod';
+import type { FinancialStatementReportEntityDataDataInnerOperationalRevenue } from './FinancialStatementReportEntityDataDataInnerOperationalRevenue';
+import type { FinancialStatementReportEntityDataDataInnerContributionMargin } from './FinancialStatementReportEntityDataDataInnerContributionMargin';
+import type { FinancialStatementReportEntityDataDataInnerFinancialExpenses } from './FinancialStatementReportEntityDataDataInnerFinancialExpenses';
+import type { FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpenses } from './FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpenses';
+import type { FinancialStatementReportEntityDataDataInnerOperatingExpenses } from './FinancialStatementReportEntityDataDataInnerOperatingExpenses';
+import type { FinancialStatementReportEntityDataDataInnerPersonnelExpenses } from './FinancialStatementReportEntityDataDataInnerPersonnelExpenses';
 /**
  *
  * @export
@@ -23,101 +36,83 @@ export interface FinancialStatementReportEntityDataDataInner {
      */
     period: CashFlowReportEntityDataDataInnerPeriod;
     /**
-     * Receita operacional
-     * @type {number}
+     *
+     * @type {FinancialStatementReportEntityDataDataInnerOperationalRevenue}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    operationalRevenue: number;
+    operationalRevenue: FinancialStatementReportEntityDataDataInnerOperationalRevenue;
     /**
-     * Despesas operacionais
-     * @type {number}
+     *
+     * @type {FinancialStatementReportEntityDataDataInnerOperatingExpenses}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    operatingExpenses: number;
+    operatingExpenses: FinancialStatementReportEntityDataDataInnerOperatingExpenses;
     /**
-     * Despesas de vendas e marketing
-     * @type {number}
+     *
+     * @type {FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpenses}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    salesAndMarketingExpenses: number;
+    salesAndMarketingExpenses: FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpenses;
     /**
-     * Margem de contribuição
-     * @type {number}
+     *
+     * @type {FinancialStatementReportEntityDataDataInnerAdministrativeExpenses}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    contributionMargin: number;
+    administrativeExpenses: FinancialStatementReportEntityDataDataInnerAdministrativeExpenses;
     /**
-     * Percentual da margem de contribuição
-     * @type {number}
+     *
+     * @type {FinancialStatementReportEntityDataDataInnerPersonnelExpenses}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    contributionMarginPercent: number;
+    personnelExpenses: FinancialStatementReportEntityDataDataInnerPersonnelExpenses;
     /**
-     * Despesas administrativas
-     * @type {number}
+     *
+     * @type {FinancialStatementReportEntityDataDataInnerFinancialIncome}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    administrativeExpenses: number;
+    financialIncome: FinancialStatementReportEntityDataDataInnerFinancialIncome;
     /**
-     * Despesas de pessoal
-     * @type {number}
+     *
+     * @type {FinancialStatementReportEntityDataDataInnerOtherIncome}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    personnelExpenses: number;
+    otherIncome: FinancialStatementReportEntityDataDataInnerOtherIncome;
     /**
-     * EBITDA
-     * @type {number}
+     *
+     * @type {FinancialStatementReportEntityDataDataInnerFinancialExpenses}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    ebitda: number;
+    financialExpenses: FinancialStatementReportEntityDataDataInnerFinancialExpenses;
     /**
-     * Percentual do EBITDA
-     * @type {number}
+     *
+     * @type {FinancialStatementReportEntityDataDataInnerInvestments}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    ebitdaPercent: number;
+    investments: FinancialStatementReportEntityDataDataInnerInvestments;
     /**
-     * Receita financeira
-     * @type {number}
+     *
+     * @type {FinancialStatementReportEntityDataDataInnerIncomeTaxExpense}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    financialIncome: number;
+    incomeTaxExpense: FinancialStatementReportEntityDataDataInnerIncomeTaxExpense;
     /**
-     * Outras receitas
-     * @type {number}
+     *
+     * @type {FinancialStatementReportEntityDataDataInnerContributionMargin}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    otherIncome: number;
+    contributionMargin: FinancialStatementReportEntityDataDataInnerContributionMargin;
     /**
-     * Despesas financeiras
-     * @type {number}
+     *
+     * @type {FinancialStatementReportEntityDataDataInnerNetIncome}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    financialExpenses: number;
+    netIncome: FinancialStatementReportEntityDataDataInnerNetIncome;
     /**
-     * Investimentos
-     * @type {number}
+     *
+     * @type {FinancialStatementReportEntityDataDataInnerEbitda}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    investments: number;
-    /**
-     * Despesa com imposto de renda
-     * @type {number}
-     * @memberof FinancialStatementReportEntityDataDataInner
-     */
-    incomeTaxExpense: number;
-    /**
-     * Lucro líquido
-     * @type {number}
-     * @memberof FinancialStatementReportEntityDataDataInner
-     */
-    netIncome: number;
-    /**
-     * Percentual do lucro líquido
-     * @type {number}
-     * @memberof FinancialStatementReportEntityDataDataInner
-     */
-    netIncomePercent: number;
+    ebitda: FinancialStatementReportEntityDataDataInnerEbitda;
 }
 /**
  * Check if a given object implements the FinancialStatementReportEntityDataDataInner interface.

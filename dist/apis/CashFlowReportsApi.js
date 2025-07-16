@@ -154,5 +154,5 @@ exports.GenerateCashFlowReportGroupingEnum = {
     Daily: 'daily',
     Weekly: 'weekly',
     Monthly: 'monthly',
-    Annual: 'annual'
+    Yearly: 'yearly'
 };

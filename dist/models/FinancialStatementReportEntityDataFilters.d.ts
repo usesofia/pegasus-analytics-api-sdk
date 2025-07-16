@@ -53,7 +53,7 @@ export interface FinancialStatementReportEntityDataFilters {
 export declare const FinancialStatementReportEntityDataFiltersGroupingEnum: {
     readonly Daily: "daily";
     readonly Monthly: "monthly";
-    readonly Annual: "annual";
+    readonly Yearly: "yearly";
 };
 export type FinancialStatementReportEntityDataFiltersGroupingEnum = typeof FinancialStatementReportEntityDataFiltersGroupingEnum[keyof typeof FinancialStatementReportEntityDataFiltersGroupingEnum];
 /**

@@ -26,7 +26,7 @@ var FinancialStatementReportEntityDataFiltersPeriod_1 = require("./FinancialStat
 exports.FinancialStatementReportEntityDataFiltersGroupingEnum = {
     Daily: 'daily',
     Monthly: 'monthly',
-    Annual: 'annual'
+    Yearly: 'yearly'
 };
 /**
  * @export

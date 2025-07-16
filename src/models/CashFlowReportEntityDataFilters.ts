@@ -67,7 +67,7 @@ export const CashFlowReportEntityDataFiltersGroupingEnum = {
     Daily: 'daily',
     Weekly: 'weekly',
     Monthly: 'monthly',
-    Annual: 'annual'
+    Yearly: 'yearly'
 } as const;
 export type CashFlowReportEntityDataFiltersGroupingEnum = typeof CashFlowReportEntityDataFiltersGroupingEnum[keyof typeof CashFlowReportEntityDataFiltersGroupingEnum];
 

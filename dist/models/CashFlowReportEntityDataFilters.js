@@ -27,7 +27,7 @@ exports.CashFlowReportEntityDataFiltersGroupingEnum = {
     Daily: 'daily',
     Weekly: 'weekly',
     Monthly: 'monthly',
-    Annual: 'annual'
+    Yearly: 'yearly'
 };
 /**
  * Check if a given object implements the CashFlowReportEntityDataFilters interface.
