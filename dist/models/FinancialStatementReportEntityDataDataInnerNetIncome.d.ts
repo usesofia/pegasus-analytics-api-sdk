@@ -22,11 +22,11 @@ export interface FinancialStatementReportEntityDataDataInnerNetIncome {
      */
     amount: number;
     /**
-     * Performance do resultado
+     * Porcentagem do resultado
      * @type {number}
      * @memberof FinancialStatementReportEntityDataDataInnerNetIncome
      */
-    performance: number;
+    percentage: number;
 }
 /**
  * Check if a given object implements the FinancialStatementReportEntityDataDataInnerNetIncome interface.

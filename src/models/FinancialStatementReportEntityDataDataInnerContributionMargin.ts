@@ -26,11 +26,11 @@ export interface FinancialStatementReportEntityDataDataInnerContributionMargin {
      */
     amount: number;
     /**
-     * Performance do resultado
+     * Porcentagem do resultado
      * @type {number}
      * @memberof FinancialStatementReportEntityDataDataInnerContributionMargin
      */
-    performance: number;
+    percentage: number;
 }
 
 /**
@@ -38,7 +38,7 @@ export interface FinancialStatementReportEntityDataDataInnerContributionMargin {
  */
 export function instanceOfFinancialStatementReportEntityDataDataInnerContributionMargin(value: object): value is FinancialStatementReportEntityDataDataInnerContributionMargin {
     if (!('amount' in value) || value['amount'] === undefined) return false;
-    if (!('performance' in value) || value['performance'] === undefined) return false;
+    if (!('percentage' in value) || value['percentage'] === undefined) return false;
     return true;
 }
 
@@ -53,7 +53,7 @@ export function FinancialStatementReportEntityDataDataInnerContributionMarginFro
     return {
         
         'amount': json['amount'],
-        'performance': json['performance'],
+        'percentage': json['percentage'],
     };
 }
 
@@ -69,7 +69,7 @@ export function FinancialStatementReportEntityDataDataInnerContributionMarginToJ
     return {
         
         'amount': value['amount'],
-        'performance': value['performance'],
+        'percentage': value['percentage'],
     };
 }
 

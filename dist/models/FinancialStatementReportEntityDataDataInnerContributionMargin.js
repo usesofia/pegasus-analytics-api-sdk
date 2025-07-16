@@ -24,7 +24,7 @@ exports.FinancialStatementReportEntityDataDataInnerContributionMarginToJSONTyped
 function instanceOfFinancialStatementReportEntityDataDataInnerContributionMargin(value) {
     if (!('amount' in value) || value['amount'] === undefined)
         return false;
-    if (!('performance' in value) || value['performance'] === undefined)
+    if (!('percentage' in value) || value['percentage'] === undefined)
         return false;
     return true;
 }
@@ -37,7 +37,7 @@ function FinancialStatementReportEntityDataDataInnerContributionMarginFromJSONTy
     }
     return {
         'amount': json['amount'],
-        'performance': json['performance'],
+        'percentage': json['percentage'],
     };
 }
 function FinancialStatementReportEntityDataDataInnerContributionMarginToJSON(json) {
@@ -50,6 +50,6 @@ function FinancialStatementReportEntityDataDataInnerContributionMarginToJSONType
     }
     return {
         'amount': value['amount'],
-        'performance': value['performance'],
+        'percentage': value['percentage'],
     };
 }

@@ -22,11 +22,11 @@ export interface FinancialStatementReportEntityDataDataInnerContributionMargin {
      */
     amount: number;
     /**
-     * Performance do resultado
+     * Porcentagem do resultado
      * @type {number}
      * @memberof FinancialStatementReportEntityDataDataInnerContributionMargin
      */
-    performance: number;
+    percentage: number;
 }
 /**
  * Check if a given object implements the FinancialStatementReportEntityDataDataInnerContributionMargin interface.

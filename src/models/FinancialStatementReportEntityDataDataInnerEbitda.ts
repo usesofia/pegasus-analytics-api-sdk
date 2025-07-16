@@ -26,11 +26,11 @@ export interface FinancialStatementReportEntityDataDataInnerEbitda {
      */
     amount: number;
     /**
-     * Performance do resultado
+     * Porcentagem do resultado
      * @type {number}
      * @memberof FinancialStatementReportEntityDataDataInnerEbitda
      */
-    performance: number;
+    percentage: number;
 }
 
 /**
@@ -38,7 +38,7 @@ export interface FinancialStatementReportEntityDataDataInnerEbitda {
  */
 export function instanceOfFinancialStatementReportEntityDataDataInnerEbitda(value: object): value is FinancialStatementReportEntityDataDataInnerEbitda {
     if (!('amount' in value) || value['amount'] === undefined) return false;
-    if (!('performance' in value) || value['performance'] === undefined) return false;
+    if (!('percentage' in value) || value['percentage'] === undefined) return false;
     return true;
 }
 
@@ -53,7 +53,7 @@ export function FinancialStatementReportEntityDataDataInnerEbitdaFromJSONTyped(j
     return {
         
         'amount': json['amount'],
-        'performance': json['performance'],
+        'percentage': json['percentage'],
     };
 }
 
@@ -69,7 +69,7 @@ export function FinancialStatementReportEntityDataDataInnerEbitdaToJSONTyped(val
     return {
         
         'amount': value['amount'],
-        'performance': value['performance'],
+        'percentage': value['percentage'],
     };
 }
 

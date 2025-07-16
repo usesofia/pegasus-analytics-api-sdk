@@ -22,11 +22,11 @@ export interface FinancialStatementReportEntityDataDataInnerEbitda {
      */
     amount: number;
     /**
-     * Performance do resultado
+     * Porcentagem do resultado
      * @type {number}
      * @memberof FinancialStatementReportEntityDataDataInnerEbitda
      */
-    performance: number;
+    percentage: number;
 }
 /**
  * Check if a given object implements the FinancialStatementReportEntityDataDataInnerEbitda interface.
