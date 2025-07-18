@@ -65,7 +65,6 @@ export interface CashFlowReportEntityDataFilters {
  */
 export const CashFlowReportEntityDataFiltersGroupingEnum = {
     Daily: 'daily',
-    Weekly: 'weekly',
     Monthly: 'monthly',
     Yearly: 'yearly'
 } as const;

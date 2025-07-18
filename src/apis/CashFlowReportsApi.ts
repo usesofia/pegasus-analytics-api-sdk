@@ -43,7 +43,7 @@ export interface CashFlowReportsApiInterface {
      * @summary Gera um relatório de fluxo de caixa
      * @param {string} periodTo Data final do período
      * @param {string} periodFrom Data inicial do período
-     * @param {'daily' | 'weekly' | 'monthly' | 'yearly'} grouping Agrupamento do relatório
+     * @param {'daily' | 'monthly' | 'yearly'} grouping Agrupamento do relatório
      * @param {string} [tags] IDs das tags
      * @param {string} [reconciled] Status de conciliação
      * @param {string} [bankAccounts] IDs das contas bancárias
@@ -146,7 +146,6 @@ export class CashFlowReportsApi extends runtime.BaseAPI implements CashFlowRepor
  */
 export const GenerateCashFlowReportGroupingEnum = {
     Daily: 'daily',
-    Weekly: 'weekly',
     Monthly: 'monthly',
     Yearly: 'yearly'
 } as const;

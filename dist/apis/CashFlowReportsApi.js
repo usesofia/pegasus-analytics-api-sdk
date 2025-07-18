@@ -152,7 +152,6 @@ exports.CashFlowReportsApi = CashFlowReportsApi;
  */
 exports.GenerateCashFlowReportGroupingEnum = {
     Daily: 'daily',
-    Weekly: 'weekly',
     Monthly: 'monthly',
     Yearly: 'yearly'
 };

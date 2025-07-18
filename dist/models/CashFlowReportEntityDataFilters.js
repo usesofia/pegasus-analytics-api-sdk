@@ -25,7 +25,6 @@ var CashFlowReportEntityDataFiltersPeriod_1 = require("./CashFlowReportEntityDat
  */
 exports.CashFlowReportEntityDataFiltersGroupingEnum = {
     Daily: 'daily',
-    Weekly: 'weekly',
     Monthly: 'monthly',
     Yearly: 'yearly'
 };
