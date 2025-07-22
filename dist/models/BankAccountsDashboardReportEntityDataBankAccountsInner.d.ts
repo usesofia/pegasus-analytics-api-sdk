@@ -59,10 +59,10 @@ export interface BankAccountsDashboardReportEntityDataBankAccountsInner {
     totalOutcome: string;
     /**
      * Saldo atual da conta bancária
-     * @type {number}
+     * @type {string}
      * @memberof BankAccountsDashboardReportEntityDataBankAccountsInner
      */
-    balance: number;
+    balance: string;
 }
 /**
  * Check if a given object implements the BankAccountsDashboardReportEntityDataBankAccountsInner interface.
