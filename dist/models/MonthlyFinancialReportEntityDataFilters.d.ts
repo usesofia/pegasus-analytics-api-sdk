@@ -101,10 +101,10 @@ export interface MonthlyFinancialReportEntityDataFilters {
     reconciled?: boolean;
     /**
      *
-     * @type {string}
+     * @type {Array<string>}
      * @memberof MonthlyFinancialReportEntityDataFilters
      */
-    account?: string;
+    account?: Array<string>;
     /**
      *
      * @type {string}

@@ -101,10 +101,10 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
     reconciled?: boolean;
     /**
      *
-     * @type {string}
+     * @type {Array<string>}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
-    account?: string;
+    account?: Array<string>;
     /**
      *
      * @type {string}
