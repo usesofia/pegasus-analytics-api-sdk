@@ -22,11 +22,11 @@ export interface AggregatedFinancialRecordsReportEntityDataDataInner {
      */
     label: string;
     /**
-     * Valor total
-     * @type {number}
+     * Valor total do item agrupado em centavos, em formato string
+     * @type {string}
      * @memberof AggregatedFinancialRecordsReportEntityDataDataInner
      */
-    totalAmount: number;
+    totalAmount: string;
 }
 /**
  * Check if a given object implements the AggregatedFinancialRecordsReportEntityDataDataInner interface.
