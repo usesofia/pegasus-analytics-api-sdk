@@ -13,7 +13,7 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersGroupByEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = void 0;
+exports.AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersGroupByEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = void 0;
 exports.instanceOfAggregatedFinancialRecordsReportEntityDataFilters = instanceOfAggregatedFinancialRecordsReportEntityDataFilters;
 exports.AggregatedFinancialRecordsReportEntityDataFiltersFromJSON = AggregatedFinancialRecordsReportEntityDataFiltersFromJSON;
 exports.AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped = AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped;
@@ -49,12 +49,19 @@ exports.AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = {
     Desc: 'desc'
 };
 /**
+ * @export
+ */
+exports.AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+};
+/**
  * Check if a given object implements the AggregatedFinancialRecordsReportEntityDataFilters interface.
  */
 function instanceOfAggregatedFinancialRecordsReportEntityDataFilters(value) {
-    if (!('direction' in value) || value['direction'] === undefined)
-        return false;
     if (!('groupBy' in value) || value['groupBy'] === undefined)
+        return false;
+    if (!('aggregationDirection' in value) || value['aggregationDirection'] === undefined)
         return false;
     return true;
 }
@@ -66,7 +73,7 @@ function AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped(json, ig
         return json;
     }
     return {
-        'direction': json['direction'],
+        'direction': json['direction'] == null ? undefined : json['direction'],
         'dueDateFrom': json['dueDateFrom'] == null ? undefined : json['dueDateFrom'],
         'dueDateTo': json['dueDateTo'] == null ? undefined : json['dueDateTo'],
         'contact': json['contact'] == null ? undefined : json['contact'],
@@ -86,6 +93,7 @@ function AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped(json, ig
         'amountType': json['amountType'] == null ? undefined : json['amountType'],
         'groupBy': json['groupBy'],
         'sortOrder': json['sortOrder'] == null ? undefined : json['sortOrder'],
+        'aggregationDirection': json['aggregationDirection'],
     };
 }
 function AggregatedFinancialRecordsReportEntityDataFiltersToJSON(json) {
@@ -117,5 +125,6 @@ function AggregatedFinancialRecordsReportEntityDataFiltersToJSONTyped(value, ign
         'amountType': value['amountType'],
         'groupBy': value['groupBy'],
         'sortOrder': value['sortOrder'],
+        'aggregationDirection': value['aggregationDirection'],
     };
 }

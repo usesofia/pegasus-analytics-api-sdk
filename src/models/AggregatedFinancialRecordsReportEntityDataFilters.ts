@@ -20,11 +20,11 @@ import { mapValues } from '../runtime';
  */
 export interface AggregatedFinancialRecordsReportEntityDataFilters {
     /**
-     * Direção do lançamento financeiro
+     * 
      * @type {string}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
-    direction: AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum;
+    direction?: AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum;
     /**
      * 
      * @type {string}
@@ -139,6 +139,12 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
     sortOrder?: AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum;
+    /**
+     * Direção do lançamento financeiro
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    aggregationDirection: AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum;
 }
 
 
@@ -179,13 +185,22 @@ export const AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = {
 } as const;
 export type AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum];
 
+/**
+ * @export
+ */
+export const AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+} as const;
+export type AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum];
+
 
 /**
  * Check if a given object implements the AggregatedFinancialRecordsReportEntityDataFilters interface.
  */
 export function instanceOfAggregatedFinancialRecordsReportEntityDataFilters(value: object): value is AggregatedFinancialRecordsReportEntityDataFilters {
-    if (!('direction' in value) || value['direction'] === undefined) return false;
     if (!('groupBy' in value) || value['groupBy'] === undefined) return false;
+    if (!('aggregationDirection' in value) || value['aggregationDirection'] === undefined) return false;
     return true;
 }
 
@@ -199,7 +214,7 @@ export function AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped(j
     }
     return {
         
-        'direction': json['direction'],
+        'direction': json['direction'] == null ? undefined : json['direction'],
         'dueDateFrom': json['dueDateFrom'] == null ? undefined : json['dueDateFrom'],
         'dueDateTo': json['dueDateTo'] == null ? undefined : json['dueDateTo'],
         'contact': json['contact'] == null ? undefined : json['contact'],
@@ -219,6 +234,7 @@ export function AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped(j
         'amountType': json['amountType'] == null ? undefined : json['amountType'],
         'groupBy': json['groupBy'],
         'sortOrder': json['sortOrder'] == null ? undefined : json['sortOrder'],
+        'aggregationDirection': json['aggregationDirection'],
     };
 }
 
@@ -253,6 +269,7 @@ export function AggregatedFinancialRecordsReportEntityDataFiltersToJSONTyped(val
         'amountType': value['amountType'],
         'groupBy': value['groupBy'],
         'sortOrder': value['sortOrder'],
+        'aggregationDirection': value['aggregationDirection'],
     };
 }
 

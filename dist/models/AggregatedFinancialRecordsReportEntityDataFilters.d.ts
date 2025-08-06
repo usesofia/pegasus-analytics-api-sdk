@@ -16,11 +16,11 @@
  */
 export interface AggregatedFinancialRecordsReportEntityDataFilters {
     /**
-     * Direção do lançamento financeiro
+     *
      * @type {string}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
-    direction: AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum;
+    direction?: AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum;
     /**
      *
      * @type {string}
@@ -135,6 +135,12 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
     sortOrder?: AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum;
+    /**
+     * Direção do lançamento financeiro
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    aggregationDirection: AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum;
 }
 /**
  * @export
@@ -169,6 +175,14 @@ export declare const AggregatedFinancialRecordsReportEntityDataFiltersSortOrderE
     readonly Desc: "desc";
 };
 export type AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum];
+/**
+ * @export
+ */
+export declare const AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum: {
+    readonly In: "IN";
+    readonly Out: "OUT";
+};
+export type AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum];
 /**
  * Check if a given object implements the AggregatedFinancialRecordsReportEntityDataFilters interface.
  */
