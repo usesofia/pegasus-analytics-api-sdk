@@ -12,8 +12,7 @@
 import * as runtime from '../runtime';
 import type { AggregatedFinancialRecordsReportEntity, FinancialRecordsAggregatedResultReportEntity, MonthlyFinancialReportEntity } from '../models/index';
 export interface GenerateAggregatedFinancialRecordsReportRequest {
-    direction: GenerateAggregatedFinancialRecordsReportDirectionEnum;
-    sortOrder: GenerateAggregatedFinancialRecordsReportSortOrderEnum;
+    aggregationDirection: GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum;
     groupBy: GenerateAggregatedFinancialRecordsReportGroupByEnum;
     amountType?: GenerateAggregatedFinancialRecordsReportAmountTypeEnum;
     recurringFinancialRecord?: string;
@@ -32,6 +31,8 @@ export interface GenerateAggregatedFinancialRecordsReportRequest {
     contact?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
+    direction?: GenerateAggregatedFinancialRecordsReportDirectionEnum;
+    sortOrder?: GenerateAggregatedFinancialRecordsReportSortOrderEnum;
 }
 export interface GenerateMonthlyFinancialReportRequest {
     amountType?: GenerateMonthlyFinancialReportAmountTypeEnum;
@@ -76,8 +77,7 @@ export interface FinancialRecordsReportsApiInterface {
     /**
      *
      * @summary Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
-     * @param {'IN' | 'OUT'} direction Direção do lançamento financeiro
-     * @param {'asc' | 'desc'} sortOrder Ordem de classificação
+     * @param {'IN' | 'OUT'} aggregationDirection Direção do lançamento financeiro
      * @param {'category' | 'contact' | 'tag'} groupBy Campo para agrupamento dos dados
      * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos
      * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
@@ -96,6 +96,8 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {string} [contact] Contato do lançamento financeiro
      * @param {string} [dueDateTo] Data de vencimento final
      * @param {string} [dueDateFrom] Data de vencimento inicial
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de classificação
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsReportsApiInterface
@@ -191,19 +193,11 @@ export declare class FinancialRecordsReportsApi extends runtime.BaseAPI implemen
 /**
  * @export
  */
-export declare const GenerateAggregatedFinancialRecordsReportDirectionEnum: {
+export declare const GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum: {
     readonly In: "IN";
     readonly Out: "OUT";
 };
-export type GenerateAggregatedFinancialRecordsReportDirectionEnum = typeof GenerateAggregatedFinancialRecordsReportDirectionEnum[keyof typeof GenerateAggregatedFinancialRecordsReportDirectionEnum];
-/**
- * @export
- */
-export declare const GenerateAggregatedFinancialRecordsReportSortOrderEnum: {
-    readonly Asc: "asc";
-    readonly Desc: "desc";
-};
-export type GenerateAggregatedFinancialRecordsReportSortOrderEnum = typeof GenerateAggregatedFinancialRecordsReportSortOrderEnum[keyof typeof GenerateAggregatedFinancialRecordsReportSortOrderEnum];
+export type GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum = typeof GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum[keyof typeof GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum];
 /**
  * @export
  */
@@ -221,6 +215,22 @@ export declare const GenerateAggregatedFinancialRecordsReportAmountTypeEnum: {
     readonly Final: "final";
 };
 export type GenerateAggregatedFinancialRecordsReportAmountTypeEnum = typeof GenerateAggregatedFinancialRecordsReportAmountTypeEnum[keyof typeof GenerateAggregatedFinancialRecordsReportAmountTypeEnum];
+/**
+ * @export
+ */
+export declare const GenerateAggregatedFinancialRecordsReportDirectionEnum: {
+    readonly In: "IN";
+    readonly Out: "OUT";
+};
+export type GenerateAggregatedFinancialRecordsReportDirectionEnum = typeof GenerateAggregatedFinancialRecordsReportDirectionEnum[keyof typeof GenerateAggregatedFinancialRecordsReportDirectionEnum];
+/**
+ * @export
+ */
+export declare const GenerateAggregatedFinancialRecordsReportSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type GenerateAggregatedFinancialRecordsReportSortOrderEnum = typeof GenerateAggregatedFinancialRecordsReportSortOrderEnum[keyof typeof GenerateAggregatedFinancialRecordsReportSortOrderEnum];
 /**
  * @export
  */

@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetAggregatedResultReportDirectionEnum = exports.GetAggregatedResultReportAmountTypeEnum = exports.GenerateMonthlyFinancialReportDirectionEnum = exports.GenerateMonthlyFinancialReportAmountTypeEnum = exports.GenerateAggregatedFinancialRecordsReportAmountTypeEnum = exports.GenerateAggregatedFinancialRecordsReportGroupByEnum = exports.GenerateAggregatedFinancialRecordsReportSortOrderEnum = exports.GenerateAggregatedFinancialRecordsReportDirectionEnum = exports.FinancialRecordsReportsApi = void 0;
+exports.GetAggregatedResultReportDirectionEnum = exports.GetAggregatedResultReportAmountTypeEnum = exports.GenerateMonthlyFinancialReportDirectionEnum = exports.GenerateMonthlyFinancialReportAmountTypeEnum = exports.GenerateAggregatedFinancialRecordsReportSortOrderEnum = exports.GenerateAggregatedFinancialRecordsReportDirectionEnum = exports.GenerateAggregatedFinancialRecordsReportAmountTypeEnum = exports.GenerateAggregatedFinancialRecordsReportGroupByEnum = exports.GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum = exports.FinancialRecordsReportsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -84,11 +84,8 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (requestParameters['direction'] == null) {
-                            throw new runtime.RequiredError('direction', 'Required parameter "direction" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
-                        }
-                        if (requestParameters['sortOrder'] == null) {
-                            throw new runtime.RequiredError('sortOrder', 'Required parameter "sortOrder" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
+                        if (requestParameters['aggregationDirection'] == null) {
+                            throw new runtime.RequiredError('aggregationDirection', 'Required parameter "aggregationDirection" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
                         }
                         if (requestParameters['groupBy'] == null) {
                             throw new runtime.RequiredError('groupBy', 'Required parameter "groupBy" was null or undefined when calling generateAggregatedFinancialRecordsReport().');
@@ -150,6 +147,9 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
                         }
                         if (requestParameters['sortOrder'] != null) {
                             queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['aggregationDirection'] != null) {
+                            queryParameters['aggregationDirection'] = requestParameters['aggregationDirection'];
                         }
                         if (requestParameters['groupBy'] != null) {
                             queryParameters['groupBy'] = requestParameters['groupBy'];
@@ -365,16 +365,9 @@ exports.FinancialRecordsReportsApi = FinancialRecordsReportsApi;
 /**
  * @export
  */
-exports.GenerateAggregatedFinancialRecordsReportDirectionEnum = {
+exports.GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum = {
     In: 'IN',
     Out: 'OUT'
-};
-/**
- * @export
- */
-exports.GenerateAggregatedFinancialRecordsReportSortOrderEnum = {
-    Asc: 'asc',
-    Desc: 'desc'
 };
 /**
  * @export
@@ -390,6 +383,20 @@ exports.GenerateAggregatedFinancialRecordsReportGroupByEnum = {
 exports.GenerateAggregatedFinancialRecordsReportAmountTypeEnum = {
     Base: 'base',
     Final: 'final'
+};
+/**
+ * @export
+ */
+exports.GenerateAggregatedFinancialRecordsReportDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+};
+/**
+ * @export
+ */
+exports.GenerateAggregatedFinancialRecordsReportSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
 };
 /**
  * @export
