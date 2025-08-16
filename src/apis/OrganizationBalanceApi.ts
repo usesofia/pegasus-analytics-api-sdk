@@ -43,12 +43,12 @@ export interface OrganizationBalanceApiInterface {
      * @throws {RequiredError}
      * @memberof OrganizationBalanceApiInterface
      */
-    getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationBalanceEntity>>;
+    getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationBalanceEntity>>>;
 
     /**
      * Get organization balance
      */
-    getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationBalanceEntity>;
+    getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationBalanceEntity>>;
 
 }
 
@@ -60,7 +60,7 @@ export class OrganizationBalanceApi extends runtime.BaseAPI implements Organizat
     /**
      * Get organization balance
      */
-    async getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationBalanceEntity>> {
+    async getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationBalanceEntity>>> {
         if (requestParameters['periodAmount'] == null) {
             throw new runtime.RequiredError(
                 'periodAmount',
@@ -97,13 +97,13 @@ export class OrganizationBalanceApi extends runtime.BaseAPI implements Organizat
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => OrganizationBalanceEntityFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(OrganizationBalanceEntityFromJSON));
     }
 
     /**
      * Get organization balance
      */
-    async getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationBalanceEntity> {
+    async getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationBalanceEntity>> {
         const response = await this.getOrganizationBalanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
