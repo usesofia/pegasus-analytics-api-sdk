@@ -14,6 +14,13 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  OrganizationBalanceEntity,
+} from '../models/index';
+import {
+    OrganizationBalanceEntityFromJSON,
+    OrganizationBalanceEntityToJSON,
+} from '../models/index';
 
 export interface GetOrganizationBalanceRequest {
     periodAmount: number;
@@ -36,12 +43,12 @@ export interface OrganizationBalanceApiInterface {
      * @throws {RequiredError}
      * @memberof OrganizationBalanceApiInterface
      */
-    getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationBalanceEntity>>;
 
     /**
      * Get organization balance
      */
-    getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationBalanceEntity>;
 
 }
 
@@ -53,7 +60,7 @@ export class OrganizationBalanceApi extends runtime.BaseAPI implements Organizat
     /**
      * Get organization balance
      */
-    async getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationBalanceEntity>> {
         if (requestParameters['periodAmount'] == null) {
             throw new runtime.RequiredError(
                 'periodAmount',
@@ -90,14 +97,15 @@ export class OrganizationBalanceApi extends runtime.BaseAPI implements Organizat
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => OrganizationBalanceEntityFromJSON(jsonValue));
     }
 
     /**
      * Get organization balance
      */
-    async getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.getOrganizationBalanceRaw(requestParameters, initOverrides);
+    async getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationBalanceEntity> {
+        const response = await this.getOrganizationBalanceRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
 }

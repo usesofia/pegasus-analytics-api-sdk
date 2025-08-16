@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
+import type { OrganizationBalanceEntity } from '../models/index';
 export interface GetOrganizationBalanceRequest {
     periodAmount: number;
     periodType: GetOrganizationBalancePeriodTypeEnum;
@@ -30,11 +31,11 @@ export interface OrganizationBalanceApiInterface {
      * @throws {RequiredError}
      * @memberof OrganizationBalanceApiInterface
      */
-    getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationBalanceEntity>>;
     /**
      * Get organization balance
      */
-    getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationBalanceEntity>;
 }
 /**
  *
@@ -43,11 +44,11 @@ export declare class OrganizationBalanceApi extends runtime.BaseAPI implements O
     /**
      * Get organization balance
      */
-    getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationBalanceEntity>>;
     /**
      * Get organization balance
      */
-    getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationBalanceEntity>;
 }
 /**
  * @export

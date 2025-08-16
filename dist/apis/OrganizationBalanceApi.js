@@ -66,6 +66,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetOrganizationBalancePeriodTypeEnum = exports.OrganizationBalanceApi = void 0;
 var runtime = require("../runtime");
+var index_1 = require("../models/index");
 /**
  *
  */
@@ -106,7 +107,7 @@ var OrganizationBalanceApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.OrganizationBalanceEntityFromJSON)(jsonValue); })];
                 }
             });
         });
@@ -116,12 +117,14 @@ var OrganizationBalanceApi = /** @class */ (function (_super) {
      */
     OrganizationBalanceApi.prototype.getOrganizationBalance = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
+            var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.getOrganizationBalanceRaw(requestParameters, initOverrides)];
                     case 1:
-                        _a.sent();
-                        return [2 /*return*/];
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
                 }
             });
         });
