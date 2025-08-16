@@ -22,3 +22,4 @@ __exportStar(require("./CashFlowReportsApi"), exports);
 __exportStar(require("./FinancialRecordsReportsApi"), exports);
 __exportStar(require("./FinancialStatementsReportsApi"), exports);
 __exportStar(require("./HealthApi"), exports);
+__exportStar(require("./OrganizationBalanceApi"), exports);

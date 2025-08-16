@@ -8,6 +8,7 @@ src/apis/CashFlowReportsApi.ts
 src/apis/FinancialRecordsReportsApi.ts
 src/apis/FinancialStatementsReportsApi.ts
 src/apis/HealthApi.ts
+src/apis/OrganizationBalanceApi.ts
 src/apis/index.ts
 src/index.ts
 src/models/AggregatedFinancialRecordsReportEntity.ts
