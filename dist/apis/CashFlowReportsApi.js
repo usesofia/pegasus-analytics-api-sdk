@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GenerateCashFlowReportGroupingEnum = exports.CashFlowReportsApi = void 0;
+exports.GetCurrentMonthCashFlowDirectionEnum = exports.GenerateCashFlowReportGroupingEnum = exports.CashFlowReportsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -144,6 +144,54 @@ var CashFlowReportsApi = /** @class */ (function (_super) {
             });
         });
     };
+    /**
+     * Obtém o fluxo de caixa do mês atual por direção
+     */
+    CashFlowReportsApi.prototype.getCurrentMonthCashFlowRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['direction'] == null) {
+                            throw new runtime.RequiredError('direction', 'Required parameter "direction" was null or undefined when calling getCurrentMonthCashFlow().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/external/cash-flow/current-month";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CurrentMonthCashFlowEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Obtém o fluxo de caixa do mês atual por direção
+     */
+    CashFlowReportsApi.prototype.getCurrentMonthCashFlow = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getCurrentMonthCashFlowRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     return CashFlowReportsApi;
 }(runtime.BaseAPI));
 exports.CashFlowReportsApi = CashFlowReportsApi;
@@ -154,4 +202,11 @@ exports.GenerateCashFlowReportGroupingEnum = {
     Daily: 'daily',
     Monthly: 'monthly',
     Yearly: 'yearly'
+};
+/**
+ * @export
+ */
+exports.GetCurrentMonthCashFlowDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
 };

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CashFlowReportEntity } from '../models/index';
+import type { CashFlowReportEntity, CurrentMonthCashFlowEntity } from '../models/index';
 export interface GenerateCashFlowReportRequest {
     periodTo: string;
     periodFrom: string;
@@ -18,6 +18,9 @@ export interface GenerateCashFlowReportRequest {
     tags?: string;
     reconciled?: string;
     bankAccounts?: string;
+}
+export interface GetCurrentMonthCashFlowRequest {
+    direction: GetCurrentMonthCashFlowDirectionEnum;
 }
 /**
  * CashFlowReportsApi - interface
@@ -44,6 +47,19 @@ export interface CashFlowReportsApiInterface {
      * Gera um relatório de fluxo de caixa
      */
     generateCashFlowReport(requestParameters: GenerateCashFlowReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CashFlowReportEntity>;
+    /**
+     *
+     * @summary Obtém o fluxo de caixa do mês atual por direção
+     * @param {'IN' | 'OUT'} direction Direção do lançamento (IN ou OUT)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CashFlowReportsApiInterface
+     */
+    getCurrentMonthCashFlowRaw(requestParameters: GetCurrentMonthCashFlowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrentMonthCashFlowEntity>>;
+    /**
+     * Obtém o fluxo de caixa do mês atual por direção
+     */
+    getCurrentMonthCashFlow(requestParameters: GetCurrentMonthCashFlowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrentMonthCashFlowEntity>;
 }
 /**
  *
@@ -57,6 +73,14 @@ export declare class CashFlowReportsApi extends runtime.BaseAPI implements CashF
      * Gera um relatório de fluxo de caixa
      */
     generateCashFlowReport(requestParameters: GenerateCashFlowReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CashFlowReportEntity>;
+    /**
+     * Obtém o fluxo de caixa do mês atual por direção
+     */
+    getCurrentMonthCashFlowRaw(requestParameters: GetCurrentMonthCashFlowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrentMonthCashFlowEntity>>;
+    /**
+     * Obtém o fluxo de caixa do mês atual por direção
+     */
+    getCurrentMonthCashFlow(requestParameters: GetCurrentMonthCashFlowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrentMonthCashFlowEntity>;
 }
 /**
  * @export
@@ -67,3 +91,11 @@ export declare const GenerateCashFlowReportGroupingEnum: {
     readonly Yearly: "yearly";
 };
 export type GenerateCashFlowReportGroupingEnum = typeof GenerateCashFlowReportGroupingEnum[keyof typeof GenerateCashFlowReportGroupingEnum];
+/**
+ * @export
+ */
+export declare const GetCurrentMonthCashFlowDirectionEnum: {
+    readonly In: "IN";
+    readonly Out: "OUT";
+};
+export type GetCurrentMonthCashFlowDirectionEnum = typeof GetCurrentMonthCashFlowDirectionEnum[keyof typeof GetCurrentMonthCashFlowDirectionEnum];

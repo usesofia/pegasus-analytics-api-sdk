@@ -29,6 +29,12 @@ export interface OrganizationBalanceEntity {
      */
     accountType: string;
     /**
+     * URL da imagem da conta
+     * @type {string}
+     * @memberof OrganizationBalanceEntity
+     */
+    accountImageUrl?: string | null;
+    /**
      * Tipo de conexão da conta
      * @type {string}
      * @memberof OrganizationBalanceEntity

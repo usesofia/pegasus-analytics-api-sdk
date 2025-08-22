@@ -40,6 +40,12 @@ export interface OrganizationBalanceEntity {
      */
     accountType: string;
     /**
+     * URL da imagem da conta
+     * @type {string}
+     * @memberof OrganizationBalanceEntity
+     */
+    accountImageUrl?: string | null;
+    /**
      * Tipo de conexão da conta
      * @type {string}
      * @memberof OrganizationBalanceEntity
@@ -82,6 +88,7 @@ export function OrganizationBalanceEntityFromJSONTyped(json: any, ignoreDiscrimi
         
         'accountName': json['accountName'],
         'accountType': json['accountType'],
+        'accountImageUrl': json['accountImageUrl'] == null ? undefined : json['accountImageUrl'],
         'connectionType': json['connectionType'] == null ? undefined : json['connectionType'],
         'currentBalance': json['currentBalance'],
         'history': ((json['history'] as Array<any>).map(OrganizationBalanceEntityHistoryInnerFromJSON)),
@@ -101,6 +108,7 @@ export function OrganizationBalanceEntityToJSONTyped(value?: OrganizationBalance
         
         'accountName': value['accountName'],
         'accountType': value['accountType'],
+        'accountImageUrl': value['accountImageUrl'],
         'connectionType': value['connectionType'],
         'currentBalance': value['currentBalance'],
         'history': ((value['history'] as Array<any>).map(OrganizationBalanceEntityHistoryInnerToJSON)),

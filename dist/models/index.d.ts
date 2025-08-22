@@ -14,6 +14,7 @@ export * from './CashFlowReportEntityDataDataInnerPeriod';
 export * from './CashFlowReportEntityDataFilters';
 export * from './CashFlowReportEntityDataFiltersPeriod';
 export * from './CashFlowReportEntityDataSummary';
+export * from './CurrentMonthCashFlowEntity';
 export * from './ExceptionResponseEntity';
 export * from './ExceptionResponseEntityErrorsInner';
 export * from './FinancialMeasuresReportEntity';

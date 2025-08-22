@@ -32,6 +32,7 @@ __exportStar(require("./CashFlowReportEntityDataDataInnerPeriod"), exports);
 __exportStar(require("./CashFlowReportEntityDataFilters"), exports);
 __exportStar(require("./CashFlowReportEntityDataFiltersPeriod"), exports);
 __exportStar(require("./CashFlowReportEntityDataSummary"), exports);
+__exportStar(require("./CurrentMonthCashFlowEntity"), exports);
 __exportStar(require("./ExceptionResponseEntity"), exports);
 __exportStar(require("./ExceptionResponseEntityErrorsInner"), exports);
 __exportStar(require("./FinancialMeasuresReportEntity"), exports);

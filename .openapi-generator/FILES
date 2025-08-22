@@ -27,6 +27,7 @@ src/models/CashFlowReportEntityDataDataInnerPeriod.ts
 src/models/CashFlowReportEntityDataFilters.ts
 src/models/CashFlowReportEntityDataFiltersPeriod.ts
 src/models/CashFlowReportEntityDataSummary.ts
+src/models/CurrentMonthCashFlowEntity.ts
 src/models/ExceptionResponseEntity.ts
 src/models/ExceptionResponseEntityErrorsInner.ts
 src/models/FinancialMeasuresReportEntity.ts

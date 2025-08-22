@@ -43,6 +43,7 @@ function OrganizationBalanceEntityFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'accountName': json['accountName'],
         'accountType': json['accountType'],
+        'accountImageUrl': json['accountImageUrl'] == null ? undefined : json['accountImageUrl'],
         'connectionType': json['connectionType'] == null ? undefined : json['connectionType'],
         'currentBalance': json['currentBalance'],
         'history': (json['history'].map(OrganizationBalanceEntityHistoryInner_1.OrganizationBalanceEntityHistoryInnerFromJSON)),
@@ -59,6 +60,7 @@ function OrganizationBalanceEntityToJSONTyped(value, ignoreDiscriminator) {
     return {
         'accountName': value['accountName'],
         'accountType': value['accountType'],
+        'accountImageUrl': value['accountImageUrl'],
         'connectionType': value['connectionType'],
         'currentBalance': value['currentBalance'],
         'history': (value['history'].map(OrganizationBalanceEntityHistoryInner_1.OrganizationBalanceEntityHistoryInnerToJSON)),
