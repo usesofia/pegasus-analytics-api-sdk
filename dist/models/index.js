@@ -68,5 +68,6 @@ __exportStar(require("./MonthlyFinancialReportEntityData"), exports);
 __exportStar(require("./MonthlyFinancialReportEntityDataData"), exports);
 __exportStar(require("./MonthlyFinancialReportEntityDataDataItemsInner"), exports);
 __exportStar(require("./MonthlyFinancialReportEntityDataFilters"), exports);
-__exportStar(require("./OrganizationBalanceEntity"), exports);
-__exportStar(require("./OrganizationBalanceEntityHistoryInner"), exports);
+__exportStar(require("./OrganizationBalanceHistoryPerAccountEntity"), exports);
+__exportStar(require("./OrganizationBalanceHistoryPerAccountEntityHistoryInner"), exports);
+__exportStar(require("./OrganizationBalancePerAccountEntity"), exports);

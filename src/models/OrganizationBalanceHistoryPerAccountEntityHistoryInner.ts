@@ -24,45 +24,45 @@ import {
 /**
  * 
  * @export
- * @interface OrganizationBalanceEntityHistoryInner
+ * @interface OrganizationBalanceHistoryPerAccountEntityHistoryInner
  */
-export interface OrganizationBalanceEntityHistoryInner {
+export interface OrganizationBalanceHistoryPerAccountEntityHistoryInner {
     /**
      * 
      * @type {CashFlowReportEntityDataDataInnerPeriod}
-     * @memberof OrganizationBalanceEntityHistoryInner
+     * @memberof OrganizationBalanceHistoryPerAccountEntityHistoryInner
      */
     period: CashFlowReportEntityDataDataInnerPeriod;
     /**
      * Saldo inicial
      * @type {string}
-     * @memberof OrganizationBalanceEntityHistoryInner
+     * @memberof OrganizationBalanceHistoryPerAccountEntityHistoryInner
      */
     openingBalance: string;
     /**
      * Total de receitas
      * @type {string}
-     * @memberof OrganizationBalanceEntityHistoryInner
+     * @memberof OrganizationBalanceHistoryPerAccountEntityHistoryInner
      */
     totalIncome: string;
     /**
      * Total de despesas
      * @type {string}
-     * @memberof OrganizationBalanceEntityHistoryInner
+     * @memberof OrganizationBalanceHistoryPerAccountEntityHistoryInner
      */
     totalOutcome: string;
     /**
      * Saldo final
      * @type {string}
-     * @memberof OrganizationBalanceEntityHistoryInner
+     * @memberof OrganizationBalanceHistoryPerAccountEntityHistoryInner
      */
     closingBalance: string;
 }
 
 /**
- * Check if a given object implements the OrganizationBalanceEntityHistoryInner interface.
+ * Check if a given object implements the OrganizationBalanceHistoryPerAccountEntityHistoryInner interface.
  */
-export function instanceOfOrganizationBalanceEntityHistoryInner(value: object): value is OrganizationBalanceEntityHistoryInner {
+export function instanceOfOrganizationBalanceHistoryPerAccountEntityHistoryInner(value: object): value is OrganizationBalanceHistoryPerAccountEntityHistoryInner {
     if (!('period' in value) || value['period'] === undefined) return false;
     if (!('openingBalance' in value) || value['openingBalance'] === undefined) return false;
     if (!('totalIncome' in value) || value['totalIncome'] === undefined) return false;
@@ -71,11 +71,11 @@ export function instanceOfOrganizationBalanceEntityHistoryInner(value: object): 
     return true;
 }
 
-export function OrganizationBalanceEntityHistoryInnerFromJSON(json: any): OrganizationBalanceEntityHistoryInner {
-    return OrganizationBalanceEntityHistoryInnerFromJSONTyped(json, false);
+export function OrganizationBalanceHistoryPerAccountEntityHistoryInnerFromJSON(json: any): OrganizationBalanceHistoryPerAccountEntityHistoryInner {
+    return OrganizationBalanceHistoryPerAccountEntityHistoryInnerFromJSONTyped(json, false);
 }
 
-export function OrganizationBalanceEntityHistoryInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): OrganizationBalanceEntityHistoryInner {
+export function OrganizationBalanceHistoryPerAccountEntityHistoryInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): OrganizationBalanceHistoryPerAccountEntityHistoryInner {
     if (json == null) {
         return json;
     }
@@ -89,11 +89,11 @@ export function OrganizationBalanceEntityHistoryInnerFromJSONTyped(json: any, ig
     };
 }
 
-export function OrganizationBalanceEntityHistoryInnerToJSON(json: any): OrganizationBalanceEntityHistoryInner {
-    return OrganizationBalanceEntityHistoryInnerToJSONTyped(json, false);
+export function OrganizationBalanceHistoryPerAccountEntityHistoryInnerToJSON(json: any): OrganizationBalanceHistoryPerAccountEntityHistoryInner {
+    return OrganizationBalanceHistoryPerAccountEntityHistoryInnerToJSONTyped(json, false);
 }
 
-export function OrganizationBalanceEntityHistoryInnerToJSONTyped(value?: OrganizationBalanceEntityHistoryInner | null, ignoreDiscriminator: boolean = false): any {
+export function OrganizationBalanceHistoryPerAccountEntityHistoryInnerToJSONTyped(value?: OrganizationBalanceHistoryPerAccountEntityHistoryInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

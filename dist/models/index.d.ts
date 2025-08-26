@@ -50,5 +50,6 @@ export * from './MonthlyFinancialReportEntityData';
 export * from './MonthlyFinancialReportEntityDataData';
 export * from './MonthlyFinancialReportEntityDataDataItemsInner';
 export * from './MonthlyFinancialReportEntityDataFilters';
-export * from './OrganizationBalanceEntity';
-export * from './OrganizationBalanceEntityHistoryInner';
+export * from './OrganizationBalanceHistoryPerAccountEntity';
+export * from './OrganizationBalanceHistoryPerAccountEntityHistoryInner';
+export * from './OrganizationBalancePerAccountEntity';

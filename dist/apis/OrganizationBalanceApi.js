@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetOrganizationBalancePeriodTypeEnum = exports.OrganizationBalanceApi = void 0;
+exports.GetOrganizationBalanceHistoryPerAccountPeriodTypeEnum = exports.OrganizationBalanceApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -76,19 +76,19 @@ var OrganizationBalanceApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Get organization balance
+     * Get organization balance history per account
      */
-    OrganizationBalanceApi.prototype.getOrganizationBalanceRaw = function (requestParameters, initOverrides) {
+    OrganizationBalanceApi.prototype.getOrganizationBalanceHistoryPerAccountRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['periodAmount'] == null) {
-                            throw new runtime.RequiredError('periodAmount', 'Required parameter "periodAmount" was null or undefined when calling getOrganizationBalance().');
+                            throw new runtime.RequiredError('periodAmount', 'Required parameter "periodAmount" was null or undefined when calling getOrganizationBalanceHistoryPerAccount().');
                         }
                         if (requestParameters['periodType'] == null) {
-                            throw new runtime.RequiredError('periodType', 'Required parameter "periodType" was null or undefined when calling getOrganizationBalance().');
+                            throw new runtime.RequiredError('periodType', 'Required parameter "periodType" was null or undefined when calling getOrganizationBalanceHistoryPerAccount().');
                         }
                         queryParameters = {};
                         if (requestParameters['periodAmount'] != null) {
@@ -98,7 +98,7 @@ var OrganizationBalanceApi = /** @class */ (function (_super) {
                             queryParameters['periodType'] = requestParameters['periodType'];
                         }
                         headerParameters = {};
-                        urlPath = "/external/organization-balance";
+                        urlPath = "/external/organization-balance/per-account/history";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',
@@ -107,20 +107,104 @@ var OrganizationBalanceApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.OrganizationBalanceEntityFromJSON); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.OrganizationBalanceHistoryPerAccountEntityFromJSON); })];
                 }
             });
         });
     };
     /**
-     * Get organization balance
+     * Get organization balance history per account
      */
-    OrganizationBalanceApi.prototype.getOrganizationBalance = function (requestParameters, initOverrides) {
+    OrganizationBalanceApi.prototype.getOrganizationBalanceHistoryPerAccount = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getOrganizationBalanceRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.getOrganizationBalanceHistoryPerAccountRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Get organization balance per account
+     */
+    OrganizationBalanceApi.prototype.getOrganizationBalancePerAccountRaw = function (initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/external/organization-balance/per-account";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.OrganizationBalancePerAccountEntityFromJSON); })];
+                }
+            });
+        });
+    };
+    /**
+     * Get organization balance per account
+     */
+    OrganizationBalanceApi.prototype.getOrganizationBalancePerAccount = function (initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getOrganizationBalancePerAccountRaw(initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Get organization total balance
+     */
+    OrganizationBalanceApi.prototype.getOrganizationTotalBalanceRaw = function (initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/external/organization-balance/total";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.OrganizationBalancePerAccountEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Get organization total balance
+     */
+    OrganizationBalanceApi.prototype.getOrganizationTotalBalance = function (initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getOrganizationTotalBalanceRaw(initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -135,7 +219,7 @@ exports.OrganizationBalanceApi = OrganizationBalanceApi;
 /**
  * @export
  */
-exports.GetOrganizationBalancePeriodTypeEnum = {
+exports.GetOrganizationBalanceHistoryPerAccountPeriodTypeEnum = {
     Day: 'day',
     Month: 'month',
     Year: 'year'

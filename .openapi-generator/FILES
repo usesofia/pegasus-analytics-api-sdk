@@ -63,8 +63,9 @@ src/models/MonthlyFinancialReportEntityData.ts
 src/models/MonthlyFinancialReportEntityDataData.ts
 src/models/MonthlyFinancialReportEntityDataDataItemsInner.ts
 src/models/MonthlyFinancialReportEntityDataFilters.ts
-src/models/OrganizationBalanceEntity.ts
-src/models/OrganizationBalanceEntityHistoryInner.ts
+src/models/OrganizationBalanceHistoryPerAccountEntity.ts
+src/models/OrganizationBalanceHistoryPerAccountEntityHistoryInner.ts
+src/models/OrganizationBalancePerAccountEntity.ts
 src/models/index.ts
 src/runtime.ts
 tsconfig.json

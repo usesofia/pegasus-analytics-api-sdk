@@ -13,16 +13,16 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.instanceOfOrganizationBalanceEntityHistoryInner = instanceOfOrganizationBalanceEntityHistoryInner;
-exports.OrganizationBalanceEntityHistoryInnerFromJSON = OrganizationBalanceEntityHistoryInnerFromJSON;
-exports.OrganizationBalanceEntityHistoryInnerFromJSONTyped = OrganizationBalanceEntityHistoryInnerFromJSONTyped;
-exports.OrganizationBalanceEntityHistoryInnerToJSON = OrganizationBalanceEntityHistoryInnerToJSON;
-exports.OrganizationBalanceEntityHistoryInnerToJSONTyped = OrganizationBalanceEntityHistoryInnerToJSONTyped;
+exports.instanceOfOrganizationBalanceHistoryPerAccountEntityHistoryInner = instanceOfOrganizationBalanceHistoryPerAccountEntityHistoryInner;
+exports.OrganizationBalanceHistoryPerAccountEntityHistoryInnerFromJSON = OrganizationBalanceHistoryPerAccountEntityHistoryInnerFromJSON;
+exports.OrganizationBalanceHistoryPerAccountEntityHistoryInnerFromJSONTyped = OrganizationBalanceHistoryPerAccountEntityHistoryInnerFromJSONTyped;
+exports.OrganizationBalanceHistoryPerAccountEntityHistoryInnerToJSON = OrganizationBalanceHistoryPerAccountEntityHistoryInnerToJSON;
+exports.OrganizationBalanceHistoryPerAccountEntityHistoryInnerToJSONTyped = OrganizationBalanceHistoryPerAccountEntityHistoryInnerToJSONTyped;
 var CashFlowReportEntityDataDataInnerPeriod_1 = require("./CashFlowReportEntityDataDataInnerPeriod");
 /**
- * Check if a given object implements the OrganizationBalanceEntityHistoryInner interface.
+ * Check if a given object implements the OrganizationBalanceHistoryPerAccountEntityHistoryInner interface.
  */
-function instanceOfOrganizationBalanceEntityHistoryInner(value) {
+function instanceOfOrganizationBalanceHistoryPerAccountEntityHistoryInner(value) {
     if (!('period' in value) || value['period'] === undefined)
         return false;
     if (!('openingBalance' in value) || value['openingBalance'] === undefined)
@@ -35,10 +35,10 @@ function instanceOfOrganizationBalanceEntityHistoryInner(value) {
         return false;
     return true;
 }
-function OrganizationBalanceEntityHistoryInnerFromJSON(json) {
-    return OrganizationBalanceEntityHistoryInnerFromJSONTyped(json, false);
+function OrganizationBalanceHistoryPerAccountEntityHistoryInnerFromJSON(json) {
+    return OrganizationBalanceHistoryPerAccountEntityHistoryInnerFromJSONTyped(json, false);
 }
-function OrganizationBalanceEntityHistoryInnerFromJSONTyped(json, ignoreDiscriminator) {
+function OrganizationBalanceHistoryPerAccountEntityHistoryInnerFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
@@ -50,10 +50,10 @@ function OrganizationBalanceEntityHistoryInnerFromJSONTyped(json, ignoreDiscrimi
         'closingBalance': json['closingBalance'],
     };
 }
-function OrganizationBalanceEntityHistoryInnerToJSON(json) {
-    return OrganizationBalanceEntityHistoryInnerToJSONTyped(json, false);
+function OrganizationBalanceHistoryPerAccountEntityHistoryInnerToJSON(json) {
+    return OrganizationBalanceHistoryPerAccountEntityHistoryInnerToJSONTyped(json, false);
 }
-function OrganizationBalanceEntityHistoryInnerToJSONTyped(value, ignoreDiscriminator) {
+function OrganizationBalanceHistoryPerAccountEntityHistoryInnerToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;

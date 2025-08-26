@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { OrganizationBalanceEntity } from '../models/index';
-export interface GetOrganizationBalanceRequest {
+import type { OrganizationBalanceHistoryPerAccountEntity, OrganizationBalancePerAccountEntity } from '../models/index';
+export interface GetOrganizationBalanceHistoryPerAccountRequest {
     periodAmount: number;
-    periodType: GetOrganizationBalancePeriodTypeEnum;
+    periodType: GetOrganizationBalanceHistoryPerAccountPeriodTypeEnum;
 }
 /**
  * OrganizationBalanceApi - interface
@@ -24,38 +24,78 @@ export interface GetOrganizationBalanceRequest {
 export interface OrganizationBalanceApiInterface {
     /**
      *
-     * @summary Get organization balance
+     * @summary Get organization balance history per account
      * @param {number} periodAmount Quantidade de períodos
      * @param {'day' | 'month' | 'year'} periodType Tipo de período
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OrganizationBalanceApiInterface
      */
-    getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationBalanceEntity>>>;
+    getOrganizationBalanceHistoryPerAccountRaw(requestParameters: GetOrganizationBalanceHistoryPerAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationBalanceHistoryPerAccountEntity>>>;
     /**
-     * Get organization balance
+     * Get organization balance history per account
      */
-    getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationBalanceEntity>>;
+    getOrganizationBalanceHistoryPerAccount(requestParameters: GetOrganizationBalanceHistoryPerAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationBalanceHistoryPerAccountEntity>>;
+    /**
+     *
+     * @summary Get organization balance per account
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationBalanceApiInterface
+     */
+    getOrganizationBalancePerAccountRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationBalancePerAccountEntity>>>;
+    /**
+     * Get organization balance per account
+     */
+    getOrganizationBalancePerAccount(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationBalancePerAccountEntity>>;
+    /**
+     *
+     * @summary Get organization total balance
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationBalanceApiInterface
+     */
+    getOrganizationTotalBalanceRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationBalancePerAccountEntity>>;
+    /**
+     * Get organization total balance
+     */
+    getOrganizationTotalBalance(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationBalancePerAccountEntity>;
 }
 /**
  *
  */
 export declare class OrganizationBalanceApi extends runtime.BaseAPI implements OrganizationBalanceApiInterface {
     /**
-     * Get organization balance
+     * Get organization balance history per account
      */
-    getOrganizationBalanceRaw(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationBalanceEntity>>>;
+    getOrganizationBalanceHistoryPerAccountRaw(requestParameters: GetOrganizationBalanceHistoryPerAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationBalanceHistoryPerAccountEntity>>>;
     /**
-     * Get organization balance
+     * Get organization balance history per account
      */
-    getOrganizationBalance(requestParameters: GetOrganizationBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationBalanceEntity>>;
+    getOrganizationBalanceHistoryPerAccount(requestParameters: GetOrganizationBalanceHistoryPerAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationBalanceHistoryPerAccountEntity>>;
+    /**
+     * Get organization balance per account
+     */
+    getOrganizationBalancePerAccountRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationBalancePerAccountEntity>>>;
+    /**
+     * Get organization balance per account
+     */
+    getOrganizationBalancePerAccount(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationBalancePerAccountEntity>>;
+    /**
+     * Get organization total balance
+     */
+    getOrganizationTotalBalanceRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationBalancePerAccountEntity>>;
+    /**
+     * Get organization total balance
+     */
+    getOrganizationTotalBalance(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationBalancePerAccountEntity>;
 }
 /**
  * @export
  */
-export declare const GetOrganizationBalancePeriodTypeEnum: {
+export declare const GetOrganizationBalanceHistoryPerAccountPeriodTypeEnum: {
     readonly Day: "day";
     readonly Month: "month";
     readonly Year: "year";
 };
-export type GetOrganizationBalancePeriodTypeEnum = typeof GetOrganizationBalancePeriodTypeEnum[keyof typeof GetOrganizationBalancePeriodTypeEnum];
+export type GetOrganizationBalanceHistoryPerAccountPeriodTypeEnum = typeof GetOrganizationBalanceHistoryPerAccountPeriodTypeEnum[keyof typeof GetOrganizationBalanceHistoryPerAccountPeriodTypeEnum];
