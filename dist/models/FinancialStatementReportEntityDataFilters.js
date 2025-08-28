@@ -19,7 +19,7 @@ exports.FinancialStatementReportEntityDataFiltersFromJSON = FinancialStatementRe
 exports.FinancialStatementReportEntityDataFiltersFromJSONTyped = FinancialStatementReportEntityDataFiltersFromJSONTyped;
 exports.FinancialStatementReportEntityDataFiltersToJSON = FinancialStatementReportEntityDataFiltersToJSON;
 exports.FinancialStatementReportEntityDataFiltersToJSONTyped = FinancialStatementReportEntityDataFiltersToJSONTyped;
-var FinancialStatementReportEntityDataFiltersPeriod_1 = require("./FinancialStatementReportEntityDataFiltersPeriod");
+var ProjectedCashFlowEntityPeriodsInnerPeriod_1 = require("./ProjectedCashFlowEntityPeriodsInnerPeriod");
 /**
  * @export
  */
@@ -55,7 +55,7 @@ function FinancialStatementReportEntityDataFiltersFromJSONTyped(json, ignoreDisc
     }
     return {
         'grouping': json['grouping'],
-        'period': json['period'] == null ? undefined : (0, FinancialStatementReportEntityDataFiltersPeriod_1.FinancialStatementReportEntityDataFiltersPeriodFromJSON)(json['period']),
+        'period': json['period'] == null ? undefined : (0, ProjectedCashFlowEntityPeriodsInnerPeriod_1.ProjectedCashFlowEntityPeriodsInnerPeriodFromJSON)(json['period']),
         'referenceDate': json['referenceDate'],
         'completed': json['completed'] == null ? undefined : json['completed'],
         'tags': json['tags'] == null ? undefined : json['tags'],
@@ -71,7 +71,7 @@ function FinancialStatementReportEntityDataFiltersToJSONTyped(value, ignoreDiscr
     }
     return {
         'grouping': value['grouping'],
-        'period': (0, FinancialStatementReportEntityDataFiltersPeriod_1.FinancialStatementReportEntityDataFiltersPeriodToJSON)(value['period']),
+        'period': (0, ProjectedCashFlowEntityPeriodsInnerPeriod_1.ProjectedCashFlowEntityPeriodsInnerPeriodToJSON)(value['period']),
         'referenceDate': value['referenceDate'],
         'completed': value['completed'],
         'tags': value['tags'],

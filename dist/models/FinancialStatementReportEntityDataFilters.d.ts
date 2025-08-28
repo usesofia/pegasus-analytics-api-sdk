@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FinancialStatementReportEntityDataFiltersPeriod } from './FinancialStatementReportEntityDataFiltersPeriod';
+import type { ProjectedCashFlowEntityPeriodsInnerPeriod } from './ProjectedCashFlowEntityPeriodsInnerPeriod';
 /**
  *
  * @export
@@ -24,10 +24,10 @@ export interface FinancialStatementReportEntityDataFilters {
     grouping: FinancialStatementReportEntityDataFiltersGroupingEnum;
     /**
      *
-     * @type {FinancialStatementReportEntityDataFiltersPeriod}
+     * @type {ProjectedCashFlowEntityPeriodsInnerPeriod}
      * @memberof FinancialStatementReportEntityDataFilters
      */
-    period?: FinancialStatementReportEntityDataFiltersPeriod;
+    period?: ProjectedCashFlowEntityPeriodsInnerPeriod;
     /**
      * Campo de data a ser utilizado para filtros
      * @type {string}

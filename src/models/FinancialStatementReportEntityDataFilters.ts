@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { FinancialStatementReportEntityDataFiltersPeriod } from './FinancialStatementReportEntityDataFiltersPeriod';
+import type { ProjectedCashFlowEntityPeriodsInnerPeriod } from './ProjectedCashFlowEntityPeriodsInnerPeriod';
 import {
-    FinancialStatementReportEntityDataFiltersPeriodFromJSON,
-    FinancialStatementReportEntityDataFiltersPeriodFromJSONTyped,
-    FinancialStatementReportEntityDataFiltersPeriodToJSON,
-    FinancialStatementReportEntityDataFiltersPeriodToJSONTyped,
-} from './FinancialStatementReportEntityDataFiltersPeriod';
+    ProjectedCashFlowEntityPeriodsInnerPeriodFromJSON,
+    ProjectedCashFlowEntityPeriodsInnerPeriodFromJSONTyped,
+    ProjectedCashFlowEntityPeriodsInnerPeriodToJSON,
+    ProjectedCashFlowEntityPeriodsInnerPeriodToJSONTyped,
+} from './ProjectedCashFlowEntityPeriodsInnerPeriod';
 
 /**
  * 
@@ -35,10 +35,10 @@ export interface FinancialStatementReportEntityDataFilters {
     grouping: FinancialStatementReportEntityDataFiltersGroupingEnum;
     /**
      * 
-     * @type {FinancialStatementReportEntityDataFiltersPeriod}
+     * @type {ProjectedCashFlowEntityPeriodsInnerPeriod}
      * @memberof FinancialStatementReportEntityDataFilters
      */
-    period?: FinancialStatementReportEntityDataFiltersPeriod;
+    period?: ProjectedCashFlowEntityPeriodsInnerPeriod;
     /**
      * Campo de data a ser utilizado para filtros
      * @type {string}
@@ -101,7 +101,7 @@ export function FinancialStatementReportEntityDataFiltersFromJSONTyped(json: any
     return {
         
         'grouping': json['grouping'],
-        'period': json['period'] == null ? undefined : FinancialStatementReportEntityDataFiltersPeriodFromJSON(json['period']),
+        'period': json['period'] == null ? undefined : ProjectedCashFlowEntityPeriodsInnerPeriodFromJSON(json['period']),
         'referenceDate': json['referenceDate'],
         'completed': json['completed'] == null ? undefined : json['completed'],
         'tags': json['tags'] == null ? undefined : json['tags'],
@@ -120,7 +120,7 @@ export function FinancialStatementReportEntityDataFiltersToJSONTyped(value?: Fin
     return {
         
         'grouping': value['grouping'],
-        'period': FinancialStatementReportEntityDataFiltersPeriodToJSON(value['period']),
+        'period': ProjectedCashFlowEntityPeriodsInnerPeriodToJSON(value['period']),
         'referenceDate': value['referenceDate'],
         'completed': value['completed'],
         'tags': value['tags'],

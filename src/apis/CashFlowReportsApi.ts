@@ -17,12 +17,15 @@ import * as runtime from '../runtime';
 import type {
   CashFlowReportEntity,
   CurrentMonthCashFlowEntity,
+  ProjectedCashFlowEntity,
 } from '../models/index';
 import {
     CashFlowReportEntityFromJSON,
     CashFlowReportEntityToJSON,
     CurrentMonthCashFlowEntityFromJSON,
     CurrentMonthCashFlowEntityToJSON,
+    ProjectedCashFlowEntityFromJSON,
+    ProjectedCashFlowEntityToJSON,
 } from '../models/index';
 
 export interface GenerateCashFlowReportRequest {
@@ -79,6 +82,20 @@ export interface CashFlowReportsApiInterface {
      * Obtém o fluxo de caixa do mês atual por direção
      */
     getCurrentMonthCashFlow(requestParameters: GetCurrentMonthCashFlowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrentMonthCashFlowEntity>;
+
+    /**
+     * 
+     * @summary Obtém o fluxo de caixa projetado de D-3 a D+8
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CashFlowReportsApiInterface
+     */
+    getProjectedCashFlowRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProjectedCashFlowEntity>>;
+
+    /**
+     * Obtém o fluxo de caixa projetado de D-3 a D+8
+     */
+    getProjectedCashFlow(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProjectedCashFlowEntity>;
 
 }
 
@@ -198,6 +215,35 @@ export class CashFlowReportsApi extends runtime.BaseAPI implements CashFlowRepor
      */
     async getCurrentMonthCashFlow(requestParameters: GetCurrentMonthCashFlowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrentMonthCashFlowEntity> {
         const response = await this.getCurrentMonthCashFlowRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Obtém o fluxo de caixa projetado de D-3 a D+8
+     */
+    async getProjectedCashFlowRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProjectedCashFlowEntity>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/external/cash-flow/projected`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProjectedCashFlowEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Obtém o fluxo de caixa projetado de D-3 a D+8
+     */
+    async getProjectedCashFlow(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProjectedCashFlowEntity> {
+        const response = await this.getProjectedCashFlowRaw(initOverrides);
         return await response.value();
     }
 

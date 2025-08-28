@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CashFlowReportEntity, CurrentMonthCashFlowEntity } from '../models/index';
+import type { CashFlowReportEntity, CurrentMonthCashFlowEntity, ProjectedCashFlowEntity } from '../models/index';
 export interface GenerateCashFlowReportRequest {
     periodTo: string;
     periodFrom: string;
@@ -60,6 +60,18 @@ export interface CashFlowReportsApiInterface {
      * Obtém o fluxo de caixa do mês atual por direção
      */
     getCurrentMonthCashFlow(requestParameters: GetCurrentMonthCashFlowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrentMonthCashFlowEntity>;
+    /**
+     *
+     * @summary Obtém o fluxo de caixa projetado de D-3 a D+8
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CashFlowReportsApiInterface
+     */
+    getProjectedCashFlowRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProjectedCashFlowEntity>>;
+    /**
+     * Obtém o fluxo de caixa projetado de D-3 a D+8
+     */
+    getProjectedCashFlow(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProjectedCashFlowEntity>;
 }
 /**
  *
@@ -81,6 +93,14 @@ export declare class CashFlowReportsApi extends runtime.BaseAPI implements CashF
      * Obtém o fluxo de caixa do mês atual por direção
      */
     getCurrentMonthCashFlow(requestParameters: GetCurrentMonthCashFlowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrentMonthCashFlowEntity>;
+    /**
+     * Obtém o fluxo de caixa projetado de D-3 a D+8
+     */
+    getProjectedCashFlowRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProjectedCashFlowEntity>>;
+    /**
+     * Obtém o fluxo de caixa projetado de D-3 a D+8
+     */
+    getProjectedCashFlow(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProjectedCashFlowEntity>;
 }
 /**
  * @export

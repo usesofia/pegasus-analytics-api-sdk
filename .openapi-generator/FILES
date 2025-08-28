@@ -56,7 +56,6 @@ src/models/FinancialStatementReportEntityDataDataInnerOtherIncome.ts
 src/models/FinancialStatementReportEntityDataDataInnerPersonnelExpenses.ts
 src/models/FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpenses.ts
 src/models/FinancialStatementReportEntityDataFilters.ts
-src/models/FinancialStatementReportEntityDataFiltersPeriod.ts
 src/models/HealthResponseDto.ts
 src/models/MonthlyFinancialReportEntity.ts
 src/models/MonthlyFinancialReportEntityData.ts
@@ -66,6 +65,9 @@ src/models/MonthlyFinancialReportEntityDataFilters.ts
 src/models/OrganizationBalanceHistoryPerAccountEntity.ts
 src/models/OrganizationBalanceHistoryPerAccountEntityHistoryInner.ts
 src/models/OrganizationBalancePerAccountEntity.ts
+src/models/ProjectedCashFlowEntity.ts
+src/models/ProjectedCashFlowEntityPeriodsInner.ts
+src/models/ProjectedCashFlowEntityPeriodsInnerPeriod.ts
 src/models/index.ts
 src/runtime.ts
 tsconfig.json
