@@ -1,4 +1,4 @@
-## @usesofia/pegasus-analytics-api-sdk@1.0.3
+## @usesofia/pegasus-analytics-api-sdk@1.1.0
 
 This generator creates TypeScript/JavaScript client that utilizes [Fetch API](https://fetch.spec.whatwg.org/). The generated Node module can be used in the following environments:
 
@@ -36,7 +36,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install @usesofia/pegasus-analytics-api-sdk@1.0.3 --save
+npm install @usesofia/pegasus-analytics-api-sdk@1.1.0 --save
 ```
 
 _unPublished (not recommended):_
