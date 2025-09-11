@@ -28,6 +28,12 @@ import {
  */
 export interface OrganizationBalanceHistoryPerAccountEntity {
     /**
+     * ID da conta
+     * @type {string}
+     * @memberof OrganizationBalanceHistoryPerAccountEntity
+     */
+    accountId: string;
+    /**
      * Nome da conta
      * @type {string}
      * @memberof OrganizationBalanceHistoryPerAccountEntity
@@ -69,6 +75,7 @@ export interface OrganizationBalanceHistoryPerAccountEntity {
  * Check if a given object implements the OrganizationBalanceHistoryPerAccountEntity interface.
  */
 export function instanceOfOrganizationBalanceHistoryPerAccountEntity(value: object): value is OrganizationBalanceHistoryPerAccountEntity {
+    if (!('accountId' in value) || value['accountId'] === undefined) return false;
     if (!('accountName' in value) || value['accountName'] === undefined) return false;
     if (!('accountType' in value) || value['accountType'] === undefined) return false;
     if (!('currentBalance' in value) || value['currentBalance'] === undefined) return false;
@@ -86,6 +93,7 @@ export function OrganizationBalanceHistoryPerAccountEntityFromJSONTyped(json: an
     }
     return {
         
+        'accountId': json['accountId'],
         'accountName': json['accountName'],
         'accountType': json['accountType'],
         'accountImageUrl': json['accountImageUrl'] == null ? undefined : json['accountImageUrl'],
@@ -106,6 +114,7 @@ export function OrganizationBalanceHistoryPerAccountEntityToJSONTyped(value?: Or
 
     return {
         
+        'accountId': value['accountId'],
         'accountName': value['accountName'],
         'accountType': value['accountType'],
         'accountImageUrl': value['accountImageUrl'],

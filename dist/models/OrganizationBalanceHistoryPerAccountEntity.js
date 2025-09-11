@@ -23,6 +23,8 @@ var OrganizationBalanceHistoryPerAccountEntityHistoryInner_1 = require("./Organi
  * Check if a given object implements the OrganizationBalanceHistoryPerAccountEntity interface.
  */
 function instanceOfOrganizationBalanceHistoryPerAccountEntity(value) {
+    if (!('accountId' in value) || value['accountId'] === undefined)
+        return false;
     if (!('accountName' in value) || value['accountName'] === undefined)
         return false;
     if (!('accountType' in value) || value['accountType'] === undefined)
@@ -41,6 +43,7 @@ function OrganizationBalanceHistoryPerAccountEntityFromJSONTyped(json, ignoreDis
         return json;
     }
     return {
+        'accountId': json['accountId'],
         'accountName': json['accountName'],
         'accountType': json['accountType'],
         'accountImageUrl': json['accountImageUrl'] == null ? undefined : json['accountImageUrl'],
@@ -58,6 +61,7 @@ function OrganizationBalanceHistoryPerAccountEntityToJSONTyped(value, ignoreDisc
         return value;
     }
     return {
+        'accountId': value['accountId'],
         'accountName': value['accountName'],
         'accountType': value['accountType'],
         'accountImageUrl': value['accountImageUrl'],

@@ -22,6 +22,8 @@ exports.OrganizationBalancePerAccountEntityToJSONTyped = OrganizationBalancePerA
  * Check if a given object implements the OrganizationBalancePerAccountEntity interface.
  */
 function instanceOfOrganizationBalancePerAccountEntity(value) {
+    if (!('accountId' in value) || value['accountId'] === undefined)
+        return false;
     if (!('accountName' in value) || value['accountName'] === undefined)
         return false;
     if (!('accountType' in value) || value['accountType'] === undefined)
@@ -38,6 +40,7 @@ function OrganizationBalancePerAccountEntityFromJSONTyped(json, ignoreDiscrimina
         return json;
     }
     return {
+        'accountId': json['accountId'],
         'accountName': json['accountName'],
         'accountType': json['accountType'],
         'connectionType': json['connectionType'] == null ? undefined : json['connectionType'],
@@ -54,6 +57,7 @@ function OrganizationBalancePerAccountEntityToJSONTyped(value, ignoreDiscriminat
         return value;
     }
     return {
+        'accountId': value['accountId'],
         'accountName': value['accountName'],
         'accountType': value['accountType'],
         'connectionType': value['connectionType'],

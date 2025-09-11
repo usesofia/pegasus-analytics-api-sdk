@@ -16,6 +16,12 @@
  */
 export interface OrganizationBalancePerAccountEntity {
     /**
+     * ID da conta
+     * @type {string}
+     * @memberof OrganizationBalancePerAccountEntity
+     */
+    accountId: string;
+    /**
      * Nome da conta
      * @type {string}
      * @memberof OrganizationBalancePerAccountEntity

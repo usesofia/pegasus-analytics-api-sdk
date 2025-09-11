@@ -17,6 +17,12 @@ import type { OrganizationBalanceHistoryPerAccountEntityHistoryInner } from './O
  */
 export interface OrganizationBalanceHistoryPerAccountEntity {
     /**
+     * ID da conta
+     * @type {string}
+     * @memberof OrganizationBalanceHistoryPerAccountEntity
+     */
+    accountId: string;
+    /**
      * Nome da conta
      * @type {string}
      * @memberof OrganizationBalanceHistoryPerAccountEntity

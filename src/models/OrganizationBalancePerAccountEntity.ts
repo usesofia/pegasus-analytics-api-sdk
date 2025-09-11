@@ -20,6 +20,12 @@ import { mapValues } from '../runtime';
  */
 export interface OrganizationBalancePerAccountEntity {
     /**
+     * ID da conta
+     * @type {string}
+     * @memberof OrganizationBalancePerAccountEntity
+     */
+    accountId: string;
+    /**
      * Nome da conta
      * @type {string}
      * @memberof OrganizationBalancePerAccountEntity
@@ -55,6 +61,7 @@ export interface OrganizationBalancePerAccountEntity {
  * Check if a given object implements the OrganizationBalancePerAccountEntity interface.
  */
 export function instanceOfOrganizationBalancePerAccountEntity(value: object): value is OrganizationBalancePerAccountEntity {
+    if (!('accountId' in value) || value['accountId'] === undefined) return false;
     if (!('accountName' in value) || value['accountName'] === undefined) return false;
     if (!('accountType' in value) || value['accountType'] === undefined) return false;
     if (!('currentBalance' in value) || value['currentBalance'] === undefined) return false;
@@ -71,6 +78,7 @@ export function OrganizationBalancePerAccountEntityFromJSONTyped(json: any, igno
     }
     return {
         
+        'accountId': json['accountId'],
         'accountName': json['accountName'],
         'accountType': json['accountType'],
         'connectionType': json['connectionType'] == null ? undefined : json['connectionType'],
@@ -90,6 +98,7 @@ export function OrganizationBalancePerAccountEntityToJSONTyped(value?: Organizat
 
     return {
         
+        'accountId': value['accountId'],
         'accountName': value['accountName'],
         'accountType': value['accountType'],
         'connectionType': value['connectionType'],
