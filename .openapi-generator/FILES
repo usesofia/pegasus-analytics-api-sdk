@@ -23,6 +23,7 @@ src/models/CacheSetDto.ts
 src/models/CashFlowReportEntity.ts
 src/models/CashFlowReportEntityData.ts
 src/models/CashFlowReportEntityDataDataInner.ts
+src/models/CashFlowReportEntityDataDataInnerInsertedAccountsInner.ts
 src/models/CashFlowReportEntityDataDataInnerPeriod.ts
 src/models/CashFlowReportEntityDataFilters.ts
 src/models/CashFlowReportEntityDataFiltersPeriod.ts

@@ -19,6 +19,7 @@ exports.CashFlowReportEntityDataDataInnerFromJSONTyped = CashFlowReportEntityDat
 exports.CashFlowReportEntityDataDataInnerToJSON = CashFlowReportEntityDataDataInnerToJSON;
 exports.CashFlowReportEntityDataDataInnerToJSONTyped = CashFlowReportEntityDataDataInnerToJSONTyped;
 var CashFlowReportEntityDataDataInnerPeriod_1 = require("./CashFlowReportEntityDataDataInnerPeriod");
+var CashFlowReportEntityDataDataInnerInsertedAccountsInner_1 = require("./CashFlowReportEntityDataDataInnerInsertedAccountsInner");
 /**
  * Check if a given object implements the CashFlowReportEntityDataDataInner interface.
  */
@@ -32,6 +33,8 @@ function instanceOfCashFlowReportEntityDataDataInner(value) {
     if (!('totalOutcome' in value) || value['totalOutcome'] === undefined)
         return false;
     if (!('closingBalance' in value) || value['closingBalance'] === undefined)
+        return false;
+    if (!('insertedAccounts' in value) || value['insertedAccounts'] === undefined)
         return false;
     return true;
 }
@@ -48,6 +51,7 @@ function CashFlowReportEntityDataDataInnerFromJSONTyped(json, ignoreDiscriminato
         'totalIncome': json['totalIncome'],
         'totalOutcome': json['totalOutcome'],
         'closingBalance': json['closingBalance'],
+        'insertedAccounts': (json['insertedAccounts'].map(CashFlowReportEntityDataDataInnerInsertedAccountsInner_1.CashFlowReportEntityDataDataInnerInsertedAccountsInnerFromJSON)),
     };
 }
 function CashFlowReportEntityDataDataInnerToJSON(json) {
@@ -64,5 +68,6 @@ function CashFlowReportEntityDataDataInnerToJSONTyped(value, ignoreDiscriminator
         'totalIncome': value['totalIncome'],
         'totalOutcome': value['totalOutcome'],
         'closingBalance': value['closingBalance'],
+        'insertedAccounts': (value['insertedAccounts'].map(CashFlowReportEntityDataDataInnerInsertedAccountsInner_1.CashFlowReportEntityDataDataInnerInsertedAccountsInnerToJSON)),
     };
 }

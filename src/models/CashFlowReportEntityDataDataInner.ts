@@ -20,6 +20,13 @@ import {
     CashFlowReportEntityDataDataInnerPeriodToJSON,
     CashFlowReportEntityDataDataInnerPeriodToJSONTyped,
 } from './CashFlowReportEntityDataDataInnerPeriod';
+import type { CashFlowReportEntityDataDataInnerInsertedAccountsInner } from './CashFlowReportEntityDataDataInnerInsertedAccountsInner';
+import {
+    CashFlowReportEntityDataDataInnerInsertedAccountsInnerFromJSON,
+    CashFlowReportEntityDataDataInnerInsertedAccountsInnerFromJSONTyped,
+    CashFlowReportEntityDataDataInnerInsertedAccountsInnerToJSON,
+    CashFlowReportEntityDataDataInnerInsertedAccountsInnerToJSONTyped,
+} from './CashFlowReportEntityDataDataInnerInsertedAccountsInner';
 
 /**
  * 
@@ -57,6 +64,12 @@ export interface CashFlowReportEntityDataDataInner {
      * @memberof CashFlowReportEntityDataDataInner
      */
     closingBalance: number;
+    /**
+     * Contas que foram introduzidas neste período
+     * @type {Array<CashFlowReportEntityDataDataInnerInsertedAccountsInner>}
+     * @memberof CashFlowReportEntityDataDataInner
+     */
+    insertedAccounts: Array<CashFlowReportEntityDataDataInnerInsertedAccountsInner>;
 }
 
 /**
@@ -68,6 +81,7 @@ export function instanceOfCashFlowReportEntityDataDataInner(value: object): valu
     if (!('totalIncome' in value) || value['totalIncome'] === undefined) return false;
     if (!('totalOutcome' in value) || value['totalOutcome'] === undefined) return false;
     if (!('closingBalance' in value) || value['closingBalance'] === undefined) return false;
+    if (!('insertedAccounts' in value) || value['insertedAccounts'] === undefined) return false;
     return true;
 }
 
@@ -86,6 +100,7 @@ export function CashFlowReportEntityDataDataInnerFromJSONTyped(json: any, ignore
         'totalIncome': json['totalIncome'],
         'totalOutcome': json['totalOutcome'],
         'closingBalance': json['closingBalance'],
+        'insertedAccounts': ((json['insertedAccounts'] as Array<any>).map(CashFlowReportEntityDataDataInnerInsertedAccountsInnerFromJSON)),
     };
 }
 
@@ -105,6 +120,7 @@ export function CashFlowReportEntityDataDataInnerToJSONTyped(value?: CashFlowRep
         'totalIncome': value['totalIncome'],
         'totalOutcome': value['totalOutcome'],
         'closingBalance': value['closingBalance'],
+        'insertedAccounts': ((value['insertedAccounts'] as Array<any>).map(CashFlowReportEntityDataDataInnerInsertedAccountsInnerToJSON)),
     };
 }
 

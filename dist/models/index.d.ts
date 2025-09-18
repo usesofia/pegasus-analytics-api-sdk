@@ -10,6 +10,7 @@ export * from './CacheSetDto';
 export * from './CashFlowReportEntity';
 export * from './CashFlowReportEntityData';
 export * from './CashFlowReportEntityDataDataInner';
+export * from './CashFlowReportEntityDataDataInnerInsertedAccountsInner';
 export * from './CashFlowReportEntityDataDataInnerPeriod';
 export * from './CashFlowReportEntityDataFilters';
 export * from './CashFlowReportEntityDataFiltersPeriod';

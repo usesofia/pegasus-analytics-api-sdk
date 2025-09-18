@@ -28,6 +28,7 @@ __exportStar(require("./CacheSetDto"), exports);
 __exportStar(require("./CashFlowReportEntity"), exports);
 __exportStar(require("./CashFlowReportEntityData"), exports);
 __exportStar(require("./CashFlowReportEntityDataDataInner"), exports);
+__exportStar(require("./CashFlowReportEntityDataDataInnerInsertedAccountsInner"), exports);
 __exportStar(require("./CashFlowReportEntityDataDataInnerPeriod"), exports);
 __exportStar(require("./CashFlowReportEntityDataFilters"), exports);
 __exportStar(require("./CashFlowReportEntityDataFiltersPeriod"), exports);

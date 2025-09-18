@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CashFlowReportEntityDataDataInnerPeriod } from './CashFlowReportEntityDataDataInnerPeriod';
+import type { CashFlowReportEntityDataDataInnerInsertedAccountsInner } from './CashFlowReportEntityDataDataInnerInsertedAccountsInner';
 /**
  *
  * @export
@@ -46,6 +47,12 @@ export interface CashFlowReportEntityDataDataInner {
      * @memberof CashFlowReportEntityDataDataInner
      */
     closingBalance: number;
+    /**
+     * Contas que foram introduzidas neste período
+     * @type {Array<CashFlowReportEntityDataDataInnerInsertedAccountsInner>}
+     * @memberof CashFlowReportEntityDataDataInner
+     */
+    insertedAccounts: Array<CashFlowReportEntityDataDataInnerInsertedAccountsInner>;
 }
 /**
  * Check if a given object implements the CashFlowReportEntityDataDataInner interface.
