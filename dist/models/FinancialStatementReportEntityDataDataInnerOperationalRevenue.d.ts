@@ -11,7 +11,7 @@
  */
 import type { FinancialStatementReportEntityDataDataInnerOperationalRevenueSubcategoriesInner } from './FinancialStatementReportEntityDataDataInnerOperationalRevenueSubcategoriesInner';
 /**
- * Receita operacional
+ *
  * @export
  * @interface FinancialStatementReportEntityDataDataInnerOperationalRevenue
  */

@@ -22,7 +22,7 @@ import {
 } from './FinancialStatementReportEntityDataDataInnerOperationalRevenueSubcategoriesInner';
 
 /**
- * Receita operacional
+ * 
  * @export
  * @interface FinancialStatementReportEntityDataDataInnerOperationalRevenue
  */

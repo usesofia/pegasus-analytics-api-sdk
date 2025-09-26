@@ -22,6 +22,8 @@ exports.FinancialStatementReportEntityDataDataInnerOperationalRevenueSubcategori
  * Check if a given object implements the FinancialStatementReportEntityDataDataInnerOperationalRevenueSubcategoriesInner interface.
  */
 function instanceOfFinancialStatementReportEntityDataDataInnerOperationalRevenueSubcategoriesInner(value) {
+    if (!('id' in value) || value['id'] === undefined)
+        return false;
     if (!('name' in value) || value['name'] === undefined)
         return false;
     if (!('amount' in value) || value['amount'] === undefined)
@@ -36,6 +38,7 @@ function FinancialStatementReportEntityDataDataInnerOperationalRevenueSubcategor
         return json;
     }
     return {
+        'id': json['id'],
         'name': json['name'],
         'amount': json['amount'],
     };
@@ -49,6 +52,7 @@ function FinancialStatementReportEntityDataDataInnerOperationalRevenueSubcategor
         return value;
     }
     return {
+        'id': value['id'],
         'name': value['name'],
         'amount': value['amount'],
     };

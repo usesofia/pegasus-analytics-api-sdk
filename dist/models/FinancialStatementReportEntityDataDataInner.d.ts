@@ -9,20 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FinancialStatementReportEntityDataDataInnerIncomeTaxExpense } from './FinancialStatementReportEntityDataDataInnerIncomeTaxExpense';
-import type { FinancialStatementReportEntityDataDataInnerOtherIncome } from './FinancialStatementReportEntityDataDataInnerOtherIncome';
-import type { FinancialStatementReportEntityDataDataInnerEbitda } from './FinancialStatementReportEntityDataDataInnerEbitda';
-import type { FinancialStatementReportEntityDataDataInnerInvestments } from './FinancialStatementReportEntityDataDataInnerInvestments';
-import type { FinancialStatementReportEntityDataDataInnerFinancialIncome } from './FinancialStatementReportEntityDataDataInnerFinancialIncome';
-import type { FinancialStatementReportEntityDataDataInnerNetIncome } from './FinancialStatementReportEntityDataDataInnerNetIncome';
-import type { FinancialStatementReportEntityDataDataInnerAdministrativeExpenses } from './FinancialStatementReportEntityDataDataInnerAdministrativeExpenses';
-import type { CashFlowReportEntityDataDataInnerPeriod } from './CashFlowReportEntityDataDataInnerPeriod';
+import type { FinancialStatementReportEntityDataDataInnerPeriod } from './FinancialStatementReportEntityDataDataInnerPeriod';
 import type { FinancialStatementReportEntityDataDataInnerOperationalRevenue } from './FinancialStatementReportEntityDataDataInnerOperationalRevenue';
 import type { FinancialStatementReportEntityDataDataInnerContributionMargin } from './FinancialStatementReportEntityDataDataInnerContributionMargin';
-import type { FinancialStatementReportEntityDataDataInnerFinancialExpenses } from './FinancialStatementReportEntityDataDataInnerFinancialExpenses';
-import type { FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpenses } from './FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpenses';
-import type { FinancialStatementReportEntityDataDataInnerOperatingExpenses } from './FinancialStatementReportEntityDataDataInnerOperatingExpenses';
-import type { FinancialStatementReportEntityDataDataInnerPersonnelExpenses } from './FinancialStatementReportEntityDataDataInnerPersonnelExpenses';
 /**
  *
  * @export
@@ -31,10 +20,10 @@ import type { FinancialStatementReportEntityDataDataInnerPersonnelExpenses } fro
 export interface FinancialStatementReportEntityDataDataInner {
     /**
      *
-     * @type {CashFlowReportEntityDataDataInnerPeriod}
+     * @type {FinancialStatementReportEntityDataDataInnerPeriod}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    period: CashFlowReportEntityDataDataInnerPeriod;
+    period: FinancialStatementReportEntityDataDataInnerPeriod;
     /**
      *
      * @type {FinancialStatementReportEntityDataDataInnerOperationalRevenue}
@@ -43,58 +32,58 @@ export interface FinancialStatementReportEntityDataDataInner {
     operationalRevenue: FinancialStatementReportEntityDataDataInnerOperationalRevenue;
     /**
      *
-     * @type {FinancialStatementReportEntityDataDataInnerOperatingExpenses}
+     * @type {FinancialStatementReportEntityDataDataInnerOperationalRevenue}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    operatingExpenses: FinancialStatementReportEntityDataDataInnerOperatingExpenses;
+    operatingExpenses: FinancialStatementReportEntityDataDataInnerOperationalRevenue;
     /**
      *
-     * @type {FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpenses}
+     * @type {FinancialStatementReportEntityDataDataInnerOperationalRevenue}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    salesAndMarketingExpenses: FinancialStatementReportEntityDataDataInnerSalesAndMarketingExpenses;
+    salesAndMarketingExpenses: FinancialStatementReportEntityDataDataInnerOperationalRevenue;
     /**
      *
-     * @type {FinancialStatementReportEntityDataDataInnerAdministrativeExpenses}
+     * @type {FinancialStatementReportEntityDataDataInnerOperationalRevenue}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    administrativeExpenses: FinancialStatementReportEntityDataDataInnerAdministrativeExpenses;
+    administrativeExpenses: FinancialStatementReportEntityDataDataInnerOperationalRevenue;
     /**
      *
-     * @type {FinancialStatementReportEntityDataDataInnerPersonnelExpenses}
+     * @type {FinancialStatementReportEntityDataDataInnerOperationalRevenue}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    personnelExpenses: FinancialStatementReportEntityDataDataInnerPersonnelExpenses;
+    personnelExpenses: FinancialStatementReportEntityDataDataInnerOperationalRevenue;
     /**
      *
-     * @type {FinancialStatementReportEntityDataDataInnerFinancialIncome}
+     * @type {FinancialStatementReportEntityDataDataInnerOperationalRevenue}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    financialIncome: FinancialStatementReportEntityDataDataInnerFinancialIncome;
+    financialIncome: FinancialStatementReportEntityDataDataInnerOperationalRevenue;
     /**
      *
-     * @type {FinancialStatementReportEntityDataDataInnerOtherIncome}
+     * @type {FinancialStatementReportEntityDataDataInnerOperationalRevenue}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    otherIncome: FinancialStatementReportEntityDataDataInnerOtherIncome;
+    otherIncome: FinancialStatementReportEntityDataDataInnerOperationalRevenue;
     /**
      *
-     * @type {FinancialStatementReportEntityDataDataInnerFinancialExpenses}
+     * @type {FinancialStatementReportEntityDataDataInnerOperationalRevenue}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    financialExpenses: FinancialStatementReportEntityDataDataInnerFinancialExpenses;
+    financialExpenses: FinancialStatementReportEntityDataDataInnerOperationalRevenue;
     /**
      *
-     * @type {FinancialStatementReportEntityDataDataInnerInvestments}
+     * @type {FinancialStatementReportEntityDataDataInnerOperationalRevenue}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    investments: FinancialStatementReportEntityDataDataInnerInvestments;
+    investments: FinancialStatementReportEntityDataDataInnerOperationalRevenue;
     /**
      *
-     * @type {FinancialStatementReportEntityDataDataInnerIncomeTaxExpense}
+     * @type {FinancialStatementReportEntityDataDataInnerOperationalRevenue}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    incomeTaxExpense: FinancialStatementReportEntityDataDataInnerIncomeTaxExpense;
+    incomeTaxExpense: FinancialStatementReportEntityDataDataInnerOperationalRevenue;
     /**
      *
      * @type {FinancialStatementReportEntityDataDataInnerContributionMargin}
@@ -103,16 +92,16 @@ export interface FinancialStatementReportEntityDataDataInner {
     contributionMargin: FinancialStatementReportEntityDataDataInnerContributionMargin;
     /**
      *
-     * @type {FinancialStatementReportEntityDataDataInnerNetIncome}
+     * @type {FinancialStatementReportEntityDataDataInnerContributionMargin}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    netIncome: FinancialStatementReportEntityDataDataInnerNetIncome;
+    netIncome: FinancialStatementReportEntityDataDataInnerContributionMargin;
     /**
      *
-     * @type {FinancialStatementReportEntityDataDataInnerEbitda}
+     * @type {FinancialStatementReportEntityDataDataInnerContributionMargin}
      * @memberof FinancialStatementReportEntityDataDataInner
      */
-    ebitda: FinancialStatementReportEntityDataDataInnerEbitda;
+    ebitda: FinancialStatementReportEntityDataDataInnerContributionMargin;
 }
 /**
  * Check if a given object implements the FinancialStatementReportEntityDataDataInner interface.

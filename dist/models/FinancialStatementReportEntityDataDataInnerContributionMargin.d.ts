@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 /**
- * Margem de contribuição
+ *
  * @export
  * @interface FinancialStatementReportEntityDataDataInnerContributionMargin
  */

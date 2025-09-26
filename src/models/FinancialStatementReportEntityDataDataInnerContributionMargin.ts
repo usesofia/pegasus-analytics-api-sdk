@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * Margem de contribuição
+ * 
  * @export
  * @interface FinancialStatementReportEntityDataDataInnerContributionMargin
  */

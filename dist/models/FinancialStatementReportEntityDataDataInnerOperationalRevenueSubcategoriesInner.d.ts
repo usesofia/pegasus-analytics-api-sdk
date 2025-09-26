@@ -16,6 +16,12 @@
  */
 export interface FinancialStatementReportEntityDataDataInnerOperationalRevenueSubcategoriesInner {
     /**
+     * Identificador da subcategoria
+     * @type {string}
+     * @memberof FinancialStatementReportEntityDataDataInnerOperationalRevenueSubcategoriesInner
+     */
+    id: string;
+    /**
      * Nome da subcategoria
      * @type {string}
      * @memberof FinancialStatementReportEntityDataDataInnerOperationalRevenueSubcategoriesInner
