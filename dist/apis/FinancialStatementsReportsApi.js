@@ -212,6 +212,9 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
                         if (requestParameters['subcategory'] != null) {
                             queryParameters['subcategory'] = requestParameters['subcategory'];
                         }
+                        if (requestParameters['account'] != null) {
+                            queryParameters['account'] = requestParameters['account'];
+                        }
                         if (requestParameters['contact'] != null) {
                             queryParameters['contact'] = requestParameters['contact'];
                         }

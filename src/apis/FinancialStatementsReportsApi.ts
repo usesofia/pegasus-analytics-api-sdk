@@ -63,6 +63,7 @@ export interface GenerateFinancialResultCompositionReportRequest {
     competenceDateTo?: string;
     competenceDateFrom?: string;
     subcategory?: string;
+    account?: string;
     contact?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
@@ -129,8 +130,9 @@ export interface FinancialStatementsReportsApiInterface {
      * @param {string} [cashDateFrom] Data inicial do caixa
      * @param {string} [competenceDateTo] Data final da competência
      * @param {string} [competenceDateFrom] Data inicial da competência
-     * @param {string} [subcategory] ID da subcategoria
-     * @param {string} [contact] ID do contato
+     * @param {string} [subcategory] Identificadores das subcategorias separadas por vírgula
+     * @param {string} [account] Identificadores das contas separadas por vírgula
+     * @param {string} [contact] Identificadores dos contatos separados por vírgula
      * @param {string} [dueDateTo] Data final do vencimento
      * @param {string} [dueDateFrom] Data inicial do vencimento
      * @param {'IN' | 'OUT'} [direction] Direção do relatório
@@ -318,6 +320,10 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
 
         if (requestParameters['subcategory'] != null) {
             queryParameters['subcategory'] = requestParameters['subcategory'];
+        }
+
+        if (requestParameters['account'] != null) {
+            queryParameters['account'] = requestParameters['account'];
         }
 
         if (requestParameters['contact'] != null) {

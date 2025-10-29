@@ -199,6 +199,9 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
                         if (requestParameters['amountType'] != null) {
                             queryParameters['amountType'] = requestParameters['amountType'];
                         }
+                        if (requestParameters['tags'] != null) {
+                            queryParameters['tags'] = requestParameters['tags'];
+                        }
                         if (requestParameters['account'] != null) {
                             queryParameters['account'] = requestParameters['account'];
                         }

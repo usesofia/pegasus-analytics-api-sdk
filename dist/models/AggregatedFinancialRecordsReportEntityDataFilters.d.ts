@@ -34,17 +34,17 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      */
     dueDateTo?: string;
     /**
-     *
-     * @type {string}
+     * Lista de IDs de contatos para filtrar.
+     * @type {Array<string>}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
-    contact?: string;
+    contact?: Array<string>;
     /**
-     *
-     * @type {string}
+     * Lista de IDs de subcategorias para filtrar.
+     * @type {Array<string>}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
-    subcategory?: string;
+    subcategory?: Array<string>;
     /**
      *
      * @type {string}
@@ -82,7 +82,7 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      */
     createdAtTo?: any | null;
     /**
-     *
+     * Lista de IDs de tags para filtrar.
      * @type {Array<string>}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
@@ -100,23 +100,23 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      */
     reconciled?: boolean;
     /**
-     *
+     * Lista de IDs de contas bancárias para filtrar.
      * @type {Array<string>}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
     account?: Array<string>;
     /**
-     *
-     * @type {string}
+     * Lista de IDs de parcelas para filtrar.
+     * @type {Array<string>}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
-    installmentFinancialRecord?: string;
+    installmentFinancialRecord?: Array<string>;
     /**
-     *
-     * @type {string}
+     * Lista de IDs de recorrências para filtrar.
+     * @type {Array<string>}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
-    recurringFinancialRecord?: string;
+    recurringFinancialRecord?: Array<string>;
     /**
      *
      * @type {string}

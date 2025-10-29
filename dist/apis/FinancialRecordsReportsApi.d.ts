@@ -36,6 +36,7 @@ export interface GenerateAggregatedFinancialRecordsReportRequest {
 }
 export interface GenerateMonthlyFinancialReportRequest {
     amountType?: GenerateMonthlyFinancialReportAmountTypeEnum;
+    tags?: string;
     account?: string;
     reconciled?: string;
     completed?: string;
@@ -80,8 +81,8 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {'IN' | 'OUT'} aggregationDirection Direção do lançamento financeiro
      * @param {'category' | 'contact' | 'tag'} groupBy Campo para agrupamento dos dados
      * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos
-     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
-     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro parcelado
+     * @param {string} [recurringFinancialRecord] IDs do lançamento financeiro recorrente separados por vírgula
+     * @param {string} [installmentFinancialRecord] IDs do lançamento financeiro parcelado separados por vírgula
      * @param {string} [account] Conta do lançamento financeiro
      * @param {string} [reconciled] Status de conciliação dos lançamentos
      * @param {string} [completed] Status de conclusão dos lançamentos
@@ -111,6 +112,7 @@ export interface FinancialRecordsReportsApiInterface {
      *
      * @summary Gera relatório financeiro mensal para os últimos 12 meses
      * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} [tags] Tags do lançamento financeiro separadas por vírgula
      * @param {string} [account] Conta do lançamento financeiro
      * @param {string} [reconciled] Status de conciliação dos lançamentos
      * @param {string} [completed] Status de conclusão dos lançamentos
