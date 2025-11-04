@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetAggregatedResultReportDirectionEnum = exports.GetAggregatedResultReportAmountTypeEnum = exports.GenerateMonthlyFinancialReportDirectionEnum = exports.GenerateMonthlyFinancialReportAmountTypeEnum = exports.GenerateAggregatedFinancialRecordsReportSortOrderEnum = exports.GenerateAggregatedFinancialRecordsReportDirectionEnum = exports.GenerateAggregatedFinancialRecordsReportAmountTypeEnum = exports.GenerateAggregatedFinancialRecordsReportGroupByEnum = exports.GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum = exports.FinancialRecordsReportsApi = void 0;
+exports.SystemGetAggregatedResultReportDirectionEnum = exports.SystemGetAggregatedResultReportAmountTypeEnum = exports.GetAggregatedResultReportDirectionEnum = exports.GetAggregatedResultReportAmountTypeEnum = exports.GenerateMonthlyFinancialReportDirectionEnum = exports.GenerateMonthlyFinancialReportAmountTypeEnum = exports.GenerateAggregatedFinancialRecordsReportSortOrderEnum = exports.GenerateAggregatedFinancialRecordsReportDirectionEnum = exports.GenerateAggregatedFinancialRecordsReportAmountTypeEnum = exports.GenerateAggregatedFinancialRecordsReportGroupByEnum = exports.GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum = exports.FinancialRecordsReportsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -362,6 +362,102 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
             });
         });
     };
+    /**
+     * Get aggregated   result report for financial records
+     */
+    FinancialRecordsReportsApi.prototype.systemGetAggregatedResultReportRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['ownerOrganizationId'] == null) {
+                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemGetAggregatedResultReport().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['ownerOrganizationId'] != null) {
+                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                        }
+                        if (requestParameters['amountType'] != null) {
+                            queryParameters['amountType'] = requestParameters['amountType'];
+                        }
+                        if (requestParameters['account'] != null) {
+                            queryParameters['account'] = requestParameters['account'];
+                        }
+                        if (requestParameters['reconciled'] != null) {
+                            queryParameters['reconciled'] = requestParameters['reconciled'];
+                        }
+                        if (requestParameters['completed'] != null) {
+                            queryParameters['completed'] = requestParameters['completed'];
+                        }
+                        if (requestParameters['tags'] != null) {
+                            queryParameters['tags'] = requestParameters['tags'];
+                        }
+                        if (requestParameters['createdAtTo'] != null) {
+                            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+                        }
+                        if (requestParameters['createdAtFrom'] != null) {
+                            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+                        }
+                        if (requestParameters['cashDateTo'] != null) {
+                            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+                        }
+                        if (requestParameters['cashDateFrom'] != null) {
+                            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+                        }
+                        if (requestParameters['competenceDateTo'] != null) {
+                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+                        }
+                        if (requestParameters['competenceDateFrom'] != null) {
+                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+                        }
+                        if (requestParameters['subcategory'] != null) {
+                            queryParameters['subcategory'] = requestParameters['subcategory'];
+                        }
+                        if (requestParameters['contact'] != null) {
+                            queryParameters['contact'] = requestParameters['contact'];
+                        }
+                        if (requestParameters['dueDateTo'] != null) {
+                            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+                        }
+                        if (requestParameters['dueDateFrom'] != null) {
+                            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+                        }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/internal/financial-records/aggregated-result/report";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordsAggregatedResultReportEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Get aggregated   result report for financial records
+     */
+    FinancialRecordsReportsApi.prototype.systemGetAggregatedResultReport = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemGetAggregatedResultReportRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     return FinancialRecordsReportsApi;
 }(runtime.BaseAPI));
 exports.FinancialRecordsReportsApi = FinancialRecordsReportsApi;
@@ -426,6 +522,20 @@ exports.GetAggregatedResultReportAmountTypeEnum = {
  * @export
  */
 exports.GetAggregatedResultReportDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+};
+/**
+ * @export
+ */
+exports.SystemGetAggregatedResultReportAmountTypeEnum = {
+    Base: 'base',
+    Final: 'final'
+};
+/**
+ * @export
+ */
+exports.SystemGetAggregatedResultReportDirectionEnum = {
     In: 'IN',
     Out: 'OUT'
 };

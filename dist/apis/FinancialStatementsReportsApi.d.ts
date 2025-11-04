@@ -56,6 +56,15 @@ export interface GenerateFinancialStatementReportRequest {
     tags?: string;
     completed?: string;
 }
+export interface SystemGenerateFinancialStatementReportRequest {
+    ownerOrganizationId: string;
+    periodTo: string;
+    periodFrom: string;
+    grouping: SystemGenerateFinancialStatementReportGroupingEnum;
+    tags?: string;
+    completed?: string;
+    referenceDate?: SystemGenerateFinancialStatementReportReferenceDateEnum;
+}
 /**
  * FinancialStatementsReportsApi - interface
  *
@@ -139,6 +148,25 @@ export interface FinancialStatementsReportsApiInterface {
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      */
     generateFinancialStatementReport(requestParameters: GenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialStatementReportEntity>;
+    /**
+     *
+     * @summary Generate financial statement report for system use
+     * @param {string} ownerOrganizationId Identificador da organização proprietária dos lançamentos financeiros.
+     * @param {string} periodTo Período do relatório
+     * @param {string} periodFrom Período do relatório
+     * @param {'daily' | 'monthly' | 'yearly'} grouping Agrupamento do relatório
+     * @param {string} [tags] IDs das tags
+     * @param {string} [completed] Status de conclusão dos lançamentos
+     * @param {'dueDate' | 'cashDate' | 'competenceDate'} [referenceDate] Campo de data a ser utilizado para filtros
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialStatementsReportsApiInterface
+     */
+    systemGenerateFinancialStatementReportRaw(requestParameters: SystemGenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialStatementReportEntity>>;
+    /**
+     * Generate financial statement report for system use
+     */
+    systemGenerateFinancialStatementReport(requestParameters: SystemGenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialStatementReportEntity>;
 }
 /**
  *
@@ -170,6 +198,14 @@ export declare class FinancialStatementsReportsApi extends runtime.BaseAPI imple
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      */
     generateFinancialStatementReport(requestParameters: GenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialStatementReportEntity>;
+    /**
+     * Generate financial statement report for system use
+     */
+    systemGenerateFinancialStatementReportRaw(requestParameters: SystemGenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialStatementReportEntity>>;
+    /**
+     * Generate financial statement report for system use
+     */
+    systemGenerateFinancialStatementReport(requestParameters: SystemGenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialStatementReportEntity>;
 }
 /**
  * @export
@@ -221,3 +257,21 @@ export declare const GenerateFinancialStatementReportGroupingEnum: {
     readonly Yearly: "yearly";
 };
 export type GenerateFinancialStatementReportGroupingEnum = typeof GenerateFinancialStatementReportGroupingEnum[keyof typeof GenerateFinancialStatementReportGroupingEnum];
+/**
+ * @export
+ */
+export declare const SystemGenerateFinancialStatementReportGroupingEnum: {
+    readonly Daily: "daily";
+    readonly Monthly: "monthly";
+    readonly Yearly: "yearly";
+};
+export type SystemGenerateFinancialStatementReportGroupingEnum = typeof SystemGenerateFinancialStatementReportGroupingEnum[keyof typeof SystemGenerateFinancialStatementReportGroupingEnum];
+/**
+ * @export
+ */
+export declare const SystemGenerateFinancialStatementReportReferenceDateEnum: {
+    readonly DueDate: "dueDate";
+    readonly CashDate: "cashDate";
+    readonly CompetenceDate: "competenceDate";
+};
+export type SystemGenerateFinancialStatementReportReferenceDateEnum = typeof SystemGenerateFinancialStatementReportReferenceDateEnum[keyof typeof SystemGenerateFinancialStatementReportReferenceDateEnum];

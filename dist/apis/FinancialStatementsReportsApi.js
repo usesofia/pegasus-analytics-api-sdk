@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GenerateFinancialStatementReportGroupingEnum = exports.GenerateFinancialStatementReportReferenceDateEnum = exports.GenerateFinancialResultCompositionReportDirectionEnum = exports.GenerateFinancialResultCompositionReportAmountTypeEnum = exports.GenerateFinancialMeasuresReportDirectionEnum = exports.GenerateFinancialMeasuresReportAmountTypeEnum = exports.FinancialStatementsReportsApi = void 0;
+exports.SystemGenerateFinancialStatementReportReferenceDateEnum = exports.SystemGenerateFinancialStatementReportGroupingEnum = exports.GenerateFinancialStatementReportGroupingEnum = exports.GenerateFinancialStatementReportReferenceDateEnum = exports.GenerateFinancialResultCompositionReportDirectionEnum = exports.GenerateFinancialResultCompositionReportAmountTypeEnum = exports.GenerateFinancialMeasuresReportDirectionEnum = exports.GenerateFinancialMeasuresReportAmountTypeEnum = exports.FinancialStatementsReportsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -334,6 +334,81 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
             });
         });
     };
+    /**
+     * Generate financial statement report for system use
+     */
+    FinancialStatementsReportsApi.prototype.systemGenerateFinancialStatementReportRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['ownerOrganizationId'] == null) {
+                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemGenerateFinancialStatementReport().');
+                        }
+                        if (requestParameters['periodTo'] == null) {
+                            throw new runtime.RequiredError('periodTo', 'Required parameter "periodTo" was null or undefined when calling systemGenerateFinancialStatementReport().');
+                        }
+                        if (requestParameters['periodFrom'] == null) {
+                            throw new runtime.RequiredError('periodFrom', 'Required parameter "periodFrom" was null or undefined when calling systemGenerateFinancialStatementReport().');
+                        }
+                        if (requestParameters['grouping'] == null) {
+                            throw new runtime.RequiredError('grouping', 'Required parameter "grouping" was null or undefined when calling systemGenerateFinancialStatementReport().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['ownerOrganizationId'] != null) {
+                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                        }
+                        if (requestParameters['tags'] != null) {
+                            queryParameters['tags'] = requestParameters['tags'];
+                        }
+                        if (requestParameters['completed'] != null) {
+                            queryParameters['completed'] = requestParameters['completed'];
+                        }
+                        if (requestParameters['referenceDate'] != null) {
+                            queryParameters['referenceDate'] = requestParameters['referenceDate'];
+                        }
+                        if (requestParameters['periodTo'] != null) {
+                            queryParameters['periodTo'] = requestParameters['periodTo'];
+                        }
+                        if (requestParameters['periodFrom'] != null) {
+                            queryParameters['periodFrom'] = requestParameters['periodFrom'];
+                        }
+                        if (requestParameters['grouping'] != null) {
+                            queryParameters['grouping'] = requestParameters['grouping'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/internal/financial-statements/report";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialStatementReportEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Generate financial statement report for system use
+     */
+    FinancialStatementsReportsApi.prototype.systemGenerateFinancialStatementReport = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemGenerateFinancialStatementReportRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     return FinancialStatementsReportsApi;
 }(runtime.BaseAPI));
 exports.FinancialStatementsReportsApi = FinancialStatementsReportsApi;
@@ -380,4 +455,20 @@ exports.GenerateFinancialStatementReportGroupingEnum = {
     Daily: 'daily',
     Monthly: 'monthly',
     Yearly: 'yearly'
+};
+/**
+ * @export
+ */
+exports.SystemGenerateFinancialStatementReportGroupingEnum = {
+    Daily: 'daily',
+    Monthly: 'monthly',
+    Yearly: 'yearly'
+};
+/**
+ * @export
+ */
+exports.SystemGenerateFinancialStatementReportReferenceDateEnum = {
+    DueDate: 'dueDate',
+    CashDate: 'cashDate',
+    CompetenceDate: 'competenceDate'
 };

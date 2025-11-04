@@ -68,6 +68,25 @@ export interface GetAggregatedResultReportRequest {
     dueDateFrom?: string;
     direction?: GetAggregatedResultReportDirectionEnum;
 }
+export interface SystemGetAggregatedResultReportRequest {
+    ownerOrganizationId: string;
+    amountType?: SystemGetAggregatedResultReportAmountTypeEnum;
+    account?: string;
+    reconciled?: boolean;
+    completed?: boolean;
+    tags?: string;
+    createdAtTo?: string;
+    createdAtFrom?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    dueDateTo?: string;
+    dueDateFrom?: string;
+    direction?: SystemGetAggregatedResultReportDirectionEnum;
+}
 /**
  * FinancialRecordsReportsApi - interface
  *
@@ -162,6 +181,35 @@ export interface FinancialRecordsReportsApiInterface {
      * Get aggregated   result report for financial records
      */
     getAggregatedResultReport(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
+    /**
+     *
+     * @summary Get aggregated   result report for financial records
+     * @param {string} ownerOrganizationId Identificador da organização proprietária dos lançamentos financeiros.
+     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} [account] Conta do lançamento financeiro.
+     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
+     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
+     * @param {string} [tags] Tags do lançamento financeiro separadas por vírgula.
+     * @param {string} [createdAtTo] Data de criação final.
+     * @param {string} [createdAtFrom] Data de criação inicial.
+     * @param {string} [cashDateTo] Data de pagamento final.
+     * @param {string} [cashDateFrom] Data de pagamento inicial.
+     * @param {string} [competenceDateTo] Data de competência final.
+     * @param {string} [competenceDateFrom] Data de competência inicial.
+     * @param {string} [subcategory] Subcategoria do lançamento financeiro.
+     * @param {string} [contact] Contato do lançamento financeiro.
+     * @param {string} [dueDateTo] Data de vencimento final.
+     * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsReportsApiInterface
+     */
+    systemGetAggregatedResultReportRaw(requestParameters: SystemGetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>>;
+    /**
+     * Get aggregated   result report for financial records
+     */
+    systemGetAggregatedResultReport(requestParameters: SystemGetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
 }
 /**
  *
@@ -191,6 +239,14 @@ export declare class FinancialRecordsReportsApi extends runtime.BaseAPI implemen
      * Get aggregated   result report for financial records
      */
     getAggregatedResultReport(requestParameters?: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
+    /**
+     * Get aggregated   result report for financial records
+     */
+    systemGetAggregatedResultReportRaw(requestParameters: SystemGetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>>;
+    /**
+     * Get aggregated   result report for financial records
+     */
+    systemGetAggregatedResultReport(requestParameters: SystemGetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
 }
 /**
  * @export
@@ -265,3 +321,19 @@ export declare const GetAggregatedResultReportDirectionEnum: {
     readonly Out: "OUT";
 };
 export type GetAggregatedResultReportDirectionEnum = typeof GetAggregatedResultReportDirectionEnum[keyof typeof GetAggregatedResultReportDirectionEnum];
+/**
+ * @export
+ */
+export declare const SystemGetAggregatedResultReportAmountTypeEnum: {
+    readonly Base: "base";
+    readonly Final: "final";
+};
+export type SystemGetAggregatedResultReportAmountTypeEnum = typeof SystemGetAggregatedResultReportAmountTypeEnum[keyof typeof SystemGetAggregatedResultReportAmountTypeEnum];
+/**
+ * @export
+ */
+export declare const SystemGetAggregatedResultReportDirectionEnum: {
+    readonly In: "IN";
+    readonly Out: "OUT";
+};
+export type SystemGetAggregatedResultReportDirectionEnum = typeof SystemGetAggregatedResultReportDirectionEnum[keyof typeof SystemGetAggregatedResultReportDirectionEnum];

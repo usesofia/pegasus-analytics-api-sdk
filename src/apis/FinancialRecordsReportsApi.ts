@@ -91,6 +91,26 @@ export interface GetAggregatedResultReportRequest {
     direction?: GetAggregatedResultReportDirectionEnum;
 }
 
+export interface SystemGetAggregatedResultReportRequest {
+    ownerOrganizationId: string;
+    amountType?: SystemGetAggregatedResultReportAmountTypeEnum;
+    account?: string;
+    reconciled?: boolean;
+    completed?: boolean;
+    tags?: string;
+    createdAtTo?: string;
+    createdAtFrom?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    dueDateTo?: string;
+    dueDateFrom?: string;
+    direction?: SystemGetAggregatedResultReportDirectionEnum;
+}
+
 /**
  * FinancialRecordsReportsApi - interface
  * 
@@ -190,6 +210,37 @@ export interface FinancialRecordsReportsApiInterface {
      * Get aggregated   result report for financial records
      */
     getAggregatedResultReport(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
+
+    /**
+     * 
+     * @summary Get aggregated   result report for financial records
+     * @param {string} ownerOrganizationId Identificador da organização proprietária dos lançamentos financeiros.
+     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} [account] Conta do lançamento financeiro.
+     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
+     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
+     * @param {string} [tags] Tags do lançamento financeiro separadas por vírgula.
+     * @param {string} [createdAtTo] Data de criação final.
+     * @param {string} [createdAtFrom] Data de criação inicial.
+     * @param {string} [cashDateTo] Data de pagamento final.
+     * @param {string} [cashDateFrom] Data de pagamento inicial.
+     * @param {string} [competenceDateTo] Data de competência final.
+     * @param {string} [competenceDateFrom] Data de competência inicial.
+     * @param {string} [subcategory] Subcategoria do lançamento financeiro.
+     * @param {string} [contact] Contato do lançamento financeiro.
+     * @param {string} [dueDateTo] Data de vencimento final.
+     * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsReportsApiInterface
+     */
+    systemGetAggregatedResultReportRaw(requestParameters: SystemGetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>>;
+
+    /**
+     * Get aggregated   result report for financial records
+     */
+    systemGetAggregatedResultReport(requestParameters: SystemGetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
 
 }
 
@@ -503,6 +554,110 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
         return await response.value();
     }
 
+    /**
+     * Get aggregated   result report for financial records
+     */
+    async systemGetAggregatedResultReportRaw(requestParameters: SystemGetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>> {
+        if (requestParameters['ownerOrganizationId'] == null) {
+            throw new runtime.RequiredError(
+                'ownerOrganizationId',
+                'Required parameter "ownerOrganizationId" was null or undefined when calling systemGetAggregatedResultReport().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['ownerOrganizationId'] != null) {
+            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+        }
+
+        if (requestParameters['amountType'] != null) {
+            queryParameters['amountType'] = requestParameters['amountType'];
+        }
+
+        if (requestParameters['account'] != null) {
+            queryParameters['account'] = requestParameters['account'];
+        }
+
+        if (requestParameters['reconciled'] != null) {
+            queryParameters['reconciled'] = requestParameters['reconciled'];
+        }
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
+        }
+
+        if (requestParameters['tags'] != null) {
+            queryParameters['tags'] = requestParameters['tags'];
+        }
+
+        if (requestParameters['createdAtTo'] != null) {
+            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+        }
+
+        if (requestParameters['createdAtFrom'] != null) {
+            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+        }
+
+        if (requestParameters['cashDateTo'] != null) {
+            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+        }
+
+        if (requestParameters['cashDateFrom'] != null) {
+            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+        }
+
+        if (requestParameters['competenceDateTo'] != null) {
+            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+        }
+
+        if (requestParameters['competenceDateFrom'] != null) {
+            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+        }
+
+        if (requestParameters['subcategory'] != null) {
+            queryParameters['subcategory'] = requestParameters['subcategory'];
+        }
+
+        if (requestParameters['contact'] != null) {
+            queryParameters['contact'] = requestParameters['contact'];
+        }
+
+        if (requestParameters['dueDateTo'] != null) {
+            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+        }
+
+        if (requestParameters['dueDateFrom'] != null) {
+            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+        }
+
+        if (requestParameters['direction'] != null) {
+            queryParameters['direction'] = requestParameters['direction'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/internal/financial-records/aggregated-result/report`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FinancialRecordsAggregatedResultReportEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Get aggregated   result report for financial records
+     */
+    async systemGetAggregatedResultReport(requestParameters: SystemGetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity> {
+        const response = await this.systemGetAggregatedResultReportRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
 }
 
 /**
@@ -578,3 +733,19 @@ export const GetAggregatedResultReportDirectionEnum = {
     Out: 'OUT'
 } as const;
 export type GetAggregatedResultReportDirectionEnum = typeof GetAggregatedResultReportDirectionEnum[keyof typeof GetAggregatedResultReportDirectionEnum];
+/**
+ * @export
+ */
+export const SystemGetAggregatedResultReportAmountTypeEnum = {
+    Base: 'base',
+    Final: 'final'
+} as const;
+export type SystemGetAggregatedResultReportAmountTypeEnum = typeof SystemGetAggregatedResultReportAmountTypeEnum[keyof typeof SystemGetAggregatedResultReportAmountTypeEnum];
+/**
+ * @export
+ */
+export const SystemGetAggregatedResultReportDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+} as const;
+export type SystemGetAggregatedResultReportDirectionEnum = typeof SystemGetAggregatedResultReportDirectionEnum[keyof typeof SystemGetAggregatedResultReportDirectionEnum];

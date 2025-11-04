@@ -79,6 +79,16 @@ export interface GenerateFinancialStatementReportRequest {
     completed?: string;
 }
 
+export interface SystemGenerateFinancialStatementReportRequest {
+    ownerOrganizationId: string;
+    periodTo: string;
+    periodFrom: string;
+    grouping: SystemGenerateFinancialStatementReportGroupingEnum;
+    tags?: string;
+    completed?: string;
+    referenceDate?: SystemGenerateFinancialStatementReportReferenceDateEnum;
+}
+
 /**
  * FinancialStatementsReportsApi - interface
  * 
@@ -167,6 +177,27 @@ export interface FinancialStatementsReportsApiInterface {
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      */
     generateFinancialStatementReport(requestParameters: GenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialStatementReportEntity>;
+
+    /**
+     * 
+     * @summary Generate financial statement report for system use
+     * @param {string} ownerOrganizationId Identificador da organização proprietária dos lançamentos financeiros.
+     * @param {string} periodTo Período do relatório
+     * @param {string} periodFrom Período do relatório
+     * @param {'daily' | 'monthly' | 'yearly'} grouping Agrupamento do relatório
+     * @param {string} [tags] IDs das tags
+     * @param {string} [completed] Status de conclusão dos lançamentos
+     * @param {'dueDate' | 'cashDate' | 'competenceDate'} [referenceDate] Campo de data a ser utilizado para filtros
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialStatementsReportsApiInterface
+     */
+    systemGenerateFinancialStatementReportRaw(requestParameters: SystemGenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialStatementReportEntity>>;
+
+    /**
+     * Generate financial statement report for system use
+     */
+    systemGenerateFinancialStatementReport(requestParameters: SystemGenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialStatementReportEntity>;
 
 }
 
@@ -448,6 +479,91 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
         return await response.value();
     }
 
+    /**
+     * Generate financial statement report for system use
+     */
+    async systemGenerateFinancialStatementReportRaw(requestParameters: SystemGenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialStatementReportEntity>> {
+        if (requestParameters['ownerOrganizationId'] == null) {
+            throw new runtime.RequiredError(
+                'ownerOrganizationId',
+                'Required parameter "ownerOrganizationId" was null or undefined when calling systemGenerateFinancialStatementReport().'
+            );
+        }
+
+        if (requestParameters['periodTo'] == null) {
+            throw new runtime.RequiredError(
+                'periodTo',
+                'Required parameter "periodTo" was null or undefined when calling systemGenerateFinancialStatementReport().'
+            );
+        }
+
+        if (requestParameters['periodFrom'] == null) {
+            throw new runtime.RequiredError(
+                'periodFrom',
+                'Required parameter "periodFrom" was null or undefined when calling systemGenerateFinancialStatementReport().'
+            );
+        }
+
+        if (requestParameters['grouping'] == null) {
+            throw new runtime.RequiredError(
+                'grouping',
+                'Required parameter "grouping" was null or undefined when calling systemGenerateFinancialStatementReport().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['ownerOrganizationId'] != null) {
+            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+        }
+
+        if (requestParameters['tags'] != null) {
+            queryParameters['tags'] = requestParameters['tags'];
+        }
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
+        }
+
+        if (requestParameters['referenceDate'] != null) {
+            queryParameters['referenceDate'] = requestParameters['referenceDate'];
+        }
+
+        if (requestParameters['periodTo'] != null) {
+            queryParameters['periodTo'] = requestParameters['periodTo'];
+        }
+
+        if (requestParameters['periodFrom'] != null) {
+            queryParameters['periodFrom'] = requestParameters['periodFrom'];
+        }
+
+        if (requestParameters['grouping'] != null) {
+            queryParameters['grouping'] = requestParameters['grouping'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/internal/financial-statements/report`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FinancialStatementReportEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Generate financial statement report for system use
+     */
+    async systemGenerateFinancialStatementReport(requestParameters: SystemGenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialStatementReportEntity> {
+        const response = await this.systemGenerateFinancialStatementReportRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
 }
 
 /**
@@ -500,3 +616,21 @@ export const GenerateFinancialStatementReportGroupingEnum = {
     Yearly: 'yearly'
 } as const;
 export type GenerateFinancialStatementReportGroupingEnum = typeof GenerateFinancialStatementReportGroupingEnum[keyof typeof GenerateFinancialStatementReportGroupingEnum];
+/**
+ * @export
+ */
+export const SystemGenerateFinancialStatementReportGroupingEnum = {
+    Daily: 'daily',
+    Monthly: 'monthly',
+    Yearly: 'yearly'
+} as const;
+export type SystemGenerateFinancialStatementReportGroupingEnum = typeof SystemGenerateFinancialStatementReportGroupingEnum[keyof typeof SystemGenerateFinancialStatementReportGroupingEnum];
+/**
+ * @export
+ */
+export const SystemGenerateFinancialStatementReportReferenceDateEnum = {
+    DueDate: 'dueDate',
+    CashDate: 'cashDate',
+    CompetenceDate: 'competenceDate'
+} as const;
+export type SystemGenerateFinancialStatementReportReferenceDateEnum = typeof SystemGenerateFinancialStatementReportReferenceDateEnum[keyof typeof SystemGenerateFinancialStatementReportReferenceDateEnum];
