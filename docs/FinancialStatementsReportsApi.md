@@ -269,7 +269,7 @@ async function example() {
     // string | IDs das tags (optional)
     tags: 123,456,
     // string | Status de conclusão dos lançamentos (optional)
-    completed: true,false,
+    completed: true|false,
   } satisfies GenerateFinancialStatementReportRequest;
 
   try {

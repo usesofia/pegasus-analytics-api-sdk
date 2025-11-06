@@ -9,7 +9,7 @@ Name | Type
 `grouping` | string
 `period` | [ProjectedCashFlowEntityPeriodsInnerPeriod](ProjectedCashFlowEntityPeriodsInnerPeriod.md)
 `referenceDate` | string
-`completed` | Array&lt;boolean&gt;
+`completed` | boolean
 `tags` | Array&lt;string&gt;
 
 ## Example

@@ -36,10 +36,10 @@ export interface FinancialStatementReportEntityDataFilters {
     referenceDate: FinancialStatementReportEntityDataFiltersReferenceDateEnum;
     /**
      * Status de conclusão dos lançamentos
-     * @type {Array<boolean>}
+     * @type {boolean}
      * @memberof FinancialStatementReportEntityDataFilters
      */
-    completed?: Array<boolean>;
+    completed?: boolean;
     /**
      * IDs das tags para filtro
      * @type {Array<string>}
