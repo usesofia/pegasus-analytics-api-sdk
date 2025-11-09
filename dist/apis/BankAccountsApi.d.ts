@@ -12,24 +12,28 @@
 import * as runtime from '../runtime';
 import type { BankAccountsDashboardReportEntity } from '../models/index';
 export interface GetBankAccountsReportRequest {
-    amountType?: GetBankAccountsReportAmountTypeEnum;
-    recurringFinancialRecord?: string;
-    installmentFinancialRecord?: string;
     account?: string;
-    reconciled?: boolean;
-    completed?: boolean;
-    tags?: string;
-    createdAtTo?: string;
-    createdAtFrom?: string;
-    cashDateTo?: string;
+    amountFrom?: string;
+    amountTo?: string;
+    amountType?: GetBankAccountsReportAmountTypeEnum;
     cashDateFrom?: string;
-    competenceDateTo?: string;
+    cashDateTo?: string;
     competenceDateFrom?: string;
-    subcategory?: string;
+    competenceDateTo?: string;
+    completed?: string;
     contact?: string;
-    dueDateTo?: string;
-    dueDateFrom?: string;
+    createdAtFrom?: string;
+    createdAtTo?: string;
     direction?: GetBankAccountsReportDirectionEnum;
+    dueDateFrom?: string;
+    dueDateTo?: string;
+    finalAmountFrom?: string;
+    finalAmountTo?: string;
+    installmentFinancialRecord?: string;
+    recurringFinancialRecord?: string;
+    reconciled?: string;
+    subcategory?: string;
+    tags?: string;
 }
 /**
  * BankAccountsApi - interface
@@ -41,24 +45,28 @@ export interface BankAccountsApiInterface {
     /**
      *
      * @summary Gera relatório de contas bancárias
-     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos.
-     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente.
-     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro parcelado.
-     * @param {string} [account] ID da conta bancária.
-     * @param {boolean} [reconciled] Status de conciliação dos lançamentos.
-     * @param {boolean} [completed] Status de conclusão dos lançamentos.
-     * @param {string} [tags] IDs das tags separadas por vírgula.
-     * @param {string} [createdAtTo] Data de criação final.
-     * @param {string} [createdAtFrom] Data de criação inicial.
-     * @param {string} [cashDateTo] Data de caixa final.
-     * @param {string} [cashDateFrom] Data de caixa inicial.
-     * @param {string} [competenceDateTo] Data de competência final.
-     * @param {string} [competenceDateFrom] Data de competência inicial.
-     * @param {string} [subcategory] ID da subcategoria.
-     * @param {string} [contact] ID do contato.
-     * @param {string} [dueDateTo] Data de vencimento final.
-     * @param {string} [dueDateFrom] Data de vencimento inicial.
-     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {string} [account] Identificadores das contas separadas por vírgula
+     * @param {string} [amountFrom] Valor do lançamento mínimo.
+     * @param {string} [amountTo] Valor do lançamento máximo.
+     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} [cashDateFrom] Data inicial do caixa
+     * @param {string} [cashDateTo] Data final do caixa
+     * @param {string} [competenceDateFrom] Data inicial da competência
+     * @param {string} [competenceDateTo] Data final da competência
+     * @param {string} [completed] Status de conclusão dos lançamentos
+     * @param {string} [contact] ID do contato
+     * @param {string} [createdAtFrom] Data inicial da criação
+     * @param {string} [createdAtTo] Data final da criação
+     * @param {'IN' | 'OUT'} [direction] Direção do relatório
+     * @param {string} [dueDateFrom] Data inicial do vencimento
+     * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
+     * @param {string} [finalAmountTo] Valor final do lançamento máximo.
+     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [subcategory] ID da subcategoria
+     * @param {string} [tags] IDs das tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankAccountsApiInterface

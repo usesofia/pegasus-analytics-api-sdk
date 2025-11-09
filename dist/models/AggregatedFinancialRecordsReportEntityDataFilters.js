@@ -13,7 +13,7 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersGroupByEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = void 0;
+exports.AggregatedFinancialRecordsReportEntityDataFiltersAggregationDirectionEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersSortOrderEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersGroupByEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = exports.AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum = void 0;
 exports.instanceOfAggregatedFinancialRecordsReportEntityDataFilters = instanceOfAggregatedFinancialRecordsReportEntityDataFilters;
 exports.AggregatedFinancialRecordsReportEntityDataFiltersFromJSON = AggregatedFinancialRecordsReportEntityDataFiltersFromJSON;
 exports.AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped = AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped;
@@ -22,16 +22,16 @@ exports.AggregatedFinancialRecordsReportEntityDataFiltersToJSONTyped = Aggregate
 /**
  * @export
  */
-exports.AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = {
-    In: 'IN',
-    Out: 'OUT'
+exports.AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum = {
+    Base: 'base',
+    Final: 'final'
 };
 /**
  * @export
  */
-exports.AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum = {
-    Base: 'base',
-    Final: 'final'
+exports.AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export
@@ -73,28 +73,28 @@ function AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped(json, ig
         return json;
     }
     return {
+        'account': json['account'] == null ? undefined : json['account'],
         'amountFrom': json['amountFrom'] == null ? undefined : json['amountFrom'],
         'amountTo': json['amountTo'] == null ? undefined : json['amountTo'],
-        'finalAmountFrom': json['finalAmountFrom'] == null ? undefined : json['finalAmountFrom'],
-        'finalAmountTo': json['finalAmountTo'] == null ? undefined : json['finalAmountTo'],
+        'amountType': json['amountType'] == null ? undefined : json['amountType'],
+        'cashDateFrom': json['cashDateFrom'] == null ? undefined : json['cashDateFrom'],
+        'cashDateTo': json['cashDateTo'] == null ? undefined : json['cashDateTo'],
+        'competenceDateFrom': json['competenceDateFrom'] == null ? undefined : json['competenceDateFrom'],
+        'competenceDateTo': json['competenceDateTo'] == null ? undefined : json['competenceDateTo'],
+        'completed': json['completed'] == null ? undefined : json['completed'],
+        'contact': json['contact'] == null ? undefined : json['contact'],
+        'createdAtFrom': json['createdAtFrom'] == null ? undefined : json['createdAtFrom'],
+        'createdAtTo': json['createdAtTo'] == null ? undefined : json['createdAtTo'],
         'direction': json['direction'] == null ? undefined : json['direction'],
         'dueDateFrom': json['dueDateFrom'] == null ? undefined : json['dueDateFrom'],
         'dueDateTo': json['dueDateTo'] == null ? undefined : json['dueDateTo'],
-        'contact': json['contact'] == null ? undefined : json['contact'],
-        'subcategory': json['subcategory'] == null ? undefined : json['subcategory'],
-        'competenceDateFrom': json['competenceDateFrom'] == null ? undefined : json['competenceDateFrom'],
-        'competenceDateTo': json['competenceDateTo'] == null ? undefined : json['competenceDateTo'],
-        'cashDateFrom': json['cashDateFrom'] == null ? undefined : json['cashDateFrom'],
-        'cashDateTo': json['cashDateTo'] == null ? undefined : json['cashDateTo'],
-        'createdAtFrom': json['createdAtFrom'] == null ? undefined : json['createdAtFrom'],
-        'createdAtTo': json['createdAtTo'] == null ? undefined : json['createdAtTo'],
-        'tags': json['tags'] == null ? undefined : json['tags'],
-        'completed': json['completed'] == null ? undefined : json['completed'],
-        'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
-        'account': json['account'] == null ? undefined : json['account'],
+        'finalAmountFrom': json['finalAmountFrom'] == null ? undefined : json['finalAmountFrom'],
+        'finalAmountTo': json['finalAmountTo'] == null ? undefined : json['finalAmountTo'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
         'recurringFinancialRecord': json['recurringFinancialRecord'] == null ? undefined : json['recurringFinancialRecord'],
-        'amountType': json['amountType'] == null ? undefined : json['amountType'],
+        'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
+        'subcategory': json['subcategory'] == null ? undefined : json['subcategory'],
+        'tags': json['tags'] == null ? undefined : json['tags'],
         'groupBy': json['groupBy'],
         'sortOrder': json['sortOrder'] == null ? undefined : json['sortOrder'],
         'aggregationDirection': json['aggregationDirection'],
@@ -109,28 +109,28 @@ function AggregatedFinancialRecordsReportEntityDataFiltersToJSONTyped(value, ign
         return value;
     }
     return {
+        'account': value['account'],
         'amountFrom': value['amountFrom'],
         'amountTo': value['amountTo'],
-        'finalAmountFrom': value['finalAmountFrom'],
-        'finalAmountTo': value['finalAmountTo'],
+        'amountType': value['amountType'],
+        'cashDateFrom': value['cashDateFrom'],
+        'cashDateTo': value['cashDateTo'],
+        'competenceDateFrom': value['competenceDateFrom'],
+        'competenceDateTo': value['competenceDateTo'],
+        'completed': value['completed'],
+        'contact': value['contact'],
+        'createdAtFrom': value['createdAtFrom'],
+        'createdAtTo': value['createdAtTo'],
         'direction': value['direction'],
         'dueDateFrom': value['dueDateFrom'],
         'dueDateTo': value['dueDateTo'],
-        'contact': value['contact'],
-        'subcategory': value['subcategory'],
-        'competenceDateFrom': value['competenceDateFrom'],
-        'competenceDateTo': value['competenceDateTo'],
-        'cashDateFrom': value['cashDateFrom'],
-        'cashDateTo': value['cashDateTo'],
-        'createdAtFrom': value['createdAtFrom'],
-        'createdAtTo': value['createdAtTo'],
-        'tags': value['tags'],
-        'completed': value['completed'],
-        'reconciled': value['reconciled'],
-        'account': value['account'],
+        'finalAmountFrom': value['finalAmountFrom'],
+        'finalAmountTo': value['finalAmountTo'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
         'recurringFinancialRecord': value['recurringFinancialRecord'],
-        'amountType': value['amountType'],
+        'reconciled': value['reconciled'],
+        'subcategory': value['subcategory'],
+        'tags': value['tags'],
         'groupBy': value['groupBy'],
         'sortOrder': value['sortOrder'],
         'aggregationDirection': value['aggregationDirection'],

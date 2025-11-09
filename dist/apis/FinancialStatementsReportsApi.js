@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SystemGenerateFinancialStatementReportReferenceDateEnum = exports.SystemGenerateFinancialStatementReportGroupingEnum = exports.GenerateFinancialStatementReportGroupingEnum = exports.GenerateFinancialStatementReportReferenceDateEnum = exports.GenerateFinancialResultCompositionReportDirectionEnum = exports.GenerateFinancialResultCompositionReportAmountTypeEnum = exports.GenerateFinancialMeasuresReportDirectionEnum = exports.GenerateFinancialMeasuresReportAmountTypeEnum = exports.FinancialStatementsReportsApi = void 0;
+exports.SystemGenerateFinancialStatementReportReferenceDateEnum = exports.SystemGenerateFinancialStatementReportGroupingEnum = exports.GenerateFinancialStatementReportGroupingEnum = exports.GenerateFinancialStatementReportReferenceDateEnum = exports.GenerateFinancialResultCompositionReportAmountTypeEnum = exports.GenerateFinancialResultCompositionReportDirectionEnum = exports.GenerateFinancialMeasuresReportDirectionEnum = exports.GenerateFinancialMeasuresReportAmountTypeEnum = exports.FinancialStatementsReportsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -90,6 +90,18 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
                         }
                         if (requestParameters['installmentFinancialRecord'] != null) {
                             queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+                        }
+                        if (requestParameters['amountTo'] != null) {
+                            queryParameters['amountTo'] = requestParameters['amountTo'];
+                        }
+                        if (requestParameters['amountFrom'] != null) {
+                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                        }
+                        if (requestParameters['finalAmountTo'] != null) {
+                            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+                        }
+                        if (requestParameters['finalAmountFrom'] != null) {
+                            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
                         }
                         if (requestParameters['account'] != null) {
                             queryParameters['account'] = requestParameters['account'];
@@ -182,41 +194,26 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
-                        if (requestParameters['amountType'] != null) {
-                            queryParameters['amountType'] = requestParameters['amountType'];
-                        }
-                        if (requestParameters['reconciled'] != null) {
-                            queryParameters['reconciled'] = requestParameters['reconciled'];
-                        }
-                        if (requestParameters['completed'] != null) {
-                            queryParameters['completed'] = requestParameters['completed'];
-                        }
                         if (requestParameters['tags'] != null) {
                             queryParameters['tags'] = requestParameters['tags'];
-                        }
-                        if (requestParameters['createdAtTo'] != null) {
-                            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
-                        }
-                        if (requestParameters['cashDateTo'] != null) {
-                            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
-                        }
-                        if (requestParameters['cashDateFrom'] != null) {
-                            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
-                        }
-                        if (requestParameters['competenceDateTo'] != null) {
-                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
-                        }
-                        if (requestParameters['competenceDateFrom'] != null) {
-                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
                         }
                         if (requestParameters['subcategory'] != null) {
                             queryParameters['subcategory'] = requestParameters['subcategory'];
                         }
-                        if (requestParameters['account'] != null) {
-                            queryParameters['account'] = requestParameters['account'];
+                        if (requestParameters['reconciled'] != null) {
+                            queryParameters['reconciled'] = requestParameters['reconciled'];
                         }
-                        if (requestParameters['contact'] != null) {
-                            queryParameters['contact'] = requestParameters['contact'];
+                        if (requestParameters['recurringFinancialRecord'] != null) {
+                            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
+                        }
+                        if (requestParameters['installmentFinancialRecord'] != null) {
+                            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+                        }
+                        if (requestParameters['finalAmountTo'] != null) {
+                            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+                        }
+                        if (requestParameters['finalAmountFrom'] != null) {
+                            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
                         }
                         if (requestParameters['dueDateTo'] != null) {
                             queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
@@ -226,6 +223,42 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
                         }
                         if (requestParameters['direction'] != null) {
                             queryParameters['direction'] = requestParameters['direction'];
+                        }
+                        if (requestParameters['createdAtTo'] != null) {
+                            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+                        }
+                        if (requestParameters['createdAtFrom'] != null) {
+                            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+                        }
+                        if (requestParameters['contact'] != null) {
+                            queryParameters['contact'] = requestParameters['contact'];
+                        }
+                        if (requestParameters['completed'] != null) {
+                            queryParameters['completed'] = requestParameters['completed'];
+                        }
+                        if (requestParameters['competenceDateTo'] != null) {
+                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+                        }
+                        if (requestParameters['competenceDateFrom'] != null) {
+                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+                        }
+                        if (requestParameters['cashDateTo'] != null) {
+                            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+                        }
+                        if (requestParameters['cashDateFrom'] != null) {
+                            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+                        }
+                        if (requestParameters['amountType'] != null) {
+                            queryParameters['amountType'] = requestParameters['amountType'];
+                        }
+                        if (requestParameters['amountTo'] != null) {
+                            queryParameters['amountTo'] = requestParameters['amountTo'];
+                        }
+                        if (requestParameters['amountFrom'] != null) {
+                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                        }
+                        if (requestParameters['account'] != null) {
+                            queryParameters['account'] = requestParameters['account'];
                         }
                         headerParameters = {};
                         urlPath = "/external/financial-statements/result-composition/report";
@@ -429,16 +462,16 @@ exports.GenerateFinancialMeasuresReportDirectionEnum = {
 /**
  * @export
  */
-exports.GenerateFinancialResultCompositionReportAmountTypeEnum = {
-    Base: 'base',
-    Final: 'final'
+exports.GenerateFinancialResultCompositionReportDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export
  */
-exports.GenerateFinancialResultCompositionReportDirectionEnum = {
-    In: 'IN',
-    Out: 'OUT'
+exports.GenerateFinancialResultCompositionReportAmountTypeEnum = {
+    Base: 'base',
+    Final: 'final'
 };
 /**
  * @export

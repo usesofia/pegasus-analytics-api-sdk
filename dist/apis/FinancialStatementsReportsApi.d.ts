@@ -14,6 +14,10 @@ import type { FinancialMeasuresReportEntity, FinancialResultCompositionReportEnt
 export interface GenerateFinancialMeasuresReportRequest {
     recurringFinancialRecord?: string;
     installmentFinancialRecord?: string;
+    amountTo?: string;
+    amountFrom?: string;
+    finalAmountTo?: string;
+    finalAmountFrom?: string;
     account?: string;
     reconciled?: string;
     completed?: string;
@@ -32,21 +36,28 @@ export interface GenerateFinancialMeasuresReportRequest {
     direction?: GenerateFinancialMeasuresReportDirectionEnum;
 }
 export interface GenerateFinancialResultCompositionReportRequest {
-    amountType?: GenerateFinancialResultCompositionReportAmountTypeEnum;
-    reconciled?: string;
-    completed?: string;
     tags?: string;
-    createdAtTo?: string;
-    cashDateTo?: string;
-    cashDateFrom?: string;
-    competenceDateTo?: string;
-    competenceDateFrom?: string;
     subcategory?: string;
-    account?: string;
-    contact?: string;
+    reconciled?: string;
+    recurringFinancialRecord?: string;
+    installmentFinancialRecord?: string;
+    finalAmountTo?: string;
+    finalAmountFrom?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
     direction?: GenerateFinancialResultCompositionReportDirectionEnum;
+    createdAtTo?: string;
+    createdAtFrom?: string;
+    contact?: string;
+    completed?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    amountType?: GenerateFinancialResultCompositionReportAmountTypeEnum;
+    amountTo?: string;
+    amountFrom?: string;
+    account?: string;
 }
 export interface GenerateFinancialStatementReportRequest {
     referenceDate: GenerateFinancialStatementReportReferenceDateEnum;
@@ -77,6 +88,10 @@ export interface FinancialStatementsReportsApiInterface {
      * @summary Gera relatório de medidas financeiras
      * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
      * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [amountTo] Valor do lançamento máximo.
+     * @param {string} [amountFrom] Valor do lançamento mínimo.
+     * @param {string} [finalAmountTo] Valor final do lançamento máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
      * @param {string} [account] ID da conta
      * @param {string} [reconciled] Status de conciliação
      * @param {string} [completed] Status de conclusão dos lançamentos
@@ -105,21 +120,28 @@ export interface FinancialStatementsReportsApiInterface {
     /**
      *
      * @summary Gera relatório de composição do resultado financeiro
-     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
-     * @param {string} [reconciled] Status de conciliação
-     * @param {string} [completed] Status do relatório
      * @param {string} [tags] IDs das tags
-     * @param {string} [createdAtTo] Data final da criação
-     * @param {string} [cashDateTo] Data final do caixa
-     * @param {string} [cashDateFrom] Data inicial do caixa
-     * @param {string} [competenceDateTo] Data final da competência
-     * @param {string} [competenceDateFrom] Data inicial da competência
-     * @param {string} [subcategory] Identificadores das subcategorias separadas por vírgula
-     * @param {string} [account] Identificadores das contas separadas por vírgula
-     * @param {string} [contact] Identificadores dos contatos separados por vírgula
+     * @param {string} [subcategory] ID da subcategoria
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [finalAmountTo] Valor final do lançamento máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
      * @param {string} [dueDateTo] Data final do vencimento
      * @param {string} [dueDateFrom] Data inicial do vencimento
      * @param {'IN' | 'OUT'} [direction] Direção do relatório
+     * @param {string} [createdAtTo] Data final da criação
+     * @param {string} [createdAtFrom] Data inicial da criação
+     * @param {string} [contact] ID do contato
+     * @param {string} [completed] Status de conclusão dos lançamentos
+     * @param {string} [competenceDateTo] Data final da competência
+     * @param {string} [competenceDateFrom] Data inicial da competência
+     * @param {string} [cashDateTo] Data final do caixa
+     * @param {string} [cashDateFrom] Data inicial do caixa
+     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} [amountTo] Valor do lançamento máximo.
+     * @param {string} [amountFrom] Valor do lançamento mínimo.
+     * @param {string} [account] Identificadores das contas separadas por vírgula
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialStatementsReportsApiInterface
@@ -226,19 +248,19 @@ export type GenerateFinancialMeasuresReportDirectionEnum = typeof GenerateFinanc
 /**
  * @export
  */
-export declare const GenerateFinancialResultCompositionReportAmountTypeEnum: {
-    readonly Base: "base";
-    readonly Final: "final";
-};
-export type GenerateFinancialResultCompositionReportAmountTypeEnum = typeof GenerateFinancialResultCompositionReportAmountTypeEnum[keyof typeof GenerateFinancialResultCompositionReportAmountTypeEnum];
-/**
- * @export
- */
 export declare const GenerateFinancialResultCompositionReportDirectionEnum: {
     readonly In: "IN";
     readonly Out: "OUT";
 };
 export type GenerateFinancialResultCompositionReportDirectionEnum = typeof GenerateFinancialResultCompositionReportDirectionEnum[keyof typeof GenerateFinancialResultCompositionReportDirectionEnum];
+/**
+ * @export
+ */
+export declare const GenerateFinancialResultCompositionReportAmountTypeEnum: {
+    readonly Base: "base";
+    readonly Final: "final";
+};
+export type GenerateFinancialResultCompositionReportAmountTypeEnum = typeof GenerateFinancialResultCompositionReportAmountTypeEnum[keyof typeof GenerateFinancialResultCompositionReportAmountTypeEnum];
 /**
  * @export
  */

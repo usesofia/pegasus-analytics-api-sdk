@@ -7,28 +7,28 @@ Filtros aplicados
 
 Name | Type
 ------------ | -------------
+`account` | Array&lt;string&gt;
 `amountFrom` | number
 `amountTo` | number
-`finalAmountFrom` | number
-`finalAmountTo` | number
+`amountType` | string
+`cashDateFrom` | string
+`cashDateTo` | string
+`competenceDateFrom` | string
+`competenceDateTo` | string
+`completed` | boolean
+`contact` | Array&lt;string&gt;
+`createdAtFrom` | any
+`createdAtTo` | any
 `direction` | string
 `dueDateFrom` | string
 `dueDateTo` | string
-`contact` | Array&lt;string&gt;
-`subcategory` | Array&lt;string&gt;
-`competenceDateFrom` | string
-`competenceDateTo` | string
-`cashDateFrom` | string
-`cashDateTo` | string
-`createdAtFrom` | any
-`createdAtTo` | any
-`tags` | Array&lt;string&gt;
-`completed` | boolean
-`reconciled` | boolean
-`account` | Array&lt;string&gt;
+`finalAmountFrom` | number
+`finalAmountTo` | number
 `installmentFinancialRecord` | Array&lt;string&gt;
 `recurringFinancialRecord` | Array&lt;string&gt;
-`amountType` | string
+`reconciled` | boolean
+`subcategory` | Array&lt;string&gt;
+`tags` | Array&lt;string&gt;
 
 ## Example
 
@@ -37,28 +37,28 @@ import type { MonthlyFinancialReportEntityDataFilters } from '@usesofia/pegasus-
 
 // TODO: Update the object below with actual values
 const example = {
+  "account": null,
   "amountFrom": null,
   "amountTo": null,
-  "finalAmountFrom": null,
-  "finalAmountTo": null,
+  "amountType": null,
+  "cashDateFrom": null,
+  "cashDateTo": null,
+  "competenceDateFrom": null,
+  "competenceDateTo": null,
+  "completed": null,
+  "contact": null,
+  "createdAtFrom": null,
+  "createdAtTo": null,
   "direction": null,
   "dueDateFrom": null,
   "dueDateTo": null,
-  "contact": null,
-  "subcategory": null,
-  "competenceDateFrom": null,
-  "competenceDateTo": null,
-  "cashDateFrom": null,
-  "cashDateTo": null,
-  "createdAtFrom": null,
-  "createdAtTo": null,
-  "tags": null,
-  "completed": null,
-  "reconciled": null,
-  "account": null,
+  "finalAmountFrom": null,
+  "finalAmountTo": null,
   "installmentFinancialRecord": null,
   "recurringFinancialRecord": null,
-  "amountType": null,
+  "reconciled": null,
+  "subcategory": null,
+  "tags": null,
 } satisfies MonthlyFinancialReportEntityDataFilters
 
 console.log(example)

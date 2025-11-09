@@ -25,42 +25,50 @@ async function example() {
   const api = new BankAccountsApi();
 
   const body = {
-    // 'base' | 'final' | Tipo de valor a ser utilizado nos cálculos. (optional)
+    // string | Identificadores das contas separadas por vírgula (optional)
+    account: 123,456,
+    // string | Valor do lançamento mínimo. (optional)
+    amountFrom: amountFrom_example,
+    // string | Valor do lançamento máximo. (optional)
+    amountTo: amountTo_example,
+    // 'base' | 'final' | Tipo de valor a ser utilizado nos cálculos. \"base\" para amount, \"final\" para finalAmount. Padrão é \"final\". (optional)
     amountType: amountType_example,
-    // string | ID do lançamento financeiro recorrente. (optional)
-    recurringFinancialRecord: recurringFinancialRecord_example,
-    // string | ID do lançamento financeiro parcelado. (optional)
-    installmentFinancialRecord: installmentFinancialRecord_example,
-    // string | ID da conta bancária. (optional)
-    account: account_example,
-    // boolean | Status de conciliação dos lançamentos. (optional)
-    reconciled: true,
-    // boolean | Status de conclusão dos lançamentos. (optional)
-    completed: true,
-    // string | IDs das tags separadas por vírgula. (optional)
-    tags: tags_example,
-    // string | Data de criação final. (optional)
-    createdAtTo: createdAtTo_example,
-    // string | Data de criação inicial. (optional)
-    createdAtFrom: createdAtFrom_example,
-    // string | Data de caixa final. (optional)
-    cashDateTo: cashDateTo_example,
-    // string | Data de caixa inicial. (optional)
-    cashDateFrom: cashDateFrom_example,
-    // string | Data de competência final. (optional)
-    competenceDateTo: competenceDateTo_example,
-    // string | Data de competência inicial. (optional)
-    competenceDateFrom: competenceDateFrom_example,
-    // string | ID da subcategoria. (optional)
-    subcategory: subcategory_example,
-    // string | ID do contato. (optional)
-    contact: contact_example,
-    // string | Data de vencimento final. (optional)
-    dueDateTo: dueDateTo_example,
-    // string | Data de vencimento inicial. (optional)
-    dueDateFrom: dueDateFrom_example,
-    // 'IN' | 'OUT' | Direção do lançamento financeiro. (optional)
+    // string | Data inicial do caixa (optional)
+    cashDateFrom: 2025-01-01,
+    // string | Data final do caixa (optional)
+    cashDateTo: 2025-01-01,
+    // string | Data inicial da competência (optional)
+    competenceDateFrom: 2025-01-01,
+    // string | Data final da competência (optional)
+    competenceDateTo: 2025-01-01,
+    // string | Status de conclusão dos lançamentos (optional)
+    completed: true,false,
+    // string | ID do contato (optional)
+    contact: 123,
+    // string | Data inicial da criação (optional)
+    createdAtFrom: 2025-01-01,
+    // string | Data final da criação (optional)
+    createdAtTo: 2025-01-01,
+    // 'IN' | 'OUT' | Direção do relatório (optional)
     direction: direction_example,
+    // string | Data inicial do vencimento (optional)
+    dueDateFrom: 2025-01-01,
+    // string | Data final do vencimento (optional)
+    dueDateTo: 2025-01-01,
+    // string | Valor final do lançamento mínimo. (optional)
+    finalAmountFrom: finalAmountFrom_example,
+    // string | Valor final do lançamento máximo. (optional)
+    finalAmountTo: finalAmountTo_example,
+    // string | ID do lançamento financeiro recorrente (optional)
+    installmentFinancialRecord: 123,
+    // string | ID do lançamento financeiro recorrente (optional)
+    recurringFinancialRecord: 123,
+    // string | Status de conciliação (optional)
+    reconciled: true,false,
+    // string | ID da subcategoria (optional)
+    subcategory: 123,
+    // string | IDs das tags (optional)
+    tags: 123,456,
   } satisfies GetBankAccountsReportRequest;
 
   try {
@@ -92,7 +100,7 @@ All URIs are relative to *http://localhost*
 *CashFlowReportsApi* | [**getProjectedCashFlow**](docs/CashFlowReportsApi.md#getprojectedcashflow) | **GET** /external/cash-flow/projected | Obtém o fluxo de caixa projetado de D-3 a D+8
 *FinancialRecordsReportsApi* | [**generateAggregatedFinancialRecordsReport**](docs/FinancialRecordsReportsApi.md#generateaggregatedfinancialrecordsreport) | **GET** /external/financial-records/aggregated/report | Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
 *FinancialRecordsReportsApi* | [**generateMonthlyFinancialReport**](docs/FinancialRecordsReportsApi.md#generatemonthlyfinancialreport) | **GET** /external/financial-records/aggregated-monthly/report | Gera relatório financeiro mensal para os últimos 12 meses
-*FinancialRecordsReportsApi* | [**getAggregatedResultReport**](docs/FinancialRecordsReportsApi.md#getaggregatedresultreport) | **GET** /external/financial-records/aggregated-result/report | Get aggregated   result report for financial records
+*FinancialRecordsReportsApi* | [**getAggregatedResultReport**](docs/FinancialRecordsReportsApi.md#getaggregatedresultreport) | **GET** /external/financial-records/aggregated-result/report | Get aggregated result report for financial records
 *FinancialRecordsReportsApi* | [**systemGetAggregatedResultReport**](docs/FinancialRecordsReportsApi.md#systemgetaggregatedresultreport) | **GET** /internal/financial-records/aggregated-result/report | Get aggregated   result report for financial records
 *FinancialStatementsReportsApi* | [**generateFinancialMeasuresReport**](docs/FinancialStatementsReportsApi.md#generatefinancialmeasuresreport) | **GET** /external/financial-statements/financial-measures-report | Gera relatório de medidas financeiras
 *FinancialStatementsReportsApi* | [**generateFinancialResultCompositionReport**](docs/FinancialStatementsReportsApi.md#generatefinancialresultcompositionreport) | **GET** /external/financial-statements/result-composition/report | Gera relatório de composição do resultado financeiro

@@ -16,6 +16,12 @@
  */
 export interface AggregatedFinancialRecordsReportEntityDataFilters {
     /**
+     * Lista de IDs de contas bancárias para filtrar.
+     * @type {Array<string>}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    account?: Array<string>;
+    /**
      * Valor do lançamento mínimo.
      * @type {number}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
@@ -28,17 +34,59 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      */
     amountTo?: number;
     /**
-     * Valor final do lançamento mínimo.
-     * @type {number}
+     *
+     * @type {string}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
-    finalAmountFrom?: number;
+    amountType?: AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum;
     /**
-     * Valor final do lançamento máximo.
-     * @type {number}
+     *
+     * @type {string}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
-    finalAmountTo?: number;
+    cashDateFrom?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    cashDateTo?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    competenceDateFrom?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    competenceDateTo?: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    completed?: boolean;
+    /**
+     * Lista de IDs de contatos para filtrar.
+     * @type {Array<string>}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    contact?: Array<string>;
+    /**
+     *
+     * @type {any}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    createdAtFrom?: any | null;
+    /**
+     *
+     * @type {any}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    createdAtTo?: any | null;
     /**
      *
      * @type {string}
@@ -58,77 +106,17 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      */
     dueDateTo?: string;
     /**
-     * Lista de IDs de contatos para filtrar.
-     * @type {Array<string>}
+     * Valor final do lançamento mínimo.
+     * @type {number}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
-    contact?: Array<string>;
+    finalAmountFrom?: number;
     /**
-     * Lista de IDs de subcategorias para filtrar.
-     * @type {Array<string>}
+     * Valor final do lançamento máximo.
+     * @type {number}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
-    subcategory?: Array<string>;
-    /**
-     *
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    competenceDateFrom?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    competenceDateTo?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    cashDateFrom?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    cashDateTo?: string;
-    /**
-     *
-     * @type {any}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    createdAtFrom?: any | null;
-    /**
-     *
-     * @type {any}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    createdAtTo?: any | null;
-    /**
-     * Lista de IDs de tags para filtrar.
-     * @type {Array<string>}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    tags?: Array<string>;
-    /**
-     *
-     * @type {boolean}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    completed?: boolean;
-    /**
-     *
-     * @type {boolean}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    reconciled?: boolean;
-    /**
-     * Lista de IDs de contas bancárias para filtrar.
-     * @type {Array<string>}
-     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
-     */
-    account?: Array<string>;
+    finalAmountTo?: number;
     /**
      * Lista de IDs de parcelas para filtrar.
      * @type {Array<string>}
@@ -143,10 +131,22 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
     recurringFinancialRecord?: Array<string>;
     /**
      *
-     * @type {string}
+     * @type {boolean}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
      */
-    amountType?: AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum;
+    reconciled?: boolean;
+    /**
+     * Lista de IDs de subcategorias para filtrar.
+     * @type {Array<string>}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    subcategory?: Array<string>;
+    /**
+     * Lista de IDs de tags para filtrar.
+     * @type {Array<string>}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    tags?: Array<string>;
     /**
      * Campo para agrupamento dos dados
      * @type {string}
@@ -169,19 +169,19 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
 /**
  * @export
  */
-export declare const AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum: {
-    readonly In: "IN";
-    readonly Out: "OUT";
-};
-export type AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum];
-/**
- * @export
- */
 export declare const AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum: {
     readonly Base: "base";
     readonly Final: "final";
 };
 export type AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersAmountTypeEnum];
+/**
+ * @export
+ */
+export declare const AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum: {
+    readonly In: "IN";
+    readonly Out: "OUT";
+};
+export type AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum = typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum[keyof typeof AggregatedFinancialRecordsReportEntityDataFiltersDirectionEnum];
 /**
  * @export
  */

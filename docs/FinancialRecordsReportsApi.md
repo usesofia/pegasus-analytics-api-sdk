@@ -6,14 +6,14 @@ All URIs are relative to *http://localhost*
 |------------- | ------------- | -------------|
 | [**generateAggregatedFinancialRecordsReport**](FinancialRecordsReportsApi.md#generateaggregatedfinancialrecordsreport) | **GET** /external/financial-records/aggregated/report | Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag |
 | [**generateMonthlyFinancialReport**](FinancialRecordsReportsApi.md#generatemonthlyfinancialreport) | **GET** /external/financial-records/aggregated-monthly/report | Gera relatório financeiro mensal para os últimos 12 meses |
-| [**getAggregatedResultReport**](FinancialRecordsReportsApi.md#getaggregatedresultreport) | **GET** /external/financial-records/aggregated-result/report | Get aggregated   result report for financial records |
+| [**getAggregatedResultReport**](FinancialRecordsReportsApi.md#getaggregatedresultreport) | **GET** /external/financial-records/aggregated-result/report | Get aggregated result report for financial records |
 | [**systemGetAggregatedResultReport**](FinancialRecordsReportsApi.md#systemgetaggregatedresultreport) | **GET** /internal/financial-records/aggregated-result/report | Get aggregated   result report for financial records |
 
 
 
 ## generateAggregatedFinancialRecordsReport
 
-> AggregatedFinancialRecordsReportEntity generateAggregatedFinancialRecordsReport(aggregationDirection, groupBy, amountType, recurringFinancialRecord, installmentFinancialRecord, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, direction, sortOrder)
+> AggregatedFinancialRecordsReportEntity generateAggregatedFinancialRecordsReport(aggregationDirection, groupBy, account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags, sortOrder)
 
 Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
 
@@ -35,42 +35,50 @@ async function example() {
     aggregationDirection: aggregationDirection_example,
     // 'category' | 'contact' | 'tag' | Campo para agrupamento dos dados
     groupBy: groupBy_example,
-    // 'base' | 'final' | Tipo de valor a ser utilizado nos cálculos (optional)
+    // string | Identificadores das contas separadas por vírgula (optional)
+    account: 123,456,
+    // string | Valor do lançamento mínimo. (optional)
+    amountFrom: amountFrom_example,
+    // string | Valor do lançamento máximo. (optional)
+    amountTo: amountTo_example,
+    // 'base' | 'final' | Tipo de valor a ser utilizado nos cálculos. \"base\" para amount, \"final\" para finalAmount. Padrão é \"final\". (optional)
     amountType: amountType_example,
-    // string | IDs do lançamento financeiro recorrente separados por vírgula (optional)
-    recurringFinancialRecord: 123,456,
-    // string | IDs do lançamento financeiro parcelado separados por vírgula (optional)
-    installmentFinancialRecord: 123,456,
-    // string | Conta do lançamento financeiro (optional)
-    account: 123,
-    // string | Status de conciliação dos lançamentos (optional)
-    reconciled: true,
-    // string | Status de conclusão dos lançamentos (optional)
-    completed: true,
-    // string | Tags do lançamento financeiro separadas por vírgula (optional)
-    tags: 123,456,
-    // string | Data de criação final (optional)
-    createdAtTo: 2025-01-01T00:00:00.000Z,
-    // string | Data de criação inicial (optional)
-    createdAtFrom: 2025-01-01T00:00:00.000Z,
-    // string | Data de caixa final (optional)
-    cashDateTo: 2025-01-01,
-    // string | Data de caixa inicial (optional)
+    // string | Data inicial do caixa (optional)
     cashDateFrom: 2025-01-01,
-    // string | Data de competência final (optional)
-    competenceDateTo: 2025-01-01,
-    // string | Data de competência inicial (optional)
+    // string | Data final do caixa (optional)
+    cashDateTo: 2025-01-01,
+    // string | Data inicial da competência (optional)
     competenceDateFrom: 2025-01-01,
-    // string | Subcategoria do lançamento financeiro (optional)
-    subcategory: 123,
-    // string | Contato do lançamento financeiro (optional)
+    // string | Data final da competência (optional)
+    competenceDateTo: 2025-01-01,
+    // string | Status de conclusão dos lançamentos (optional)
+    completed: true,false,
+    // string | ID do contato (optional)
     contact: 123,
-    // string | Data de vencimento final (optional)
-    dueDateTo: 2025-01-01,
-    // string | Data de vencimento inicial (optional)
-    dueDateFrom: 2025-01-01,
-    // 'IN' | 'OUT' | Direção do lançamento financeiro (optional)
+    // string | Data inicial da criação (optional)
+    createdAtFrom: 2025-01-01,
+    // string | Data final da criação (optional)
+    createdAtTo: 2025-01-01,
+    // 'IN' | 'OUT' | Direção do relatório (optional)
     direction: direction_example,
+    // string | Data inicial do vencimento (optional)
+    dueDateFrom: 2025-01-01,
+    // string | Data final do vencimento (optional)
+    dueDateTo: 2025-01-01,
+    // string | Valor final do lançamento mínimo. (optional)
+    finalAmountFrom: finalAmountFrom_example,
+    // string | Valor final do lançamento máximo. (optional)
+    finalAmountTo: finalAmountTo_example,
+    // string | ID do lançamento financeiro recorrente (optional)
+    installmentFinancialRecord: 123,
+    // string | ID do lançamento financeiro recorrente (optional)
+    recurringFinancialRecord: 123,
+    // string | Status de conciliação (optional)
+    reconciled: true,false,
+    // string | ID da subcategoria (optional)
+    subcategory: 123,
+    // string | IDs das tags (optional)
+    tags: 123,456,
     // 'asc' | 'desc' | Ordem de classificação (optional)
     sortOrder: sortOrder_example,
   } satisfies GenerateAggregatedFinancialRecordsReportRequest;
@@ -94,24 +102,28 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **aggregationDirection** | `IN`, `OUT` | Direção do lançamento financeiro | [Defaults to `undefined`] [Enum: IN, OUT] |
 | **groupBy** | `category`, `contact`, `tag` | Campo para agrupamento dos dados | [Defaults to `undefined`] [Enum: category, contact, tag] |
-| **amountType** | `base`, `final` | Tipo de valor a ser utilizado nos cálculos | [Optional] [Defaults to `undefined`] [Enum: base, final] |
-| **recurringFinancialRecord** | `string` | IDs do lançamento financeiro recorrente separados por vírgula | [Optional] [Defaults to `undefined`] |
-| **installmentFinancialRecord** | `string` | IDs do lançamento financeiro parcelado separados por vírgula | [Optional] [Defaults to `undefined`] |
-| **account** | `string` | Conta do lançamento financeiro | [Optional] [Defaults to `undefined`] |
-| **reconciled** | `string` | Status de conciliação dos lançamentos | [Optional] [Defaults to `undefined`] |
+| **account** | `string` | Identificadores das contas separadas por vírgula | [Optional] [Defaults to `undefined`] |
+| **amountFrom** | `string` | Valor do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
+| **amountTo** | `string` | Valor do lançamento máximo. | [Optional] [Defaults to `undefined`] |
+| **amountType** | `base`, `final` | Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;. | [Optional] [Defaults to `undefined`] [Enum: base, final] |
+| **cashDateFrom** | `string` | Data inicial do caixa | [Optional] [Defaults to `undefined`] |
+| **cashDateTo** | `string` | Data final do caixa | [Optional] [Defaults to `undefined`] |
+| **competenceDateFrom** | `string` | Data inicial da competência | [Optional] [Defaults to `undefined`] |
+| **competenceDateTo** | `string` | Data final da competência | [Optional] [Defaults to `undefined`] |
 | **completed** | `string` | Status de conclusão dos lançamentos | [Optional] [Defaults to `undefined`] |
-| **tags** | `string` | Tags do lançamento financeiro separadas por vírgula | [Optional] [Defaults to `undefined`] |
-| **createdAtTo** | `string` | Data de criação final | [Optional] [Defaults to `undefined`] |
-| **createdAtFrom** | `string` | Data de criação inicial | [Optional] [Defaults to `undefined`] |
-| **cashDateTo** | `string` | Data de caixa final | [Optional] [Defaults to `undefined`] |
-| **cashDateFrom** | `string` | Data de caixa inicial | [Optional] [Defaults to `undefined`] |
-| **competenceDateTo** | `string` | Data de competência final | [Optional] [Defaults to `undefined`] |
-| **competenceDateFrom** | `string` | Data de competência inicial | [Optional] [Defaults to `undefined`] |
-| **subcategory** | `string` | Subcategoria do lançamento financeiro | [Optional] [Defaults to `undefined`] |
-| **contact** | `string` | Contato do lançamento financeiro | [Optional] [Defaults to `undefined`] |
-| **dueDateTo** | `string` | Data de vencimento final | [Optional] [Defaults to `undefined`] |
-| **dueDateFrom** | `string` | Data de vencimento inicial | [Optional] [Defaults to `undefined`] |
-| **direction** | `IN`, `OUT` | Direção do lançamento financeiro | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
+| **contact** | `string` | ID do contato | [Optional] [Defaults to `undefined`] |
+| **createdAtFrom** | `string` | Data inicial da criação | [Optional] [Defaults to `undefined`] |
+| **createdAtTo** | `string` | Data final da criação | [Optional] [Defaults to `undefined`] |
+| **direction** | `IN`, `OUT` | Direção do relatório | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
+| **dueDateFrom** | `string` | Data inicial do vencimento | [Optional] [Defaults to `undefined`] |
+| **dueDateTo** | `string` | Data final do vencimento | [Optional] [Defaults to `undefined`] |
+| **finalAmountFrom** | `string` | Valor final do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
+| **finalAmountTo** | `string` | Valor final do lançamento máximo. | [Optional] [Defaults to `undefined`] |
+| **installmentFinancialRecord** | `string` | ID do lançamento financeiro recorrente | [Optional] [Defaults to `undefined`] |
+| **recurringFinancialRecord** | `string` | ID do lançamento financeiro recorrente | [Optional] [Defaults to `undefined`] |
+| **reconciled** | `string` | Status de conciliação | [Optional] [Defaults to `undefined`] |
+| **subcategory** | `string` | ID da subcategoria | [Optional] [Defaults to `undefined`] |
+| **tags** | `string` | IDs das tags | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem de classificação | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 
 ### Return type
@@ -139,7 +151,7 @@ No authorization required
 
 ## generateMonthlyFinancialReport
 
-> MonthlyFinancialReportEntity generateMonthlyFinancialReport(amountType, tags, account, reconciled, completed, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, direction)
+> MonthlyFinancialReportEntity generateMonthlyFinancialReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags)
 
 Gera relatório financeiro mensal para os últimos 12 meses
 
@@ -157,34 +169,50 @@ async function example() {
   const api = new FinancialRecordsReportsApi();
 
   const body = {
+    // string | Identificadores das contas separadas por vírgula (optional)
+    account: 123,456,
+    // string | Valor do lançamento mínimo. (optional)
+    amountFrom: amountFrom_example,
+    // string | Valor do lançamento máximo. (optional)
+    amountTo: amountTo_example,
     // 'base' | 'final' | Tipo de valor a ser utilizado nos cálculos. \"base\" para amount, \"final\" para finalAmount. Padrão é \"final\". (optional)
     amountType: amountType_example,
-    // string | Tags do lançamento financeiro separadas por vírgula (optional)
-    tags: 123,456,
-    // string | Conta do lançamento financeiro (optional)
-    account: 123,
-    // string | Status de conciliação dos lançamentos (optional)
-    reconciled: true,false,
+    // string | Data inicial do caixa (optional)
+    cashDateFrom: 2025-01-01,
+    // string | Data final do caixa (optional)
+    cashDateTo: 2025-01-01,
+    // string | Data inicial da competência (optional)
+    competenceDateFrom: 2025-01-01,
+    // string | Data final da competência (optional)
+    competenceDateTo: 2025-01-01,
     // string | Status de conclusão dos lançamentos (optional)
     completed: true,false,
-    // string | Data de pagamento final (optional)
-    cashDateTo: 2025-01-01,
-    // string | Data de pagamento inicial (optional)
-    cashDateFrom: 2025-01-01,
-    // string | Data de competência final (optional)
-    competenceDateTo: 2025-01-01,
-    // string | Data de competência inicial (optional)
-    competenceDateFrom: 2025-01-01,
-    // string | Subcategoria do lançamento financeiro (optional)
-    subcategory: 123,
-    // string | Contato do lançamento financeiro (optional)
+    // string | ID do contato (optional)
     contact: 123,
-    // string | Data de vencimento final (optional)
-    dueDateTo: 2025-01-01,
-    // string | Data de vencimento inicial (optional)
-    dueDateFrom: 2025-01-01,
-    // 'IN' | 'OUT' | Direção do lançamento financeiro (optional)
+    // string | Data inicial da criação (optional)
+    createdAtFrom: 2025-01-01,
+    // string | Data final da criação (optional)
+    createdAtTo: 2025-01-01,
+    // 'IN' | 'OUT' | Direção do relatório (optional)
     direction: direction_example,
+    // string | Data inicial do vencimento (optional)
+    dueDateFrom: 2025-01-01,
+    // string | Data final do vencimento (optional)
+    dueDateTo: 2025-01-01,
+    // string | Valor final do lançamento mínimo. (optional)
+    finalAmountFrom: finalAmountFrom_example,
+    // string | Valor final do lançamento máximo. (optional)
+    finalAmountTo: finalAmountTo_example,
+    // string | ID do lançamento financeiro recorrente (optional)
+    installmentFinancialRecord: 123,
+    // string | ID do lançamento financeiro recorrente (optional)
+    recurringFinancialRecord: 123,
+    // string | Status de conciliação (optional)
+    reconciled: true,false,
+    // string | ID da subcategoria (optional)
+    subcategory: 123,
+    // string | IDs das tags (optional)
+    tags: 123,456,
   } satisfies GenerateMonthlyFinancialReportRequest;
 
   try {
@@ -204,20 +232,28 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **account** | `string` | Identificadores das contas separadas por vírgula | [Optional] [Defaults to `undefined`] |
+| **amountFrom** | `string` | Valor do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
+| **amountTo** | `string` | Valor do lançamento máximo. | [Optional] [Defaults to `undefined`] |
 | **amountType** | `base`, `final` | Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;. | [Optional] [Defaults to `undefined`] [Enum: base, final] |
-| **tags** | `string` | Tags do lançamento financeiro separadas por vírgula | [Optional] [Defaults to `undefined`] |
-| **account** | `string` | Conta do lançamento financeiro | [Optional] [Defaults to `undefined`] |
-| **reconciled** | `string` | Status de conciliação dos lançamentos | [Optional] [Defaults to `undefined`] |
+| **cashDateFrom** | `string` | Data inicial do caixa | [Optional] [Defaults to `undefined`] |
+| **cashDateTo** | `string` | Data final do caixa | [Optional] [Defaults to `undefined`] |
+| **competenceDateFrom** | `string` | Data inicial da competência | [Optional] [Defaults to `undefined`] |
+| **competenceDateTo** | `string` | Data final da competência | [Optional] [Defaults to `undefined`] |
 | **completed** | `string` | Status de conclusão dos lançamentos | [Optional] [Defaults to `undefined`] |
-| **cashDateTo** | `string` | Data de pagamento final | [Optional] [Defaults to `undefined`] |
-| **cashDateFrom** | `string` | Data de pagamento inicial | [Optional] [Defaults to `undefined`] |
-| **competenceDateTo** | `string` | Data de competência final | [Optional] [Defaults to `undefined`] |
-| **competenceDateFrom** | `string` | Data de competência inicial | [Optional] [Defaults to `undefined`] |
-| **subcategory** | `string` | Subcategoria do lançamento financeiro | [Optional] [Defaults to `undefined`] |
-| **contact** | `string` | Contato do lançamento financeiro | [Optional] [Defaults to `undefined`] |
-| **dueDateTo** | `string` | Data de vencimento final | [Optional] [Defaults to `undefined`] |
-| **dueDateFrom** | `string` | Data de vencimento inicial | [Optional] [Defaults to `undefined`] |
-| **direction** | `IN`, `OUT` | Direção do lançamento financeiro | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
+| **contact** | `string` | ID do contato | [Optional] [Defaults to `undefined`] |
+| **createdAtFrom** | `string` | Data inicial da criação | [Optional] [Defaults to `undefined`] |
+| **createdAtTo** | `string` | Data final da criação | [Optional] [Defaults to `undefined`] |
+| **direction** | `IN`, `OUT` | Direção do relatório | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
+| **dueDateFrom** | `string` | Data inicial do vencimento | [Optional] [Defaults to `undefined`] |
+| **dueDateTo** | `string` | Data final do vencimento | [Optional] [Defaults to `undefined`] |
+| **finalAmountFrom** | `string` | Valor final do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
+| **finalAmountTo** | `string` | Valor final do lançamento máximo. | [Optional] [Defaults to `undefined`] |
+| **installmentFinancialRecord** | `string` | ID do lançamento financeiro recorrente | [Optional] [Defaults to `undefined`] |
+| **recurringFinancialRecord** | `string` | ID do lançamento financeiro recorrente | [Optional] [Defaults to `undefined`] |
+| **reconciled** | `string` | Status de conciliação | [Optional] [Defaults to `undefined`] |
+| **subcategory** | `string` | ID da subcategoria | [Optional] [Defaults to `undefined`] |
+| **tags** | `string` | IDs das tags | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -244,9 +280,9 @@ No authorization required
 
 ## getAggregatedResultReport
 
-> FinancialRecordsAggregatedResultReportEntity getAggregatedResultReport(amountType, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, direction)
+> FinancialRecordsAggregatedResultReportEntity getAggregatedResultReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags)
 
-Get aggregated   result report for financial records
+Get aggregated result report for financial records
 
 ### Example
 
@@ -262,38 +298,50 @@ async function example() {
   const api = new FinancialRecordsReportsApi();
 
   const body = {
+    // string | Identificadores das contas separadas por vírgula (optional)
+    account: 123,456,
+    // string | Valor do lançamento mínimo. (optional)
+    amountFrom: amountFrom_example,
+    // string | Valor do lançamento máximo. (optional)
+    amountTo: amountTo_example,
     // 'base' | 'final' | Tipo de valor a ser utilizado nos cálculos. \"base\" para amount, \"final\" para finalAmount. Padrão é \"final\". (optional)
     amountType: amountType_example,
-    // string | Conta do lançamento financeiro. (optional)
-    account: account_example,
-    // boolean | Indica se o lançamento financeiro foi reconciliado. (optional)
-    reconciled: true,
-    // boolean | Indica se o lançamento financeiro foi completado. (optional)
-    completed: true,
-    // string | Tags do lançamento financeiro separadas por vírgula. (optional)
-    tags: tags_example,
-    // string | Data de criação final. (optional)
-    createdAtTo: createdAtTo_example,
-    // string | Data de criação inicial. (optional)
-    createdAtFrom: createdAtFrom_example,
-    // string | Data de pagamento final. (optional)
-    cashDateTo: cashDateTo_example,
-    // string | Data de pagamento inicial. (optional)
-    cashDateFrom: cashDateFrom_example,
-    // string | Data de competência final. (optional)
-    competenceDateTo: competenceDateTo_example,
-    // string | Data de competência inicial. (optional)
-    competenceDateFrom: competenceDateFrom_example,
-    // string | Subcategoria do lançamento financeiro. (optional)
-    subcategory: subcategory_example,
-    // string | Contato do lançamento financeiro. (optional)
-    contact: contact_example,
-    // string | Data de vencimento final. (optional)
-    dueDateTo: dueDateTo_example,
-    // string | Data de vencimento inicial. (optional)
-    dueDateFrom: dueDateFrom_example,
-    // 'IN' | 'OUT' | Direção do lançamento financeiro. (optional)
+    // string | Data inicial do caixa (optional)
+    cashDateFrom: 2025-01-01,
+    // string | Data final do caixa (optional)
+    cashDateTo: 2025-01-01,
+    // string | Data inicial da competência (optional)
+    competenceDateFrom: 2025-01-01,
+    // string | Data final da competência (optional)
+    competenceDateTo: 2025-01-01,
+    // string | Status de conclusão dos lançamentos (optional)
+    completed: true,false,
+    // string | ID do contato (optional)
+    contact: 123,
+    // string | Data inicial da criação (optional)
+    createdAtFrom: 2025-01-01,
+    // string | Data final da criação (optional)
+    createdAtTo: 2025-01-01,
+    // 'IN' | 'OUT' | Direção do relatório (optional)
     direction: direction_example,
+    // string | Data inicial do vencimento (optional)
+    dueDateFrom: 2025-01-01,
+    // string | Data final do vencimento (optional)
+    dueDateTo: 2025-01-01,
+    // string | Valor final do lançamento mínimo. (optional)
+    finalAmountFrom: finalAmountFrom_example,
+    // string | Valor final do lançamento máximo. (optional)
+    finalAmountTo: finalAmountTo_example,
+    // string | ID do lançamento financeiro recorrente (optional)
+    installmentFinancialRecord: 123,
+    // string | ID do lançamento financeiro recorrente (optional)
+    recurringFinancialRecord: 123,
+    // string | Status de conciliação (optional)
+    reconciled: true,false,
+    // string | ID da subcategoria (optional)
+    subcategory: 123,
+    // string | IDs das tags (optional)
+    tags: 123,456,
   } satisfies GetAggregatedResultReportRequest;
 
   try {
@@ -313,22 +361,28 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **account** | `string` | Identificadores das contas separadas por vírgula | [Optional] [Defaults to `undefined`] |
+| **amountFrom** | `string` | Valor do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
+| **amountTo** | `string` | Valor do lançamento máximo. | [Optional] [Defaults to `undefined`] |
 | **amountType** | `base`, `final` | Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;. | [Optional] [Defaults to `undefined`] [Enum: base, final] |
-| **account** | `string` | Conta do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
-| **reconciled** | `boolean` | Indica se o lançamento financeiro foi reconciliado. | [Optional] [Defaults to `undefined`] |
-| **completed** | `boolean` | Indica se o lançamento financeiro foi completado. | [Optional] [Defaults to `undefined`] |
-| **tags** | `string` | Tags do lançamento financeiro separadas por vírgula. | [Optional] [Defaults to `undefined`] |
-| **createdAtTo** | `string` | Data de criação final. | [Optional] [Defaults to `undefined`] |
-| **createdAtFrom** | `string` | Data de criação inicial. | [Optional] [Defaults to `undefined`] |
-| **cashDateTo** | `string` | Data de pagamento final. | [Optional] [Defaults to `undefined`] |
-| **cashDateFrom** | `string` | Data de pagamento inicial. | [Optional] [Defaults to `undefined`] |
-| **competenceDateTo** | `string` | Data de competência final. | [Optional] [Defaults to `undefined`] |
-| **competenceDateFrom** | `string` | Data de competência inicial. | [Optional] [Defaults to `undefined`] |
-| **subcategory** | `string` | Subcategoria do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
-| **contact** | `string` | Contato do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
-| **dueDateTo** | `string` | Data de vencimento final. | [Optional] [Defaults to `undefined`] |
-| **dueDateFrom** | `string` | Data de vencimento inicial. | [Optional] [Defaults to `undefined`] |
-| **direction** | `IN`, `OUT` | Direção do lançamento financeiro. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
+| **cashDateFrom** | `string` | Data inicial do caixa | [Optional] [Defaults to `undefined`] |
+| **cashDateTo** | `string` | Data final do caixa | [Optional] [Defaults to `undefined`] |
+| **competenceDateFrom** | `string` | Data inicial da competência | [Optional] [Defaults to `undefined`] |
+| **competenceDateTo** | `string` | Data final da competência | [Optional] [Defaults to `undefined`] |
+| **completed** | `string` | Status de conclusão dos lançamentos | [Optional] [Defaults to `undefined`] |
+| **contact** | `string` | ID do contato | [Optional] [Defaults to `undefined`] |
+| **createdAtFrom** | `string` | Data inicial da criação | [Optional] [Defaults to `undefined`] |
+| **createdAtTo** | `string` | Data final da criação | [Optional] [Defaults to `undefined`] |
+| **direction** | `IN`, `OUT` | Direção do relatório | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
+| **dueDateFrom** | `string` | Data inicial do vencimento | [Optional] [Defaults to `undefined`] |
+| **dueDateTo** | `string` | Data final do vencimento | [Optional] [Defaults to `undefined`] |
+| **finalAmountFrom** | `string` | Valor final do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
+| **finalAmountTo** | `string` | Valor final do lançamento máximo. | [Optional] [Defaults to `undefined`] |
+| **installmentFinancialRecord** | `string` | ID do lançamento financeiro recorrente | [Optional] [Defaults to `undefined`] |
+| **recurringFinancialRecord** | `string` | ID do lançamento financeiro recorrente | [Optional] [Defaults to `undefined`] |
+| **reconciled** | `string` | Status de conciliação | [Optional] [Defaults to `undefined`] |
+| **subcategory** | `string` | ID da subcategoria | [Optional] [Defaults to `undefined`] |
+| **tags** | `string` | IDs das tags | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -355,7 +409,7 @@ No authorization required
 
 ## systemGetAggregatedResultReport
 
-> FinancialRecordsAggregatedResultReportEntity systemGetAggregatedResultReport(ownerOrganizationId, amountType, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, direction)
+> FinancialRecordsAggregatedResultReportEntity systemGetAggregatedResultReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags)
 
 Get aggregated   result report for financial records
 
@@ -373,40 +427,50 @@ async function example() {
   const api = new FinancialRecordsReportsApi();
 
   const body = {
-    // string | Identificador da organização proprietária dos lançamentos financeiros.
-    ownerOrganizationId: ownerOrganizationId_example,
+    // string | Identificadores das contas separadas por vírgula (optional)
+    account: 123,456,
+    // string | Valor do lançamento mínimo. (optional)
+    amountFrom: amountFrom_example,
+    // string | Valor do lançamento máximo. (optional)
+    amountTo: amountTo_example,
     // 'base' | 'final' | Tipo de valor a ser utilizado nos cálculos. \"base\" para amount, \"final\" para finalAmount. Padrão é \"final\". (optional)
     amountType: amountType_example,
-    // string | Conta do lançamento financeiro. (optional)
-    account: account_example,
-    // boolean | Indica se o lançamento financeiro foi reconciliado. (optional)
-    reconciled: true,
-    // boolean | Indica se o lançamento financeiro foi completado. (optional)
-    completed: true,
-    // string | Tags do lançamento financeiro separadas por vírgula. (optional)
-    tags: tags_example,
-    // string | Data de criação final. (optional)
-    createdAtTo: createdAtTo_example,
-    // string | Data de criação inicial. (optional)
-    createdAtFrom: createdAtFrom_example,
-    // string | Data de pagamento final. (optional)
-    cashDateTo: cashDateTo_example,
-    // string | Data de pagamento inicial. (optional)
-    cashDateFrom: cashDateFrom_example,
-    // string | Data de competência final. (optional)
-    competenceDateTo: competenceDateTo_example,
-    // string | Data de competência inicial. (optional)
-    competenceDateFrom: competenceDateFrom_example,
-    // string | Subcategoria do lançamento financeiro. (optional)
-    subcategory: subcategory_example,
-    // string | Contato do lançamento financeiro. (optional)
-    contact: contact_example,
-    // string | Data de vencimento final. (optional)
-    dueDateTo: dueDateTo_example,
-    // string | Data de vencimento inicial. (optional)
-    dueDateFrom: dueDateFrom_example,
-    // 'IN' | 'OUT' | Direção do lançamento financeiro. (optional)
+    // string | Data inicial do caixa (optional)
+    cashDateFrom: 2025-01-01,
+    // string | Data final do caixa (optional)
+    cashDateTo: 2025-01-01,
+    // string | Data inicial da competência (optional)
+    competenceDateFrom: 2025-01-01,
+    // string | Data final da competência (optional)
+    competenceDateTo: 2025-01-01,
+    // string | Status de conclusão dos lançamentos (optional)
+    completed: true,false,
+    // string | ID do contato (optional)
+    contact: 123,
+    // string | Data inicial da criação (optional)
+    createdAtFrom: 2025-01-01,
+    // string | Data final da criação (optional)
+    createdAtTo: 2025-01-01,
+    // 'IN' | 'OUT' | Direção do relatório (optional)
     direction: direction_example,
+    // string | Data inicial do vencimento (optional)
+    dueDateFrom: 2025-01-01,
+    // string | Data final do vencimento (optional)
+    dueDateTo: 2025-01-01,
+    // string | Valor final do lançamento mínimo. (optional)
+    finalAmountFrom: finalAmountFrom_example,
+    // string | Valor final do lançamento máximo. (optional)
+    finalAmountTo: finalAmountTo_example,
+    // string | ID do lançamento financeiro recorrente (optional)
+    installmentFinancialRecord: 123,
+    // string | ID do lançamento financeiro recorrente (optional)
+    recurringFinancialRecord: 123,
+    // string | Status de conciliação (optional)
+    reconciled: true,false,
+    // string | ID da subcategoria (optional)
+    subcategory: 123,
+    // string | IDs das tags (optional)
+    tags: 123,456,
   } satisfies SystemGetAggregatedResultReportRequest;
 
   try {
@@ -426,23 +490,28 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **ownerOrganizationId** | `string` | Identificador da organização proprietária dos lançamentos financeiros. | [Defaults to `undefined`] |
+| **account** | `string` | Identificadores das contas separadas por vírgula | [Optional] [Defaults to `undefined`] |
+| **amountFrom** | `string` | Valor do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
+| **amountTo** | `string` | Valor do lançamento máximo. | [Optional] [Defaults to `undefined`] |
 | **amountType** | `base`, `final` | Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;. | [Optional] [Defaults to `undefined`] [Enum: base, final] |
-| **account** | `string` | Conta do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
-| **reconciled** | `boolean` | Indica se o lançamento financeiro foi reconciliado. | [Optional] [Defaults to `undefined`] |
-| **completed** | `boolean` | Indica se o lançamento financeiro foi completado. | [Optional] [Defaults to `undefined`] |
-| **tags** | `string` | Tags do lançamento financeiro separadas por vírgula. | [Optional] [Defaults to `undefined`] |
-| **createdAtTo** | `string` | Data de criação final. | [Optional] [Defaults to `undefined`] |
-| **createdAtFrom** | `string` | Data de criação inicial. | [Optional] [Defaults to `undefined`] |
-| **cashDateTo** | `string` | Data de pagamento final. | [Optional] [Defaults to `undefined`] |
-| **cashDateFrom** | `string` | Data de pagamento inicial. | [Optional] [Defaults to `undefined`] |
-| **competenceDateTo** | `string` | Data de competência final. | [Optional] [Defaults to `undefined`] |
-| **competenceDateFrom** | `string` | Data de competência inicial. | [Optional] [Defaults to `undefined`] |
-| **subcategory** | `string` | Subcategoria do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
-| **contact** | `string` | Contato do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
-| **dueDateTo** | `string` | Data de vencimento final. | [Optional] [Defaults to `undefined`] |
-| **dueDateFrom** | `string` | Data de vencimento inicial. | [Optional] [Defaults to `undefined`] |
-| **direction** | `IN`, `OUT` | Direção do lançamento financeiro. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
+| **cashDateFrom** | `string` | Data inicial do caixa | [Optional] [Defaults to `undefined`] |
+| **cashDateTo** | `string` | Data final do caixa | [Optional] [Defaults to `undefined`] |
+| **competenceDateFrom** | `string` | Data inicial da competência | [Optional] [Defaults to `undefined`] |
+| **competenceDateTo** | `string` | Data final da competência | [Optional] [Defaults to `undefined`] |
+| **completed** | `string` | Status de conclusão dos lançamentos | [Optional] [Defaults to `undefined`] |
+| **contact** | `string` | ID do contato | [Optional] [Defaults to `undefined`] |
+| **createdAtFrom** | `string` | Data inicial da criação | [Optional] [Defaults to `undefined`] |
+| **createdAtTo** | `string` | Data final da criação | [Optional] [Defaults to `undefined`] |
+| **direction** | `IN`, `OUT` | Direção do relatório | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
+| **dueDateFrom** | `string` | Data inicial do vencimento | [Optional] [Defaults to `undefined`] |
+| **dueDateTo** | `string` | Data final do vencimento | [Optional] [Defaults to `undefined`] |
+| **finalAmountFrom** | `string` | Valor final do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
+| **finalAmountTo** | `string` | Valor final do lançamento máximo. | [Optional] [Defaults to `undefined`] |
+| **installmentFinancialRecord** | `string` | ID do lançamento financeiro recorrente | [Optional] [Defaults to `undefined`] |
+| **recurringFinancialRecord** | `string` | ID do lançamento financeiro recorrente | [Optional] [Defaults to `undefined`] |
+| **reconciled** | `string` | Status de conciliação | [Optional] [Defaults to `undefined`] |
+| **subcategory** | `string` | ID da subcategoria | [Optional] [Defaults to `undefined`] |
+| **tags** | `string` | IDs das tags | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

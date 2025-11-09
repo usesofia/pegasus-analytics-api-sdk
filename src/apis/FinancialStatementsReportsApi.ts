@@ -34,6 +34,10 @@ import {
 export interface GenerateFinancialMeasuresReportRequest {
     recurringFinancialRecord?: string;
     installmentFinancialRecord?: string;
+    amountTo?: string;
+    amountFrom?: string;
+    finalAmountTo?: string;
+    finalAmountFrom?: string;
     account?: string;
     reconciled?: string;
     completed?: string;
@@ -53,21 +57,28 @@ export interface GenerateFinancialMeasuresReportRequest {
 }
 
 export interface GenerateFinancialResultCompositionReportRequest {
-    amountType?: GenerateFinancialResultCompositionReportAmountTypeEnum;
-    reconciled?: string;
-    completed?: string;
     tags?: string;
-    createdAtTo?: string;
-    cashDateTo?: string;
-    cashDateFrom?: string;
-    competenceDateTo?: string;
-    competenceDateFrom?: string;
     subcategory?: string;
-    account?: string;
-    contact?: string;
+    reconciled?: string;
+    recurringFinancialRecord?: string;
+    installmentFinancialRecord?: string;
+    finalAmountTo?: string;
+    finalAmountFrom?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
     direction?: GenerateFinancialResultCompositionReportDirectionEnum;
+    createdAtTo?: string;
+    createdAtFrom?: string;
+    contact?: string;
+    completed?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    amountType?: GenerateFinancialResultCompositionReportAmountTypeEnum;
+    amountTo?: string;
+    amountFrom?: string;
+    account?: string;
 }
 
 export interface GenerateFinancialStatementReportRequest {
@@ -101,6 +112,10 @@ export interface FinancialStatementsReportsApiInterface {
      * @summary Gera relatório de medidas financeiras
      * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
      * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [amountTo] Valor do lançamento máximo.
+     * @param {string} [amountFrom] Valor do lançamento mínimo.
+     * @param {string} [finalAmountTo] Valor final do lançamento máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
      * @param {string} [account] ID da conta
      * @param {string} [reconciled] Status de conciliação
      * @param {string} [completed] Status de conclusão dos lançamentos
@@ -131,21 +146,28 @@ export interface FinancialStatementsReportsApiInterface {
     /**
      * 
      * @summary Gera relatório de composição do resultado financeiro
-     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
-     * @param {string} [reconciled] Status de conciliação
-     * @param {string} [completed] Status do relatório
      * @param {string} [tags] IDs das tags
-     * @param {string} [createdAtTo] Data final da criação
-     * @param {string} [cashDateTo] Data final do caixa
-     * @param {string} [cashDateFrom] Data inicial do caixa
-     * @param {string} [competenceDateTo] Data final da competência
-     * @param {string} [competenceDateFrom] Data inicial da competência
-     * @param {string} [subcategory] Identificadores das subcategorias separadas por vírgula
-     * @param {string} [account] Identificadores das contas separadas por vírgula
-     * @param {string} [contact] Identificadores dos contatos separados por vírgula
+     * @param {string} [subcategory] ID da subcategoria
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [finalAmountTo] Valor final do lançamento máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
      * @param {string} [dueDateTo] Data final do vencimento
      * @param {string} [dueDateFrom] Data inicial do vencimento
      * @param {'IN' | 'OUT'} [direction] Direção do relatório
+     * @param {string} [createdAtTo] Data final da criação
+     * @param {string} [createdAtFrom] Data inicial da criação
+     * @param {string} [contact] ID do contato
+     * @param {string} [completed] Status de conclusão dos lançamentos
+     * @param {string} [competenceDateTo] Data final da competência
+     * @param {string} [competenceDateFrom] Data inicial da competência
+     * @param {string} [cashDateTo] Data final do caixa
+     * @param {string} [cashDateFrom] Data inicial do caixa
+     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} [amountTo] Valor do lançamento máximo.
+     * @param {string} [amountFrom] Valor do lançamento mínimo.
+     * @param {string} [account] Identificadores das contas separadas por vírgula
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialStatementsReportsApiInterface
@@ -218,6 +240,22 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
 
         if (requestParameters['installmentFinancialRecord'] != null) {
             queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+        }
+
+        if (requestParameters['amountTo'] != null) {
+            queryParameters['amountTo'] = requestParameters['amountTo'];
+        }
+
+        if (requestParameters['amountFrom'] != null) {
+            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+        }
+
+        if (requestParameters['finalAmountTo'] != null) {
+            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+        }
+
+        if (requestParameters['finalAmountFrom'] != null) {
+            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
         }
 
         if (requestParameters['account'] != null) {
@@ -313,52 +351,32 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
     async generateFinancialResultCompositionReportRaw(requestParameters: GenerateFinancialResultCompositionReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialResultCompositionReportEntity>> {
         const queryParameters: any = {};
 
-        if (requestParameters['amountType'] != null) {
-            queryParameters['amountType'] = requestParameters['amountType'];
-        }
-
-        if (requestParameters['reconciled'] != null) {
-            queryParameters['reconciled'] = requestParameters['reconciled'];
-        }
-
-        if (requestParameters['completed'] != null) {
-            queryParameters['completed'] = requestParameters['completed'];
-        }
-
         if (requestParameters['tags'] != null) {
             queryParameters['tags'] = requestParameters['tags'];
-        }
-
-        if (requestParameters['createdAtTo'] != null) {
-            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
-        }
-
-        if (requestParameters['cashDateTo'] != null) {
-            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
-        }
-
-        if (requestParameters['cashDateFrom'] != null) {
-            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
-        }
-
-        if (requestParameters['competenceDateTo'] != null) {
-            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
-        }
-
-        if (requestParameters['competenceDateFrom'] != null) {
-            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
         }
 
         if (requestParameters['subcategory'] != null) {
             queryParameters['subcategory'] = requestParameters['subcategory'];
         }
 
-        if (requestParameters['account'] != null) {
-            queryParameters['account'] = requestParameters['account'];
+        if (requestParameters['reconciled'] != null) {
+            queryParameters['reconciled'] = requestParameters['reconciled'];
         }
 
-        if (requestParameters['contact'] != null) {
-            queryParameters['contact'] = requestParameters['contact'];
+        if (requestParameters['recurringFinancialRecord'] != null) {
+            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
+        }
+
+        if (requestParameters['installmentFinancialRecord'] != null) {
+            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+        }
+
+        if (requestParameters['finalAmountTo'] != null) {
+            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+        }
+
+        if (requestParameters['finalAmountFrom'] != null) {
+            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
         }
 
         if (requestParameters['dueDateTo'] != null) {
@@ -371,6 +389,54 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
 
         if (requestParameters['direction'] != null) {
             queryParameters['direction'] = requestParameters['direction'];
+        }
+
+        if (requestParameters['createdAtTo'] != null) {
+            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+        }
+
+        if (requestParameters['createdAtFrom'] != null) {
+            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+        }
+
+        if (requestParameters['contact'] != null) {
+            queryParameters['contact'] = requestParameters['contact'];
+        }
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
+        }
+
+        if (requestParameters['competenceDateTo'] != null) {
+            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+        }
+
+        if (requestParameters['competenceDateFrom'] != null) {
+            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+        }
+
+        if (requestParameters['cashDateTo'] != null) {
+            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+        }
+
+        if (requestParameters['cashDateFrom'] != null) {
+            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+        }
+
+        if (requestParameters['amountType'] != null) {
+            queryParameters['amountType'] = requestParameters['amountType'];
+        }
+
+        if (requestParameters['amountTo'] != null) {
+            queryParameters['amountTo'] = requestParameters['amountTo'];
+        }
+
+        if (requestParameters['amountFrom'] != null) {
+            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+        }
+
+        if (requestParameters['account'] != null) {
+            queryParameters['account'] = requestParameters['account'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -585,19 +651,19 @@ export type GenerateFinancialMeasuresReportDirectionEnum = typeof GenerateFinanc
 /**
  * @export
  */
-export const GenerateFinancialResultCompositionReportAmountTypeEnum = {
-    Base: 'base',
-    Final: 'final'
-} as const;
-export type GenerateFinancialResultCompositionReportAmountTypeEnum = typeof GenerateFinancialResultCompositionReportAmountTypeEnum[keyof typeof GenerateFinancialResultCompositionReportAmountTypeEnum];
-/**
- * @export
- */
 export const GenerateFinancialResultCompositionReportDirectionEnum = {
     In: 'IN',
     Out: 'OUT'
 } as const;
 export type GenerateFinancialResultCompositionReportDirectionEnum = typeof GenerateFinancialResultCompositionReportDirectionEnum[keyof typeof GenerateFinancialResultCompositionReportDirectionEnum];
+/**
+ * @export
+ */
+export const GenerateFinancialResultCompositionReportAmountTypeEnum = {
+    Base: 'base',
+    Final: 'final'
+} as const;
+export type GenerateFinancialResultCompositionReportAmountTypeEnum = typeof GenerateFinancialResultCompositionReportAmountTypeEnum[keyof typeof GenerateFinancialResultCompositionReportAmountTypeEnum];
 /**
  * @export
  */

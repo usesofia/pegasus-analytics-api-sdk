@@ -85,59 +85,71 @@ var BankAccountsApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
-                        if (requestParameters['amountType'] != null) {
-                            queryParameters['amountType'] = requestParameters['amountType'];
-                        }
-                        if (requestParameters['recurringFinancialRecord'] != null) {
-                            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
-                        }
-                        if (requestParameters['installmentFinancialRecord'] != null) {
-                            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
-                        }
                         if (requestParameters['account'] != null) {
                             queryParameters['account'] = requestParameters['account'];
                         }
-                        if (requestParameters['reconciled'] != null) {
-                            queryParameters['reconciled'] = requestParameters['reconciled'];
+                        if (requestParameters['amountFrom'] != null) {
+                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
                         }
-                        if (requestParameters['completed'] != null) {
-                            queryParameters['completed'] = requestParameters['completed'];
+                        if (requestParameters['amountTo'] != null) {
+                            queryParameters['amountTo'] = requestParameters['amountTo'];
                         }
-                        if (requestParameters['tags'] != null) {
-                            queryParameters['tags'] = requestParameters['tags'];
-                        }
-                        if (requestParameters['createdAtTo'] != null) {
-                            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
-                        }
-                        if (requestParameters['createdAtFrom'] != null) {
-                            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
-                        }
-                        if (requestParameters['cashDateTo'] != null) {
-                            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+                        if (requestParameters['amountType'] != null) {
+                            queryParameters['amountType'] = requestParameters['amountType'];
                         }
                         if (requestParameters['cashDateFrom'] != null) {
                             queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
                         }
-                        if (requestParameters['competenceDateTo'] != null) {
-                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+                        if (requestParameters['cashDateTo'] != null) {
+                            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
                         }
                         if (requestParameters['competenceDateFrom'] != null) {
                             queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
                         }
-                        if (requestParameters['subcategory'] != null) {
-                            queryParameters['subcategory'] = requestParameters['subcategory'];
+                        if (requestParameters['competenceDateTo'] != null) {
+                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+                        }
+                        if (requestParameters['completed'] != null) {
+                            queryParameters['completed'] = requestParameters['completed'];
                         }
                         if (requestParameters['contact'] != null) {
                             queryParameters['contact'] = requestParameters['contact'];
                         }
-                        if (requestParameters['dueDateTo'] != null) {
-                            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+                        if (requestParameters['createdAtFrom'] != null) {
+                            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+                        }
+                        if (requestParameters['createdAtTo'] != null) {
+                            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+                        }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
                         }
                         if (requestParameters['dueDateFrom'] != null) {
                             queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
                         }
-                        if (requestParameters['direction'] != null) {
-                            queryParameters['direction'] = requestParameters['direction'];
+                        if (requestParameters['dueDateTo'] != null) {
+                            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+                        }
+                        if (requestParameters['finalAmountFrom'] != null) {
+                            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
+                        }
+                        if (requestParameters['finalAmountTo'] != null) {
+                            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+                        }
+                        if (requestParameters['installmentFinancialRecord'] != null) {
+                            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+                        }
+                        if (requestParameters['recurringFinancialRecord'] != null) {
+                            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
+                        }
+                        if (requestParameters['reconciled'] != null) {
+                            queryParameters['reconciled'] = requestParameters['reconciled'];
+                        }
+                        if (requestParameters['subcategory'] != null) {
+                            queryParameters['subcategory'] = requestParameters['subcategory'];
+                        }
+                        if (requestParameters['tags'] != null) {
+                            queryParameters['tags'] = requestParameters['tags'];
                         }
                         headerParameters = {};
                         urlPath = "/external/bank-accounts/report";

@@ -16,6 +16,12 @@
  */
 export interface MonthlyFinancialReportEntityDataFilters {
     /**
+     * Lista de IDs de contas bancárias para filtrar.
+     * @type {Array<string>}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    account?: Array<string>;
+    /**
      * Valor do lançamento mínimo.
      * @type {number}
      * @memberof MonthlyFinancialReportEntityDataFilters
@@ -28,17 +34,59 @@ export interface MonthlyFinancialReportEntityDataFilters {
      */
     amountTo?: number;
     /**
-     * Valor final do lançamento mínimo.
-     * @type {number}
+     *
+     * @type {string}
      * @memberof MonthlyFinancialReportEntityDataFilters
      */
-    finalAmountFrom?: number;
+    amountType?: MonthlyFinancialReportEntityDataFiltersAmountTypeEnum;
     /**
-     * Valor final do lançamento máximo.
-     * @type {number}
+     *
+     * @type {string}
      * @memberof MonthlyFinancialReportEntityDataFilters
      */
-    finalAmountTo?: number;
+    cashDateFrom?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    cashDateTo?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    competenceDateFrom?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    competenceDateTo?: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    completed?: boolean;
+    /**
+     * Lista de IDs de contatos para filtrar.
+     * @type {Array<string>}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    contact?: Array<string>;
+    /**
+     *
+     * @type {any}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    createdAtFrom?: any | null;
+    /**
+     *
+     * @type {any}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    createdAtTo?: any | null;
     /**
      *
      * @type {string}
@@ -58,77 +106,17 @@ export interface MonthlyFinancialReportEntityDataFilters {
      */
     dueDateTo?: string;
     /**
-     * Lista de IDs de contatos para filtrar.
-     * @type {Array<string>}
+     * Valor final do lançamento mínimo.
+     * @type {number}
      * @memberof MonthlyFinancialReportEntityDataFilters
      */
-    contact?: Array<string>;
+    finalAmountFrom?: number;
     /**
-     * Lista de IDs de subcategorias para filtrar.
-     * @type {Array<string>}
+     * Valor final do lançamento máximo.
+     * @type {number}
      * @memberof MonthlyFinancialReportEntityDataFilters
      */
-    subcategory?: Array<string>;
-    /**
-     *
-     * @type {string}
-     * @memberof MonthlyFinancialReportEntityDataFilters
-     */
-    competenceDateFrom?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof MonthlyFinancialReportEntityDataFilters
-     */
-    competenceDateTo?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof MonthlyFinancialReportEntityDataFilters
-     */
-    cashDateFrom?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof MonthlyFinancialReportEntityDataFilters
-     */
-    cashDateTo?: string;
-    /**
-     *
-     * @type {any}
-     * @memberof MonthlyFinancialReportEntityDataFilters
-     */
-    createdAtFrom?: any | null;
-    /**
-     *
-     * @type {any}
-     * @memberof MonthlyFinancialReportEntityDataFilters
-     */
-    createdAtTo?: any | null;
-    /**
-     * Lista de IDs de tags para filtrar.
-     * @type {Array<string>}
-     * @memberof MonthlyFinancialReportEntityDataFilters
-     */
-    tags?: Array<string>;
-    /**
-     *
-     * @type {boolean}
-     * @memberof MonthlyFinancialReportEntityDataFilters
-     */
-    completed?: boolean;
-    /**
-     *
-     * @type {boolean}
-     * @memberof MonthlyFinancialReportEntityDataFilters
-     */
-    reconciled?: boolean;
-    /**
-     * Lista de IDs de contas bancárias para filtrar.
-     * @type {Array<string>}
-     * @memberof MonthlyFinancialReportEntityDataFilters
-     */
-    account?: Array<string>;
+    finalAmountTo?: number;
     /**
      * Lista de IDs de parcelas para filtrar.
      * @type {Array<string>}
@@ -143,19 +131,23 @@ export interface MonthlyFinancialReportEntityDataFilters {
     recurringFinancialRecord?: Array<string>;
     /**
      *
-     * @type {string}
+     * @type {boolean}
      * @memberof MonthlyFinancialReportEntityDataFilters
      */
-    amountType?: MonthlyFinancialReportEntityDataFiltersAmountTypeEnum;
+    reconciled?: boolean;
+    /**
+     * Lista de IDs de subcategorias para filtrar.
+     * @type {Array<string>}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    subcategory?: Array<string>;
+    /**
+     * Lista de IDs de tags para filtrar.
+     * @type {Array<string>}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    tags?: Array<string>;
 }
-/**
- * @export
- */
-export declare const MonthlyFinancialReportEntityDataFiltersDirectionEnum: {
-    readonly In: "IN";
-    readonly Out: "OUT";
-};
-export type MonthlyFinancialReportEntityDataFiltersDirectionEnum = typeof MonthlyFinancialReportEntityDataFiltersDirectionEnum[keyof typeof MonthlyFinancialReportEntityDataFiltersDirectionEnum];
 /**
  * @export
  */
@@ -164,6 +156,14 @@ export declare const MonthlyFinancialReportEntityDataFiltersAmountTypeEnum: {
     readonly Final: "final";
 };
 export type MonthlyFinancialReportEntityDataFiltersAmountTypeEnum = typeof MonthlyFinancialReportEntityDataFiltersAmountTypeEnum[keyof typeof MonthlyFinancialReportEntityDataFiltersAmountTypeEnum];
+/**
+ * @export
+ */
+export declare const MonthlyFinancialReportEntityDataFiltersDirectionEnum: {
+    readonly In: "IN";
+    readonly Out: "OUT";
+};
+export type MonthlyFinancialReportEntityDataFiltersDirectionEnum = typeof MonthlyFinancialReportEntityDataFiltersDirectionEnum[keyof typeof MonthlyFinancialReportEntityDataFiltersDirectionEnum];
 /**
  * Check if a given object implements the MonthlyFinancialReportEntityDataFilters interface.
  */

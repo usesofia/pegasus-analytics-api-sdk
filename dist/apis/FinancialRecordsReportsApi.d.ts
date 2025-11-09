@@ -14,78 +14,101 @@ import type { AggregatedFinancialRecordsReportEntity, FinancialRecordsAggregated
 export interface GenerateAggregatedFinancialRecordsReportRequest {
     aggregationDirection: GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum;
     groupBy: GenerateAggregatedFinancialRecordsReportGroupByEnum;
-    amountType?: GenerateAggregatedFinancialRecordsReportAmountTypeEnum;
-    recurringFinancialRecord?: string;
-    installmentFinancialRecord?: string;
     account?: string;
-    reconciled?: string;
-    completed?: string;
-    tags?: string;
-    createdAtTo?: string;
-    createdAtFrom?: string;
-    cashDateTo?: string;
+    amountFrom?: string;
+    amountTo?: string;
+    amountType?: GenerateAggregatedFinancialRecordsReportAmountTypeEnum;
     cashDateFrom?: string;
-    competenceDateTo?: string;
+    cashDateTo?: string;
     competenceDateFrom?: string;
-    subcategory?: string;
+    competenceDateTo?: string;
+    completed?: string;
     contact?: string;
-    dueDateTo?: string;
-    dueDateFrom?: string;
+    createdAtFrom?: string;
+    createdAtTo?: string;
     direction?: GenerateAggregatedFinancialRecordsReportDirectionEnum;
+    dueDateFrom?: string;
+    dueDateTo?: string;
+    finalAmountFrom?: string;
+    finalAmountTo?: string;
+    installmentFinancialRecord?: string;
+    recurringFinancialRecord?: string;
+    reconciled?: string;
+    subcategory?: string;
+    tags?: string;
     sortOrder?: GenerateAggregatedFinancialRecordsReportSortOrderEnum;
 }
 export interface GenerateMonthlyFinancialReportRequest {
-    amountType?: GenerateMonthlyFinancialReportAmountTypeEnum;
-    tags?: string;
     account?: string;
-    reconciled?: string;
-    completed?: string;
-    cashDateTo?: string;
+    amountFrom?: string;
+    amountTo?: string;
+    amountType?: GenerateMonthlyFinancialReportAmountTypeEnum;
     cashDateFrom?: string;
-    competenceDateTo?: string;
+    cashDateTo?: string;
     competenceDateFrom?: string;
-    subcategory?: string;
+    competenceDateTo?: string;
+    completed?: string;
     contact?: string;
-    dueDateTo?: string;
-    dueDateFrom?: string;
+    createdAtFrom?: string;
+    createdAtTo?: string;
     direction?: GenerateMonthlyFinancialReportDirectionEnum;
+    dueDateFrom?: string;
+    dueDateTo?: string;
+    finalAmountFrom?: string;
+    finalAmountTo?: string;
+    installmentFinancialRecord?: string;
+    recurringFinancialRecord?: string;
+    reconciled?: string;
+    subcategory?: string;
+    tags?: string;
 }
 export interface GetAggregatedResultReportRequest {
-    amountType?: GetAggregatedResultReportAmountTypeEnum;
     account?: string;
-    reconciled?: boolean;
-    completed?: boolean;
-    tags?: string;
-    createdAtTo?: string;
-    createdAtFrom?: string;
-    cashDateTo?: string;
+    amountFrom?: string;
+    amountTo?: string;
+    amountType?: GetAggregatedResultReportAmountTypeEnum;
     cashDateFrom?: string;
-    competenceDateTo?: string;
+    cashDateTo?: string;
     competenceDateFrom?: string;
-    subcategory?: string;
+    competenceDateTo?: string;
+    completed?: string;
     contact?: string;
-    dueDateTo?: string;
-    dueDateFrom?: string;
+    createdAtFrom?: string;
+    createdAtTo?: string;
     direction?: GetAggregatedResultReportDirectionEnum;
+    dueDateFrom?: string;
+    dueDateTo?: string;
+    finalAmountFrom?: string;
+    finalAmountTo?: string;
+    installmentFinancialRecord?: string;
+    recurringFinancialRecord?: string;
+    reconciled?: string;
+    subcategory?: string;
+    tags?: string;
 }
 export interface SystemGetAggregatedResultReportRequest {
-    ownerOrganizationId: string;
-    amountType?: SystemGetAggregatedResultReportAmountTypeEnum;
     account?: string;
-    reconciled?: boolean;
-    completed?: boolean;
-    tags?: string;
-    createdAtTo?: string;
-    createdAtFrom?: string;
-    cashDateTo?: string;
+    amountFrom?: string;
+    amountTo?: string;
+    amountType?: SystemGetAggregatedResultReportAmountTypeEnum;
     cashDateFrom?: string;
-    competenceDateTo?: string;
+    cashDateTo?: string;
     competenceDateFrom?: string;
-    subcategory?: string;
+    competenceDateTo?: string;
+    completed?: string;
     contact?: string;
-    dueDateTo?: string;
-    dueDateFrom?: string;
+    createdAtFrom?: string;
+    createdAtTo?: string;
     direction?: SystemGetAggregatedResultReportDirectionEnum;
+    dueDateFrom?: string;
+    dueDateTo?: string;
+    finalAmountFrom?: string;
+    finalAmountTo?: string;
+    installmentFinancialRecord?: string;
+    recurringFinancialRecord?: string;
+    reconciled?: string;
+    subcategory?: string;
+    tags?: string;
 }
 /**
  * FinancialRecordsReportsApi - interface
@@ -99,24 +122,28 @@ export interface FinancialRecordsReportsApiInterface {
      * @summary Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
      * @param {'IN' | 'OUT'} aggregationDirection Direção do lançamento financeiro
      * @param {'category' | 'contact' | 'tag'} groupBy Campo para agrupamento dos dados
-     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos
-     * @param {string} [recurringFinancialRecord] IDs do lançamento financeiro recorrente separados por vírgula
-     * @param {string} [installmentFinancialRecord] IDs do lançamento financeiro parcelado separados por vírgula
-     * @param {string} [account] Conta do lançamento financeiro
-     * @param {string} [reconciled] Status de conciliação dos lançamentos
+     * @param {string} [account] Identificadores das contas separadas por vírgula
+     * @param {string} [amountFrom] Valor do lançamento mínimo.
+     * @param {string} [amountTo] Valor do lançamento máximo.
+     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} [cashDateFrom] Data inicial do caixa
+     * @param {string} [cashDateTo] Data final do caixa
+     * @param {string} [competenceDateFrom] Data inicial da competência
+     * @param {string} [competenceDateTo] Data final da competência
      * @param {string} [completed] Status de conclusão dos lançamentos
-     * @param {string} [tags] Tags do lançamento financeiro separadas por vírgula
-     * @param {string} [createdAtTo] Data de criação final
-     * @param {string} [createdAtFrom] Data de criação inicial
-     * @param {string} [cashDateTo] Data de caixa final
-     * @param {string} [cashDateFrom] Data de caixa inicial
-     * @param {string} [competenceDateTo] Data de competência final
-     * @param {string} [competenceDateFrom] Data de competência inicial
-     * @param {string} [subcategory] Subcategoria do lançamento financeiro
-     * @param {string} [contact] Contato do lançamento financeiro
-     * @param {string} [dueDateTo] Data de vencimento final
-     * @param {string} [dueDateFrom] Data de vencimento inicial
-     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro
+     * @param {string} [contact] ID do contato
+     * @param {string} [createdAtFrom] Data inicial da criação
+     * @param {string} [createdAtTo] Data final da criação
+     * @param {'IN' | 'OUT'} [direction] Direção do relatório
+     * @param {string} [dueDateFrom] Data inicial do vencimento
+     * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
+     * @param {string} [finalAmountTo] Valor final do lançamento máximo.
+     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [subcategory] ID da subcategoria
+     * @param {string} [tags] IDs das tags
      * @param {'asc' | 'desc'} [sortOrder] Ordem de classificação
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -130,20 +157,28 @@ export interface FinancialRecordsReportsApiInterface {
     /**
      *
      * @summary Gera relatório financeiro mensal para os últimos 12 meses
+     * @param {string} [account] Identificadores das contas separadas por vírgula
+     * @param {string} [amountFrom] Valor do lançamento mínimo.
+     * @param {string} [amountTo] Valor do lançamento máximo.
      * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
-     * @param {string} [tags] Tags do lançamento financeiro separadas por vírgula
-     * @param {string} [account] Conta do lançamento financeiro
-     * @param {string} [reconciled] Status de conciliação dos lançamentos
+     * @param {string} [cashDateFrom] Data inicial do caixa
+     * @param {string} [cashDateTo] Data final do caixa
+     * @param {string} [competenceDateFrom] Data inicial da competência
+     * @param {string} [competenceDateTo] Data final da competência
      * @param {string} [completed] Status de conclusão dos lançamentos
-     * @param {string} [cashDateTo] Data de pagamento final
-     * @param {string} [cashDateFrom] Data de pagamento inicial
-     * @param {string} [competenceDateTo] Data de competência final
-     * @param {string} [competenceDateFrom] Data de competência inicial
-     * @param {string} [subcategory] Subcategoria do lançamento financeiro
-     * @param {string} [contact] Contato do lançamento financeiro
-     * @param {string} [dueDateTo] Data de vencimento final
-     * @param {string} [dueDateFrom] Data de vencimento inicial
-     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro
+     * @param {string} [contact] ID do contato
+     * @param {string} [createdAtFrom] Data inicial da criação
+     * @param {string} [createdAtTo] Data final da criação
+     * @param {'IN' | 'OUT'} [direction] Direção do relatório
+     * @param {string} [dueDateFrom] Data inicial do vencimento
+     * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
+     * @param {string} [finalAmountTo] Valor final do lançamento máximo.
+     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [subcategory] ID da subcategoria
+     * @param {string} [tags] IDs das tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsReportsApiInterface
@@ -155,52 +190,63 @@ export interface FinancialRecordsReportsApiInterface {
     generateMonthlyFinancialReport(requestParameters: GenerateMonthlyFinancialReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MonthlyFinancialReportEntity>;
     /**
      *
-     * @summary Get aggregated   result report for financial records
+     * @summary Get aggregated result report for financial records
+     * @param {string} [account] Identificadores das contas separadas por vírgula
+     * @param {string} [amountFrom] Valor do lançamento mínimo.
+     * @param {string} [amountTo] Valor do lançamento máximo.
      * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
-     * @param {string} [account] Conta do lançamento financeiro.
-     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
-     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
-     * @param {string} [tags] Tags do lançamento financeiro separadas por vírgula.
-     * @param {string} [createdAtTo] Data de criação final.
-     * @param {string} [createdAtFrom] Data de criação inicial.
-     * @param {string} [cashDateTo] Data de pagamento final.
-     * @param {string} [cashDateFrom] Data de pagamento inicial.
-     * @param {string} [competenceDateTo] Data de competência final.
-     * @param {string} [competenceDateFrom] Data de competência inicial.
-     * @param {string} [subcategory] Subcategoria do lançamento financeiro.
-     * @param {string} [contact] Contato do lançamento financeiro.
-     * @param {string} [dueDateTo] Data de vencimento final.
-     * @param {string} [dueDateFrom] Data de vencimento inicial.
-     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {string} [cashDateFrom] Data inicial do caixa
+     * @param {string} [cashDateTo] Data final do caixa
+     * @param {string} [competenceDateFrom] Data inicial da competência
+     * @param {string} [competenceDateTo] Data final da competência
+     * @param {string} [completed] Status de conclusão dos lançamentos
+     * @param {string} [contact] ID do contato
+     * @param {string} [createdAtFrom] Data inicial da criação
+     * @param {string} [createdAtTo] Data final da criação
+     * @param {'IN' | 'OUT'} [direction] Direção do relatório
+     * @param {string} [dueDateFrom] Data inicial do vencimento
+     * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
+     * @param {string} [finalAmountTo] Valor final do lançamento máximo.
+     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [subcategory] ID da subcategoria
+     * @param {string} [tags] IDs das tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsReportsApiInterface
      */
     getAggregatedResultReportRaw(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>>;
     /**
-     * Get aggregated   result report for financial records
+     * Get aggregated result report for financial records
      */
     getAggregatedResultReport(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
     /**
      *
      * @summary Get aggregated   result report for financial records
-     * @param {string} ownerOrganizationId Identificador da organização proprietária dos lançamentos financeiros.
+     * @param {string} [account] Identificadores das contas separadas por vírgula
+     * @param {string} [amountFrom] Valor do lançamento mínimo.
+     * @param {string} [amountTo] Valor do lançamento máximo.
      * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
-     * @param {string} [account] Conta do lançamento financeiro.
-     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
-     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
-     * @param {string} [tags] Tags do lançamento financeiro separadas por vírgula.
-     * @param {string} [createdAtTo] Data de criação final.
-     * @param {string} [createdAtFrom] Data de criação inicial.
-     * @param {string} [cashDateTo] Data de pagamento final.
-     * @param {string} [cashDateFrom] Data de pagamento inicial.
-     * @param {string} [competenceDateTo] Data de competência final.
-     * @param {string} [competenceDateFrom] Data de competência inicial.
-     * @param {string} [subcategory] Subcategoria do lançamento financeiro.
-     * @param {string} [contact] Contato do lançamento financeiro.
-     * @param {string} [dueDateTo] Data de vencimento final.
-     * @param {string} [dueDateFrom] Data de vencimento inicial.
-     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {string} [cashDateFrom] Data inicial do caixa
+     * @param {string} [cashDateTo] Data final do caixa
+     * @param {string} [competenceDateFrom] Data inicial da competência
+     * @param {string} [competenceDateTo] Data final da competência
+     * @param {string} [completed] Status de conclusão dos lançamentos
+     * @param {string} [contact] ID do contato
+     * @param {string} [createdAtFrom] Data inicial da criação
+     * @param {string} [createdAtTo] Data final da criação
+     * @param {'IN' | 'OUT'} [direction] Direção do relatório
+     * @param {string} [dueDateFrom] Data inicial do vencimento
+     * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
+     * @param {string} [finalAmountTo] Valor final do lançamento máximo.
+     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [subcategory] ID da subcategoria
+     * @param {string} [tags] IDs das tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsReportsApiInterface
@@ -232,11 +278,11 @@ export declare class FinancialRecordsReportsApi extends runtime.BaseAPI implemen
      */
     generateMonthlyFinancialReport(requestParameters?: GenerateMonthlyFinancialReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MonthlyFinancialReportEntity>;
     /**
-     * Get aggregated   result report for financial records
+     * Get aggregated result report for financial records
      */
     getAggregatedResultReportRaw(requestParameters: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsAggregatedResultReportEntity>>;
     /**
-     * Get aggregated   result report for financial records
+     * Get aggregated result report for financial records
      */
     getAggregatedResultReport(requestParameters?: GetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
     /**
@@ -246,7 +292,7 @@ export declare class FinancialRecordsReportsApi extends runtime.BaseAPI implemen
     /**
      * Get aggregated   result report for financial records
      */
-    systemGetAggregatedResultReport(requestParameters: SystemGetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
+    systemGetAggregatedResultReport(requestParameters?: SystemGetAggregatedResultReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsAggregatedResultReportEntity>;
 }
 /**
  * @export

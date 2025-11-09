@@ -26,24 +26,28 @@ import {
 } from '../models/index';
 
 export interface GetBankAccountsReportRequest {
-    amountType?: GetBankAccountsReportAmountTypeEnum;
-    recurringFinancialRecord?: string;
-    installmentFinancialRecord?: string;
     account?: string;
-    reconciled?: boolean;
-    completed?: boolean;
-    tags?: string;
-    createdAtTo?: string;
-    createdAtFrom?: string;
-    cashDateTo?: string;
+    amountFrom?: string;
+    amountTo?: string;
+    amountType?: GetBankAccountsReportAmountTypeEnum;
     cashDateFrom?: string;
-    competenceDateTo?: string;
+    cashDateTo?: string;
     competenceDateFrom?: string;
-    subcategory?: string;
+    competenceDateTo?: string;
+    completed?: string;
     contact?: string;
-    dueDateTo?: string;
-    dueDateFrom?: string;
+    createdAtFrom?: string;
+    createdAtTo?: string;
     direction?: GetBankAccountsReportDirectionEnum;
+    dueDateFrom?: string;
+    dueDateTo?: string;
+    finalAmountFrom?: string;
+    finalAmountTo?: string;
+    installmentFinancialRecord?: string;
+    recurringFinancialRecord?: string;
+    reconciled?: string;
+    subcategory?: string;
+    tags?: string;
 }
 
 /**
@@ -56,24 +60,28 @@ export interface BankAccountsApiInterface {
     /**
      * 
      * @summary Gera relatório de contas bancárias
-     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos.
-     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente.
-     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro parcelado.
-     * @param {string} [account] ID da conta bancária.
-     * @param {boolean} [reconciled] Status de conciliação dos lançamentos.
-     * @param {boolean} [completed] Status de conclusão dos lançamentos.
-     * @param {string} [tags] IDs das tags separadas por vírgula.
-     * @param {string} [createdAtTo] Data de criação final.
-     * @param {string} [createdAtFrom] Data de criação inicial.
-     * @param {string} [cashDateTo] Data de caixa final.
-     * @param {string} [cashDateFrom] Data de caixa inicial.
-     * @param {string} [competenceDateTo] Data de competência final.
-     * @param {string} [competenceDateFrom] Data de competência inicial.
-     * @param {string} [subcategory] ID da subcategoria.
-     * @param {string} [contact] ID do contato.
-     * @param {string} [dueDateTo] Data de vencimento final.
-     * @param {string} [dueDateFrom] Data de vencimento inicial.
-     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {string} [account] Identificadores das contas separadas por vírgula
+     * @param {string} [amountFrom] Valor do lançamento mínimo.
+     * @param {string} [amountTo] Valor do lançamento máximo.
+     * @param {'base' | 'final'} [amountType] Tipo de valor a ser utilizado nos cálculos. \&quot;base\&quot; para amount, \&quot;final\&quot; para finalAmount. Padrão é \&quot;final\&quot;.
+     * @param {string} [cashDateFrom] Data inicial do caixa
+     * @param {string} [cashDateTo] Data final do caixa
+     * @param {string} [competenceDateFrom] Data inicial da competência
+     * @param {string} [competenceDateTo] Data final da competência
+     * @param {string} [completed] Status de conclusão dos lançamentos
+     * @param {string} [contact] ID do contato
+     * @param {string} [createdAtFrom] Data inicial da criação
+     * @param {string} [createdAtTo] Data final da criação
+     * @param {'IN' | 'OUT'} [direction] Direção do relatório
+     * @param {string} [dueDateFrom] Data inicial do vencimento
+     * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
+     * @param {string} [finalAmountTo] Valor final do lançamento máximo.
+     * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [recurringFinancialRecord] ID do lançamento financeiro recorrente
+     * @param {string} [reconciled] Status de conciliação
+     * @param {string} [subcategory] ID da subcategoria
+     * @param {string} [tags] IDs das tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankAccountsApiInterface
@@ -98,76 +106,92 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     async getBankAccountsReportRaw(requestParameters: GetBankAccountsReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsDashboardReportEntity>> {
         const queryParameters: any = {};
 
-        if (requestParameters['amountType'] != null) {
-            queryParameters['amountType'] = requestParameters['amountType'];
-        }
-
-        if (requestParameters['recurringFinancialRecord'] != null) {
-            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
-        }
-
-        if (requestParameters['installmentFinancialRecord'] != null) {
-            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
-        }
-
         if (requestParameters['account'] != null) {
             queryParameters['account'] = requestParameters['account'];
         }
 
-        if (requestParameters['reconciled'] != null) {
-            queryParameters['reconciled'] = requestParameters['reconciled'];
+        if (requestParameters['amountFrom'] != null) {
+            queryParameters['amountFrom'] = requestParameters['amountFrom'];
         }
 
-        if (requestParameters['completed'] != null) {
-            queryParameters['completed'] = requestParameters['completed'];
+        if (requestParameters['amountTo'] != null) {
+            queryParameters['amountTo'] = requestParameters['amountTo'];
         }
 
-        if (requestParameters['tags'] != null) {
-            queryParameters['tags'] = requestParameters['tags'];
-        }
-
-        if (requestParameters['createdAtTo'] != null) {
-            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
-        }
-
-        if (requestParameters['createdAtFrom'] != null) {
-            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
-        }
-
-        if (requestParameters['cashDateTo'] != null) {
-            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+        if (requestParameters['amountType'] != null) {
+            queryParameters['amountType'] = requestParameters['amountType'];
         }
 
         if (requestParameters['cashDateFrom'] != null) {
             queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
         }
 
-        if (requestParameters['competenceDateTo'] != null) {
-            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+        if (requestParameters['cashDateTo'] != null) {
+            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
         }
 
         if (requestParameters['competenceDateFrom'] != null) {
             queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
         }
 
-        if (requestParameters['subcategory'] != null) {
-            queryParameters['subcategory'] = requestParameters['subcategory'];
+        if (requestParameters['competenceDateTo'] != null) {
+            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+        }
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
         }
 
         if (requestParameters['contact'] != null) {
             queryParameters['contact'] = requestParameters['contact'];
         }
 
-        if (requestParameters['dueDateTo'] != null) {
-            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+        if (requestParameters['createdAtFrom'] != null) {
+            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+        }
+
+        if (requestParameters['createdAtTo'] != null) {
+            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+        }
+
+        if (requestParameters['direction'] != null) {
+            queryParameters['direction'] = requestParameters['direction'];
         }
 
         if (requestParameters['dueDateFrom'] != null) {
             queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
         }
 
-        if (requestParameters['direction'] != null) {
-            queryParameters['direction'] = requestParameters['direction'];
+        if (requestParameters['dueDateTo'] != null) {
+            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+        }
+
+        if (requestParameters['finalAmountFrom'] != null) {
+            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
+        }
+
+        if (requestParameters['finalAmountTo'] != null) {
+            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+        }
+
+        if (requestParameters['installmentFinancialRecord'] != null) {
+            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+        }
+
+        if (requestParameters['recurringFinancialRecord'] != null) {
+            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
+        }
+
+        if (requestParameters['reconciled'] != null) {
+            queryParameters['reconciled'] = requestParameters['reconciled'];
+        }
+
+        if (requestParameters['subcategory'] != null) {
+            queryParameters['subcategory'] = requestParameters['subcategory'];
+        }
+
+        if (requestParameters['tags'] != null) {
+            queryParameters['tags'] = requestParameters['tags'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
