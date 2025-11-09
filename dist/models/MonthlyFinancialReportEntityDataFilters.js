@@ -47,6 +47,10 @@ function MonthlyFinancialReportEntityDataFiltersFromJSONTyped(json, ignoreDiscri
         return json;
     }
     return {
+        'amountFrom': json['amountFrom'] == null ? undefined : json['amountFrom'],
+        'amountTo': json['amountTo'] == null ? undefined : json['amountTo'],
+        'finalAmountFrom': json['finalAmountFrom'] == null ? undefined : json['finalAmountFrom'],
+        'finalAmountTo': json['finalAmountTo'] == null ? undefined : json['finalAmountTo'],
         'direction': json['direction'] == null ? undefined : json['direction'],
         'dueDateFrom': json['dueDateFrom'] == null ? undefined : json['dueDateFrom'],
         'dueDateTo': json['dueDateTo'] == null ? undefined : json['dueDateTo'],
@@ -76,6 +80,10 @@ function MonthlyFinancialReportEntityDataFiltersToJSONTyped(value, ignoreDiscrim
         return value;
     }
     return {
+        'amountFrom': value['amountFrom'],
+        'amountTo': value['amountTo'],
+        'finalAmountFrom': value['finalAmountFrom'],
+        'finalAmountTo': value['finalAmountTo'],
         'direction': value['direction'],
         'dueDateFrom': value['dueDateFrom'],
         'dueDateTo': value['dueDateTo'],

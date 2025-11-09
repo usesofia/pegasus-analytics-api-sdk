@@ -16,6 +16,30 @@
  */
 export interface MonthlyFinancialReportEntityDataFilters {
     /**
+     * Valor do lançamento mínimo.
+     * @type {number}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    amountFrom?: number;
+    /**
+     * Valor do lançamento máximo.
+     * @type {number}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    amountTo?: number;
+    /**
+     * Valor final do lançamento mínimo.
+     * @type {number}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    finalAmountFrom?: number;
+    /**
+     * Valor final do lançamento máximo.
+     * @type {number}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    finalAmountTo?: number;
+    /**
      *
      * @type {string}
      * @memberof MonthlyFinancialReportEntityDataFilters

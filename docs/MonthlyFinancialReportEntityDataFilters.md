@@ -7,6 +7,10 @@ Filtros aplicados
 
 Name | Type
 ------------ | -------------
+`amountFrom` | number
+`amountTo` | number
+`finalAmountFrom` | number
+`finalAmountTo` | number
 `direction` | string
 `dueDateFrom` | string
 `dueDateTo` | string
@@ -33,6 +37,10 @@ import type { MonthlyFinancialReportEntityDataFilters } from '@usesofia/pegasus-
 
 // TODO: Update the object below with actual values
 const example = {
+  "amountFrom": null,
+  "amountTo": null,
+  "finalAmountFrom": null,
+  "finalAmountTo": null,
   "direction": null,
   "dueDateFrom": null,
   "dueDateTo": null,

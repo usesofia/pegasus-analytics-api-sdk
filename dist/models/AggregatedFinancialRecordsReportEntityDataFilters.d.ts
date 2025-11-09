@@ -16,6 +16,30 @@
  */
 export interface AggregatedFinancialRecordsReportEntityDataFilters {
     /**
+     * Valor do lançamento mínimo.
+     * @type {number}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    amountFrom?: number;
+    /**
+     * Valor do lançamento máximo.
+     * @type {number}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    amountTo?: number;
+    /**
+     * Valor final do lançamento mínimo.
+     * @type {number}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    finalAmountFrom?: number;
+    /**
+     * Valor final do lançamento máximo.
+     * @type {number}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    finalAmountTo?: number;
+    /**
      *
      * @type {string}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters

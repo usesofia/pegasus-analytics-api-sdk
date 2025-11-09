@@ -20,6 +20,30 @@ import { mapValues } from '../runtime';
  */
 export interface MonthlyFinancialReportEntityDataFilters {
     /**
+     * Valor do lançamento mínimo.
+     * @type {number}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    amountFrom?: number;
+    /**
+     * Valor do lançamento máximo.
+     * @type {number}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    amountTo?: number;
+    /**
+     * Valor final do lançamento mínimo.
+     * @type {number}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    finalAmountFrom?: number;
+    /**
+     * Valor final do lançamento máximo.
+     * @type {number}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    finalAmountTo?: number;
+    /**
      * 
      * @type {string}
      * @memberof MonthlyFinancialReportEntityDataFilters
@@ -166,6 +190,10 @@ export function MonthlyFinancialReportEntityDataFiltersFromJSONTyped(json: any, 
     }
     return {
         
+        'amountFrom': json['amountFrom'] == null ? undefined : json['amountFrom'],
+        'amountTo': json['amountTo'] == null ? undefined : json['amountTo'],
+        'finalAmountFrom': json['finalAmountFrom'] == null ? undefined : json['finalAmountFrom'],
+        'finalAmountTo': json['finalAmountTo'] == null ? undefined : json['finalAmountTo'],
         'direction': json['direction'] == null ? undefined : json['direction'],
         'dueDateFrom': json['dueDateFrom'] == null ? undefined : json['dueDateFrom'],
         'dueDateTo': json['dueDateTo'] == null ? undefined : json['dueDateTo'],
@@ -198,6 +226,10 @@ export function MonthlyFinancialReportEntityDataFiltersToJSONTyped(value?: Month
 
     return {
         
+        'amountFrom': value['amountFrom'],
+        'amountTo': value['amountTo'],
+        'finalAmountFrom': value['finalAmountFrom'],
+        'finalAmountTo': value['finalAmountTo'],
         'direction': value['direction'],
         'dueDateFrom': value['dueDateFrom'],
         'dueDateTo': value['dueDateTo'],
