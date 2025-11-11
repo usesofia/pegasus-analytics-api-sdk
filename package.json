@@ -1,6 +1,6 @@
 {
   "name": "@usesofia/pegasus-analytics-api-sdk",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "OpenAPI client for @usesofia/pegasus-analytics-api-sdk",
   "author": "OpenAPI-Generator",
   "repository": {
