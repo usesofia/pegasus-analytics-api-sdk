@@ -11,6 +11,7 @@ Name | Type
 `referenceDate` | string
 `completed` | boolean
 `tags` | Array&lt;string&gt;
+`considerInternalTransfers` | boolean
 
 ## Example
 
@@ -24,6 +25,7 @@ const example = {
   "referenceDate": null,
   "completed": null,
   "tags": null,
+  "considerInternalTransfers": null,
 } satisfies FinancialStatementReportEntityDataFilters
 
 console.log(example)

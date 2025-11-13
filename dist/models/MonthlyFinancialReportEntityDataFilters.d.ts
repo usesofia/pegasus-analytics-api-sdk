@@ -147,6 +147,12 @@ export interface MonthlyFinancialReportEntityDataFilters {
      * @memberof MonthlyFinancialReportEntityDataFilters
      */
     tags?: Array<string>;
+    /**
+     * Se deve considerar transferências internas nos relatórios.
+     * @type {boolean}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    considerInternalTransfers?: boolean;
 }
 /**
  * @export

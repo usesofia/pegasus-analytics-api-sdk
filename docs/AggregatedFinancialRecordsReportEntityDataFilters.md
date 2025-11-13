@@ -29,6 +29,7 @@ Name | Type
 `reconciled` | boolean
 `subcategory` | Array&lt;string&gt;
 `tags` | Array&lt;string&gt;
+`considerInternalTransfers` | boolean
 `groupBy` | string
 `sortOrder` | string
 `aggregationDirection` | string
@@ -62,6 +63,7 @@ const example = {
   "reconciled": null,
   "subcategory": null,
   "tags": null,
+  "considerInternalTransfers": null,
   "groupBy": null,
   "sortOrder": null,
   "aggregationDirection": null,

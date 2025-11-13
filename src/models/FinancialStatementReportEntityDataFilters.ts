@@ -57,6 +57,12 @@ export interface FinancialStatementReportEntityDataFilters {
      * @memberof FinancialStatementReportEntityDataFilters
      */
     tags?: Array<string>;
+    /**
+     * Se deve considerar transferências internas nos relatórios
+     * @type {boolean}
+     * @memberof FinancialStatementReportEntityDataFilters
+     */
+    considerInternalTransfers?: boolean;
 }
 
 
@@ -105,6 +111,7 @@ export function FinancialStatementReportEntityDataFiltersFromJSONTyped(json: any
         'referenceDate': json['referenceDate'],
         'completed': json['completed'] == null ? undefined : json['completed'],
         'tags': json['tags'] == null ? undefined : json['tags'],
+        'considerInternalTransfers': json['considerInternalTransfers'] == null ? undefined : json['considerInternalTransfers'],
     };
 }
 
@@ -124,6 +131,7 @@ export function FinancialStatementReportEntityDataFiltersToJSONTyped(value?: Fin
         'referenceDate': value['referenceDate'],
         'completed': value['completed'],
         'tags': value['tags'],
+        'considerInternalTransfers': value['considerInternalTransfers'],
     };
 }
 

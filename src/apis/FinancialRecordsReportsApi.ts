@@ -56,6 +56,7 @@ export interface GenerateAggregatedFinancialRecordsReportRequest {
     reconciled?: string;
     subcategory?: string;
     tags?: string;
+    considerInternalTransfers?: boolean;
     sortOrder?: GenerateAggregatedFinancialRecordsReportSortOrderEnum;
 }
 
@@ -82,6 +83,7 @@ export interface GenerateMonthlyFinancialReportRequest {
     reconciled?: string;
     subcategory?: string;
     tags?: string;
+    considerInternalTransfers?: boolean;
 }
 
 export interface GetAggregatedResultReportRequest {
@@ -168,6 +170,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {string} [reconciled] Status de conciliação
      * @param {string} [subcategory] ID da subcategoria
      * @param {string} [tags] IDs das tags
+     * @param {boolean} [considerInternalTransfers] Se deve considerar transferências internas nos relatórios
      * @param {'asc' | 'desc'} [sortOrder] Ordem de classificação
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -205,6 +208,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {string} [reconciled] Status de conciliação
      * @param {string} [subcategory] ID da subcategoria
      * @param {string} [tags] IDs das tags
+     * @param {boolean} [considerInternalTransfers] Se deve considerar transferências internas nos relatórios
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsReportsApiInterface
@@ -403,6 +407,10 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
             queryParameters['tags'] = requestParameters['tags'];
         }
 
+        if (requestParameters['considerInternalTransfers'] != null) {
+            queryParameters['considerInternalTransfers'] = requestParameters['considerInternalTransfers'];
+        }
+
         if (requestParameters['sortOrder'] != null) {
             queryParameters['sortOrder'] = requestParameters['sortOrder'];
         }
@@ -530,6 +538,10 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
 
         if (requestParameters['tags'] != null) {
             queryParameters['tags'] = requestParameters['tags'];
+        }
+
+        if (requestParameters['considerInternalTransfers'] != null) {
+            queryParameters['considerInternalTransfers'] = requestParameters['considerInternalTransfers'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -29,6 +29,7 @@ Name | Type
 `reconciled` | boolean
 `subcategory` | Array&lt;string&gt;
 `tags` | Array&lt;string&gt;
+`considerInternalTransfers` | boolean
 
 ## Example
 
@@ -59,6 +60,7 @@ const example = {
   "reconciled": null,
   "subcategory": null,
   "tags": null,
+  "considerInternalTransfers": null,
 } satisfies MonthlyFinancialReportEntityDataFilters
 
 console.log(example)

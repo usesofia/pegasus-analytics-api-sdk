@@ -69,6 +69,7 @@ function MonthlyFinancialReportEntityDataFiltersFromJSONTyped(json, ignoreDiscri
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'subcategory': json['subcategory'] == null ? undefined : json['subcategory'],
         'tags': json['tags'] == null ? undefined : json['tags'],
+        'considerInternalTransfers': json['considerInternalTransfers'] == null ? undefined : json['considerInternalTransfers'],
     };
 }
 function MonthlyFinancialReportEntityDataFiltersToJSON(json) {
@@ -102,5 +103,6 @@ function MonthlyFinancialReportEntityDataFiltersToJSONTyped(value, ignoreDiscrim
         'reconciled': value['reconciled'],
         'subcategory': value['subcategory'],
         'tags': value['tags'],
+        'considerInternalTransfers': value['considerInternalTransfers'],
     };
 }

@@ -13,7 +13,7 @@ All URIs are relative to *http://localhost*
 
 ## generateAggregatedFinancialRecordsReport
 
-> AggregatedFinancialRecordsReportEntity generateAggregatedFinancialRecordsReport(aggregationDirection, groupBy, account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags, sortOrder)
+> AggregatedFinancialRecordsReportEntity generateAggregatedFinancialRecordsReport(aggregationDirection, groupBy, account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags, considerInternalTransfers, sortOrder)
 
 Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
 
@@ -79,6 +79,8 @@ async function example() {
     subcategory: 123,
     // string | IDs das tags (optional)
     tags: 123,456,
+    // boolean | Se deve considerar transferências internas nos relatórios (optional)
+    considerInternalTransfers: true,
     // 'asc' | 'desc' | Ordem de classificação (optional)
     sortOrder: sortOrder_example,
   } satisfies GenerateAggregatedFinancialRecordsReportRequest;
@@ -124,6 +126,7 @@ example().catch(console.error);
 | **reconciled** | `string` | Status de conciliação | [Optional] [Defaults to `undefined`] |
 | **subcategory** | `string` | ID da subcategoria | [Optional] [Defaults to `undefined`] |
 | **tags** | `string` | IDs das tags | [Optional] [Defaults to `undefined`] |
+| **considerInternalTransfers** | `boolean` | Se deve considerar transferências internas nos relatórios | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem de classificação | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 
 ### Return type
@@ -151,7 +154,7 @@ No authorization required
 
 ## generateMonthlyFinancialReport
 
-> MonthlyFinancialReportEntity generateMonthlyFinancialReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags)
+> MonthlyFinancialReportEntity generateMonthlyFinancialReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags, considerInternalTransfers)
 
 Gera relatório financeiro mensal para os últimos 12 meses
 
@@ -213,6 +216,8 @@ async function example() {
     subcategory: 123,
     // string | IDs das tags (optional)
     tags: 123,456,
+    // boolean | Se deve considerar transferências internas nos relatórios (optional)
+    considerInternalTransfers: true,
   } satisfies GenerateMonthlyFinancialReportRequest;
 
   try {
@@ -254,6 +259,7 @@ example().catch(console.error);
 | **reconciled** | `string` | Status de conciliação | [Optional] [Defaults to `undefined`] |
 | **subcategory** | `string` | ID da subcategoria | [Optional] [Defaults to `undefined`] |
 | **tags** | `string` | IDs das tags | [Optional] [Defaults to `undefined`] |
+| **considerInternalTransfers** | `boolean` | Se deve considerar transferências internas nos relatórios | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

@@ -18,6 +18,7 @@ export interface GenerateFinancialMeasuresReportRequest {
     amountFrom?: string;
     finalAmountTo?: string;
     finalAmountFrom?: string;
+    considerInternalTransfers?: boolean;
     account?: string;
     reconciled?: string;
     completed?: string;
@@ -36,6 +37,7 @@ export interface GenerateFinancialMeasuresReportRequest {
     direction?: GenerateFinancialMeasuresReportDirectionEnum;
 }
 export interface GenerateFinancialResultCompositionReportRequest {
+    considerInternalTransfers?: boolean;
     tags?: string;
     subcategory?: string;
     reconciled?: string;
@@ -92,6 +94,7 @@ export interface FinancialStatementsReportsApiInterface {
      * @param {string} [amountFrom] Valor do lançamento mínimo.
      * @param {string} [finalAmountTo] Valor final do lançamento máximo.
      * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
+     * @param {boolean} [considerInternalTransfers] Se deve considerar transferências internas nos relatórios
      * @param {string} [account] ID da conta
      * @param {string} [reconciled] Status de conciliação
      * @param {string} [completed] Status de conclusão dos lançamentos
@@ -120,6 +123,7 @@ export interface FinancialStatementsReportsApiInterface {
     /**
      *
      * @summary Gera relatório de composição do resultado financeiro
+     * @param {boolean} [considerInternalTransfers] Se deve considerar transferências internas nos relatórios
      * @param {string} [tags] IDs das tags
      * @param {string} [subcategory] ID da subcategoria
      * @param {string} [reconciled] Status de conciliação

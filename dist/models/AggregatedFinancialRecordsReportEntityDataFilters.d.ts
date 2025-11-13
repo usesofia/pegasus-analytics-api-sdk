@@ -148,6 +148,12 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      */
     tags?: Array<string>;
     /**
+     * Se deve considerar transferências internas nos relatórios.
+     * @type {boolean}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    considerInternalTransfers?: boolean;
+    /**
      * Campo para agrupamento dos dados
      * @type {string}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters

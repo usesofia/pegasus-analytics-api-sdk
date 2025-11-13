@@ -103,6 +103,9 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
                         if (requestParameters['finalAmountFrom'] != null) {
                             queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
                         }
+                        if (requestParameters['considerInternalTransfers'] != null) {
+                            queryParameters['considerInternalTransfers'] = requestParameters['considerInternalTransfers'];
+                        }
                         if (requestParameters['account'] != null) {
                             queryParameters['account'] = requestParameters['account'];
                         }
@@ -194,6 +197,9 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['considerInternalTransfers'] != null) {
+                            queryParameters['considerInternalTransfers'] = requestParameters['considerInternalTransfers'];
+                        }
                         if (requestParameters['tags'] != null) {
                             queryParameters['tags'] = requestParameters['tags'];
                         }

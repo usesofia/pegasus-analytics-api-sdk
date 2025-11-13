@@ -36,6 +36,7 @@ export interface GenerateAggregatedFinancialRecordsReportRequest {
     reconciled?: string;
     subcategory?: string;
     tags?: string;
+    considerInternalTransfers?: boolean;
     sortOrder?: GenerateAggregatedFinancialRecordsReportSortOrderEnum;
 }
 export interface GenerateMonthlyFinancialReportRequest {
@@ -61,6 +62,7 @@ export interface GenerateMonthlyFinancialReportRequest {
     reconciled?: string;
     subcategory?: string;
     tags?: string;
+    considerInternalTransfers?: boolean;
 }
 export interface GetAggregatedResultReportRequest {
     account?: string;
@@ -144,6 +146,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {string} [reconciled] Status de conciliação
      * @param {string} [subcategory] ID da subcategoria
      * @param {string} [tags] IDs das tags
+     * @param {boolean} [considerInternalTransfers] Se deve considerar transferências internas nos relatórios
      * @param {'asc' | 'desc'} [sortOrder] Ordem de classificação
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -179,6 +182,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {string} [reconciled] Status de conciliação
      * @param {string} [subcategory] ID da subcategoria
      * @param {string} [tags] IDs das tags
+     * @param {boolean} [considerInternalTransfers] Se deve considerar transferências internas nos relatórios
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsReportsApiInterface

@@ -13,7 +13,7 @@ All URIs are relative to *http://localhost*
 
 ## generateFinancialMeasuresReport
 
-> FinancialMeasuresReportEntity generateFinancialMeasuresReport(recurringFinancialRecord, installmentFinancialRecord, amountTo, amountFrom, finalAmountTo, finalAmountFrom, account, reconciled, completed, amountType, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, direction)
+> FinancialMeasuresReportEntity generateFinancialMeasuresReport(recurringFinancialRecord, installmentFinancialRecord, amountTo, amountFrom, finalAmountTo, finalAmountFrom, considerInternalTransfers, account, reconciled, completed, amountType, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, direction)
 
 Gera relatório de medidas financeiras
 
@@ -43,6 +43,8 @@ async function example() {
     finalAmountTo: finalAmountTo_example,
     // string | Valor final do lançamento mínimo. (optional)
     finalAmountFrom: finalAmountFrom_example,
+    // boolean | Se deve considerar transferências internas nos relatórios (optional)
+    considerInternalTransfers: true,
     // string | ID da conta (optional)
     account: 123,
     // string | Status de conciliação (optional)
@@ -100,6 +102,7 @@ example().catch(console.error);
 | **amountFrom** | `string` | Valor do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
 | **finalAmountTo** | `string` | Valor final do lançamento máximo. | [Optional] [Defaults to `undefined`] |
 | **finalAmountFrom** | `string` | Valor final do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
+| **considerInternalTransfers** | `boolean` | Se deve considerar transferências internas nos relatórios | [Optional] [Defaults to `undefined`] |
 | **account** | `string` | ID da conta | [Optional] [Defaults to `undefined`] |
 | **reconciled** | `string` | Status de conciliação | [Optional] [Defaults to `undefined`] |
 | **completed** | `string` | Status de conclusão dos lançamentos | [Optional] [Defaults to `undefined`] |
@@ -142,7 +145,7 @@ No authorization required
 
 ## generateFinancialResultCompositionReport
 
-> FinancialResultCompositionReportEntity generateFinancialResultCompositionReport(tags, subcategory, reconciled, recurringFinancialRecord, installmentFinancialRecord, finalAmountTo, finalAmountFrom, dueDateTo, dueDateFrom, direction, createdAtTo, createdAtFrom, contact, completed, competenceDateTo, competenceDateFrom, cashDateTo, cashDateFrom, amountType, amountTo, amountFrom, account)
+> FinancialResultCompositionReportEntity generateFinancialResultCompositionReport(considerInternalTransfers, tags, subcategory, reconciled, recurringFinancialRecord, installmentFinancialRecord, finalAmountTo, finalAmountFrom, dueDateTo, dueDateFrom, direction, createdAtTo, createdAtFrom, contact, completed, competenceDateTo, competenceDateFrom, cashDateTo, cashDateFrom, amountType, amountTo, amountFrom, account)
 
 Gera relatório de composição do resultado financeiro
 
@@ -160,6 +163,8 @@ async function example() {
   const api = new FinancialStatementsReportsApi();
 
   const body = {
+    // boolean | Se deve considerar transferências internas nos relatórios (optional)
+    considerInternalTransfers: true,
     // string | IDs das tags (optional)
     tags: 123,456,
     // string | ID da subcategoria (optional)
@@ -223,6 +228,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **considerInternalTransfers** | `boolean` | Se deve considerar transferências internas nos relatórios | [Optional] [Defaults to `undefined`] |
 | **tags** | `string` | IDs das tags | [Optional] [Defaults to `undefined`] |
 | **subcategory** | `string` | ID da subcategoria | [Optional] [Defaults to `undefined`] |
 | **reconciled** | `string` | Status de conciliação | [Optional] [Defaults to `undefined`] |

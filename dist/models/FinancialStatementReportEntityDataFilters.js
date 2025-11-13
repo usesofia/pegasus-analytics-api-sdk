@@ -59,6 +59,7 @@ function FinancialStatementReportEntityDataFiltersFromJSONTyped(json, ignoreDisc
         'referenceDate': json['referenceDate'],
         'completed': json['completed'] == null ? undefined : json['completed'],
         'tags': json['tags'] == null ? undefined : json['tags'],
+        'considerInternalTransfers': json['considerInternalTransfers'] == null ? undefined : json['considerInternalTransfers'],
     };
 }
 function FinancialStatementReportEntityDataFiltersToJSON(json) {
@@ -75,5 +76,6 @@ function FinancialStatementReportEntityDataFiltersToJSONTyped(value, ignoreDiscr
         'referenceDate': value['referenceDate'],
         'completed': value['completed'],
         'tags': value['tags'],
+        'considerInternalTransfers': value['considerInternalTransfers'],
     };
 }

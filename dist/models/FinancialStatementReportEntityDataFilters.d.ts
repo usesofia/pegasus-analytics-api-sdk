@@ -46,6 +46,12 @@ export interface FinancialStatementReportEntityDataFilters {
      * @memberof FinancialStatementReportEntityDataFilters
      */
     tags?: Array<string>;
+    /**
+     * Se deve considerar transferências internas nos relatórios
+     * @type {boolean}
+     * @memberof FinancialStatementReportEntityDataFilters
+     */
+    considerInternalTransfers?: boolean;
 }
 /**
  * @export

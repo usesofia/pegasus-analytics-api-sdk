@@ -152,6 +152,12 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      */
     tags?: Array<string>;
     /**
+     * Se deve considerar transferências internas nos relatórios.
+     * @type {boolean}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    considerInternalTransfers?: boolean;
+    /**
      * Campo para agrupamento dos dados
      * @type {string}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
@@ -260,6 +266,7 @@ export function AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped(j
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'subcategory': json['subcategory'] == null ? undefined : json['subcategory'],
         'tags': json['tags'] == null ? undefined : json['tags'],
+        'considerInternalTransfers': json['considerInternalTransfers'] == null ? undefined : json['considerInternalTransfers'],
         'groupBy': json['groupBy'],
         'sortOrder': json['sortOrder'] == null ? undefined : json['sortOrder'],
         'aggregationDirection': json['aggregationDirection'],
@@ -299,6 +306,7 @@ export function AggregatedFinancialRecordsReportEntityDataFiltersToJSONTyped(val
         'reconciled': value['reconciled'],
         'subcategory': value['subcategory'],
         'tags': value['tags'],
+        'considerInternalTransfers': value['considerInternalTransfers'],
         'groupBy': value['groupBy'],
         'sortOrder': value['sortOrder'],
         'aggregationDirection': value['aggregationDirection'],

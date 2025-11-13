@@ -157,6 +157,9 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
                         if (requestParameters['tags'] != null) {
                             queryParameters['tags'] = requestParameters['tags'];
                         }
+                        if (requestParameters['considerInternalTransfers'] != null) {
+                            queryParameters['considerInternalTransfers'] = requestParameters['considerInternalTransfers'];
+                        }
                         if (requestParameters['sortOrder'] != null) {
                             queryParameters['sortOrder'] = requestParameters['sortOrder'];
                         }
@@ -273,6 +276,9 @@ var FinancialRecordsReportsApi = /** @class */ (function (_super) {
                         }
                         if (requestParameters['tags'] != null) {
                             queryParameters['tags'] = requestParameters['tags'];
+                        }
+                        if (requestParameters['considerInternalTransfers'] != null) {
+                            queryParameters['considerInternalTransfers'] = requestParameters['considerInternalTransfers'];
                         }
                         headerParameters = {};
                         urlPath = "/external/financial-records/aggregated-monthly/report";

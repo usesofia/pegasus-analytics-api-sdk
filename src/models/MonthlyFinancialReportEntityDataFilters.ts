@@ -151,6 +151,12 @@ export interface MonthlyFinancialReportEntityDataFilters {
      * @memberof MonthlyFinancialReportEntityDataFilters
      */
     tags?: Array<string>;
+    /**
+     * Se deve considerar transferências internas nos relatórios.
+     * @type {boolean}
+     * @memberof MonthlyFinancialReportEntityDataFilters
+     */
+    considerInternalTransfers?: boolean;
 }
 
 
@@ -212,6 +218,7 @@ export function MonthlyFinancialReportEntityDataFiltersFromJSONTyped(json: any, 
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'subcategory': json['subcategory'] == null ? undefined : json['subcategory'],
         'tags': json['tags'] == null ? undefined : json['tags'],
+        'considerInternalTransfers': json['considerInternalTransfers'] == null ? undefined : json['considerInternalTransfers'],
     };
 }
 
@@ -248,6 +255,7 @@ export function MonthlyFinancialReportEntityDataFiltersToJSONTyped(value?: Month
         'reconciled': value['reconciled'],
         'subcategory': value['subcategory'],
         'tags': value['tags'],
+        'considerInternalTransfers': value['considerInternalTransfers'],
     };
 }
 
