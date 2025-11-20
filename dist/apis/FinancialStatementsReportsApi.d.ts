@@ -62,7 +62,7 @@ export interface GenerateFinancialResultCompositionReportRequest {
     account?: string;
 }
 export interface GenerateFinancialStatementReportRequest {
-    filterId?: string;
+    queryId?: string;
     tags?: string;
     completed?: string;
     referenceDate?: GenerateFinancialStatementReportReferenceDateEnum;
@@ -159,7 +159,7 @@ export interface FinancialStatementsReportsApiInterface {
     /**
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      * @summary Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
-     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
+     * @param {string} [queryId] ID da query a ser aplicada à consulta.
      * @param {string} [tags] IDs das tags
      * @param {string} [completed] Status de conclusão dos lançamentos
      * @param {'dueDate' | 'cashDate' | 'competenceDate'} [referenceDate] Campo de data a ser utilizado para filtros

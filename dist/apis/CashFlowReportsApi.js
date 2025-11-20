@@ -85,8 +85,8 @@ var CashFlowReportsApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
-                        if (requestParameters['filterId'] != null) {
-                            queryParameters['filterId'] = requestParameters['filterId'];
+                        if (requestParameters['queryId'] != null) {
+                            queryParameters['queryId'] = requestParameters['queryId'];
                         }
                         if (requestParameters['tags'] != null) {
                             queryParameters['tags'] = requestParameters['tags'];

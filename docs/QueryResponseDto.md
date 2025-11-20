@@ -1,24 +1,30 @@
 
-# CreateFilterRequestDto
+# QueryResponseDto
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`resource` | string
-`query` | { [key: string]: string; }
+`id` | string
+`ownerOrganization` | string
+`data` | { [key: string]: string; }
+`createdAt` | any
+`updatedAt` | any
 
 ## Example
 
 ```typescript
-import type { CreateFilterRequestDto } from '@usesofia/pegasus-analytics-api-sdk'
+import type { QueryResponseDto } from '@usesofia/pegasus-analytics-api-sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "resource": null,
-  "query": null,
-} satisfies CreateFilterRequestDto
+  "id": null,
+  "ownerOrganization": null,
+  "data": null,
+  "createdAt": null,
+  "updatedAt": null,
+} satisfies QueryResponseDto
 
 console.log(example)
 
@@ -27,7 +33,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CreateFilterRequestDto
+const exampleParsed = JSON.parse(exampleJSON) as QueryResponseDto
 console.log(exampleParsed)
 ```
 

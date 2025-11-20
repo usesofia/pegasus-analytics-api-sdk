@@ -22,7 +22,7 @@ Name | Type
 `direction` | string
 `dueDateFrom` | string
 `dueDateTo` | string
-`filterId` | string
+`queryId` | string
 `finalAmountFrom` | number
 `finalAmountTo` | number
 `installmentFinancialRecord` | Array&lt;string&gt;
@@ -57,7 +57,7 @@ const example = {
   "direction": null,
   "dueDateFrom": null,
   "dueDateTo": null,
-  "filterId": null,
+  "queryId": null,
   "finalAmountFrom": null,
   "finalAmountTo": null,
   "installmentFinancialRecord": null,

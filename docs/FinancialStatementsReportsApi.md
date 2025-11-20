@@ -277,7 +277,7 @@ No authorization required
 
 ## generateFinancialStatementReport
 
-> FinancialStatementReportEntity generateFinancialStatementReport(filterId, tags, completed, referenceDate, periodTo, periodFrom, grouping)
+> FinancialStatementReportEntity generateFinancialStatementReport(queryId, tags, completed, referenceDate, periodTo, periodFrom, grouping)
 
 Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
 
@@ -297,8 +297,8 @@ async function example() {
   const api = new FinancialStatementsReportsApi();
 
   const body = {
-    // string | ID do filtro a ser aplicado à consulta. (optional)
-    filterId: 123,
+    // string | ID da query a ser aplicada à consulta. (optional)
+    queryId: 123,
     // string | IDs das tags (optional)
     tags: 123,456,
     // string | Status de conclusão dos lançamentos (optional)
@@ -330,7 +330,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **filterId** | `string` | ID do filtro a ser aplicado à consulta. | [Optional] [Defaults to `undefined`] |
+| **queryId** | `string` | ID da query a ser aplicada à consulta. | [Optional] [Defaults to `undefined`] |
 | **tags** | `string` | IDs das tags | [Optional] [Defaults to `undefined`] |
 | **completed** | `string` | Status de conclusão dos lançamentos | [Optional] [Defaults to `undefined`] |
 | **referenceDate** | `dueDate`, `cashDate`, `competenceDate` | Campo de data a ser utilizado para filtros | [Optional] [Defaults to `undefined`] [Enum: dueDate, cashDate, competenceDate] |

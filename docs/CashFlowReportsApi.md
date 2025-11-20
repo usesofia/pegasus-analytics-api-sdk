@@ -12,7 +12,7 @@ All URIs are relative to *http://localhost*
 
 ## generateCashFlowReport
 
-> CashFlowReportEntity generateCashFlowReport(filterId, tags, reconciled, bankAccounts, periodTo, periodFrom, grouping)
+> CashFlowReportEntity generateCashFlowReport(queryId, tags, reconciled, bankAccounts, periodTo, periodFrom, grouping)
 
 Gera um relatório de fluxo de caixa
 
@@ -30,8 +30,8 @@ async function example() {
   const api = new CashFlowReportsApi();
 
   const body = {
-    // string | ID do filtro a ser aplicado à consulta. (optional)
-    filterId: 123,
+    // string | ID da query a ser aplicada à consulta. (optional)
+    queryId: 123,
     // string | IDs das tags (optional)
     tags: 123,456,
     // string | Status de conciliação (optional)
@@ -63,7 +63,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **filterId** | `string` | ID do filtro a ser aplicado à consulta. | [Optional] [Defaults to `undefined`] |
+| **queryId** | `string` | ID da query a ser aplicada à consulta. | [Optional] [Defaults to `undefined`] |
 | **tags** | `string` | IDs das tags | [Optional] [Defaults to `undefined`] |
 | **reconciled** | `string` | Status de conciliação | [Optional] [Defaults to `undefined`] |
 | **bankAccounts** | `string` | IDs das contas bancárias | [Optional] [Defaults to `undefined`] |

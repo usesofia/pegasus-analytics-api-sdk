@@ -12,7 +12,7 @@
 import * as runtime from '../runtime';
 import type { CashFlowReportEntity, CurrentMonthCashFlowEntity, ProjectedCashFlowEntity } from '../models/index';
 export interface GenerateCashFlowReportRequest {
-    filterId?: string;
+    queryId?: string;
     tags?: string;
     reconciled?: string;
     bankAccounts?: string;
@@ -33,7 +33,7 @@ export interface CashFlowReportsApiInterface {
     /**
      *
      * @summary Gera um relatório de fluxo de caixa
-     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
+     * @param {string} [queryId] ID da query a ser aplicada à consulta.
      * @param {string} [tags] IDs das tags
      * @param {string} [reconciled] Status de conciliação
      * @param {string} [bankAccounts] IDs das contas bancárias

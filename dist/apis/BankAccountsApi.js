@@ -130,8 +130,8 @@ var BankAccountsApi = /** @class */ (function (_super) {
                         if (requestParameters['dueDateTo'] != null) {
                             queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
                         }
-                        if (requestParameters['filterId'] != null) {
-                            queryParameters['filterId'] = requestParameters['filterId'];
+                        if (requestParameters['queryId'] != null) {
+                            queryParameters['queryId'] = requestParameters['queryId'];
                         }
                         if (requestParameters['finalAmountFrom'] != null) {
                             queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];

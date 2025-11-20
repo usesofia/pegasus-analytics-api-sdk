@@ -64,56 +64,56 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FiltersApi = void 0;
+exports.QueriesApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
  *
  */
-var FiltersApi = /** @class */ (function (_super) {
-    __extends(FiltersApi, _super);
-    function FiltersApi() {
+var QueriesApi = /** @class */ (function (_super) {
+    __extends(QueriesApi, _super);
+    function QueriesApi() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Cria um novo filtro.
+     * Cria uma nova query.
      */
-    FiltersApi.prototype.createFilterRaw = function (requestParameters, initOverrides) {
+    QueriesApi.prototype.createQueryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (requestParameters['createFilterRequestDto'] == null) {
-                            throw new runtime.RequiredError('createFilterRequestDto', 'Required parameter "createFilterRequestDto" was null or undefined when calling createFilter().');
+                        if (requestParameters['createQueryRequestDto'] == null) {
+                            throw new runtime.RequiredError('createQueryRequestDto', 'Required parameter "createQueryRequestDto" was null or undefined when calling createQuery().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/filters";
+                        urlPath = "/external/queries";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
-                                body: (0, index_1.CreateFilterRequestDtoToJSON)(requestParameters['createFilterRequestDto']),
+                                body: (0, index_1.CreateQueryRequestDtoToJSON)(requestParameters['createQueryRequestDto']),
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FilterResponseDtoFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.QueryResponseDtoFromJSON)(jsonValue); })];
                 }
             });
         });
     };
     /**
-     * Cria um novo filtro.
+     * Cria uma nova query.
      */
-    FiltersApi.prototype.createFilter = function (requestParameters, initOverrides) {
+    QueriesApi.prototype.createQuery = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.createFilterRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createQueryRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -123,20 +123,20 @@ var FiltersApi = /** @class */ (function (_super) {
         });
     };
     /**
-     * Busca um filtro pelo identificador.
+     * Busca uma query pelo identificador.
      */
-    FiltersApi.prototype.findByIdFilterRaw = function (requestParameters, initOverrides) {
+    QueriesApi.prototype.findByIdQueryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdFilter().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdQuery().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/external/filters/{id}";
+                        urlPath = "/external/queries/{id}";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -146,20 +146,20 @@ var FiltersApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FilterResponseDtoFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.QueryResponseDtoFromJSON)(jsonValue); })];
                 }
             });
         });
     };
     /**
-     * Busca um filtro pelo identificador.
+     * Busca uma query pelo identificador.
      */
-    FiltersApi.prototype.findByIdFilter = function (requestParameters, initOverrides) {
+    QueriesApi.prototype.findByIdQuery = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.findByIdFilterRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findByIdQueryRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -168,6 +168,6 @@ var FiltersApi = /** @class */ (function (_super) {
             });
         });
     };
-    return FiltersApi;
+    return QueriesApi;
 }(runtime.BaseAPI));
-exports.FiltersApi = FiltersApi;
+exports.QueriesApi = QueriesApi;

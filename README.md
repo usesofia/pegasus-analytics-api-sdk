@@ -55,8 +55,8 @@ async function example() {
     dueDateFrom: 2025-01-01,
     // string | Data final do vencimento (optional)
     dueDateTo: 2025-01-01,
-    // string | ID do filtro a ser aplicado à consulta. (optional)
-    filterId: 123,
+    // string | ID da query a ser aplicada à consulta. (optional)
+    queryId: 123,
     // string | Valor final do lançamento mínimo. (optional)
     finalAmountFrom: finalAmountFrom_example,
     // string | Valor final do lançamento máximo. (optional)
@@ -100,8 +100,6 @@ All URIs are relative to *http://localhost*
 *CashFlowReportsApi* | [**generateCashFlowReport**](docs/CashFlowReportsApi.md#generatecashflowreport) | **GET** /external/cash-flow/report | Gera um relatório de fluxo de caixa
 *CashFlowReportsApi* | [**getCurrentMonthCashFlow**](docs/CashFlowReportsApi.md#getcurrentmonthcashflow) | **GET** /external/cash-flow/current-month | Obtém o fluxo de caixa do mês atual por direção
 *CashFlowReportsApi* | [**getProjectedCashFlow**](docs/CashFlowReportsApi.md#getprojectedcashflow) | **GET** /external/cash-flow/projected | Obtém o fluxo de caixa projetado de D-3 a D+8
-*FiltersApi* | [**createFilter**](docs/FiltersApi.md#createfilter) | **POST** /external/filters | Cria um novo filtro.
-*FiltersApi* | [**findByIdFilter**](docs/FiltersApi.md#findbyidfilter) | **GET** /external/filters/{id} | Busca um filtro pelo identificador.
 *FinancialRecordsReportsApi* | [**generateAggregatedFinancialRecordsReport**](docs/FinancialRecordsReportsApi.md#generateaggregatedfinancialrecordsreport) | **GET** /external/financial-records/aggregated/report | Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
 *FinancialRecordsReportsApi* | [**generateMonthlyFinancialReport**](docs/FinancialRecordsReportsApi.md#generatemonthlyfinancialreport) | **GET** /external/financial-records/aggregated-monthly/report | Gera relatório financeiro mensal para os últimos 12 meses
 *FinancialRecordsReportsApi* | [**getAggregatedResultReport**](docs/FinancialRecordsReportsApi.md#getaggregatedresultreport) | **GET** /external/financial-records/aggregated-result/report | Get aggregated result report for financial records
@@ -116,6 +114,8 @@ All URIs are relative to *http://localhost*
 *OrganizationBalanceApi* | [**getOrganizationBalanceHistoryPerAccount**](docs/OrganizationBalanceApi.md#getorganizationbalancehistoryperaccount) | **GET** /external/organization-balance/per-account/history | Get organization balance history per account
 *OrganizationBalanceApi* | [**getOrganizationBalancePerAccount**](docs/OrganizationBalanceApi.md#getorganizationbalanceperaccount) | **GET** /external/organization-balance/per-account | Get organization balance per account
 *OrganizationBalanceApi* | [**getOrganizationTotalBalance**](docs/OrganizationBalanceApi.md#getorganizationtotalbalance) | **GET** /external/organization-balance/total | Get organization total balance
+*QueriesApi* | [**createQuery**](docs/QueriesApi.md#createquery) | **POST** /external/queries | Cria uma nova query.
+*QueriesApi* | [**findByIdQuery**](docs/QueriesApi.md#findbyidquery) | **GET** /external/queries/{id} | Busca uma query pelo identificador.
 
 
 ### Models
@@ -137,11 +137,10 @@ All URIs are relative to *http://localhost*
 - [CashFlowReportEntityDataFilters](docs/CashFlowReportEntityDataFilters.md)
 - [CashFlowReportEntityDataFiltersPeriod](docs/CashFlowReportEntityDataFiltersPeriod.md)
 - [CashFlowReportEntityDataSummary](docs/CashFlowReportEntityDataSummary.md)
-- [CreateFilterRequestDto](docs/CreateFilterRequestDto.md)
+- [CreateQueryRequestDto](docs/CreateQueryRequestDto.md)
 - [CurrentMonthCashFlowEntity](docs/CurrentMonthCashFlowEntity.md)
 - [ExceptionResponseEntity](docs/ExceptionResponseEntity.md)
 - [ExceptionResponseEntityErrorsInner](docs/ExceptionResponseEntityErrorsInner.md)
-- [FilterResponseDto](docs/FilterResponseDto.md)
 - [FinancialMeasuresReportEntity](docs/FinancialMeasuresReportEntity.md)
 - [FinancialMeasuresReportEntityData](docs/FinancialMeasuresReportEntityData.md)
 - [FinancialMeasuresReportEntityDataData](docs/FinancialMeasuresReportEntityDataData.md)
@@ -170,6 +169,7 @@ All URIs are relative to *http://localhost*
 - [ProjectedCashFlowEntity](docs/ProjectedCashFlowEntity.md)
 - [ProjectedCashFlowEntityPeriodsInner](docs/ProjectedCashFlowEntityPeriodsInner.md)
 - [ProjectedCashFlowEntityPeriodsInnerPeriod](docs/ProjectedCashFlowEntityPeriodsInnerPeriod.md)
+- [QueryResponseDto](docs/QueryResponseDto.md)
 
 ### Authorization
 

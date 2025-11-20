@@ -106,11 +106,11 @@ export interface MonthlyFinancialReportEntityDataFilters {
      */
     dueDateTo?: string;
     /**
-     * ID do filtro a ser aplicado à consulta.
+     * ID da query a ser aplicada à consulta.
      * @type {string}
      * @memberof MonthlyFinancialReportEntityDataFilters
      */
-    filterId?: string;
+    queryId?: string;
     /**
      * Valor final do lançamento mínimo.
      * @type {number}

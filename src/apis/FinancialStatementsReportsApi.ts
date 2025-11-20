@@ -84,7 +84,7 @@ export interface GenerateFinancialResultCompositionReportRequest {
 }
 
 export interface GenerateFinancialStatementReportRequest {
-    filterId?: string;
+    queryId?: string;
     tags?: string;
     completed?: string;
     referenceDate?: GenerateFinancialStatementReportReferenceDateEnum;
@@ -187,7 +187,7 @@ export interface FinancialStatementsReportsApiInterface {
     /**
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      * @summary Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
-     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
+     * @param {string} [queryId] ID da query a ser aplicada à consulta.
      * @param {string} [tags] IDs das tags
      * @param {string} [completed] Status de conclusão dos lançamentos
      * @param {'dueDate' | 'cashDate' | 'competenceDate'} [referenceDate] Campo de data a ser utilizado para filtros
@@ -483,8 +483,8 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
     async generateFinancialStatementReportRaw(requestParameters: GenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialStatementReportEntity>> {
         const queryParameters: any = {};
 
-        if (requestParameters['filterId'] != null) {
-            queryParameters['filterId'] = requestParameters['filterId'];
+        if (requestParameters['queryId'] != null) {
+            queryParameters['queryId'] = requestParameters['queryId'];
         }
 
         if (requestParameters['tags'] != null) {

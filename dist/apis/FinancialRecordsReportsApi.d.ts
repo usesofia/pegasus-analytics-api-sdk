@@ -27,7 +27,7 @@ export interface GenerateAggregatedFinancialRecordsReportRequest {
     direction?: GenerateAggregatedFinancialRecordsReportDirectionEnum;
     dueDateFrom?: string;
     dueDateTo?: string;
-    filterId?: string;
+    queryId?: string;
     finalAmountFrom?: string;
     finalAmountTo?: string;
     installmentFinancialRecord?: string;
@@ -56,7 +56,7 @@ export interface GenerateMonthlyFinancialReportRequest {
     direction?: GenerateMonthlyFinancialReportDirectionEnum;
     dueDateFrom?: string;
     dueDateTo?: string;
-    filterId?: string;
+    queryId?: string;
     finalAmountFrom?: string;
     finalAmountTo?: string;
     installmentFinancialRecord?: string;
@@ -82,7 +82,7 @@ export interface GetAggregatedResultReportRequest {
     direction?: GetAggregatedResultReportDirectionEnum;
     dueDateFrom?: string;
     dueDateTo?: string;
-    filterId?: string;
+    queryId?: string;
     finalAmountFrom?: string;
     finalAmountTo?: string;
     installmentFinancialRecord?: string;
@@ -107,7 +107,7 @@ export interface SystemGetAggregatedResultReportRequest {
     direction?: SystemGetAggregatedResultReportDirectionEnum;
     dueDateFrom?: string;
     dueDateTo?: string;
-    filterId?: string;
+    queryId?: string;
     finalAmountFrom?: string;
     finalAmountTo?: string;
     installmentFinancialRecord?: string;
@@ -141,7 +141,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {'IN' | 'OUT'} [direction] Direção do relatório
      * @param {string} [dueDateFrom] Data inicial do vencimento
      * @param {string} [dueDateTo] Data final do vencimento
-     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
+     * @param {string} [queryId] ID da query a ser aplicada à consulta.
      * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
      * @param {string} [finalAmountTo] Valor final do lançamento máximo.
      * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
@@ -180,7 +180,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {'IN' | 'OUT'} [direction] Direção do relatório
      * @param {string} [dueDateFrom] Data inicial do vencimento
      * @param {string} [dueDateTo] Data final do vencimento
-     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
+     * @param {string} [queryId] ID da query a ser aplicada à consulta.
      * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
      * @param {string} [finalAmountTo] Valor final do lançamento máximo.
      * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
@@ -216,7 +216,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {'IN' | 'OUT'} [direction] Direção do relatório
      * @param {string} [dueDateFrom] Data inicial do vencimento
      * @param {string} [dueDateTo] Data final do vencimento
-     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
+     * @param {string} [queryId] ID da query a ser aplicada à consulta.
      * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
      * @param {string} [finalAmountTo] Valor final do lançamento máximo.
      * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
@@ -251,7 +251,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {'IN' | 'OUT'} [direction] Direção do relatório
      * @param {string} [dueDateFrom] Data inicial do vencimento
      * @param {string} [dueDateTo] Data final do vencimento
-     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
+     * @param {string} [queryId] ID da query a ser aplicada à consulta.
      * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
      * @param {string} [finalAmountTo] Valor final do lançamento máximo.
      * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente

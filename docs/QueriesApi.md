@@ -1,40 +1,40 @@
-# FiltersApi
+# QueriesApi
 
 All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createFilter**](FiltersApi.md#createfilter) | **POST** /external/filters | Cria um novo filtro. |
-| [**findByIdFilter**](FiltersApi.md#findbyidfilter) | **GET** /external/filters/{id} | Busca um filtro pelo identificador. |
+| [**createQuery**](QueriesApi.md#createquery) | **POST** /external/queries | Cria uma nova query. |
+| [**findByIdQuery**](QueriesApi.md#findbyidquery) | **GET** /external/queries/{id} | Busca uma query pelo identificador. |
 
 
 
-## createFilter
+## createQuery
 
-> FilterResponseDto createFilter(createFilterRequestDto)
+> QueryResponseDto createQuery(createQueryRequestDto)
 
-Cria um novo filtro.
+Cria uma nova query.
 
 ### Example
 
 ```ts
 import {
   Configuration,
-  FiltersApi,
+  QueriesApi,
 } from '@usesofia/pegasus-analytics-api-sdk';
-import type { CreateFilterRequest } from '@usesofia/pegasus-analytics-api-sdk';
+import type { CreateQueryRequest } from '@usesofia/pegasus-analytics-api-sdk';
 
 async function example() {
   console.log("🚀 Testing @usesofia/pegasus-analytics-api-sdk SDK...");
-  const api = new FiltersApi();
+  const api = new QueriesApi();
 
   const body = {
-    // CreateFilterRequestDto
-    createFilterRequestDto: ...,
-  } satisfies CreateFilterRequest;
+    // CreateQueryRequestDto
+    createQueryRequestDto: ...,
+  } satisfies CreateQueryRequest;
 
   try {
-    const data = await api.createFilter(body);
+    const data = await api.createQuery(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -50,11 +50,11 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createFilterRequestDto** | [CreateFilterRequestDto](CreateFilterRequestDto.md) |  | |
+| **createQueryRequestDto** | [CreateQueryRequestDto](CreateQueryRequestDto.md) |  | |
 
 ### Return type
 
-[**FilterResponseDto**](FilterResponseDto.md)
+[**QueryResponseDto**](QueryResponseDto.md)
 
 ### Authorization
 
@@ -75,32 +75,32 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## findByIdFilter
+## findByIdQuery
 
-> FilterResponseDto findByIdFilter(id)
+> QueryResponseDto findByIdQuery(id)
 
-Busca um filtro pelo identificador.
+Busca uma query pelo identificador.
 
 ### Example
 
 ```ts
 import {
   Configuration,
-  FiltersApi,
+  QueriesApi,
 } from '@usesofia/pegasus-analytics-api-sdk';
-import type { FindByIdFilterRequest } from '@usesofia/pegasus-analytics-api-sdk';
+import type { FindByIdQueryRequest } from '@usesofia/pegasus-analytics-api-sdk';
 
 async function example() {
   console.log("🚀 Testing @usesofia/pegasus-analytics-api-sdk SDK...");
-  const api = new FiltersApi();
+  const api = new QueriesApi();
 
   const body = {
-    // string | Identificador do filtro.
+    // string | Identificador da query.
     id: id_example,
-  } satisfies FindByIdFilterRequest;
+  } satisfies FindByIdQueryRequest;
 
   try {
-    const data = await api.findByIdFilter(body);
+    const data = await api.findByIdQuery(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -116,11 +116,11 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | `string` | Identificador do filtro. | [Defaults to `undefined`] |
+| **id** | `string` | Identificador da query. | [Defaults to `undefined`] |
 
 ### Return type
 
-[**FilterResponseDto**](FilterResponseDto.md)
+[**QueryResponseDto**](QueryResponseDto.md)
 
 ### Authorization
 
