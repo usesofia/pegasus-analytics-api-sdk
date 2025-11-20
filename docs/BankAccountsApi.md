@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 
 ## getBankAccountsReport
 
-> BankAccountsDashboardReportEntity getBankAccountsReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags)
+> BankAccountsDashboardReportEntity getBankAccountsReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, filterId, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags)
 
 Gera relatório de contas bancárias
 
@@ -58,6 +58,8 @@ async function example() {
     dueDateFrom: 2025-01-01,
     // string | Data final do vencimento (optional)
     dueDateTo: 2025-01-01,
+    // string | ID do filtro a ser aplicado à consulta. (optional)
+    filterId: 123,
     // string | Valor final do lançamento mínimo. (optional)
     finalAmountFrom: finalAmountFrom_example,
     // string | Valor final do lançamento máximo. (optional)
@@ -106,6 +108,7 @@ example().catch(console.error);
 | **direction** | `IN`, `OUT` | Direção do relatório | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
 | **dueDateFrom** | `string` | Data inicial do vencimento | [Optional] [Defaults to `undefined`] |
 | **dueDateTo** | `string` | Data final do vencimento | [Optional] [Defaults to `undefined`] |
+| **filterId** | `string` | ID do filtro a ser aplicado à consulta. | [Optional] [Defaults to `undefined`] |
 | **finalAmountFrom** | `string` | Valor final do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
 | **finalAmountTo** | `string` | Valor final do lançamento máximo. | [Optional] [Defaults to `undefined`] |
 | **installmentFinancialRecord** | `string` | ID do lançamento financeiro recorrente | [Optional] [Defaults to `undefined`] |

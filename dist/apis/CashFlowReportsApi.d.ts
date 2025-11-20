@@ -12,12 +12,13 @@
 import * as runtime from '../runtime';
 import type { CashFlowReportEntity, CurrentMonthCashFlowEntity, ProjectedCashFlowEntity } from '../models/index';
 export interface GenerateCashFlowReportRequest {
-    periodTo: string;
-    periodFrom: string;
-    grouping: GenerateCashFlowReportGroupingEnum;
+    filterId?: string;
     tags?: string;
     reconciled?: string;
     bankAccounts?: string;
+    periodTo?: string;
+    periodFrom?: string;
+    grouping?: GenerateCashFlowReportGroupingEnum;
 }
 export interface GetCurrentMonthCashFlowRequest {
     direction: GetCurrentMonthCashFlowDirectionEnum;
@@ -32,12 +33,13 @@ export interface CashFlowReportsApiInterface {
     /**
      *
      * @summary Gera um relatório de fluxo de caixa
-     * @param {string} periodTo Data final do período
-     * @param {string} periodFrom Data inicial do período
-     * @param {'daily' | 'monthly' | 'yearly'} grouping Agrupamento do relatório
+     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
      * @param {string} [tags] IDs das tags
      * @param {string} [reconciled] Status de conciliação
      * @param {string} [bankAccounts] IDs das contas bancárias
+     * @param {string} [periodTo] Data final do período
+     * @param {string} [periodFrom] Data inicial do período
+     * @param {'daily' | 'monthly' | 'yearly'} [grouping] Agrupamento do relatório
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CashFlowReportsApiInterface
@@ -84,7 +86,7 @@ export declare class CashFlowReportsApi extends runtime.BaseAPI implements CashF
     /**
      * Gera um relatório de fluxo de caixa
      */
-    generateCashFlowReport(requestParameters: GenerateCashFlowReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CashFlowReportEntity>;
+    generateCashFlowReport(requestParameters?: GenerateCashFlowReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CashFlowReportEntity>;
     /**
      * Obtém o fluxo de caixa do mês atual por direção
      */

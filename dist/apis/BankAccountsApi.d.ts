@@ -27,6 +27,7 @@ export interface GetBankAccountsReportRequest {
     direction?: GetBankAccountsReportDirectionEnum;
     dueDateFrom?: string;
     dueDateTo?: string;
+    filterId?: string;
     finalAmountFrom?: string;
     finalAmountTo?: string;
     installmentFinancialRecord?: string;
@@ -60,6 +61,7 @@ export interface BankAccountsApiInterface {
      * @param {'IN' | 'OUT'} [direction] Direção do relatório
      * @param {string} [dueDateFrom] Data inicial do vencimento
      * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
      * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
      * @param {string} [finalAmountTo] Valor final do lançamento máximo.
      * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente

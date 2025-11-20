@@ -110,6 +110,12 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      */
     dueDateTo?: string;
     /**
+     * ID do filtro a ser aplicado à consulta.
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    filterId?: string;
+    /**
      * Valor final do lançamento mínimo.
      * @type {number}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters
@@ -259,6 +265,7 @@ export function AggregatedFinancialRecordsReportEntityDataFiltersFromJSONTyped(j
         'direction': json['direction'] == null ? undefined : json['direction'],
         'dueDateFrom': json['dueDateFrom'] == null ? undefined : json['dueDateFrom'],
         'dueDateTo': json['dueDateTo'] == null ? undefined : json['dueDateTo'],
+        'filterId': json['filterId'] == null ? undefined : json['filterId'],
         'finalAmountFrom': json['finalAmountFrom'] == null ? undefined : json['finalAmountFrom'],
         'finalAmountTo': json['finalAmountTo'] == null ? undefined : json['finalAmountTo'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
@@ -299,6 +306,7 @@ export function AggregatedFinancialRecordsReportEntityDataFiltersToJSONTyped(val
         'direction': value['direction'],
         'dueDateFrom': value['dueDateFrom'],
         'dueDateTo': value['dueDateTo'],
+        'filterId': value['filterId'],
         'finalAmountFrom': value['finalAmountFrom'],
         'finalAmountTo': value['finalAmountTo'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],

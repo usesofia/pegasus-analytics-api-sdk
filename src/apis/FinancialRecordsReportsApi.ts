@@ -32,8 +32,6 @@ import {
 } from '../models/index';
 
 export interface GenerateAggregatedFinancialRecordsReportRequest {
-    aggregationDirection: GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum;
-    groupBy: GenerateAggregatedFinancialRecordsReportGroupByEnum;
     account?: string;
     amountFrom?: string;
     amountTo?: string;
@@ -49,6 +47,7 @@ export interface GenerateAggregatedFinancialRecordsReportRequest {
     direction?: GenerateAggregatedFinancialRecordsReportDirectionEnum;
     dueDateFrom?: string;
     dueDateTo?: string;
+    filterId?: string;
     finalAmountFrom?: string;
     finalAmountTo?: string;
     installmentFinancialRecord?: string;
@@ -58,6 +57,8 @@ export interface GenerateAggregatedFinancialRecordsReportRequest {
     tags?: string;
     considerInternalTransfers?: boolean;
     sortOrder?: GenerateAggregatedFinancialRecordsReportSortOrderEnum;
+    aggregationDirection?: GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum;
+    groupBy?: GenerateAggregatedFinancialRecordsReportGroupByEnum;
 }
 
 export interface GenerateMonthlyFinancialReportRequest {
@@ -76,6 +77,7 @@ export interface GenerateMonthlyFinancialReportRequest {
     direction?: GenerateMonthlyFinancialReportDirectionEnum;
     dueDateFrom?: string;
     dueDateTo?: string;
+    filterId?: string;
     finalAmountFrom?: string;
     finalAmountTo?: string;
     installmentFinancialRecord?: string;
@@ -102,6 +104,7 @@ export interface GetAggregatedResultReportRequest {
     direction?: GetAggregatedResultReportDirectionEnum;
     dueDateFrom?: string;
     dueDateTo?: string;
+    filterId?: string;
     finalAmountFrom?: string;
     finalAmountTo?: string;
     installmentFinancialRecord?: string;
@@ -127,6 +130,7 @@ export interface SystemGetAggregatedResultReportRequest {
     direction?: SystemGetAggregatedResultReportDirectionEnum;
     dueDateFrom?: string;
     dueDateTo?: string;
+    filterId?: string;
     finalAmountFrom?: string;
     finalAmountTo?: string;
     installmentFinancialRecord?: string;
@@ -146,8 +150,6 @@ export interface FinancialRecordsReportsApiInterface {
     /**
      * 
      * @summary Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
-     * @param {'IN' | 'OUT'} aggregationDirection Direção do lançamento financeiro
-     * @param {'category' | 'contact' | 'tag'} groupBy Campo para agrupamento dos dados
      * @param {string} [account] Identificadores das contas separadas por vírgula
      * @param {string} [amountFrom] Valor do lançamento mínimo.
      * @param {string} [amountTo] Valor do lançamento máximo.
@@ -163,6 +165,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {'IN' | 'OUT'} [direction] Direção do relatório
      * @param {string} [dueDateFrom] Data inicial do vencimento
      * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
      * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
      * @param {string} [finalAmountTo] Valor final do lançamento máximo.
      * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
@@ -172,6 +175,8 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {string} [tags] IDs das tags
      * @param {boolean} [considerInternalTransfers] Se deve considerar transferências internas nos relatórios
      * @param {'asc' | 'desc'} [sortOrder] Ordem de classificação
+     * @param {'IN' | 'OUT'} [aggregationDirection] Direção do lançamento financeiro
+     * @param {'category' | 'contact' | 'tag'} [groupBy] Campo para agrupamento dos dados
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsReportsApiInterface
@@ -201,6 +206,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {'IN' | 'OUT'} [direction] Direção do relatório
      * @param {string} [dueDateFrom] Data inicial do vencimento
      * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
      * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
      * @param {string} [finalAmountTo] Valor final do lançamento máximo.
      * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
@@ -238,6 +244,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {'IN' | 'OUT'} [direction] Direção do relatório
      * @param {string} [dueDateFrom] Data inicial do vencimento
      * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
      * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
      * @param {string} [finalAmountTo] Valor final do lançamento máximo.
      * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
@@ -274,6 +281,7 @@ export interface FinancialRecordsReportsApiInterface {
      * @param {'IN' | 'OUT'} [direction] Direção do relatório
      * @param {string} [dueDateFrom] Data inicial do vencimento
      * @param {string} [dueDateTo] Data final do vencimento
+     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
      * @param {string} [finalAmountFrom] Valor final do lançamento mínimo.
      * @param {string} [finalAmountTo] Valor final do lançamento máximo.
      * @param {string} [installmentFinancialRecord] ID do lançamento financeiro recorrente
@@ -303,20 +311,6 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
      * Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
      */
     async generateAggregatedFinancialRecordsReportRaw(requestParameters: GenerateAggregatedFinancialRecordsReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AggregatedFinancialRecordsReportEntity>> {
-        if (requestParameters['aggregationDirection'] == null) {
-            throw new runtime.RequiredError(
-                'aggregationDirection',
-                'Required parameter "aggregationDirection" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
-            );
-        }
-
-        if (requestParameters['groupBy'] == null) {
-            throw new runtime.RequiredError(
-                'groupBy',
-                'Required parameter "groupBy" was null or undefined when calling generateAggregatedFinancialRecordsReport().'
-            );
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters['account'] != null) {
@@ -377,6 +371,10 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
 
         if (requestParameters['dueDateTo'] != null) {
             queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+        }
+
+        if (requestParameters['filterId'] != null) {
+            queryParameters['filterId'] = requestParameters['filterId'];
         }
 
         if (requestParameters['finalAmountFrom'] != null) {
@@ -441,7 +439,7 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
     /**
      * Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
      */
-    async generateAggregatedFinancialRecordsReport(requestParameters: GenerateAggregatedFinancialRecordsReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AggregatedFinancialRecordsReportEntity> {
+    async generateAggregatedFinancialRecordsReport(requestParameters: GenerateAggregatedFinancialRecordsReportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AggregatedFinancialRecordsReportEntity> {
         const response = await this.generateAggregatedFinancialRecordsReportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -510,6 +508,10 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
 
         if (requestParameters['dueDateTo'] != null) {
             queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+        }
+
+        if (requestParameters['filterId'] != null) {
+            queryParameters['filterId'] = requestParameters['filterId'];
         }
 
         if (requestParameters['finalAmountFrom'] != null) {
@@ -633,6 +635,10 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
             queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
         }
 
+        if (requestParameters['filterId'] != null) {
+            queryParameters['filterId'] = requestParameters['filterId'];
+        }
+
         if (requestParameters['finalAmountFrom'] != null) {
             queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
         }
@@ -750,6 +756,10 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
             queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
         }
 
+        if (requestParameters['filterId'] != null) {
+            queryParameters['filterId'] = requestParameters['filterId'];
+        }
+
         if (requestParameters['finalAmountFrom'] != null) {
             queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
         }
@@ -806,23 +816,6 @@ export class FinancialRecordsReportsApi extends runtime.BaseAPI implements Finan
 /**
  * @export
  */
-export const GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum = {
-    In: 'IN',
-    Out: 'OUT'
-} as const;
-export type GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum = typeof GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum[keyof typeof GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum];
-/**
- * @export
- */
-export const GenerateAggregatedFinancialRecordsReportGroupByEnum = {
-    Category: 'category',
-    Contact: 'contact',
-    Tag: 'tag'
-} as const;
-export type GenerateAggregatedFinancialRecordsReportGroupByEnum = typeof GenerateAggregatedFinancialRecordsReportGroupByEnum[keyof typeof GenerateAggregatedFinancialRecordsReportGroupByEnum];
-/**
- * @export
- */
 export const GenerateAggregatedFinancialRecordsReportAmountTypeEnum = {
     Base: 'base',
     Final: 'final'
@@ -844,6 +837,23 @@ export const GenerateAggregatedFinancialRecordsReportSortOrderEnum = {
     Desc: 'desc'
 } as const;
 export type GenerateAggregatedFinancialRecordsReportSortOrderEnum = typeof GenerateAggregatedFinancialRecordsReportSortOrderEnum[keyof typeof GenerateAggregatedFinancialRecordsReportSortOrderEnum];
+/**
+ * @export
+ */
+export const GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+} as const;
+export type GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum = typeof GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum[keyof typeof GenerateAggregatedFinancialRecordsReportAggregationDirectionEnum];
+/**
+ * @export
+ */
+export const GenerateAggregatedFinancialRecordsReportGroupByEnum = {
+    Category: 'category',
+    Contact: 'contact',
+    Tag: 'tag'
+} as const;
+export type GenerateAggregatedFinancialRecordsReportGroupByEnum = typeof GenerateAggregatedFinancialRecordsReportGroupByEnum[keyof typeof GenerateAggregatedFinancialRecordsReportGroupByEnum];
 /**
  * @export
  */

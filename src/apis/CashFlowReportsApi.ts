@@ -29,12 +29,13 @@ import {
 } from '../models/index';
 
 export interface GenerateCashFlowReportRequest {
-    periodTo: string;
-    periodFrom: string;
-    grouping: GenerateCashFlowReportGroupingEnum;
+    filterId?: string;
     tags?: string;
     reconciled?: string;
     bankAccounts?: string;
+    periodTo?: string;
+    periodFrom?: string;
+    grouping?: GenerateCashFlowReportGroupingEnum;
 }
 
 export interface GetCurrentMonthCashFlowRequest {
@@ -51,12 +52,13 @@ export interface CashFlowReportsApiInterface {
     /**
      * 
      * @summary Gera um relatório de fluxo de caixa
-     * @param {string} periodTo Data final do período
-     * @param {string} periodFrom Data inicial do período
-     * @param {'daily' | 'monthly' | 'yearly'} grouping Agrupamento do relatório
+     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
      * @param {string} [tags] IDs das tags
      * @param {string} [reconciled] Status de conciliação
      * @param {string} [bankAccounts] IDs das contas bancárias
+     * @param {string} [periodTo] Data final do período
+     * @param {string} [periodFrom] Data inicial do período
+     * @param {'daily' | 'monthly' | 'yearly'} [grouping] Agrupamento do relatório
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CashFlowReportsApiInterface
@@ -108,28 +110,11 @@ export class CashFlowReportsApi extends runtime.BaseAPI implements CashFlowRepor
      * Gera um relatório de fluxo de caixa
      */
     async generateCashFlowReportRaw(requestParameters: GenerateCashFlowReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashFlowReportEntity>> {
-        if (requestParameters['periodTo'] == null) {
-            throw new runtime.RequiredError(
-                'periodTo',
-                'Required parameter "periodTo" was null or undefined when calling generateCashFlowReport().'
-            );
-        }
-
-        if (requestParameters['periodFrom'] == null) {
-            throw new runtime.RequiredError(
-                'periodFrom',
-                'Required parameter "periodFrom" was null or undefined when calling generateCashFlowReport().'
-            );
-        }
-
-        if (requestParameters['grouping'] == null) {
-            throw new runtime.RequiredError(
-                'grouping',
-                'Required parameter "grouping" was null or undefined when calling generateCashFlowReport().'
-            );
-        }
-
         const queryParameters: any = {};
+
+        if (requestParameters['filterId'] != null) {
+            queryParameters['filterId'] = requestParameters['filterId'];
+        }
 
         if (requestParameters['tags'] != null) {
             queryParameters['tags'] = requestParameters['tags'];
@@ -173,7 +158,7 @@ export class CashFlowReportsApi extends runtime.BaseAPI implements CashFlowRepor
     /**
      * Gera um relatório de fluxo de caixa
      */
-    async generateCashFlowReport(requestParameters: GenerateCashFlowReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CashFlowReportEntity> {
+    async generateCashFlowReport(requestParameters: GenerateCashFlowReportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CashFlowReportEntity> {
         const response = await this.generateCashFlowReportRaw(requestParameters, initOverrides);
         return await response.value();
     }

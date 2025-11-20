@@ -277,7 +277,7 @@ No authorization required
 
 ## generateFinancialStatementReport
 
-> FinancialStatementReportEntity generateFinancialStatementReport(referenceDate, periodTo, periodFrom, grouping, tags, completed)
+> FinancialStatementReportEntity generateFinancialStatementReport(filterId, tags, completed, referenceDate, periodTo, periodFrom, grouping)
 
 Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
 
@@ -297,18 +297,20 @@ async function example() {
   const api = new FinancialStatementsReportsApi();
 
   const body = {
-    // 'dueDate' | 'cashDate' | 'competenceDate' | Campo de data a ser utilizado para filtros
-    referenceDate: referenceDate_example,
-    // string | Período do relatório
-    periodTo: 2025-01-01,
-    // string | Período do relatório
-    periodFrom: 2025-01-01,
-    // 'daily' | 'monthly' | 'yearly' | Agrupamento do relatório
-    grouping: grouping_example,
+    // string | ID do filtro a ser aplicado à consulta. (optional)
+    filterId: 123,
     // string | IDs das tags (optional)
     tags: 123,456,
     // string | Status de conclusão dos lançamentos (optional)
     completed: true|false,
+    // 'dueDate' | 'cashDate' | 'competenceDate' | Campo de data a ser utilizado para filtros (optional)
+    referenceDate: referenceDate_example,
+    // string | Período do relatório (optional)
+    periodTo: 2025-01-01,
+    // string | Período do relatório (optional)
+    periodFrom: 2025-01-01,
+    // 'daily' | 'monthly' | 'yearly' | Agrupamento do relatório (optional)
+    grouping: grouping_example,
   } satisfies GenerateFinancialStatementReportRequest;
 
   try {
@@ -328,12 +330,13 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **referenceDate** | `dueDate`, `cashDate`, `competenceDate` | Campo de data a ser utilizado para filtros | [Defaults to `undefined`] [Enum: dueDate, cashDate, competenceDate] |
-| **periodTo** | `string` | Período do relatório | [Defaults to `undefined`] |
-| **periodFrom** | `string` | Período do relatório | [Defaults to `undefined`] |
-| **grouping** | `daily`, `monthly`, `yearly` | Agrupamento do relatório | [Defaults to `undefined`] [Enum: daily, monthly, yearly] |
+| **filterId** | `string` | ID do filtro a ser aplicado à consulta. | [Optional] [Defaults to `undefined`] |
 | **tags** | `string` | IDs das tags | [Optional] [Defaults to `undefined`] |
 | **completed** | `string` | Status de conclusão dos lançamentos | [Optional] [Defaults to `undefined`] |
+| **referenceDate** | `dueDate`, `cashDate`, `competenceDate` | Campo de data a ser utilizado para filtros | [Optional] [Defaults to `undefined`] [Enum: dueDate, cashDate, competenceDate] |
+| **periodTo** | `string` | Período do relatório | [Optional] [Defaults to `undefined`] |
+| **periodFrom** | `string` | Período do relatório | [Optional] [Defaults to `undefined`] |
+| **grouping** | `daily`, `monthly`, `yearly` | Agrupamento do relatório | [Optional] [Defaults to `undefined`] [Enum: daily, monthly, yearly] |
 
 ### Return type
 

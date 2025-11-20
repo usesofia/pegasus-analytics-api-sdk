@@ -55,6 +55,8 @@ async function example() {
     dueDateFrom: 2025-01-01,
     // string | Data final do vencimento (optional)
     dueDateTo: 2025-01-01,
+    // string | ID do filtro a ser aplicado à consulta. (optional)
+    filterId: 123,
     // string | Valor final do lançamento mínimo. (optional)
     finalAmountFrom: finalAmountFrom_example,
     // string | Valor final do lançamento máximo. (optional)
@@ -98,6 +100,8 @@ All URIs are relative to *http://localhost*
 *CashFlowReportsApi* | [**generateCashFlowReport**](docs/CashFlowReportsApi.md#generatecashflowreport) | **GET** /external/cash-flow/report | Gera um relatório de fluxo de caixa
 *CashFlowReportsApi* | [**getCurrentMonthCashFlow**](docs/CashFlowReportsApi.md#getcurrentmonthcashflow) | **GET** /external/cash-flow/current-month | Obtém o fluxo de caixa do mês atual por direção
 *CashFlowReportsApi* | [**getProjectedCashFlow**](docs/CashFlowReportsApi.md#getprojectedcashflow) | **GET** /external/cash-flow/projected | Obtém o fluxo de caixa projetado de D-3 a D+8
+*FiltersApi* | [**createFilter**](docs/FiltersApi.md#createfilter) | **POST** /external/filters | Cria um novo filtro.
+*FiltersApi* | [**findByIdFilter**](docs/FiltersApi.md#findbyidfilter) | **GET** /external/filters/{id} | Busca um filtro pelo identificador.
 *FinancialRecordsReportsApi* | [**generateAggregatedFinancialRecordsReport**](docs/FinancialRecordsReportsApi.md#generateaggregatedfinancialrecordsreport) | **GET** /external/financial-records/aggregated/report | Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
 *FinancialRecordsReportsApi* | [**generateMonthlyFinancialReport**](docs/FinancialRecordsReportsApi.md#generatemonthlyfinancialreport) | **GET** /external/financial-records/aggregated-monthly/report | Gera relatório financeiro mensal para os últimos 12 meses
 *FinancialRecordsReportsApi* | [**getAggregatedResultReport**](docs/FinancialRecordsReportsApi.md#getaggregatedresultreport) | **GET** /external/financial-records/aggregated-result/report | Get aggregated result report for financial records
@@ -133,9 +137,11 @@ All URIs are relative to *http://localhost*
 - [CashFlowReportEntityDataFilters](docs/CashFlowReportEntityDataFilters.md)
 - [CashFlowReportEntityDataFiltersPeriod](docs/CashFlowReportEntityDataFiltersPeriod.md)
 - [CashFlowReportEntityDataSummary](docs/CashFlowReportEntityDataSummary.md)
+- [CreateFilterRequestDto](docs/CreateFilterRequestDto.md)
 - [CurrentMonthCashFlowEntity](docs/CurrentMonthCashFlowEntity.md)
 - [ExceptionResponseEntity](docs/ExceptionResponseEntity.md)
 - [ExceptionResponseEntityErrorsInner](docs/ExceptionResponseEntityErrorsInner.md)
+- [FilterResponseDto](docs/FilterResponseDto.md)
 - [FinancialMeasuresReportEntity](docs/FinancialMeasuresReportEntity.md)
 - [FinancialMeasuresReportEntityData](docs/FinancialMeasuresReportEntityData.md)
 - [FinancialMeasuresReportEntityDataData](docs/FinancialMeasuresReportEntityDataData.md)

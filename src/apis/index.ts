@@ -3,6 +3,7 @@
 export * from './BankAccountsApi';
 export * from './CacheApi';
 export * from './CashFlowReportsApi';
+export * from './FiltersApi';
 export * from './FinancialRecordsReportsApi';
 export * from './FinancialStatementsReportsApi';
 export * from './HealthApi';

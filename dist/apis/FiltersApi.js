@@ -64,73 +64,56 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetCurrentMonthCashFlowDirectionEnum = exports.GenerateCashFlowReportGroupingEnum = exports.CashFlowReportsApi = void 0;
+exports.FiltersApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
  *
  */
-var CashFlowReportsApi = /** @class */ (function (_super) {
-    __extends(CashFlowReportsApi, _super);
-    function CashFlowReportsApi() {
+var FiltersApi = /** @class */ (function (_super) {
+    __extends(FiltersApi, _super);
+    function FiltersApi() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Gera um relatório de fluxo de caixa
+     * Cria um novo filtro.
      */
-    CashFlowReportsApi.prototype.generateCashFlowReportRaw = function (requestParameters, initOverrides) {
+    FiltersApi.prototype.createFilterRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['createFilterRequestDto'] == null) {
+                            throw new runtime.RequiredError('createFilterRequestDto', 'Required parameter "createFilterRequestDto" was null or undefined when calling createFilter().');
+                        }
                         queryParameters = {};
-                        if (requestParameters['filterId'] != null) {
-                            queryParameters['filterId'] = requestParameters['filterId'];
-                        }
-                        if (requestParameters['tags'] != null) {
-                            queryParameters['tags'] = requestParameters['tags'];
-                        }
-                        if (requestParameters['reconciled'] != null) {
-                            queryParameters['reconciled'] = requestParameters['reconciled'];
-                        }
-                        if (requestParameters['bankAccounts'] != null) {
-                            queryParameters['bankAccounts'] = requestParameters['bankAccounts'];
-                        }
-                        if (requestParameters['periodTo'] != null) {
-                            queryParameters['periodTo'] = requestParameters['periodTo'];
-                        }
-                        if (requestParameters['periodFrom'] != null) {
-                            queryParameters['periodFrom'] = requestParameters['periodFrom'];
-                        }
-                        if (requestParameters['grouping'] != null) {
-                            queryParameters['grouping'] = requestParameters['grouping'];
-                        }
                         headerParameters = {};
-                        urlPath = "/external/cash-flow/report";
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/filters";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
-                                method: 'GET',
+                                method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
+                                body: (0, index_1.CreateFilterRequestDtoToJSON)(requestParameters['createFilterRequestDto']),
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CashFlowReportEntityFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FilterResponseDtoFromJSON)(jsonValue); })];
                 }
             });
         });
     };
     /**
-     * Gera um relatório de fluxo de caixa
+     * Cria um novo filtro.
      */
-    CashFlowReportsApi.prototype.generateCashFlowReport = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
+    FiltersApi.prototype.createFilter = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
             var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.generateCashFlowReportRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createFilterRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -140,23 +123,21 @@ var CashFlowReportsApi = /** @class */ (function (_super) {
         });
     };
     /**
-     * Obtém o fluxo de caixa do mês atual por direção
+     * Busca um filtro pelo identificador.
      */
-    CashFlowReportsApi.prototype.getCurrentMonthCashFlowRaw = function (requestParameters, initOverrides) {
+    FiltersApi.prototype.findByIdFilterRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (requestParameters['direction'] == null) {
-                            throw new runtime.RequiredError('direction', 'Required parameter "direction" was null or undefined when calling getCurrentMonthCashFlow().');
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdFilter().');
                         }
                         queryParameters = {};
-                        if (requestParameters['direction'] != null) {
-                            queryParameters['direction'] = requestParameters['direction'];
-                        }
                         headerParameters = {};
-                        urlPath = "/external/cash-flow/current-month";
+                        urlPath = "/external/filters/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',
@@ -165,20 +146,20 @@ var CashFlowReportsApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CurrentMonthCashFlowEntityFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FilterResponseDtoFromJSON)(jsonValue); })];
                 }
             });
         });
     };
     /**
-     * Obtém o fluxo de caixa do mês atual por direção
+     * Busca um filtro pelo identificador.
      */
-    CashFlowReportsApi.prototype.getCurrentMonthCashFlow = function (requestParameters, initOverrides) {
+    FiltersApi.prototype.findByIdFilter = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getCurrentMonthCashFlowRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findByIdFilterRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -187,63 +168,6 @@ var CashFlowReportsApi = /** @class */ (function (_super) {
             });
         });
     };
-    /**
-     * Obtém o fluxo de caixa projetado de D-3 a D+8
-     */
-    CashFlowReportsApi.prototype.getProjectedCashFlowRaw = function (initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/cash-flow/projected";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProjectedCashFlowEntityFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     * Obtém o fluxo de caixa projetado de D-3 a D+8
-     */
-    CashFlowReportsApi.prototype.getProjectedCashFlow = function (initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getProjectedCashFlowRaw(initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    return CashFlowReportsApi;
+    return FiltersApi;
 }(runtime.BaseAPI));
-exports.CashFlowReportsApi = CashFlowReportsApi;
-/**
- * @export
- */
-exports.GenerateCashFlowReportGroupingEnum = {
-    Daily: 'daily',
-    Monthly: 'monthly',
-    Yearly: 'yearly'
-};
-/**
- * @export
- */
-exports.GetCurrentMonthCashFlowDirectionEnum = {
-    In: 'IN',
-    Out: 'OUT'
-};
+exports.FiltersApi = FiltersApi;

@@ -84,12 +84,13 @@ export interface GenerateFinancialResultCompositionReportRequest {
 }
 
 export interface GenerateFinancialStatementReportRequest {
-    referenceDate: GenerateFinancialStatementReportReferenceDateEnum;
-    periodTo: string;
-    periodFrom: string;
-    grouping: GenerateFinancialStatementReportGroupingEnum;
+    filterId?: string;
     tags?: string;
     completed?: string;
+    referenceDate?: GenerateFinancialStatementReportReferenceDateEnum;
+    periodTo?: string;
+    periodFrom?: string;
+    grouping?: GenerateFinancialStatementReportGroupingEnum;
 }
 
 export interface SystemGenerateFinancialStatementReportRequest {
@@ -186,12 +187,13 @@ export interface FinancialStatementsReportsApiInterface {
     /**
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      * @summary Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
-     * @param {'dueDate' | 'cashDate' | 'competenceDate'} referenceDate Campo de data a ser utilizado para filtros
-     * @param {string} periodTo Período do relatório
-     * @param {string} periodFrom Período do relatório
-     * @param {'daily' | 'monthly' | 'yearly'} grouping Agrupamento do relatório
+     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
      * @param {string} [tags] IDs das tags
      * @param {string} [completed] Status de conclusão dos lançamentos
+     * @param {'dueDate' | 'cashDate' | 'competenceDate'} [referenceDate] Campo de data a ser utilizado para filtros
+     * @param {string} [periodTo] Período do relatório
+     * @param {string} [periodFrom] Período do relatório
+     * @param {'daily' | 'monthly' | 'yearly'} [grouping] Agrupamento do relatório
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialStatementsReportsApiInterface
@@ -479,35 +481,11 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      */
     async generateFinancialStatementReportRaw(requestParameters: GenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialStatementReportEntity>> {
-        if (requestParameters['referenceDate'] == null) {
-            throw new runtime.RequiredError(
-                'referenceDate',
-                'Required parameter "referenceDate" was null or undefined when calling generateFinancialStatementReport().'
-            );
-        }
-
-        if (requestParameters['periodTo'] == null) {
-            throw new runtime.RequiredError(
-                'periodTo',
-                'Required parameter "periodTo" was null or undefined when calling generateFinancialStatementReport().'
-            );
-        }
-
-        if (requestParameters['periodFrom'] == null) {
-            throw new runtime.RequiredError(
-                'periodFrom',
-                'Required parameter "periodFrom" was null or undefined when calling generateFinancialStatementReport().'
-            );
-        }
-
-        if (requestParameters['grouping'] == null) {
-            throw new runtime.RequiredError(
-                'grouping',
-                'Required parameter "grouping" was null or undefined when calling generateFinancialStatementReport().'
-            );
-        }
-
         const queryParameters: any = {};
+
+        if (requestParameters['filterId'] != null) {
+            queryParameters['filterId'] = requestParameters['filterId'];
+        }
 
         if (requestParameters['tags'] != null) {
             queryParameters['tags'] = requestParameters['tags'];
@@ -552,7 +530,7 @@ export class FinancialStatementsReportsApi extends runtime.BaseAPI implements Fi
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      */
-    async generateFinancialStatementReport(requestParameters: GenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialStatementReportEntity> {
+    async generateFinancialStatementReport(requestParameters: GenerateFinancialStatementReportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialStatementReportEntity> {
         const response = await this.generateFinancialStatementReportRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -106,6 +106,12 @@ export interface AggregatedFinancialRecordsReportEntityDataFilters {
      */
     dueDateTo?: string;
     /**
+     * ID do filtro a ser aplicado à consulta.
+     * @type {string}
+     * @memberof AggregatedFinancialRecordsReportEntityDataFilters
+     */
+    filterId?: string;
+    /**
      * Valor final do lançamento mínimo.
      * @type {number}
      * @memberof AggregatedFinancialRecordsReportEntityDataFilters

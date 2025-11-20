@@ -12,7 +12,7 @@ All URIs are relative to *http://localhost*
 
 ## generateCashFlowReport
 
-> CashFlowReportEntity generateCashFlowReport(periodTo, periodFrom, grouping, tags, reconciled, bankAccounts)
+> CashFlowReportEntity generateCashFlowReport(filterId, tags, reconciled, bankAccounts, periodTo, periodFrom, grouping)
 
 Gera um relatório de fluxo de caixa
 
@@ -30,18 +30,20 @@ async function example() {
   const api = new CashFlowReportsApi();
 
   const body = {
-    // string | Data final do período
-    periodTo: 2025-01-01,
-    // string | Data inicial do período
-    periodFrom: 2025-01-01,
-    // 'daily' | 'monthly' | 'yearly' | Agrupamento do relatório
-    grouping: grouping_example,
+    // string | ID do filtro a ser aplicado à consulta. (optional)
+    filterId: 123,
     // string | IDs das tags (optional)
     tags: 123,456,
     // string | Status de conciliação (optional)
     reconciled: true,false,
     // string | IDs das contas bancárias (optional)
     bankAccounts: 123,456,
+    // string | Data final do período (optional)
+    periodTo: 2025-01-01,
+    // string | Data inicial do período (optional)
+    periodFrom: 2025-01-01,
+    // 'daily' | 'monthly' | 'yearly' | Agrupamento do relatório (optional)
+    grouping: grouping_example,
   } satisfies GenerateCashFlowReportRequest;
 
   try {
@@ -61,12 +63,13 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **periodTo** | `string` | Data final do período | [Defaults to `undefined`] |
-| **periodFrom** | `string` | Data inicial do período | [Defaults to `undefined`] |
-| **grouping** | `daily`, `monthly`, `yearly` | Agrupamento do relatório | [Defaults to `undefined`] [Enum: daily, monthly, yearly] |
+| **filterId** | `string` | ID do filtro a ser aplicado à consulta. | [Optional] [Defaults to `undefined`] |
 | **tags** | `string` | IDs das tags | [Optional] [Defaults to `undefined`] |
 | **reconciled** | `string` | Status de conciliação | [Optional] [Defaults to `undefined`] |
 | **bankAccounts** | `string` | IDs das contas bancárias | [Optional] [Defaults to `undefined`] |
+| **periodTo** | `string` | Data final do período | [Optional] [Defaults to `undefined`] |
+| **periodFrom** | `string` | Data inicial do período | [Optional] [Defaults to `undefined`] |
+| **grouping** | `daily`, `monthly`, `yearly` | Agrupamento do relatório | [Optional] [Defaults to `undefined`] [Enum: daily, monthly, yearly] |
 
 ### Return type
 

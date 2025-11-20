@@ -309,19 +309,10 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (requestParameters['referenceDate'] == null) {
-                            throw new runtime.RequiredError('referenceDate', 'Required parameter "referenceDate" was null or undefined when calling generateFinancialStatementReport().');
-                        }
-                        if (requestParameters['periodTo'] == null) {
-                            throw new runtime.RequiredError('periodTo', 'Required parameter "periodTo" was null or undefined when calling generateFinancialStatementReport().');
-                        }
-                        if (requestParameters['periodFrom'] == null) {
-                            throw new runtime.RequiredError('periodFrom', 'Required parameter "periodFrom" was null or undefined when calling generateFinancialStatementReport().');
-                        }
-                        if (requestParameters['grouping'] == null) {
-                            throw new runtime.RequiredError('grouping', 'Required parameter "grouping" was null or undefined when calling generateFinancialStatementReport().');
-                        }
                         queryParameters = {};
+                        if (requestParameters['filterId'] != null) {
+                            queryParameters['filterId'] = requestParameters['filterId'];
+                        }
                         if (requestParameters['tags'] != null) {
                             queryParameters['tags'] = requestParameters['tags'];
                         }
@@ -359,9 +350,10 @@ var FinancialStatementsReportsApi = /** @class */ (function (_super) {
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      */
-    FinancialStatementsReportsApi.prototype.generateFinancialStatementReport = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
+    FinancialStatementsReportsApi.prototype.generateFinancialStatementReport = function () {
+        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
             var response;
+            if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.generateFinancialStatementReportRaw(requestParameters, initOverrides)];

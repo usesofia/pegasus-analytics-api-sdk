@@ -13,7 +13,7 @@ All URIs are relative to *http://localhost*
 
 ## generateAggregatedFinancialRecordsReport
 
-> AggregatedFinancialRecordsReportEntity generateAggregatedFinancialRecordsReport(aggregationDirection, groupBy, account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags, considerInternalTransfers, sortOrder)
+> AggregatedFinancialRecordsReportEntity generateAggregatedFinancialRecordsReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, filterId, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags, considerInternalTransfers, sortOrder, aggregationDirection, groupBy)
 
 Gera relatório de lançamentos financeiros agregados por categoria, contato ou tag
 
@@ -31,10 +31,6 @@ async function example() {
   const api = new FinancialRecordsReportsApi();
 
   const body = {
-    // 'IN' | 'OUT' | Direção do lançamento financeiro
-    aggregationDirection: aggregationDirection_example,
-    // 'category' | 'contact' | 'tag' | Campo para agrupamento dos dados
-    groupBy: groupBy_example,
     // string | Identificadores das contas separadas por vírgula (optional)
     account: 123,456,
     // string | Valor do lançamento mínimo. (optional)
@@ -65,6 +61,8 @@ async function example() {
     dueDateFrom: 2025-01-01,
     // string | Data final do vencimento (optional)
     dueDateTo: 2025-01-01,
+    // string | ID do filtro a ser aplicado à consulta. (optional)
+    filterId: 123,
     // string | Valor final do lançamento mínimo. (optional)
     finalAmountFrom: finalAmountFrom_example,
     // string | Valor final do lançamento máximo. (optional)
@@ -83,6 +81,10 @@ async function example() {
     considerInternalTransfers: true,
     // 'asc' | 'desc' | Ordem de classificação (optional)
     sortOrder: sortOrder_example,
+    // 'IN' | 'OUT' | Direção do lançamento financeiro (optional)
+    aggregationDirection: aggregationDirection_example,
+    // 'category' | 'contact' | 'tag' | Campo para agrupamento dos dados (optional)
+    groupBy: groupBy_example,
   } satisfies GenerateAggregatedFinancialRecordsReportRequest;
 
   try {
@@ -102,8 +104,6 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **aggregationDirection** | `IN`, `OUT` | Direção do lançamento financeiro | [Defaults to `undefined`] [Enum: IN, OUT] |
-| **groupBy** | `category`, `contact`, `tag` | Campo para agrupamento dos dados | [Defaults to `undefined`] [Enum: category, contact, tag] |
 | **account** | `string` | Identificadores das contas separadas por vírgula | [Optional] [Defaults to `undefined`] |
 | **amountFrom** | `string` | Valor do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
 | **amountTo** | `string` | Valor do lançamento máximo. | [Optional] [Defaults to `undefined`] |
@@ -119,6 +119,7 @@ example().catch(console.error);
 | **direction** | `IN`, `OUT` | Direção do relatório | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
 | **dueDateFrom** | `string` | Data inicial do vencimento | [Optional] [Defaults to `undefined`] |
 | **dueDateTo** | `string` | Data final do vencimento | [Optional] [Defaults to `undefined`] |
+| **filterId** | `string` | ID do filtro a ser aplicado à consulta. | [Optional] [Defaults to `undefined`] |
 | **finalAmountFrom** | `string` | Valor final do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
 | **finalAmountTo** | `string` | Valor final do lançamento máximo. | [Optional] [Defaults to `undefined`] |
 | **installmentFinancialRecord** | `string` | ID do lançamento financeiro recorrente | [Optional] [Defaults to `undefined`] |
@@ -128,6 +129,8 @@ example().catch(console.error);
 | **tags** | `string` | IDs das tags | [Optional] [Defaults to `undefined`] |
 | **considerInternalTransfers** | `boolean` | Se deve considerar transferências internas nos relatórios | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem de classificação | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
+| **aggregationDirection** | `IN`, `OUT` | Direção do lançamento financeiro | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
+| **groupBy** | `category`, `contact`, `tag` | Campo para agrupamento dos dados | [Optional] [Defaults to `undefined`] [Enum: category, contact, tag] |
 
 ### Return type
 
@@ -154,7 +157,7 @@ No authorization required
 
 ## generateMonthlyFinancialReport
 
-> MonthlyFinancialReportEntity generateMonthlyFinancialReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags, considerInternalTransfers)
+> MonthlyFinancialReportEntity generateMonthlyFinancialReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, filterId, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags, considerInternalTransfers)
 
 Gera relatório financeiro mensal para os últimos 12 meses
 
@@ -202,6 +205,8 @@ async function example() {
     dueDateFrom: 2025-01-01,
     // string | Data final do vencimento (optional)
     dueDateTo: 2025-01-01,
+    // string | ID do filtro a ser aplicado à consulta. (optional)
+    filterId: 123,
     // string | Valor final do lançamento mínimo. (optional)
     finalAmountFrom: finalAmountFrom_example,
     // string | Valor final do lançamento máximo. (optional)
@@ -252,6 +257,7 @@ example().catch(console.error);
 | **direction** | `IN`, `OUT` | Direção do relatório | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
 | **dueDateFrom** | `string` | Data inicial do vencimento | [Optional] [Defaults to `undefined`] |
 | **dueDateTo** | `string` | Data final do vencimento | [Optional] [Defaults to `undefined`] |
+| **filterId** | `string` | ID do filtro a ser aplicado à consulta. | [Optional] [Defaults to `undefined`] |
 | **finalAmountFrom** | `string` | Valor final do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
 | **finalAmountTo** | `string` | Valor final do lançamento máximo. | [Optional] [Defaults to `undefined`] |
 | **installmentFinancialRecord** | `string` | ID do lançamento financeiro recorrente | [Optional] [Defaults to `undefined`] |
@@ -286,7 +292,7 @@ No authorization required
 
 ## getAggregatedResultReport
 
-> FinancialRecordsAggregatedResultReportEntity getAggregatedResultReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags)
+> FinancialRecordsAggregatedResultReportEntity getAggregatedResultReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, filterId, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags)
 
 Get aggregated result report for financial records
 
@@ -334,6 +340,8 @@ async function example() {
     dueDateFrom: 2025-01-01,
     // string | Data final do vencimento (optional)
     dueDateTo: 2025-01-01,
+    // string | ID do filtro a ser aplicado à consulta. (optional)
+    filterId: 123,
     // string | Valor final do lançamento mínimo. (optional)
     finalAmountFrom: finalAmountFrom_example,
     // string | Valor final do lançamento máximo. (optional)
@@ -382,6 +390,7 @@ example().catch(console.error);
 | **direction** | `IN`, `OUT` | Direção do relatório | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
 | **dueDateFrom** | `string` | Data inicial do vencimento | [Optional] [Defaults to `undefined`] |
 | **dueDateTo** | `string` | Data final do vencimento | [Optional] [Defaults to `undefined`] |
+| **filterId** | `string` | ID do filtro a ser aplicado à consulta. | [Optional] [Defaults to `undefined`] |
 | **finalAmountFrom** | `string` | Valor final do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
 | **finalAmountTo** | `string` | Valor final do lançamento máximo. | [Optional] [Defaults to `undefined`] |
 | **installmentFinancialRecord** | `string` | ID do lançamento financeiro recorrente | [Optional] [Defaults to `undefined`] |
@@ -415,7 +424,7 @@ No authorization required
 
 ## systemGetAggregatedResultReport
 
-> FinancialRecordsAggregatedResultReportEntity systemGetAggregatedResultReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags)
+> FinancialRecordsAggregatedResultReportEntity systemGetAggregatedResultReport(account, amountFrom, amountTo, amountType, cashDateFrom, cashDateTo, competenceDateFrom, competenceDateTo, completed, contact, createdAtFrom, createdAtTo, direction, dueDateFrom, dueDateTo, filterId, finalAmountFrom, finalAmountTo, installmentFinancialRecord, recurringFinancialRecord, reconciled, subcategory, tags)
 
 Get aggregated   result report for financial records
 
@@ -463,6 +472,8 @@ async function example() {
     dueDateFrom: 2025-01-01,
     // string | Data final do vencimento (optional)
     dueDateTo: 2025-01-01,
+    // string | ID do filtro a ser aplicado à consulta. (optional)
+    filterId: 123,
     // string | Valor final do lançamento mínimo. (optional)
     finalAmountFrom: finalAmountFrom_example,
     // string | Valor final do lançamento máximo. (optional)
@@ -511,6 +522,7 @@ example().catch(console.error);
 | **direction** | `IN`, `OUT` | Direção do relatório | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
 | **dueDateFrom** | `string` | Data inicial do vencimento | [Optional] [Defaults to `undefined`] |
 | **dueDateTo** | `string` | Data final do vencimento | [Optional] [Defaults to `undefined`] |
+| **filterId** | `string` | ID do filtro a ser aplicado à consulta. | [Optional] [Defaults to `undefined`] |
 | **finalAmountFrom** | `string` | Valor final do lançamento mínimo. | [Optional] [Defaults to `undefined`] |
 | **finalAmountTo** | `string` | Valor final do lançamento máximo. | [Optional] [Defaults to `undefined`] |
 | **installmentFinancialRecord** | `string` | ID do lançamento financeiro recorrente | [Optional] [Defaults to `undefined`] |

@@ -62,12 +62,13 @@ export interface GenerateFinancialResultCompositionReportRequest {
     account?: string;
 }
 export interface GenerateFinancialStatementReportRequest {
-    referenceDate: GenerateFinancialStatementReportReferenceDateEnum;
-    periodTo: string;
-    periodFrom: string;
-    grouping: GenerateFinancialStatementReportGroupingEnum;
+    filterId?: string;
     tags?: string;
     completed?: string;
+    referenceDate?: GenerateFinancialStatementReportReferenceDateEnum;
+    periodTo?: string;
+    periodFrom?: string;
+    grouping?: GenerateFinancialStatementReportGroupingEnum;
 }
 export interface SystemGenerateFinancialStatementReportRequest {
     ownerOrganizationId: string;
@@ -158,12 +159,13 @@ export interface FinancialStatementsReportsApiInterface {
     /**
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      * @summary Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
-     * @param {'dueDate' | 'cashDate' | 'competenceDate'} referenceDate Campo de data a ser utilizado para filtros
-     * @param {string} periodTo Período do relatório
-     * @param {string} periodFrom Período do relatório
-     * @param {'daily' | 'monthly' | 'yearly'} grouping Agrupamento do relatório
+     * @param {string} [filterId] ID do filtro a ser aplicado à consulta.
      * @param {string} [tags] IDs das tags
      * @param {string} [completed] Status de conclusão dos lançamentos
+     * @param {'dueDate' | 'cashDate' | 'competenceDate'} [referenceDate] Campo de data a ser utilizado para filtros
+     * @param {string} [periodTo] Período do relatório
+     * @param {string} [periodFrom] Período do relatório
+     * @param {'daily' | 'monthly' | 'yearly'} [grouping] Agrupamento do relatório
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialStatementsReportsApiInterface
@@ -223,7 +225,7 @@ export declare class FinancialStatementsReportsApi extends runtime.BaseAPI imple
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      * Gera relatório de demonstrativo financeiro com opções de agrupamento e filtros
      */
-    generateFinancialStatementReport(requestParameters: GenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialStatementReportEntity>;
+    generateFinancialStatementReport(requestParameters?: GenerateFinancialStatementReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialStatementReportEntity>;
     /**
      * Generate financial statement report for system use
      */

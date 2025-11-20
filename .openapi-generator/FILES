@@ -21,9 +21,12 @@ docs/CashFlowReportEntityDataFilters.md
 docs/CashFlowReportEntityDataFiltersPeriod.md
 docs/CashFlowReportEntityDataSummary.md
 docs/CashFlowReportsApi.md
+docs/CreateFilterRequestDto.md
 docs/CurrentMonthCashFlowEntity.md
 docs/ExceptionResponseEntity.md
 docs/ExceptionResponseEntityErrorsInner.md
+docs/FilterResponseDto.md
+docs/FiltersApi.md
 docs/FinancialMeasuresReportEntity.md
 docs/FinancialMeasuresReportEntityData.md
 docs/FinancialMeasuresReportEntityDataData.md
@@ -60,6 +63,7 @@ package.json
 src/apis/BankAccountsApi.ts
 src/apis/CacheApi.ts
 src/apis/CashFlowReportsApi.ts
+src/apis/FiltersApi.ts
 src/apis/FinancialRecordsReportsApi.ts
 src/apis/FinancialStatementsReportsApi.ts
 src/apis/HealthApi.ts
@@ -83,9 +87,11 @@ src/models/CashFlowReportEntityDataDataInnerPeriod.ts
 src/models/CashFlowReportEntityDataFilters.ts
 src/models/CashFlowReportEntityDataFiltersPeriod.ts
 src/models/CashFlowReportEntityDataSummary.ts
+src/models/CreateFilterRequestDto.ts
 src/models/CurrentMonthCashFlowEntity.ts
 src/models/ExceptionResponseEntity.ts
 src/models/ExceptionResponseEntityErrorsInner.ts
+src/models/FilterResponseDto.ts
 src/models/FinancialMeasuresReportEntity.ts
 src/models/FinancialMeasuresReportEntityData.ts
 src/models/FinancialMeasuresReportEntityDataData.ts
